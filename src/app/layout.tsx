@@ -1,0 +1,47 @@
+import type { Metadata } from "next";
+import { Playfair_Display, Inter, Montserrat } from "next/font/google";
+import "./globals.css";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: "Stayra - Curated Luxury Living",
+  description: "Experience the art of living with Stayra's curated collection of luxury sanctuaries.",
+};
+
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body className={`${playfair.variable} ${inter.variable} ${montserrat.variable} bg-stayra-ivory text-stayra-charcoal`}>
+        <Header />
+        <main className="min-h-screen">
+          {children}
+        </main>
+        <Footer />
+      </body>
+    </html>
+  );
+}
