@@ -21,17 +21,59 @@ const properties = [
     }
 ];
 
-export function PropertyGrid() {
-    return (
-        <section id="properties" className="py-24 px-4 bg-white">
-            <div className="container mx-auto">
-                <h2 className="font-serif text-3xl md:text-5xl text-center mb-16 text-stayra-charcoal">
-                    Our Collection
-                </h2>
+const PROPERTIES = [
+    {
+        id: "1",
+        title: "Choti Haveli",
+        location: "C-Scheme, Jaipur",
+        slug: "choti-haveli",
+        image: "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=80&w=3264&auto=format&fit=crop",
+        specs: "4 Bedrooms | Sleeps 8"
+    },
+    {
+        id: "2",
+        title: "The Kukas Villa",
+        location: "Jaipur Outskirts",
+        slug: "the-kukas-villa",
+        image: "https://images.unsplash.com/photo-1613553507747-9f5312f48df9?q=80&w=2835&auto=format&fit=crop",
+        specs: "3 Bedrooms | Sleeps 6"
+    }
+];
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                    {properties.map((property, index) => (
-                        <Link href={`/properties/${property.id}`} key={property.id}>
+interface PropertyGridProps {
+    properties?: any[]; // Using any for MVP flexibility
+}
+
+export function PropertyGrid({ properties: fetchedProperties }: PropertyGridProps) {
+    // Determine which properties to show (Fetched or Mock)
+    const displayProperties = fetchedProperties && fetchedProperties.length > 0
+        ? fetchedProperties.map(p => ({
+            id: p._id,
+            title: p.title,
+            location: p.location,
+            image: p.image || "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=3270&auto=format&fit=crop", // Fallback image
+            slug: p.slug,
+            specs: p.specs || "Luxury Villa"
+        }))
+        : PROPERTIES;
+
+    return (
+        <section className="py-24 bg-stayra-ivory" id="properties">
+            <div className="container mx-auto px-4">
+                <div className="text-center mb-16">
+                    <h2 className="font-serif text-4xl md:text-5xl text-stayra-charcoal mb-4">Our Curated Collection</h2>
+                    <p className="text-gray-500 max-w-2xl mx-auto font-sans">
+                        Discover our handpicked selection of exclusive properties.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+                    {displayProperties.map((property, index) => (
+                        <Link
+                            href={`/properties/${property.slug}`}
+                            key={property.id}
+                            className="group block relative overflow-hidden"
+                        >
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
