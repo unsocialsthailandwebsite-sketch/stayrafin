@@ -40,8 +40,9 @@ const PROPERTIES: any = {
     }
 };
 
-export default function PropertyPage({ params }: { params: { slug: string } }) {
-    const property = PROPERTIES[params.slug];
+export default async function PropertyPage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+    const property = PROPERTIES[slug];
 
     if (!property) {
         notFound();

@@ -4,15 +4,18 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Search, ChevronDown, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { StayraLogo } from "@/components/ui/stayra-logo";
 
 const navLinks = [
-    { name: "Our Collection", href: "/properties" },
-    { name: "The Stayra Experience", href: "/experience" },
-    { name: "About Us", href: "/about" },
-    { name: "List Your Property", href: "/list-property" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Our Villas", href: "/properties", hasDropdown: true },
+    { name: "Pages", href: "#", hasDropdown: true },
+    { name: "Blog", href: "#", hasDropdown: true },
+    { name: "Contact", href: "/contact" },
 ];
 
 export function Header() {
@@ -40,47 +43,52 @@ export function Header() {
                 className={cn(
                     "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
                     isScrolled
-                        ? "bg-white/90 backdrop-blur-md py-4 shadow-sm"
+                        ? "bg-stayra-green/95 backdrop-blur-md py-4 shadow-sm"
                         : "bg-transparent py-6"
                 )}
             >
-                <div className="container mx-auto px-4 flex items-center justify-between">
-                    <Link href="/" className="relative z-50">
-                        <span
-                            className={cn(
-                                "font-serif text-2xl font-bold tracking-tight transition-colors",
-                                isScrolled || isMobileMenuOpen ? "text-stayra-charcoal" : "text-white"
-                            )}
-                        >
-                            STAYRA
-                        </span>
+                <div className="container mx-auto px-4 flex items-center justify-between relative">
+                    {/* Left: Logo */}
+                    <Link href="/" className="relative z-50 flex items-center gap-2">
+                        <StayraLogo className="h-8 w-auto" variant="light" />
                     </Link>
 
-                    {/* Desktop Nav */}
-                    <nav className="hidden md:flex items-center gap-8">
+                    {/* Center: Desktop Nav */}
+                    <nav className="hidden md:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 href={link.href}
                                 className={cn(
-                                    "text-sm font-medium transition-colors hover:text-stayra-gold",
-                                    isScrolled ? "text-stayra-charcoal" : "text-white/90 hover:text-white"
+                                    "flex items-center gap-1 text-sm font-medium transition-colors hover:text-stayra-gold uppercase tracking-wide",
+                                    isScrolled ? "text-white/90 hover:text-white" : "text-white/90 hover:text-white"
                                 )}
                             >
                                 {link.name}
+                                {link.hasDropdown && <ChevronDown className="w-4 h-4" />}
                             </Link>
                         ))}
+                    </nav>
+
+                    {/* Right: Actions */}
+                    <div className="hidden md:flex items-center gap-6">
+                        {/* Search Icon */}
+                        <button className="text-white hover:text-stayra-gold transition-colors">
+                            <Search className="w-5 h-5" strokeWidth={2.5} />
+                        </button>
+
+                        {/* Book Your Stay Button - White Pill */}
                         <Button
                             variant="primary"
-                            size="sm"
+                            size="lg"
                             className={cn(
-                                "ml-4",
-                                !isScrolled && "bg-white text-stayra-charcoal hover:bg-white/90"
+                                "bg-white text-stayra-green hover:bg-gray-100 rounded-full px-6 py-2 uppercase text-xs tracking-widest font-bold flex items-center gap-2"
                             )}
                         >
-                            Book Now
+                            Book Your Stay
+                            <ArrowRight className="w-4 h-4" />
                         </Button>
-                    </nav>
+                    </div>
 
                     {/* Mobile Menu Button */}
                     <button
@@ -93,40 +101,43 @@ export function Header() {
                             <Menu
                                 className={cn(
                                     "h-6 w-6 transition-colors",
-                                    isScrolled ? "text-stayra-charcoal" : "text-white"
+                                    isScrolled ? "text-white" : "text-white"
                                 )}
                             />
                         )}
                     </button>
                 </div>
-            </header>
+            </header >
 
             {/* Mobile Menu Overlay */}
             <AnimatePresence>
-                {isMobileMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="fixed inset-0 z-40 bg-white pt-24 px-4 md:hidden flex flex-col items-center gap-8"
-                    >
-                        <nav className="flex flex-col items-center gap-6">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    href={link.href}
-                                    className="text-2xl font-serif text-stayra-charcoal font-medium"
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-                            <Button variant="primary" size="lg" className="mt-4 w-full max-w-xs">
-                                Book Now
-                            </Button>
-                        </nav>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                {
+                    isMobileMenuOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            className="fixed inset-0 z-40 bg-white pt-24 px-4 md:hidden flex flex-col items-center gap-8"
+                        >
+                            <nav className="flex flex-col items-center gap-6">
+                                {navLinks.map((link) => (
+                                    <Link
+                                        key={link.name}
+                                        href={link.href}
+                                        className="text-2xl font-serif text-stayra-charcoal font-medium flex items-center gap-2"
+                                    >
+                                        {link.name}
+                                        {link.hasDropdown && <ChevronDown className="w-5 h-5" />}
+                                    </Link>
+                                ))}
+                                <Button variant="primary" size="lg" className="mt-4 w-full max-w-xs bg-stayra-green text-white">
+                                    Book Your Stay
+                                </Button>
+                            </nav>
+                        </motion.div>
+                    )
+                }
+            </AnimatePresence >
         </>
     );
 }

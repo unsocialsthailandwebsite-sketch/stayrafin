@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter, Montserrat } from "next/font/google";
+import { Playfair_Display, Inter, Montserrat, Sora, Bodoni_Moda } from "next/font/google";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -20,6 +20,18 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
+const sora = Sora({
+  subsets: ["latin"],
+  variable: "--font-sora",
+  display: "swap",
+});
+
+const bodoni = Bodoni_Moda({
+  subsets: ["latin"],
+  variable: "--font-bodoni",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Stayra - Curated Luxury Living",
   description: "Experience the art of living with Stayra's curated collection of luxury sanctuaries.",
@@ -35,7 +47,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${playfair.variable} ${inter.variable} ${montserrat.variable} bg-stayra-ivory text-stayra-charcoal`}>
+      <body
+        className={`${sora.variable} ${bodoni.variable} antialiased flex flex-col min-h-screen bg-stayra-ivory text-stayra-charcoal font-sans`}
+      >
         <Header />
         <main className="min-h-screen">
           {children}

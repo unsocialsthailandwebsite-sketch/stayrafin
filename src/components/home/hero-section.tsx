@@ -32,24 +32,40 @@ export function HeroSection() {
             {/* Content */}
             <motion.div
                 style={{ opacity }}
-                className="relative z-20 text-center text-white px-4 flex flex-col items-center"
+                className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto"
             >
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5, duration: 0.8 }}
-                    className="font-sans text-sm md:text-base tracking-[0.2em] uppercase mb-4"
-                >
-                    Curated Luxury Living
-                </motion.p>
-                <motion.h1
+                <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.8 }}
+                    className="mb-6"
+                >
+                    <span className="font-accent text-sm md:text-md tracking-[0.3em] uppercase text-stayra-gold-light border-b border-stayra-gold-light/30 pb-2">
+                        Luxury Villa Resort
+                    </span>
+                </motion.div>
+
+                <motion.h1
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.8, duration: 0.8 }}
-                    className="font-serif text-5xl md:text-7xl lg:text-8xl mb-8"
+                    className="font-serif text-5xl md:text-7xl lg:text-8xl mb-6 shadow-black/10 drop-shadow-lg"
                 >
                     STAYRA
+                    <span className="block text-2xl md:text-4xl mt-4 italic font-light font-sans text-white/90">
+                        Curated Luxury Living
+                    </span>
                 </motion.h1>
+
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.2, duration: 1 }}
+                >
+                    <Button variant="outline" className="mt-8 border-white text-white hover:bg-white hover:text-stayra-green text-lg px-8 py-6 rounded-none tracking-widest backdrop-blur-sm">
+                        DISCOVER MORE
+                    </Button>
+                </motion.div>
             </motion.div>
 
             {/* Scroll Indicator */}

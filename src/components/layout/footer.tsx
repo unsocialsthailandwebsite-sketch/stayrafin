@@ -1,76 +1,92 @@
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { StayraLogo } from "@/components/ui/stayra-logo";
 
 export function Footer() {
     return (
-        <footer className="bg-stayra-charcoal text-white pt-16 pb-8">
+        <footer className="bg-stayra-green text-white pt-16 pb-8 border-t border-stayra-gold/20">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-                    {/* Brand */}
-                    <div className="space-y-4">
-                        <h2 className="font-serif text-2xl font-bold">STAYRA</h2>
-                        <p className="text-gray-400 text-sm leading-relaxed">
-                            Curated luxury living sanctuaries where memories are woven into every sunlit corner.
+                    {/* Column 1: Brand & Social */}
+                    <div className="space-y-6">
+                        <Link href="/" className="flex items-center gap-2">
+                            <StayraLogo className="h-10 w-auto" variant="light" />
+                        </Link>
+                        <p className="text-white/60 text-sm leading-relaxed max-w-xs font-sans">
+                            A sanctuary of serenity where luxury meets nature. Experience the ultimate in comfort and style at our exclusive villa resort.
                         </p>
+                        <div className="flex gap-4">
+                            <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-stayra-gold transition-colors text-white">
+                                <Facebook className="w-4 h-4" />
+                            </a>
+                            <a href="https://www.instagram.com/stayra.in/?hl=en" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-stayra-gold transition-colors text-white">
+                                <Instagram className="w-4 h-4" />
+                            </a>
+                            <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-stayra-gold transition-colors text-white">
+                                <Twitter className="w-4 h-4" />
+                            </a>
+                            <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-stayra-gold transition-colors text-white">
+                                <Linkedin className="w-4 h-4" />
+                            </a>
+                        </div>
                     </div>
 
-                    {/* Quick Links */}
+                    {/* Column 2: Quick Menu */}
                     <div>
-                        <h3 className="font-serif text-lg mb-6">Quick Links</h3>
+                        <h4 className="font-serif text-xl mb-6 text-white">Quick Menu</h4>
                         <ul className="space-y-3">
                             {[
-                                { label: "Our Collection", href: "/properties" },
-                                { label: "The Stayra Experience", href: "/experience" },
-                                { label: "About Us", href: "/about" },
-                                { label: "List Your Property", href: "/list-property" },
-                            ].map((link) => (
-                                <li key={link.label}>
-                                    <Link
-                                        href={link.href}
-                                        className="text-gray-400 hover:text-stayra-gold transition-colors text-sm"
-                                    >
-                                        {link.label}
+                                { name: 'About', href: '/about' },
+                                { name: 'Our Villas', href: '/properties' },
+                                { name: 'Booking', href: '#' },
+                                { name: 'Blog', href: '#' },
+                                { name: 'Contact', href: '/contact' }
+                            ].map((item) => (
+                                <li key={item.name}>
+                                    <Link href={item.href} className="text-white/60 hover:text-stayra-gold transition-colors text-sm font-sans">
+                                        {item.name}
                                     </Link>
                                 </li>
                             ))}
                         </ul>
                     </div>
 
-                    {/* Social */}
+                    {/* Column 3: Support */}
                     <div>
-                        <h3 className="font-serif text-lg mb-6">Connect</h3>
+                        <h4 className="font-serif text-xl mb-6 text-white">Support</h4>
                         <ul className="space-y-3">
-                            {[
-                                { label: "Instagram", href: "#", icon: Instagram },
-                                { label: "Facebook", href: "#", icon: Facebook },
-                                { label: "LinkedIn", href: "#", icon: Linkedin },
-                            ].map((social) => (
-                                <li key={social.label}>
-                                    <Link
-                                        href={social.href}
-                                        className="flex items-center gap-2 text-gray-400 hover:text-stayra-gold transition-colors text-sm"
-                                    >
-                                        <social.icon className="h-4 w-4" />
-                                        {social.label}
+                            {['FAQ', 'Privacy & Policy', 'Accessibility', 'Legal', 'Sitemap'].map((item) => (
+                                <li key={item}>
+                                    <Link href="#" className="text-white/60 hover:text-stayra-gold transition-colors text-sm font-sans">
+                                        {item}
                                     </Link>
                                 </li>
                             ))}
                         </ul>
                     </div>
 
-                    {/* Contact */}
+                    {/* Column 4: Contact Info */}
                     <div>
-                        <h3 className="font-serif text-lg mb-6">Contact</h3>
-                        <ul className="space-y-3 text-gray-400 text-sm">
-                            <li>+91-9876543210</li>
-                            <li>hello@stayra.in</li>
-                            <li>Jaipur, Rajasthan</li>
+                        <h4 className="font-serif text-xl mb-6 text-white">Contact Info</h4>
+                        <ul className="space-y-4">
+                            <li className="flex gap-3 items-start text-white/60 text-sm font-sans">
+                                <span>📍</span>
+                                <span>Jalan Raya Ubud No. 123, Bali, Indonesia 80571</span>
+                            </li>
+                            <li className="flex gap-3 items-center text-white/60 text-sm font-sans">
+                                <span>📞</span>
+                                <span>+62 81 234 567 890</span>
+                            </li>
+                            <li className="flex gap-3 items-center text-white/60 text-sm font-sans">
+                                <span>✉️</span>
+                                <span>info@stayraresort.com</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
 
-                <div className="border-t border-white/10 pt-8 text-center text-xs text-gray-500">
-                    <p>© {new Date().getFullYear()} Stayra. All sanctuaries reserved.</p>
+                <div className="border-t border-white/10 pt-8 text-center text-xs text-white/40 font-sans">
+                    <p>© {new Date().getFullYear()} Stayra. All rights reserved.</p>
                 </div>
             </div>
         </footer>
