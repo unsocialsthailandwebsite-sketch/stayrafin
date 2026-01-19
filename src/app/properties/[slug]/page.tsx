@@ -25,8 +25,8 @@ const PROPERTIES: any = {
         whatsapp: "919876543210",
         phone: "+919876543210"
     },
-    "the-kukasola": {
-        title: "The Kukasola",
+    "the-kukas-villa": {
+        title: "The Kukas Villa",
         location: "Jaipur Outskirts",
         specs: "3 Bedrooms | Sleeps 6",
         images: [

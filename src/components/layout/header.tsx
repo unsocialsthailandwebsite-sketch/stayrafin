@@ -12,7 +12,7 @@ import { StayraLogo } from "@/components/ui/stayra-logo";
 const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Our Villas", href: "/properties", hasDropdown: true },
+    { name: "Our Properties", href: "/properties", hasDropdown: true },
     { name: "Pages", href: "#", hasDropdown: true },
     { name: "Blog", href: "#", hasDropdown: true },
     { name: "Contact", href: "/contact" },
@@ -56,17 +56,38 @@ export function Header() {
                     {/* Center: Desktop Nav */}
                     <nav className="hidden md:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
                         {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                href={link.href}
-                                className={cn(
-                                    "flex items-center gap-1 text-sm font-medium transition-colors hover:text-stayra-gold uppercase tracking-wide",
-                                    isScrolled ? "text-white/90 hover:text-white" : "text-white/90 hover:text-white"
+                            <div key={link.name} className="relative group">
+                                <Link
+                                    href={link.href}
+                                    className={cn(
+                                        "flex items-center gap-1 text-sm font-medium transition-colors hover:text-stayra-gold uppercase tracking-wide py-4",
+                                        isScrolled ? "text-white/90 hover:text-white" : "text-white/90 hover:text-white"
+                                    )}
+                                >
+                                    {link.name}
+                                    {link.hasDropdown && <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />}
+                                </Link>
+
+                                {/* Dropdown Menu */}
+                                {link.name === "Our Properties" && (
+                                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-56 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
+                                        <div className="bg-white rounded-sm shadow-xl border-t-2 border-stayra-gold py-2">
+                                            <Link
+                                                href="/properties/choti-haveli"
+                                                className="block px-6 py-3 text-sm text-stayra-charcoal hover:bg-gray-50 hover:text-stayra-gold transition-colors font-medium"
+                                            >
+                                                Choti Haveli
+                                            </Link>
+                                            <Link
+                                                href="/properties/the-kukas-villa"
+                                                className="block px-6 py-3 text-sm text-stayra-charcoal hover:bg-gray-50 hover:text-stayra-gold transition-colors font-medium"
+                                            >
+                                                The Kukas Villa
+                                            </Link>
+                                        </div>
+                                    </div>
                                 )}
-                            >
-                                {link.name}
-                                {link.hasDropdown && <ChevronDown className="w-4 h-4" />}
-                            </Link>
+                            </div>
                         ))}
                     </nav>
 
