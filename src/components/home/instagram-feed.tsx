@@ -14,10 +14,10 @@ export function InstagramFeed() {
     return (
         <section id="instagram" className="py-24 px-4 bg-white">
             <div className="container mx-auto text-center">
-                <div className="flex items-center justify-center gap-2 mb-8 text-stayra-gold">
+                <a href="https://www.instagram.com/stayra.in/?hl=en" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 mb-8 text-stayra-gold hover:text-stayra-green transition-colors">
                     <Instagram className="h-5 w-5" />
                     <span className="font-medium tracking-widest text-sm uppercase">@stayra.in</span>
-                </div>
+                </a>
 
                 <h2 className="font-serif text-3xl md:text-5xl mb-12 text-stayra-charcoal">
                     Follow Our Journey
@@ -38,9 +38,11 @@ export function InstagramFeed() {
                     ))}
                 </div>
 
-                <Button variant="outline" className="border-stayra-charcoal text-stayra-charcoal hover:bg-stayra-charcoal hover:text-white">
-                    Follow Us on Instagram
-                </Button>
+                <a href="https://www.instagram.com/stayra.in/?hl=en" target="_blank" rel="noopener noreferrer">
+                    <Button variant="outline" className="border-stayra-charcoal text-stayra-charcoal hover:bg-stayra-charcoal hover:text-white">
+                        Follow Us on Instagram
+                    </Button>
+                </a>
             </div>
         </section>
     );

@@ -13,8 +13,8 @@ const properties = [
         image: "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=80&w=3264&auto=format&fit=crop", // Placeholder
     },
     {
-        id: "the-kukasola",
-        title: "The Kukasola",
+        id: "the-kukas-villa",
+        title: "The Kukas Villa",
         location: "Jaipur Outskirts",
         tagline: "MODERN FARMHOUSE",
         image: "https://images.unsplash.com/photo-1613553507747-9f5312f48df9?q=80&w=2835&auto=format&fit=crop", // Placeholder
