@@ -52,8 +52,8 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
     // Sanitize/Default data
     const images = property.images || [];
     const gallerySections = property.gallerySections || [];
-    const whatsapp = property.whatsapp || "919876543210";
-    const phone = property.phone || "+91 98765 43210";
+    const whatsapp = property.whatsapp || "917340031394";
+    const phone = property.phone || "+91 73400 31394";
 
     return (
         <div className="min-h-screen bg-white">

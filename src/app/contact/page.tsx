@@ -16,7 +16,7 @@ export default function ContactPage() {
                         </div>
                         <div>
                             <h3 className="font-serif text-xl text-stayra-green mb-2">Concierge</h3>
-                            <p className="text-stayra-charcoal/70">+91 98765 43210</p>
+                            <p className="text-stayra-charcoal/70">+91 73400 31394</p>
                         </div>
                     </div>
                 </div>

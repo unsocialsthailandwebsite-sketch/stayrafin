@@ -104,7 +104,7 @@ export default function SettingsPage() {
                                 value={formData.contactPhone}
                                 onChange={handleChange}
                                 className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-stayra-gold"
-                                placeholder="+91 98765 43210"
+                                placeholder="+91 73400 31394"
                             />
                         </div>
                         <div>
@@ -114,7 +114,7 @@ export default function SettingsPage() {
                                 value={formData.whatsappNumber}
                                 onChange={handleChange}
                                 className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-stayra-gold"
-                                placeholder="919876543210"
+                                placeholder="917340031394"
                             />
                         </div>
                     </div>

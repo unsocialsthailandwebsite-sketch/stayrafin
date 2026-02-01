@@ -61,7 +61,7 @@ export default function PrivacyPolicyPage() {
                                 <br />
                                 <strong>Email:</strong> contact@stayra.in
                                 <br />
-                                <strong>Phone:</strong> +91 98765 43210
+                                <strong>Phone:</strong> +91 73400 31394
                             </p>
                         </section>
                     </div>

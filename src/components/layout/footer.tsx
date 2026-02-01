@@ -82,7 +82,7 @@ export function Footer() {
                             </li>
                             <li className="flex gap-3 items-center text-white/60 text-sm font-sans">
                                 <span>📞</span>
-                                <span>+91 98765 43210</span>
+                                <span>+91 73400 31394</span>
                             </li>
                             <li className="flex gap-3 items-center text-white/60 text-sm font-sans">
                                 <span>✉️</span>
