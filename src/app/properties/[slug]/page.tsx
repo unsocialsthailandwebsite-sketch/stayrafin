@@ -6,6 +6,7 @@ import { client } from "@/sanity/client";
 import { WeatherWidget } from "@/components/ui/weather-widget";
 import { CategorizedGallery } from "@/components/property/categorized-gallery";
 import { ScrollableGallery } from "@/components/property/scrollable-gallery";
+import { StayraExperienceCard } from "@/components/ui/stayra-experience-card";
 
 // Revalidate data every 60 seconds
 export const revalidate = 60;
@@ -116,6 +117,9 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                             description={property.description || ""}
                             amenities={property.features || []}
                         />
+                        <div className="mt-12">
+                            <StayraExperienceCard />
+                        </div>
                     </div>
 
                     {/* Sidebar CTA */}
