@@ -36,7 +36,9 @@ export function PropertyGrid({ properties: fetchedProperties }: PropertyGridProp
             id: p._id,
             title: p.title,
             location: p.location,
-            image: p.image || "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=3270&auto=format&fit=crop", // Fallback image
+            image: p.slug === 'the-kukas-villa'
+                ? "/images/kukas/night-view-cover.jpg"
+                : (p.image || "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=3270&auto=format&fit=crop"),
             slug: p.slug,
             specs: p.specs || "Luxury Villa",
             tagline: "LUXURY STAY" // Default tagline since not fetched yet
