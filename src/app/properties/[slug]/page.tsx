@@ -12,8 +12,39 @@ export const revalidate = 60;
 
 // Mock Data for fallback if Sanity mock hasn't been migrated yet
 const MOCK_PROPERTIES: any = {
-    // ... [Keep existing mock data object structure intact if needed for absolute backup, 
-    // but for brevity in this tool call, I'll rely on the logic below]
+    "the-kukas-villa": {
+        title: "The Kukas Villa",
+        location: "Kukas, Jaipur",
+        specs: "3 Bedrooms | 27,784 sq ft | Private Pool",
+        price: "Price on Request",
+        description: `The Kukas Villa by Stayra is a true escape into nature, space, and stillness. Surrounded by the raw beauty of the Aravalli ranges and lush greenery on all sides, the villa offers an atmosphere that’s rare to find — no traffic noise, no city chaos, just calm.
+
+Built on a 27,784 sq ft private estate, this fully independent villa is ideal for families, groups, celebrations, and guests who value privacy and open spaces.
+
+Welcome to a pet-friendly 3BHK private villa in Kukas, Jaipur, where every bedroom opens to its own private balcony, and outdoor living takes centre stage. Spend your afternoons by the private swimming pool with a gentle waterfall, host memorable gatherings in the huge garden, or unwind in the private cabana as the day slows down.
+
+The king bedroom features a window-side sitting area, a favourite spot for guests to enjoy mountain views and beautiful sunsets, especially from the second bedroom balcony as the sun dips behind the Aravallis.`,
+        features: [
+            "27,784 sq ft fully private green estate",
+            "Uninterrupted Aravalli hill views & complete silence",
+            "Huge garden suitable for gatherings up to 200 people",
+            "Private swimming pool for 10–12 guests with waterfall",
+            "Outdoor BBQ & large grill setup",
+            "Traditional Rajasthani-style grill for authentic dishes",
+            "Private cabana seating in the garden",
+            "Chef available on call (advance request required)",
+            "Private car available on call",
+            "3 spacious bedrooms with private balconies",
+            "King room with window-side sitting for sunset & mountain views",
+            "42-inch TV in all bedrooms",
+            "3 attached bathrooms + 1 common bathroom",
+            "Pet-friendly environment",
+            "Secure indoor parking for up to 8 cars",
+            "Zomato & Swiggy delivery available"
+        ],
+        images: [], // TODO: Add real images
+        gallerySections: []
+    }
 };
 
 async function getProperty(slug: string) {
@@ -43,7 +74,10 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
     // Try fetch from Sanity
     let property = await getProperty(slug);
 
-    // [Fallback logic removed for brevity, standard lookup]
+    // Fallback to MOCK_PROPERTIES if Sanity fails or returns null
+    if (!property) {
+        property = MOCK_PROPERTIES[slug];
+    }
 
     if (!property) {
         notFound();

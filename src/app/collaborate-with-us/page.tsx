@@ -98,7 +98,7 @@ export default function CollaboratePage() {
                                 Chat on WhatsApp
                             </Button>
                         </a>
-                        <a href="mailto:collaborate@stayra.in">
+                        <a href="mailto:bookstayra@gmail.com">
                             <Button variant="outline" className="w-full sm:w-auto border-stayra-green text-stayra-green hover:bg-stayra-green hover:text-white px-8 py-6 rounded-full text-sm uppercase tracking-widest font-bold flex items-center justify-center gap-2">
                                 <Mail className="w-4 h-4" />
                                 Email Proposal

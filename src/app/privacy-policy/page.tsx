@@ -59,7 +59,7 @@ export default function PrivacyPolicyPage() {
                             <p className="leading-relaxed">
                                 If you have any questions about this privacy policy or our privacy practices, please contact us at:
                                 <br />
-                                <strong>Email:</strong> contact@stayra.in
+                                <strong>Email:</strong> bookstayra@gmail.com
                                 <br />
                                 <strong>Phone:</strong> +91 73400 31394
                             </p>
