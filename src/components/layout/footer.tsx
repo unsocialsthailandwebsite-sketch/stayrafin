@@ -10,7 +10,7 @@ export function Footer() {
                     {/* Column 1: Brand & Social */}
                     <div className="space-y-6">
                         <Link href="/" className="flex items-center gap-2">
-                            <StayraLogo className="h-10 w-auto" variant="light" />
+                            <StayraLogo className="h-24 w-auto" variant="light" />
                         </Link>
                         <p className="text-white/60 text-sm leading-relaxed max-w-xs font-sans">
                             A sanctuary of serenity where luxury meets nature. Experience the ultimate in comfort and style at our exclusive villa resort.
