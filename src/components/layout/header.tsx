@@ -52,7 +52,7 @@ export function Header() {
                 <div className="container mx-auto px-4 flex items-center justify-between relative">
                     {/* Left: Logo */}
                     <Link href="/" className="relative z-50 flex items-center gap-2">
-                        <StayraLogo className="h-20 w-auto" variant="light" />
+                        <StayraLogo className="h-8 w-auto" variant="light" />
                     </Link>
 
                     {/* Center: Desktop Nav */}
