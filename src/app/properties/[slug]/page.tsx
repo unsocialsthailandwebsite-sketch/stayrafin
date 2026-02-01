@@ -13,6 +13,30 @@ export const revalidate = 60;
 
 // Mock Data for fallback if Sanity mock hasn't been migrated yet
 const MOCK_PROPERTIES: any = {
+    "choti-haveli": {
+        title: "Choti Haveli",
+        location: "C-Scheme, Jaipur",
+        specs: "4 Bedrooms | Heritage Home | City Center",
+        price: "Price on Request",
+        description: `Choti Haveli is a restored heritage home in the heart of Jaipur. Experience the charm of traditional Rajasthani architecture combined with modern luxury. Located in C-Scheme, it offers a peaceful retreat while being close to the city's vibrant culture and attractions.`,
+        features: [
+            "Restored Heritage Haveli",
+            "Located in prime C-Scheme area",
+            "4 Luxury Bedrooms",
+            "Traditional Courtyard",
+            "Rooftop Terrace",
+            "Home-cooked Rajasthani meals",
+            "High-speed WiFi",
+            "Daily Housekeeping",
+            "Concierge Service"
+        ],
+        images: [
+            "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=80&w=3264&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=3270&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?q=80&w=3270&auto=format&fit=crop"
+        ],
+        gallerySections: []
+    },
     "the-kukas-villa": {
         title: "The Kukas Villa",
         location: "Kukas, Jaipur",
@@ -97,6 +121,11 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
     const whatsapp = property.whatsapp || "917340031394";
     const phone = property.phone || "+91 73400 31394";
 
+    // Weather Logic: Default to Jaipur, switch to Kukas if location mentions it
+    const isKukas = property.location?.toLowerCase().includes("kukas");
+    const weatherLat = isKukas ? 27.0367 : 26.9124;
+    const weatherLng = isKukas ? 75.8753 : 75.7873;
+
     return (
         <div className="min-h-screen bg-white">
             {/* Hero Gallery */}
@@ -157,9 +186,9 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
             </div>
 
             <WeatherWidget
-                locationName={property.location || "Kukas, Jaipur"}
-                latitude={property.location?.toLowerCase().includes("jaipur") && !property.location?.toLowerCase().includes("kukas") ? 26.9124 : 27.0367}
-                longitude={property.location?.toLowerCase().includes("jaipur") && !property.location?.toLowerCase().includes("kukas") ? 75.7873 : 75.8753}
+                locationName={property.location || "Jaipur"}
+                latitude={weatherLat}
+                longitude={weatherLng}
             />
         </div>
     );
