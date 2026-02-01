@@ -4,23 +4,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-const properties = [
-    {
-        id: "choti-haveli",
-        title: "Choti Haveli",
-        location: "Jaipur City Center",
-        tagline: "HERITAGE LUXURY",
-        image: "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=80&w=3264&auto=format&fit=crop", // Placeholder
-    },
-    {
-        id: "the-kukas-villa",
-        title: "The Kukas Villa",
-        location: "Jaipur Outskirts",
-        tagline: "MODERN FARMHOUSE",
-        image: "https://images.unsplash.com/photo-1613553507747-9f5312f48df9?q=80&w=2835&auto=format&fit=crop", // Placeholder
-    }
-];
-
 const PROPERTIES = [
     {
         id: "1",
@@ -28,15 +11,17 @@ const PROPERTIES = [
         location: "C-Scheme, Jaipur",
         slug: "choti-haveli",
         image: "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=80&w=3264&auto=format&fit=crop",
-        specs: "4 Bedrooms | Sleeps 8"
+        specs: "4 Bedrooms | Sleeps 8",
+        tagline: "HERITAGE LUXURY"
     },
     {
         id: "2",
         title: "The Kukas Villa",
         location: "Jaipur Outskirts",
         slug: "the-kukas-villa",
-        image: "https://images.unsplash.com/photo-1613553507747-9f5312f48df9?q=80&w=2835&auto=format&fit=crop",
-        specs: "3 Bedrooms | Sleeps 6"
+        image: "/images/kukas/night-view-cover.jpg",
+        specs: "3 Bedrooms | Sleeps 6",
+        tagline: "MODERN FARMHOUSE"
     }
 ];
 
@@ -53,7 +38,8 @@ export function PropertyGrid({ properties: fetchedProperties }: PropertyGridProp
             location: p.location,
             image: p.image || "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=3270&auto=format&fit=crop", // Fallback image
             slug: p.slug,
-            specs: p.specs || "Luxury Villa"
+            specs: p.specs || "Luxury Villa",
+            tagline: "LUXURY STAY" // Default tagline since not fetched yet
         }))
         : PROPERTIES;
 
