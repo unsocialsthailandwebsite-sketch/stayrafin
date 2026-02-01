@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import { StayraLogo } from "@/components/ui/stayra-logo";
 
 export function Footer() {
@@ -25,6 +25,9 @@ export function Footer() {
                             <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-stayra-gold transition-colors text-white">
                                 <Twitter className="w-4 h-4" />
                             </a>
+                            <a href="https://www.youtube.com/@Stayraexperience" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-stayra-gold transition-colors text-white">
+                                <Youtube className="w-4 h-4" />
+                            </a>
                             <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-stayra-gold transition-colors text-white">
                                 <Linkedin className="w-4 h-4" />
                             </a>
@@ -38,9 +41,9 @@ export function Footer() {
                             {[
                                 { name: 'About', href: '/about' },
                                 { name: 'Our Properties', href: '/properties' },
-                                { name: 'Booking', href: '#' },
-                                { name: 'Blog', href: '#' },
-                                { name: 'Contact', href: '/contact' }
+                                { name: 'Contact', href: '/contact' },
+                                { name: 'Partner With Us', href: '/partner-with-us' },
+                                { name: 'Collaborate', href: '/collaborate-with-us' }
                             ].map((item) => (
                                 <li key={item.name}>
                                     <Link href={item.href} className="text-white/60 hover:text-stayra-gold transition-colors text-sm font-sans">
@@ -55,10 +58,14 @@ export function Footer() {
                     <div>
                         <h4 className="font-serif text-xl mb-6 text-white">Support</h4>
                         <ul className="space-y-3">
-                            {['FAQ', 'Privacy & Policy', 'Accessibility', 'Legal', 'Sitemap'].map((item) => (
-                                <li key={item}>
-                                    <Link href="#" className="text-white/60 hover:text-stayra-gold transition-colors text-sm font-sans">
-                                        {item}
+                            {[
+                                { name: 'FAQ', href: '/faq' },
+                                { name: 'Privacy Policy', href: '/privacy-policy' },
+                                { name: 'Terms of Service', href: '#' }
+                            ].map((item) => (
+                                <li key={item.name}>
+                                    <Link href={item.href} className="text-white/60 hover:text-stayra-gold transition-colors text-sm font-sans">
+                                        {item.name}
                                     </Link>
                                 </li>
                             ))}
@@ -71,15 +78,15 @@ export function Footer() {
                         <ul className="space-y-4">
                             <li className="flex gap-3 items-start text-white/60 text-sm font-sans">
                                 <span>📍</span>
-                                <span>Jalan Raya Ubud No. 123, Bali, Indonesia 80571</span>
+                                <span>Jaipur, Rajasthan, India</span>
                             </li>
                             <li className="flex gap-3 items-center text-white/60 text-sm font-sans">
                                 <span>📞</span>
-                                <span>+62 81 234 567 890</span>
+                                <span>+91 98765 43210</span>
                             </li>
                             <li className="flex gap-3 items-center text-white/60 text-sm font-sans">
                                 <span>✉️</span>
-                                <span>info@stayraresort.com</span>
+                                <span>contact@stayra.in</span>
                             </li>
                         </ul>
                     </div>

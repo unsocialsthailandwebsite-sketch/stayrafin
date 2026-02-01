@@ -1,10 +1,23 @@
 "use client";
 
-import Script from "next/script";
+import { useEffect } from "react";
 import { Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function InstagramFeed() {
+    useEffect(() => {
+        const script = document.createElement("script");
+        script.src = "https://static.elfsight.com/platform.platform.js";
+        script.setAttribute("data-use-service-core", "");
+        script.defer = true;
+        document.body.appendChild(script);
+
+        return () => {
+            if (document.body.contains(script)) {
+                document.body.removeChild(script);
+            }
+        };
+    }, []);
     return (
         <section id="instagram" className="py-24 px-4 bg-white">
             <div className="container mx-auto text-center">
@@ -18,8 +31,7 @@ export function InstagramFeed() {
                 </h2>
 
                 {/* Elfsight Widget */}
-                <div className="mb-12 min-h-[300px]">
-                    <Script src="https://elfsightcdn.com/platform.js" strategy="lazyOnload" />
+                <div className="mb-12 min-h-[300px] flex justify-center">
                     <div className="elfsight-app-26e5b214-f0e0-4e71-af6a-f7328c7765b4" data-elfsight-app-lazy></div>
                 </div>
 

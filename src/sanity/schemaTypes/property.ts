@@ -56,6 +56,19 @@ export default defineType({
             of: [{ type: 'image' }],
         }),
         defineField({
+            name: 'gallerySections',
+            title: 'Gallery Sections',
+            type: 'array',
+            of: [{
+                type: 'object',
+                title: 'Section',
+                fields: [
+                    { name: 'title', type: 'string', title: 'Section Title' },
+                    { name: 'images', type: 'array', of: [{ type: 'image' }], title: 'Images' }
+                ]
+            }]
+        }),
+        defineField({
             name: 'description',
             title: 'Description',
             type: 'text',

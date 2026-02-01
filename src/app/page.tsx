@@ -2,11 +2,12 @@ import { HeroSection } from "@/components/home/hero-section";
 import { PhilosophySection } from "@/components/home/philosophy-section";
 import { PropertyGrid } from "@/components/home/property-grid";
 import { ExperienceGrid } from "@/components/home/experience-grid";
+import { StayraExperienceBanner } from "@/components/home/stayra-experience-banner";
 import { BookingBar } from "@/components/home/booking-bar";
-import { WelcomeSection } from "@/components/home/welcome-section";
 import { TestimonialsSection } from "@/components/home/testimonials-section";
 import { VideoSection } from "@/components/home/video-section";
 import { InstagramFeed } from "@/components/home/instagram-feed";
+import { WeatherWidget } from "@/components/ui/weather-widget";
 import { client } from "@/sanity/client";
 
 // Revalidate data every 60 seconds
@@ -49,13 +50,14 @@ export default async function Home() {
       <div className="relative z-20 -mt-20">
         <BookingBar />
       </div>
-      <WelcomeSection />
       {/* Pass fetched properties to grid, falling back to mock inside if empty */}
       <PropertyGrid properties={properties} />
       <VideoSection />
       <ExperienceGrid />
+      <StayraExperienceBanner />
       <TestimonialsSection />
       <InstagramFeed />
+      <WeatherWidget />
     </main>
   );
 }

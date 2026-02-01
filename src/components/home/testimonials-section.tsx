@@ -5,27 +5,27 @@ import { Star, Quote } from "lucide-react";
 const testimonials = [
     {
         id: 1,
-        name: "Sarah Jenkins",
-        location: "London, UK",
+        name: "Aditi & Rohan Mehta",
+        location: "New Delhi",
         rating: 5,
-        text: "The most serene experience of my life. The villa was breathtaking, and the service was impeccable. Truly a hidden gem.",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop"
+        text: "A perfect weekend escape from the city. The villa's architecture is stunning, and the private pool was the highlight of our stay. The staff made us feel like royalty.",
+        image: "https://images.unsplash.com/photo-1623091410901-00e2d5b4396e?q=80&w=200&auto=format&fit=crop"
     },
     {
         id: 2,
-        name: "Michael Chen",
-        location: "Singapore",
+        name: "Arjun Singh",
+        location: "Mumbai",
         rating: 5,
-        text: "Stayra exceeded all expectations. The attention to detail in the design and the connection to nature made it unforgettable.",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
+        text: "Incredible hospitality! We hosted a small family reunion here, and everything was flawless. The Rajasthani meals prepared by the chef were absolutely delicious.",
+        image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=200&auto=format&fit=crop"
     },
     {
         id: 3,
-        name: "Emma Wilson",
-        location: "Sydney, Australia",
+        name: "Meera Reddy",
+        location: "Bangalore",
         rating: 5,
-        text: "A perfect blend of luxury and comfort. We loved every moment of our stay. Highly recommended for families.",
-        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop"
+        text: "Stayra offers a level of privacy and luxury that is hard to find. Waking up to the view of the Aravallis was magical. We will definitely be coming back.",
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop"
     }
 ];
 

@@ -1,10 +1,8 @@
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
+
 
 export default function AboutPage() {
     return (
         <div className="min-h-screen bg-stayra-ivory flex flex-col">
-            <Header />
             <main className="flex-grow pt-32 pb-16 px-4 container mx-auto">
                 <div className="max-w-4xl mx-auto text-center space-y-8">
                     <h1 className="font-serif text-5xl md:text-6xl text-stayra-green">About Stayra</h1>
@@ -14,7 +12,6 @@ export default function AboutPage() {
                     </p>
                 </div>
             </main>
-            <Footer />
         </div>
     );
 }

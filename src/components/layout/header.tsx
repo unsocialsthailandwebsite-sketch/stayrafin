@@ -11,11 +11,11 @@ import { StayraLogo } from "@/components/ui/stayra-logo";
 
 const navLinks = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
+    { name: "About Us", href: "/about" },
     { name: "Our Properties", href: "/properties", hasDropdown: true },
-    { name: "Pages", href: "#", hasDropdown: true },
-    { name: "Blog", href: "#", hasDropdown: true },
-    { name: "Contact", href: "/contact" },
+    { name: "Partner With Us", href: "/partner-with-us" },
+    { name: "Collaborate With Us", href: "/collaborate-with-us" },
+    { name: "Contact Us", href: "/contact" },
 ];
 
 export function Header() {
@@ -37,12 +37,14 @@ export function Header() {
         setIsMobileMenuOpen(false);
     }, [pathname]);
 
+    const isHome = pathname === "/";
+
     return (
         <>
             <header
                 className={cn(
                     "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-                    isScrolled
+                    isScrolled || !isHome
                         ? "bg-stayra-green/95 backdrop-blur-md py-4 shadow-sm"
                         : "bg-transparent py-6"
                 )}
@@ -54,13 +56,13 @@ export function Header() {
                     </Link>
 
                     {/* Center: Desktop Nav */}
-                    <nav className="hidden md:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
+                    <nav className="hidden md:flex items-center gap-6 absolute left-1/2 transform -translate-x-1/2 w-max">
                         {navLinks.map((link) => (
                             <div key={link.name} className="relative group">
                                 <Link
                                     href={link.href}
                                     className={cn(
-                                        "flex items-center gap-1 text-sm font-medium transition-colors hover:text-stayra-gold uppercase tracking-wide py-4",
+                                        "flex items-center gap-1 text-sm font-medium transition-colors hover:text-stayra-gold uppercase tracking-wide py-4 whitespace-nowrap",
                                         isScrolled ? "text-white/90 hover:text-white" : "text-white/90 hover:text-white"
                                     )}
                                 >
@@ -94,21 +96,21 @@ export function Header() {
                     {/* Right: Actions */}
                     <div className="hidden md:flex items-center gap-6">
                         {/* Search Icon */}
-                        <button className="text-white hover:text-stayra-gold transition-colors">
-                            <Search className="w-5 h-5" strokeWidth={2.5} />
-                        </button>
+
 
                         {/* Book Your Stay Button - White Pill */}
-                        <Button
-                            variant="primary"
-                            size="lg"
-                            className={cn(
-                                "bg-white text-stayra-green hover:bg-gray-100 rounded-full px-6 py-2 uppercase text-xs tracking-widest font-bold flex items-center gap-2"
-                            )}
-                        >
-                            Book Your Stay
-                            <ArrowRight className="w-4 h-4" />
-                        </Button>
+                        <a href="https://wa.me/917340031394?text=Hi%2C%20I%20am%20interested%20in%20booking%20a%20stay" target="_blank" rel="noopener noreferrer">
+                            <Button
+                                variant="primary"
+                                size="lg"
+                                className={cn(
+                                    "bg-white text-stayra-green hover:bg-gray-100 rounded-full px-6 py-2 uppercase text-xs tracking-widest font-bold flex items-center gap-2"
+                                )}
+                            >
+                                Book Your Stay
+                                <ArrowRight className="w-4 h-4" />
+                            </Button>
+                        </a>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -151,9 +153,11 @@ export function Header() {
                                         {link.hasDropdown && <ChevronDown className="w-5 h-5" />}
                                     </Link>
                                 ))}
-                                <Button variant="primary" size="lg" className="mt-4 w-full max-w-xs bg-stayra-green text-white">
-                                    Book Your Stay
-                                </Button>
+                                <a href="https://wa.me/917340031394?text=Hi%2C%20I%20am%20interested%20in%20booking%20a%20stay" target="_blank" rel="noopener noreferrer" className="w-full max-w-xs">
+                                    <Button variant="primary" size="lg" className="w-full bg-stayra-green text-white">
+                                        Book Your Stay
+                                    </Button>
+                                </a>
                             </nav>
                         </motion.div>
                     )

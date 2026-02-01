@@ -19,30 +19,114 @@ const PROPERTIES = {
     "choti-haveli": {
         title: "Choti Haveli",
         location: "C-Scheme, Jaipur",
-        specs: "4 Bedrooms | Sleeps 8",
-        price: '₹35,000 / night',
+        specs: "4 Bedrooms | Sleeps 8-10",
+        price: '₹25,000 / night',
         type: 'heritage',
-        images: [
-            "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=80&w=3264&auto=format&fit=crop", // Courtyard
-            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=3270&auto=format&fit=crop", // Pool
-            "https://images.unsplash.com/photo-1600596542815-e32cbee30df3?q=80&w=3274&auto=format&fit=crop", // Bedroom
-        ],
-        description: `Choti Haveli is a meticulously restored heritage property where colonial elegance meets modern comfort.`,
-        features: ["WiFi High-Speed", "Pool Private", "Chef Available", "AC Climate Control", "Parking Valet", "Security 24/7"]
+        images: (function () {
+            const dir = "C:/Users/korja/Downloads/choti";
+            try {
+                return fs.readdirSync(dir)
+                    .filter(file => /\.(jpg|jpeg|png|avif|webp)$/i.test(file))
+                    .map(file => path.join(dir, file));
+            } catch (e) {
+                console.error("Could not read local directory:", e);
+                return [];
+            }
+        })(),
+        description: `Explore a timeless voyage where Rajasthan's majestic history blends seamlessly with contemporary luxuries and tranquil natural surroundings.
+
+Situated within the Emaar Group's portfolio, reminiscent of Burj Khalifa in Dubai, this gated community offers round-the-clock security. Nestled amidst 23 acres of expansive greenery, it provides a perfect sanctuary for you and your family to cherish and indulge in nature.
+
+The space
+
+MASTER BEDROOM
+Relax in the lap of luxury with our plush king-sized bed, draped in the finest linens to ensure a restful night's sleep. The en-suite bathroom is a sanctuary of indulgence, featuring automatic washing machine, geyser and luxurious bath amenities
+
+KITCHEN
+The kitchen is stocked with state-of-the-art appliances and the latest culinary, ideal for gourmet enthusiasts and seasoned chefs alike. Every tool is at your disposal to create culinary masterpieces with ease.Ideal to serve family & friends.
+
+LIVING ROOM
+Whether you're enjoying a leisurely afternoon tea with friends or unwinding with a cocktail in hand after a busy day, our living room is a haven of indulgence. The focal point of the living room is an indoor fountain and an indoor pond, providing a meditative atmosphere for your cozy evenings. Floor-to-ceiling traditional colorful windows and an additional washroom to ensure the utmost comfort and convenience for our guests.
+
+PRIVATE GARDEN
+where luxury meets nature in perfect harmony. At dusk, twinkling fairy lights come to life. Casting a magical glow over the haveli and the garden, creating an enchanting atmosphere for evening gatherings. Whether it's an intimate dinner under the stars or a romantic rendezvous amidst the blooms, our private garden sets the stage for unforgettable moments and cherished memories.`,
+        features: ["Heritage Decor", "City Center", "Rooftop Terrace", "Traditional Breakfast", "Concierge"]
     },
     "the-kukas-villa": {
         title: "The Kukas Villa",
-        location: "Jaipur Outskirts",
-        specs: "3 Bedrooms | Sleeps 6",
+        location: "Khora Mina Gaon, near Kukas, Jaipur",
+        specs: "3 Bedrooms | Sleeps 12-15",
         price: '₹55,000 / night',
         type: 'modern',
-        images: [
-            "https://images.unsplash.com/photo-1613553507747-9f5312f48df9?q=80&w=2835&auto=format&fit=crop", // Modern Exterior
-            "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=3270&auto=format&fit=crop", // Pool
-            "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2700&auto=format&fit=crop", // Modern Living
+        gallerySections: [
+            {
+                title: "Room by the Garden (Ground Floor)",
+                images: (function () {
+                    const dir = "C:/Users/korja/Downloads/ROOM 01-20260129T150755Z-3-001/ROOM 01_OPT";
+                    try { return fs.readdirSync(dir).filter(f => /\.(jpg|jpeg|png|avif|webp)$/i.test(f)).map(f => path.join(dir, f)); } catch (e) { return []; }
+                })()
+            },
+            {
+                title: "Aravalli View Room (First Floor)",
+                images: (function () {
+                    const dir = "C:/Users/korja/Downloads/ROOM 02-20260129T150803Z-3-001/ROOM 02_OPT";
+                    try { return fs.readdirSync(dir).filter(f => /\.(jpg|jpeg|png|avif|webp)$/i.test(f)).map(f => path.join(dir, f)); } catch (e) { return []; }
+                })()
+            },
+            {
+                title: "Sunset View Room (First Floor)",
+                images: (function () {
+                    const dir = "C:/Users/korja/Downloads/ROOM 03-20260129T150806Z-3-001/ROOM 03_OPT";
+                    try { return fs.readdirSync(dir).filter(f => /\.(jpg|jpeg|png|avif|webp)$/i.test(f)).map(f => path.join(dir, f)); } catch (e) { return []; }
+                })()
+            },
+            {
+                title: "Amenities & Common Areas",
+                images: (function () {
+                    const dirs = [
+                        "C:/Users/korja/Downloads/FACADE-20260129T150821Z-3-001/FACADE_OPT",
+                        "C:/Users/korja/Downloads/GARDEN-20260129T150819Z-3-001/GARDEN_OPT",
+                        "C:/Users/korja/Downloads/HALL-20260129T150811Z-3-001/HALL_OPT"
+                    ];
+                    let allImages = [];
+                    dirs.forEach(dir => {
+                        try {
+                            const files = fs.readdirSync(dir).filter(f => /\.(jpg|jpeg|png|avif|webp)$/i.test(f)).map(f => path.join(dir, f));
+                            allImages = allImages.concat(files);
+                        } catch (e) { console.error(`Error reading ${dir}:`, e.message); }
+                    });
+                    return allImages;
+                })()
+            }
         ],
-        description: "A modern farmhouse luxury experience located on the outskirts of Jaipur, offering serenity and style.",
-        features: ["WiFi", "Pool", "Parking", "Mountain View", "Private Garden"]
+        // Luxury Listing Version (Short & Premium)
+        description: `The Kukas Villa is a private luxury retreat nestled in the Aravalli hills near Kukas, Jaipur. Surrounded by scenic landscapes and open greenery, this two-floor villa offers three air-conditioned bedrooms with attached washrooms, a private 5-ft swimming pool, a fully equipped kitchen, and a personal caretaker.
+
+The villa features a sprawling garden ideal for intimate celebrations, sangeet ceremonies, cocktail parties, and private events for up to 150 guests, while comfortably hosting farm stays for 12–15 people. With ample parking, serene hill views, and complete privacy, The Kukas Villa is perfect for both relaxed getaways and elegant celebrations.
+
+Wake up to the Aravallis. Celebrate under open skies. Stay in effortless luxury.
+
+Detailed Property Description
+Hidden amidst the tranquil landscapes of Khora Mina Gaon, near Kukas, Jaipur, The Kukas Villa is a refined private retreat set against the timeless beauty of the Aravalli hills. Designed for guests who value space, privacy, and scenic luxury, this two-floor villa offers a seamless blend of nature, comfort, and celebration-ready elegance.
+
+Surrounded by rolling hills and open skies, the property opens into a vast, lush green garden—a versatile outdoor space that can comfortably accommodate up to 200 people. From quiet morning walks on dew-kissed grass to grand evening celebrations under the stars, the garden transforms effortlessly to suit every mood and occasion.
+
+Accommodation
+The Kukas Villa features three spacious, air-conditioned bedrooms, each with attached washrooms and geysers.
+- Room by the Garden (Ground Floor)
+- Aravalli View Room (First Floor)
+- Sunset View Room (First Floor)`,
+        features: [
+            "Private 5-ft Swimming Pool",
+            "Expansive Landscaped Garden (Events up to 150-200 pax)",
+            "Fully Functional Kitchen",
+            "Personal Caretaker On-site",
+            "Air-conditioned Rooms",
+            "Ample Parking Space",
+            "Sangeet & Cocktail Party Venue",
+            "Farm Stay (12-15 guests)",
+            "Aravalli Hill Views"
+        ]
     }
 };
 
@@ -68,9 +152,16 @@ const downloadImage = (url) => {
     });
 };
 
-async function uploadImage(url) {
-    console.log(`Downloading image: ${url}`);
-    const buffer = await downloadImage(url);
+async function uploadImage(pathOrUrl) {
+    let buffer;
+    if (pathOrUrl.startsWith('http')) {
+        console.log(`Downloading image: ${pathOrUrl}`);
+        buffer = await downloadImage(pathOrUrl);
+    } else {
+        console.log(`Reading local file: ${pathOrUrl}`);
+        buffer = fs.readFileSync(pathOrUrl);
+    }
+
     console.log(`Uploading to Sanity...`);
     const asset = await client.assets.upload('image', buffer);
     console.log(`Uploaded asset: ${asset._id}`);
@@ -89,18 +180,48 @@ async function seed() {
     for (const [slug, data] of Object.entries(PROPERTIES)) {
         console.log(`Processing ${data.title}...`);
 
-        // Upload images
-        const imageIds = [];
-        for (const imgUrl of data.images) {
-            try {
-                const id = await uploadImage(imgUrl);
-                imageIds.push(id);
-            } catch (e) {
-                console.error(`Failed to upload image ${imgUrl}:`, e.message);
+        // Handle Gallery Sections (New Structure)
+        let mainImageId = null;
+        let allImageIds = [];
+        let gallerySectionsData = [];
+
+        if (data.gallerySections) {
+            for (const section of data.gallerySections) {
+                const sectionImageIds = [];
+                for (const imgUrl of section.images) {
+                    try {
+                        const id = await uploadImage(imgUrl);
+                        sectionImageIds.push(id);
+                        allImageIds.push(id); // Flatten for backward compat
+                        if (!mainImageId) mainImageId = id; // First image as main
+                    } catch (e) {
+                        console.error(`Failed to upload image ${imgUrl}:`, e.message);
+                    }
+                }
+                gallerySectionsData.push({
+                    _key: section.title.toLowerCase().replace(/\s+/g, '-'),
+                    title: section.title,
+                    images: sectionImageIds.map(id => ({
+                        _type: 'image',
+                        asset: { _ref: id, _type: 'reference' }
+                    }))
+                });
+            }
+        }
+        // Handle Legacy Flat Images (Choti Haveli case)
+        else if (data.images) {
+            for (const imgUrl of data.images) {
+                try {
+                    const id = await uploadImage(imgUrl);
+                    allImageIds.push(id);
+                    if (!mainImageId) mainImageId = id;
+                } catch (e) {
+                    console.error(`Failed to upload image ${imgUrl}:`, e.message);
+                }
             }
         }
 
-        if (imageIds.length === 0) continue;
+        if (!mainImageId) continue;
 
         const doc = {
             _type: 'property',
@@ -114,17 +235,15 @@ async function seed() {
             features: data.features,
             mainImage: {
                 _type: 'image',
-                asset: { _ref: imageIds[0], _type: 'reference' }
+                asset: { _ref: mainImageId, _type: 'reference' }
             },
-            gallery: imageIds.map(id => ({
+            gallery: allImageIds.map(id => ({
                 _type: 'image',
                 asset: { _ref: id, _type: 'reference' }
-            }))
+            })),
+            gallerySections: gallerySectionsData.length > 0 ? gallerySectionsData : undefined
         };
 
-        // Check if exists to avoid dupes, or just create
-        // Simplest: Create new or patch if known ID. We don't have IDs, so we'll query by slug or just create.
-        // Let's use createOrReplace using a deterministic ID based on slug to allow re-running script safely.
         const docId = `property-${slug}`;
         doc._id = docId;
 

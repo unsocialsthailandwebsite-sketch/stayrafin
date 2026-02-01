@@ -21,13 +21,14 @@ export function PropertyContent({ description, amenities }: PropertyContentProps
 
     return (
         <div className="py-12 space-y-12">
-            {/* Description */}
+
+            {/* About This Space Section */}
             <section>
-                <h2 className="font-serif text-2xl mb-6 text-stayra-charcoal">The Space</h2>
-                <div className="prose prose-lg text-gray-600 font-light leading-relaxed">
-                    {description.split('\n').map((p, i) => (
-                        <p key={i} className="mb-4">{p}</p>
-                    ))}
+                <div className="prose prose-lg text-gray-600 max-w-none">
+                    <h2 className="font-serif text-3xl text-stayra-charcoal mb-6">About this space</h2>
+                    <div className="whitespace-pre-line leading-relaxed">
+                        {description}
+                    </div>
                 </div>
             </section>
 
