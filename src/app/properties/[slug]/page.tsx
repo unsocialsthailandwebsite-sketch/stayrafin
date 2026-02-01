@@ -42,7 +42,13 @@ The king bedroom features a window-side sitting area, a favourite spot for guest
             "Secure indoor parking for up to 8 cars",
             "Zomato & Swiggy delivery available"
         ],
-        images: [], // TODO: Add real images
+        images: [
+            "/images/kukas/exterior-front.jpg",
+            "/images/kukas/bedroom.jpg",
+            "/images/kukas/garden-wide.jpg",
+            "/images/kukas/estate-view.jpg",
+            "/images/kukas/bathroom.jpg"
+        ],
         gallerySections: []
     }
 };
