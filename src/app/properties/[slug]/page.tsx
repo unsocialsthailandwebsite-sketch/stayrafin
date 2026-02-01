@@ -43,6 +43,7 @@ The king bedroom features a window-side sitting area, a favourite spot for guest
             "Zomato & Swiggy delivery available"
         ],
         images: [
+            "/images/kukas/night-view-cover.jpg",
             "/images/kukas/exterior-front.jpg",
             "/images/kukas/bedroom.jpg",
             "/images/kukas/garden-wide.jpg",
