@@ -21,17 +21,19 @@ interface PropertyCardProps {
 
 export function PropertyCard({ property, index }: PropertyCardProps) {
     const [currentImage, setCurrentImage] = useState(0);
+    // Limit to first 8 images for the card carousel to prevent dot overflow and performance issues
+    const displayImages = property.images.slice(0, 8);
 
     const nextImage = (e: React.MouseEvent) => {
         e.preventDefault();
         e.stopPropagation();
-        setCurrentImage((prev) => (prev + 1) % property.images.length);
+        setCurrentImage((prev) => (prev + 1) % displayImages.length);
     };
 
     const prevImage = (e: React.MouseEvent) => {
         e.preventDefault();
         e.stopPropagation();
-        setCurrentImage((prev) => (prev - 1 + property.images.length) % property.images.length);
+        setCurrentImage((prev) => (prev - 1 + displayImages.length) % displayImages.length);
     };
 
     return (
@@ -42,53 +44,53 @@ export function PropertyCard({ property, index }: PropertyCardProps) {
             transition={{ delay: index * 0.2 }}
             className="group block relative"
         >
-            <div className="relative overflow-hidden aspect-[4/3] mb-6 shadow-md rounded-lg group-hover:shadow-2xl transition-all duration-500 ease-out">
+            <div className="relative overflow-hidden aspect-[4/3] mb-6 shadow-lg rounded-2xl group-hover:shadow-2xl transition-all duration-500 ease-out">
                 {/* Image Carousel */}
                 <Link href={`/properties/${property.slug}`} className="block w-full h-full relative">
                     <AnimatePresence mode="wait">
                         <motion.img
                             key={currentImage}
-                            src={property.images[currentImage]}
+                            src={displayImages[currentImage]}
                             alt={`${property.title} - View ${currentImage + 1}`}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            transition={{ duration: 0.3 }}
+                            transition={{ duration: 0.5 }}
                             className="w-full h-full object-cover"
                         />
                     </AnimatePresence>
 
-                    {/* Gradient Overlay on Hover for text contrast if needed, or just standard */}
-                    <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                    {/* Gradient Overlay on Hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 </Link>
 
                 {/* Navigation Arrows - Visible on Group Hover */}
-                {property.images.length > 1 && (
+                {displayImages.length > 1 && (
                     <>
                         <button
                             onClick={prevImage}
-                            className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-white/80 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-white hover:scale-110 z-20"
+                            className="absolute left-3 top-1/2 -translate-y-1/2 p-3 bg-white/30 backdrop-blur-md border border-white/50 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-white hover:scale-105 z-20 text-white hover:text-stayra-charcoal shadow-sm"
                             aria-label="Previous image"
                         >
-                            <ChevronLeft className="h-4 w-4 text-gray-800" />
+                            <ChevronLeft className="h-5 w-5" />
                         </button>
                         <button
                             onClick={nextImage}
-                            className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-white/80 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-white hover:scale-110 z-20"
+                            className="absolute right-3 top-1/2 -translate-y-1/2 p-3 bg-white/30 backdrop-blur-md border border-white/50 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-white hover:scale-105 z-20 text-white hover:text-stayra-charcoal shadow-sm"
                             aria-label="Next image"
                         >
-                            <ChevronRight className="h-4 w-4 text-gray-800" />
+                            <ChevronRight className="h-5 w-5" />
                         </button>
                     </>
                 )}
 
                 {/* Dots indicator */}
-                {property.images.length > 1 && (
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
-                        {property.images.map((_, idx) => (
+                {displayImages.length > 1 && (
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        {displayImages.map((_, idx) => (
                             <div
                                 key={idx}
-                                className={`w-1.5 h-1.5 rounded-full shadow-sm transition-all ${idx === currentImage ? "bg-white scale-125" : "bg-white/50"
+                                className={`h-1.5 rounded-full shadow-sm transition-all duration-300 ${idx === currentImage ? "w-6 bg-white" : "w-1.5 bg-white/60 hover:bg-white/80"
                                     }`}
                             />
                         ))}

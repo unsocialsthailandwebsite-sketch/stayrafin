@@ -54,7 +54,6 @@ export default async function Home() {
       {/* Pass fetched properties to grid, falling back to mock inside if empty */}
       <PropertyGrid properties={properties} />
       <VideoSection />
-      <ExperienceGrid />
       <StayraExperienceBanner />
       <TestimonialsSection />
       <WhyStayraSection />
