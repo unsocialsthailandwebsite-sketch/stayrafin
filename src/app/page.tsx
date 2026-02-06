@@ -57,7 +57,6 @@ export default async function Home() {
       <ExperienceGrid />
       <StayraExperienceBanner />
       <TestimonialsSection />
-      <TestimonialsSection />
       <WhyStayraSection />
     </main>
   );
