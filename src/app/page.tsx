@@ -49,6 +49,7 @@ export default async function Home() {
       />
       <div className="relative z-20 -mt-20">
         <BookingBar />
+        <StatsSection />
       </div>
       {/* Pass fetched properties to grid, falling back to mock inside if empty */}
       <PropertyGrid properties={properties} />
@@ -56,7 +57,7 @@ export default async function Home() {
       <ExperienceGrid />
       <StayraExperienceBanner />
       <TestimonialsSection />
-      <StatsSection />
+      <TestimonialsSection />
       <WhyStayraSection />
     </main>
   );

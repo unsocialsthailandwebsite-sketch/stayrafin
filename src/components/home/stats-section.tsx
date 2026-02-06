@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useInView, useMotionValue, useSpring, motion } from "framer-motion";
+import { Users, Home, Star } from "lucide-react";
 
 const AnimatedNumber = ({ value, float = false }: { value: number, float?: boolean }) => {
     const ref = useRef<HTMLSpanElement>(null);
@@ -71,42 +72,50 @@ const StatItem = ({
 export const StatsSection = () => {
     return (
         <section className="bg-[#F9Fcf9] border-t border-gray-100 py-16">
-            {/* Light minty background to match image slightly or stayra ivory */}
             <div className="container mx-auto px-4">
-                <div className="bg-white rounded-2xl shadow-sm border border-gray-100 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 lg:divide-y-0 md:divide-x lg:divide-x divide-gray-100 min-h-[160px]">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 lg:divide-y-0 md:divide-x lg:divide-x divide-gray-200 min-h-[160px]">
 
                     {/* 1000+ Guests Hosted */}
-                    <div className="flex items-center justify-center p-8 flex-1 gap-4">
-                        <span className="text-4xl md:text-5xl text-[#6B8E6B] font-serif font-medium flex">
-                            <AnimatedNumber value={1000} />+
-                        </span>
-                        <div className="text-gray-600 text-sm uppercase tracking-wide font-medium flex flex-col text-left">
-                            <span>Guests</span>
-                            <span>Hosted</span>
+                    <div className="flex flex-col items-center justify-center p-8 flex-1 gap-4">
+                        <Users className="w-12 h-12 text-[#5B6D5B] opacity-80" strokeWidth={1.5} />
+                        <div className="flex items-center gap-4">
+                            <span className="text-6xl md:text-7xl text-[#5B6D5B] font-serif font-bold flex">
+                                <AnimatedNumber value={1000} />+
+                            </span>
+                            <div className="text-gray-600 text-sm uppercase tracking-wide font-bold flex flex-col text-left">
+                                <span>Guests</span>
+                                <span>Hosted</span>
+                            </div>
                         </div>
                     </div>
 
                     {/* 1 OUT OF 100 Villas Picked */}
-                    <div className="flex items-center justify-center p-8 flex-1 gap-4">
-                        <span className="text-4xl md:text-5xl text-[#6B8E6B] font-serif font-medium flex items-baseline">
-                            <span>1</span>
-                            <span className="text-sm px-2 text-gray-400 font-sans font-normal uppercase">OUT OF</span>
-                            <span>100</span>
-                        </span>
-                        <div className="text-gray-600 text-sm uppercase tracking-wide font-medium flex flex-col text-left">
-                            <span>Villas</span>
-                            <span>Picked</span>
+                    <div className="flex flex-col items-center justify-center p-8 flex-1 gap-4">
+                        <Home className="w-12 h-12 text-[#5B6D5B] opacity-80" strokeWidth={1.5} />
+                        <div className="flex items-center gap-4">
+                            <span className="text-6xl md:text-7xl text-[#5B6D5B] font-serif font-bold flex items-baseline">
+                                <span>1</span>
+                                <span className="text-sm px-2 text-gray-400 font-sans font-bold uppercase">OUT OF</span>
+                                <span>100</span>
+                            </span>
+                            <div className="text-gray-600 text-sm uppercase tracking-wide font-bold flex flex-col text-left">
+                                <span>Villas</span>
+                                <span>Picked</span>
+                            </div>
                         </div>
                     </div>
 
                     {/* 4.95 Average Star Rating */}
-                    <div className="flex items-center justify-center p-8 flex-1 gap-4">
-                        <span className="text-4xl md:text-5xl text-[#6B8E6B] font-serif font-medium flex">
-                            <AnimatedNumber value={4.95} float={true} />
-                        </span>
-                        <div className="text-gray-600 text-sm uppercase tracking-wide font-medium flex flex-col text-left">
-                            <span>Average</span>
-                            <span>Star Rating</span>
+                    <div className="flex flex-col items-center justify-center p-8 flex-1 gap-4">
+                        <Star className="w-12 h-12 text-[#5B6D5B] opacity-80" strokeWidth={1.5} />
+                        <div className="flex items-center gap-4">
+                            <span className="text-6xl md:text-7xl text-[#5B6D5B] font-serif font-bold flex">
+                                <AnimatedNumber value={4.95} float={true} />
+                            </span>
+                            <div className="text-gray-600 text-sm uppercase tracking-wide font-bold flex flex-col text-left">
+                                <span>Average</span>
+                                <span>Star Rating</span>
+                            </div>
                         </div>
                     </div>
 

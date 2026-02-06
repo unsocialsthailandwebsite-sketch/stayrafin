@@ -249,7 +249,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
             </div>
 
 
-        </div>
+        </div >
     );
 }
 

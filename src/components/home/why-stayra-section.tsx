@@ -10,15 +10,15 @@ const features = [
     },
     {
         title: "Homecrafted Hospitality",
-        image: "https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=3270&auto=format&fit=crop", // Warm hospitality / Tea
+        image: "https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?q=80&w=3270&auto=format&fit=crop", // Elegant Dining
     },
     {
         title: "Personalized Experience",
-        image: "https://images.unsplash.com/photo-1571896349842-6e5a513e610a?q=80&w=3270&auto=format&fit=crop", // Celebration / Decoration
+        image: "https://images.unsplash.com/photo-1574744030677-789a770b77b7?q=80&w=3270&auto=format&fit=crop", // Butler Service
     },
     {
         title: "Exclusive Perks",
-        image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=3270&auto=format&fit=crop", // Floating breakfast / Luxury
+        image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=3270&auto=format&fit=crop", // Luxury Pool
     }
 ];
 
