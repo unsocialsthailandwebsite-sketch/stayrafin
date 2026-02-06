@@ -5,9 +5,9 @@ import { ExperienceGrid } from "@/components/home/experience-grid";
 import { StayraExperienceBanner } from "@/components/home/stayra-experience-banner";
 import { BookingBar } from "@/components/home/booking-bar";
 import { TestimonialsSection } from "@/components/home/testimonials-section";
+import { StatsSection } from "@/components/home/stats-section";
+import { WhyStayraSection } from "@/components/home/why-stayra-section";
 import { VideoSection } from "@/components/home/video-section";
-import { InstagramFeed } from "@/components/home/instagram-feed";
-import { WeatherWidget } from "@/components/ui/weather-widget";
 import { client } from "@/sanity/client";
 
 // Revalidate data every 60 seconds
@@ -27,9 +27,9 @@ async function getData() {
     type,
     price,
     "image": mainImage.asset->url,
+    "gallery": gallery[].asset->url,
     specs
   }`;
-
   const [settings, properties] = await Promise.all([
     client.fetch(settingsQuery),
     client.fetch(propertiesQuery)
@@ -56,8 +56,8 @@ export default async function Home() {
       <ExperienceGrid />
       <StayraExperienceBanner />
       <TestimonialsSection />
-      <InstagramFeed />
-      <WeatherWidget />
+      <StatsSection />
+      <WhyStayraSection />
     </main>
   );
 }

@@ -14,7 +14,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ className, variant = "primary", size = "default", ...props }, ref) => {
+    ({ className, variant = "primary", size = "default", asChild = false, ...props }, ref) => {
+        const Comp = asChild ? Slot : "button"
         const variants = {
             primary: "bg-stayra-gold text-white hover:bg-stayra-gold/90 shadow-sm",
             secondary: "bg-stayra-charcoal text-white hover:bg-stayra-charcoal/90",
@@ -30,7 +31,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         };
 
         return (
-            <button
+            <Comp
                 className={cn(
                     "inline-flex items-center justify-center whitespace-nowrap rounded-none text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stayra-gold focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
                     variants[variant],

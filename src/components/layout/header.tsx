@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Search, ChevronDown, ArrowRight } from "lucide-react";
+import { Menu, X, Search, ChevronDown, ArrowRight, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { StayraLogo } from "@/components/ui/stayra-logo";
@@ -15,6 +15,7 @@ const navLinks = [
     { name: "Our Properties", href: "/properties", hasDropdown: true },
     { name: "Partner With Us", href: "/partner-with-us" },
     { name: "Collaborate With Us", href: "/collaborate-with-us" },
+    { name: "Blogs", href: "/blogs" },
     { name: "Contact Us", href: "/contact" },
 ];
 
@@ -63,7 +64,7 @@ export function Header() {
                                 <Link
                                     href={link.href}
                                     className={cn(
-                                        "flex items-center gap-1 text-sm font-medium transition-colors hover:text-stayra-gold uppercase tracking-wide py-4 whitespace-nowrap",
+                                        "flex items-center gap-1 text-sm font-light transition-colors hover:text-stayra-gold capitalize tracking-wide py-4 whitespace-nowrap",
                                         isScrolled ? "text-white/90 hover:text-white" : "text-white/90 hover:text-white"
                                     )}
                                 >
@@ -87,6 +88,9 @@ export function Header() {
                                             >
                                                 The Kukas Villa
                                             </Link>
+                                            <span className="block px-6 py-3 text-sm text-gray-400 font-medium cursor-not-allowed">
+                                                Thailand (Coming Soon)
+                                            </span>
                                         </div>
                                     </div>
                                 )}
@@ -99,13 +103,18 @@ export function Header() {
                         {/* Search Icon */}
 
 
+                        {/* Call Icon */}
+                        <a href="tel:+917340031394" className={cn("transition-colors hover:text-stayra-gold", isScrolled ? "text-stayra-green" : "text-white")}>
+                            <Phone className="w-5 h-5" />
+                        </a>
+
                         {/* Book Your Stay Button - White Pill */}
                         <a href="https://wa.me/917340031394?text=Hi%2C%20I%20am%20interested%20in%20booking%20a%20stay" target="_blank" rel="noopener noreferrer">
                             <Button
                                 variant="primary"
-                                size="lg"
+                                size="default"
                                 className={cn(
-                                    "bg-white text-stayra-green hover:bg-gray-100 rounded-full px-6 py-2 uppercase text-xs tracking-widest font-bold flex items-center gap-2"
+                                    "bg-white text-stayra-green hover:bg-gray-100 rounded-full px-4 py-1.5 uppercase text-xs tracking-widest font-bold flex items-center gap-2"
                                 )}
                             >
                                 Book Your Stay

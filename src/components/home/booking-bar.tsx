@@ -26,6 +26,11 @@ export function BookingBar() {
             return;
         }
 
+        if (new Date(arrival) >= new Date(departure)) {
+            alert("Departure date must be after arrival date");
+            return;
+        }
+
         const propertyName = PROPERTIES.find(p => p.id === property)?.name || "Stayra Property";
         const message = `Hi, I am interested in booking *${propertyName}*.\n\n*Dates:* ${arrival} to ${departure}\n*Guests:* ${guests}\n\nPlease let me know the availability and pricing.`;
 
@@ -67,6 +72,7 @@ export function BookingBar() {
                         <Calendar className="w-5 h-5 text-stayra-gold" />
                         <input
                             type="date"
+                            min={new Date().toISOString().split('T')[0]}
                             value={arrival}
                             onChange={(e) => setArrival(e.target.value)}
                             className="font-serif text-lg text-stayra-charcoal bg-transparent border-none outline-none w-full uppercase"
@@ -84,6 +90,7 @@ export function BookingBar() {
                         <input
                             type="date"
                             value={departure}
+                            min={arrival ? new Date(new Date(arrival).getTime() + 86400000).toISOString().split('T')[0] : new Date().toISOString().split('T')[0]}
                             onChange={(e) => setDeparture(e.target.value)}
                             className="font-serif text-lg text-stayra-charcoal bg-transparent border-none outline-none w-full uppercase"
                         />

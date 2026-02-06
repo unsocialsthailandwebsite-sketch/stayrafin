@@ -61,7 +61,7 @@ export function Footer() {
                             {[
                                 { name: 'FAQ', href: '/faq' },
                                 { name: 'Privacy Policy', href: '/privacy-policy' },
-                                { name: 'Terms of Service', href: '#' }
+                                { name: 'Terms of Service', href: '/terms-and-conditions' }
                             ].map((item) => (
                                 <li key={item.name}>
                                     <Link href={item.href} className="text-white/60 hover:text-stayra-gold transition-colors text-sm font-sans">

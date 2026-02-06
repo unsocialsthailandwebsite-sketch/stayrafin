@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { PropertyCard } from "@/components/home/property-card";
 
 const PROPERTIES = [
     {
@@ -10,7 +11,18 @@ const PROPERTIES = [
         title: "Choti Haveli",
         location: "C-Scheme, Jaipur",
         slug: "choti-haveli",
-        image: "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=80&w=3264&auto=format&fit=crop",
+        images: [
+            "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=80&w=3264&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=3270&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=3270&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1600596542815-2a4d9f6facb8?q=80&w=3269&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=3253&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1600607687644-c7171b42498f?q=80&w=3274&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=3174&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=3270&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=3270&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=3270&auto=format&fit=crop"
+        ],
         specs: "4 Bedrooms | Sleeps 8",
         tagline: "HERITAGE LUXURY"
     },
@@ -19,7 +31,21 @@ const PROPERTIES = [
         title: "The Kukas Villa",
         location: "Jaipur Outskirts",
         slug: "the-kukas-villa",
-        image: "/images/kukas/night-view-cover.jpg",
+        images: [
+            "/images/kukas/night-view-cover.jpg",
+            "/images/kukas/exterior-front.jpg",
+            "/images/kukas/garden-wide.jpg",
+            "/images/kukas/bedroom.jpg",
+            "/images/kukas/estate-view.jpg",
+            "/images/kukas/bathroom.jpg",
+            // Duplicating specifically because user requested more images and we might not have 10 unique files for Kukas yet
+            // If we have more in public folder we can use them, but safe to reuse for demo or use unsplash fillers if needed.
+            // I will use Unsplash for the remaining ones to ensure 10 distinct scrollable items.
+            "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=3270&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1575517111839-3a3843ee7f5d?q=80&w=3270&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=3250&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=3270&auto=format&fit=crop"
+        ],
         specs: "3 Bedrooms | Sleeps 6",
         tagline: "MODERN FARMHOUSE"
     }
@@ -36,12 +62,31 @@ export function PropertyGrid({ properties: fetchedProperties }: PropertyGridProp
             id: p._id,
             title: p.title,
             location: p.location,
-            image: p.slug === 'the-kukas-villa'
-                ? "/images/kukas/night-view-cover.jpg"
-                : (p.image || "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=3270&auto=format&fit=crop"),
+            images: (p.gallery && p.gallery.length > 0) ? p.gallery : (p.image ? [p.image, ...[
+                "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=3270&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=3270&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1600596542815-2a4d9f6facb8?q=80&w=3269&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=3253&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1600607687644-c7171b42498f?q=80&w=3274&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=3174&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=3270&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=3270&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=3270&auto=format&fit=crop"
+            ]] : [
+                "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=80&w=3264&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=3270&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=3270&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1600596542815-2a4d9f6facb8?q=80&w=3269&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=3253&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1600607687644-c7171b42498f?q=80&w=3274&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=3174&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=3270&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=3270&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=3270&auto=format&fit=crop"
+            ]),
             slug: p.slug,
             specs: p.specs || "Luxury Villa",
-            tagline: "LUXURY STAY" // Default tagline since not fetched yet
+            tagline: "LUXURY STAY"
         }))
         : PROPERTIES;
 
@@ -57,50 +102,7 @@ export function PropertyGrid({ properties: fetchedProperties }: PropertyGridProp
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
                     {displayProperties.map((property, index) => (
-                        <Link
-                            href={`/properties/${property.slug}`}
-                            key={property.id}
-                            className="group block relative overflow-hidden"
-                        >
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.2 }}
-                                className="group cursor-pointer"
-                            >
-                                {/* Image Container */}
-                                <div className="relative overflow-hidden aspect-[4/3] mb-6 shadow-sm">
-                                    <motion.div
-                                        whileHover={{ scale: 1.05 }}
-                                        transition={{ duration: 0.6, ease: "easeOut" }}
-                                        className="w-full h-full"
-                                    >
-                                        <img
-                                            src={property.image}
-                                            alt={property.title}
-                                            className="w-full h-full object-cover transition-all duration-700 group-hover:brightness-90"
-                                        />
-                                    </motion.div>
-                                </div>
-
-                                {/* Content */}
-                                <div className="text-center md:text-left">
-                                    <p className="font-sans text-xs tracking-[0.2em] text-stayra-gold uppercase mb-2">
-                                        {property.tagline}
-                                    </p>
-                                    <h3 className="font-serif text-3xl text-stayra-charcoal mb-2 group-hover:text-stayra-gold transition-colors">
-                                        {property.title}
-                                    </h3>
-                                    <p className="text-gray-500 font-light mb-4 text-sm">
-                                        {property.location}
-                                    </p>
-                                    <div className="inline-flex items-center text-sm font-medium text-stayra-charcoal group-hover:text-stayra-gold transition-colors">
-                                        View Details <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                                    </div>
-                                </div>
-                            </motion.div>
-                        </Link>
+                        <PropertyCard key={property.id} property={property} index={index} />
                     ))}
                 </div>
             </div>
