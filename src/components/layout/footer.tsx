@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Facebook, Instagram, Youtube } from "lucide-react";
 import { StayraLogo } from "@/components/ui/stayra-logo";
 
 export function Footer() {
@@ -22,14 +22,8 @@ export function Footer() {
                             <a href="https://www.instagram.com/stayra.in/?hl=en" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-stayra-gold transition-colors text-white">
                                 <Instagram className="w-4 h-4" />
                             </a>
-                            <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-stayra-gold transition-colors text-white">
-                                <Twitter className="w-4 h-4" />
-                            </a>
                             <a href="https://www.youtube.com/@Stayraexperience" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-stayra-gold transition-colors text-white">
                                 <Youtube className="w-4 h-4" />
-                            </a>
-                            <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-stayra-gold transition-colors text-white">
-                                <Linkedin className="w-4 h-4" />
                             </a>
                         </div>
                     </div>
