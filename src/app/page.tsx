@@ -1,7 +1,6 @@
 import { HeroSection } from "@/components/home/hero-section";
 import { PhilosophySection } from "@/components/home/philosophy-section";
 import { PropertyGrid } from "@/components/home/property-grid";
-import { ExperienceGrid } from "@/components/home/experience-grid";
 import { StayraExperienceBanner } from "@/components/home/stayra-experience-banner";
 import { BookingBar } from "@/components/home/booking-bar";
 import { TestimonialsSection } from "@/components/home/testimonials-section";
