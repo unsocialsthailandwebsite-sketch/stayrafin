@@ -103,9 +103,10 @@ export function Header() {
                         {/* Search Icon */}
 
 
-                        {/* Call Icon */}
-                        <a href="tel:+917340031394" className={cn("transition-colors hover:text-stayra-gold", isScrolled ? "text-stayra-green" : "text-white")}>
-                            <Phone className="w-5 h-5" />
+                        {/* Call Icon & Number */}
+                        <a href="tel:+917340031394" className={cn("flex items-center gap-2 transition-colors hover:text-stayra-gold font-medium text-sm", isScrolled ? "text-white" : "text-white")}>
+                            <Phone className="w-4 h-4" />
+                            <span>+91 73400 31394</span>
                         </a>
 
                         {/* Book Your Stay Button - White Pill */}
