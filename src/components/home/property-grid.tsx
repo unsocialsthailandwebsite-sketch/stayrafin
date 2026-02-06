@@ -9,7 +9,7 @@ const PROPERTIES = [
     {
         id: "1",
         title: "Choti Haveli",
-        location: "C-Scheme, Jaipur",
+        location: "Emaar Jaipur Greens, Jaipur",
         slug: "choti-haveli",
         images: [
             "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=80&w=3264&auto=format&fit=crop",
@@ -29,23 +29,9 @@ const PROPERTIES = [
     {
         id: "2",
         title: "The Kukas Villa",
-        location: "Jaipur Outskirts",
+        location: "Kukas, Delhi Road",
         slug: "the-kukas-villa",
-        images: [
-            "/images/kukas/night-view-cover.jpg",
-            "/images/kukas/exterior-front.jpg",
-            "/images/kukas/garden-wide.jpg",
-            "/images/kukas/bedroom.jpg",
-            "/images/kukas/estate-view.jpg",
-            "/images/kukas/bathroom.jpg",
-            // Duplicating specifically because user requested more images and we might not have 10 unique files for Kukas yet
-            // If we have more in public folder we can use them, but safe to reuse for demo or use unsplash fillers if needed.
-            // I will use Unsplash for the remaining ones to ensure 10 distinct scrollable items.
-            "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=3270&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1575517111839-3a3843ee7f5d?q=80&w=3270&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=3250&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=3270&auto=format&fit=crop"
-        ],
+        images: ["/images/kukas-villa/cover-home.jpg", ...Array.from({ length: 35 }, (_, i) => `/images/kukas-villa/kukas-${i + 1}.png`)],
         specs: "3 Bedrooms | Sleeps 6",
         tagline: "MODERN FARMHOUSE"
     }
@@ -58,11 +44,9 @@ interface PropertyGridProps {
 export function PropertyGrid({ properties: fetchedProperties }: PropertyGridProps) {
     // Determine which properties to show (Fetched or Mock)
     const displayProperties = fetchedProperties && fetchedProperties.length > 0
-        ? fetchedProperties.map(p => ({
-            id: p._id,
-            title: p.title,
-            location: p.location,
-            images: (p.gallery && p.gallery.length > 0) ? p.gallery : (p.image ? [p.image, ...[
+        ? fetchedProperties.map(p => {
+            const slug = p.slug?.current || p.slug;
+            let images = (p.gallery && p.gallery.length > 0) ? p.gallery : (p.image ? [p.image, ...[
                 "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=3270&auto=format&fit=crop",
                 "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=3270&auto=format&fit=crop",
                 "https://images.unsplash.com/photo-1600596542815-2a4d9f6facb8?q=80&w=3269&auto=format&fit=crop",
@@ -83,11 +67,26 @@ export function PropertyGrid({ properties: fetchedProperties }: PropertyGridProp
                 "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=3270&auto=format&fit=crop",
                 "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=3270&auto=format&fit=crop",
                 "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=3270&auto=format&fit=crop"
-            ]),
-            slug: p.slug,
-            specs: p.specs || "Luxury Villa",
-            tagline: "LUXURY STAY"
-        }))
+            ]);
+
+            if (slug === 'the-kukas-villa') {
+                images = ["/images/kukas-villa/cover-home.jpg", ...Array.from({ length: 35 }, (_, i) => `/images/kukas-villa/kukas-${i + 1}.png`)];
+            }
+
+            let location = p.location;
+            if (slug === 'choti-haveli') location = "Emaar Jaipur Greens, Jaipur";
+            if (slug === 'the-kukas-villa') location = "Kukas, Delhi Road";
+
+            return {
+                id: p._id,
+                title: p.title,
+                location: location,
+                images: images,
+                slug: slug,
+                specs: p.specs || "Luxury Villa",
+                tagline: "LUXURY STAY"
+            };
+        })
         : PROPERTIES;
 
     return (

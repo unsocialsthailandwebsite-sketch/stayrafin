@@ -34,10 +34,10 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
                     muted
                     playsInline
                     className="w-full h-full object-cover"
-                    poster="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop"
+                    poster="/images/kukas-villa/cover-home.jpg"
                 >
-                    {/* Reliable Stock Video: Luxury Interior from Mixkit */}
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-living-room-with-a-fireplace-and-large-windows-4154-large.mp4" type="video/mp4" />
+                    {/* Drone shot of Kukas Villa (Optimized) */}
+                    <source src="/videos/hero-bg-optimized.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
             </motion.div>

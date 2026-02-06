@@ -51,7 +51,7 @@ Enjoy home-cooked Rajasthani meals prepared with fresh, local ingredients.`,
     },
     "the-kukas-villa": {
         title: "The Kukas Villa",
-        location: "Kukas, Jaipur",
+        location: "Kukas, Delhi Road",
         specs: "3 Bedrooms | 27,784 sq ft | Private Pool",
         price: "Price on Request",
         description: `The Kukas Villa by Stayra is a true escape into nature, space, and stillness. Surrounded by the raw beauty of the Aravalli ranges and lush greenery on all sides, the villa offers an atmosphere that’s rare to find — no traffic noise, no city chaos, just calm.
@@ -81,19 +81,12 @@ A fully equipped kitchen is available for your convenience, along with a spaciou
             "42-inch TV in all bedrooms",
             "3 attached bathrooms + 1 common bathroom",
             "Pet-friendly environment",
-            "Secure indoor parking for up to 8 cars",
+            "Score indoor parking for up to 8 cars",
             "Zomato & Swiggy delivery available"
         ],
-        images: [
-            "/images/kukas/night-view-cover.jpg",
-            "/images/kukas/exterior-front.jpg",
-            "/images/kukas/bedroom.jpg",
-            "/images/kukas/garden-wide.jpg",
-            "/images/kukas/estate-view.jpg",
-            "/images/kukas/bathroom.jpg"
-        ],
+        images: Array.from({ length: 35 }, (_, i) => `/images/kukas-villa/kukas-${i + 1}.png`),
         gallerySections: [],
-        mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1525.968032731688!2d75.92215!3d27.05436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dba21e8a1d5c3%3A0x5b3b5b5b5b5b5b5b!2sThe%20Kukas%20Villa!5e0!3m2!1sen!2sin!4v1631234567890!5m2!1sen!2sin"
+        mapUrl: "https://maps.google.com/maps?q=27.0562668,75.936313&z=15&output=embed"
     }
 };
 
@@ -126,10 +119,9 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
 
     // Fallback to MOCK_PROPERTIES if Sanity fails or returns null
     // AND Force override for Choti Haveli to use latest MOCK details instead of outdated Sanity data
-    if (!property || slug === 'choti-haveli') {
+    if (!property || slug === 'choti-haveli' || slug === 'the-kukas-villa') {
         // If property exists but we want to override specific fields, we merge.
-        // But for Choti Haveli, the Mock is the source of truth for now.
-        if (property && slug === 'choti-haveli') {
+        if (property && (slug === 'choti-haveli' || slug === 'the-kukas-villa')) {
             const mock = MOCK_PROPERTIES[slug];
             property = {
                 ...property,
@@ -138,12 +130,12 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                 features: mock.features,
                 description: mock.description,
                 mapUrl: mock.mapUrl,
-                // minimal merge, keep images/gallery from Sanity if available?
-                // User asked "use only images that are on the page of choti haveli" which currently comes from Sanity.
-                // So we MUST PRESERVE property.images and property.gallery if they exist.
-                // The mock has "images" array which is Unsplash. We DON'T want that if Sanity has real images.
-                // So we iterate: keep property.images if valid, else use mock.
             };
+
+            // Override images specifically for Kukas Villa (using local files)
+            if (slug === 'the-kukas-villa') {
+                property.images = mock.images;
+            }
         } else {
             property = MOCK_PROPERTIES[slug];
         }
@@ -172,8 +164,8 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
 
     // Weather Logic: Default to Jaipur, switch to Kukas if location mentions it
     const isKukas = property.location?.toLowerCase().includes("kukas");
-    const weatherLat = isKukas ? 27.0367 : 26.9124;
-    const weatherLng = isKukas ? 75.8753 : 75.7873;
+    const weatherLat = isKukas ? 27.0562 : 26.9124;
+    const weatherLng = isKukas ? 75.9363 : 75.7873;
 
     return (
         <div className="min-h-screen bg-white">
@@ -256,11 +248,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                 />
             </div>
 
-            <WeatherWidget
-                locationName={property.location || "Jaipur"}
-                latitude={weatherLat}
-                longitude={weatherLng}
-            />
+
         </div>
     );
 }
