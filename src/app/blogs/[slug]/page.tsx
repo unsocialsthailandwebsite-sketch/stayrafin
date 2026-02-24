@@ -1,5 +1,3 @@
-export const runtime = "edge"
-
 import { blogPosts } from "@/data/blog-data";
 
 import { notFound } from "next/navigation";
@@ -7,7 +5,14 @@ import { Calendar, User, Tag, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
+export async function generateStaticParams() {
+    return blogPosts.map((post) => ({
+        slug: post.slug,
+    }));
+}
+
 interface BlogPostPageProps {
+
     params: Promise<{
         slug: string;
     }>;

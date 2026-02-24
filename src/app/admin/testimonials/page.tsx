@@ -1,8 +1,7 @@
 "use client"
 
-export const runtime = "edge"
-
 import { useState, useEffect } from "react"
+
 
 import { Star, Trash2, Plus, Loader2 } from "lucide-react"
 import {

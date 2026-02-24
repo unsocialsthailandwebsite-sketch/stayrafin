@@ -1,6 +1,5 @@
-export const runtime = "edge"
-
 export default function AdminDashboard() {
+
 
     return (
         <div>

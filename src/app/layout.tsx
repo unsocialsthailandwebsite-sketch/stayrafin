@@ -40,6 +40,7 @@ export const metadata: Metadata = {
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppWidget } from "@/components/ui/whatsapp-widget";
+import { Providers } from "@/components/providers";
 
 export default function RootLayout({
   children,
@@ -51,12 +52,14 @@ export default function RootLayout({
       <body
         className={`${sora.variable} ${bodoni.variable} antialiased flex flex-col min-h-screen bg-stayra-ivory text-stayra-charcoal font-sans`}
       >
-        <Header />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
-        <WhatsAppWidget />
+        <Providers>
+          <Header />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+          <WhatsAppWidget />
+        </Providers>
       </body>
     </html>
   );

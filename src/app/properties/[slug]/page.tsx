@@ -1,5 +1,3 @@
-export const runtime = "edge"
-
 import { notFound } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
@@ -12,6 +10,13 @@ import { CategorizedGallery } from "@/components/property/categorized-gallery";
 import { ScrollableGallery } from "@/components/property/scrollable-gallery";
 import { StayraExperienceCard } from "@/components/ui/stayra-experience-card";
 import { MapSection } from "@/components/property/map-section";
+
+export async function generateStaticParams() {
+    const slugs = await client.fetch<{ slug: { current: string } }[]>(`*[_type == "property"]{ slug }`);
+    return slugs.map((item) => ({
+        slug: item.slug.current,
+    }));
+}
 
 // Revalidate data every 60 seconds
 export const revalidate = 60;
