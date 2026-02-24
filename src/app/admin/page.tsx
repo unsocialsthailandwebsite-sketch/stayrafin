@@ -1,4 +1,7 @@
+export const runtime = "edge"
+
 export default function AdminDashboard() {
+
     return (
         <div>
             <h2 className="text-3xl font-serif font-bold text-gray-800 mb-8">Overview</h2>

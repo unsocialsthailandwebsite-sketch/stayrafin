@@ -2,6 +2,8 @@ import { NextResponse } from "next/server"
 import { client } from "@/sanity/client"
 import { auth } from "@/auth"
 
+export const runtime = "edge"
+
 export async function POST(req: Request) {
     const session = await auth()
     if (!session) {

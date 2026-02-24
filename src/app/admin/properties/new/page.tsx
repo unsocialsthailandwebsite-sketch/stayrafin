@@ -1,6 +1,9 @@
 "use client"
 
+export const runtime = "edge"
+
 import { useState } from "react"
+
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Loader2, ChevronLeft, Save } from "lucide-react"

@@ -1,6 +1,9 @@
 "use client"
 
+export const runtime = "edge"
+
 import { useState } from "react"
+
 import { signIn } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { Loader2 } from "lucide-react"

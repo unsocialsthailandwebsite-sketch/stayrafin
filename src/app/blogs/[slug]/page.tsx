@@ -1,4 +1,7 @@
+export const runtime = "edge"
+
 import { blogPosts } from "@/data/blog-data";
+
 import { notFound } from "next/navigation";
 import { Calendar, User, Tag, ArrowLeft } from "lucide-react";
 import Link from "next/link";

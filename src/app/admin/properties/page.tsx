@@ -1,4 +1,7 @@
+export const runtime = "edge"
+
 import Link from "next/link"
+
 import { Plus, Pencil, Trash2 } from "lucide-react"
 
 // Mock data until Sanity connection is fully live with data

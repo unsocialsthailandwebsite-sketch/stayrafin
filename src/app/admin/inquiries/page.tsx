@@ -1,6 +1,9 @@
 "use client"
 
+export const runtime = "edge"
+
 import { useEffect, useState } from "react"
+
 import { format } from "date-fns" // You might need to install date-fns or use native Intl
 import { Mail, Phone, Calendar, Loader2 } from "lucide-react"
 

@@ -21,7 +21,7 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
     const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
     return (
-        <section ref={ref} className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+        <section ref={ref} className="relative h-[100dvh] w-full overflow-hidden flex items-center justify-center">
             {/* Background (Parallax) */}
             <motion.div
                 style={{ y }}
@@ -50,16 +50,16 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
                 style={{ opacity }}
                 className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto"
             >
-                <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight drop-shadow-lg">
+                <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight drop-shadow-lg">
                     {heading || "Experience the Art of Living"}
                 </h1>
-                <p className="font-sans text-lg md:text-xl tracking-wide text-white/90 mb-10 max-w-2xl mx-auto drop-shadow-md">
+                <p className="font-sans text-base md:text-xl tracking-wide text-white/90 mb-8 md:mb-10 max-w-2xl mx-auto drop-shadow-md">
                     {subheading || "Jaipur's Premier Luxury Rental Collection"}
                 </p>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                     <Button
                         size="lg"
-                        className="bg-white text-stayra-charcoal hover:bg-gray-100 px-8 py-6 text-sm tracking-[0.2em] font-bold shadow-xl hover:shadow-2xl transition-all"
+                        className="bg-white text-stayra-charcoal hover:bg-gray-100 px-6 py-6 md:px-8 text-xs md:text-sm tracking-[0.2em] font-bold shadow-xl hover:shadow-2xl transition-all"
                         onClick={() => document.getElementById('properties')?.scrollIntoView({ behavior: 'smooth' })}
                     >
                         EXPLORE OUR COLLECTION

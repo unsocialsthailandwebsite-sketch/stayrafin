@@ -39,7 +39,7 @@ export function BookingBar() {
     };
 
     return (
-        <div className="relative z-30 container mx-auto px-4 -mt-12 md:-mt-16 mb-16 lg:mb-24">
+        <div className="relative z-30 container mx-auto px-4 mt-0 md:-mt-16 mb-16 lg:mb-24">
             <div className="bg-white p-6 md:p-8 shadow-xl rounded-none md:rounded-sm flex flex-col lg:flex-row gap-6 items-center justify-between border-t-4 border-stayra-gold">
 
                 {/* Property Selection */}

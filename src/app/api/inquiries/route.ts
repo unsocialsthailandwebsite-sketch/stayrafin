@@ -2,6 +2,8 @@ import { NextResponse } from "next/server"
 import { client } from "@/sanity/client"
 import { auth } from "@/auth"
 
+export const runtime = "edge"
+
 // POST: Public endpoint for submitting inquiries
 export async function POST(req: Request) {
     try {
