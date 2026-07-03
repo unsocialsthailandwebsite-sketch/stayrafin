@@ -27,9 +27,9 @@ export function PropertyGrid({ properties: fetchedProperties }: PropertyGridProp
             const slug = p.slug?.current || p.slug;
             const mock = MOCK_PROPERTIES[slug];
             
-            // If mock has images, use them so all images are scrollable on homepage,
+            // If mock has images (and it is not choti-haveli), use them so all images are scrollable on homepage,
             // fallback to Sanity gallery or single image
-            let images = (mock && mock.images && mock.images.length > 0)
+            let images = (slug !== 'choti-haveli' && mock && mock.images && mock.images.length > 0)
                 ? mock.images
                 : ((p.gallery && p.gallery.length > 0) ? p.gallery : (p.image ? [p.image] : []));
 

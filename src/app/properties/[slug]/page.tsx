@@ -72,8 +72,8 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                 mapUrl: mock.mapUrl,
             };
 
-            // Override images specifically for all mock properties
-            if (mock && mock.images && mock.images.length > 0) {
+            // Override images specifically for all mock properties except choti-haveli
+            if (slug !== 'choti-haveli' && mock && mock.images && mock.images.length > 0) {
                 property.images = mock.images;
             }
         } else {
