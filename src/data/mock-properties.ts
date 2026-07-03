@@ -9,6 +9,7 @@ export const MOCK_PROPERTIES: Record<string, {
     gallerySections: any[];
     mapUrl: string;
     tagline: string;
+    badge?: string;
 }> = {
     "choti-haveli": {
         title: "Choti Haveli",
@@ -126,6 +127,7 @@ Step outside to a manicured lawn (20x20 sq. ft) that can seat up to 50 people, p
         ],
         gallerySections: [],
         mapUrl: "https://maps.google.com/maps?q=27.07375,75.88969&z=15&output=embed",
-        tagline: "LUXURY VILLA"
+        tagline: "LUXURY VILLA",
+        badge: "Most Preferred"
     }
 };

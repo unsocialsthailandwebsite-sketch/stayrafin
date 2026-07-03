@@ -15,6 +15,7 @@ interface PropertyCardProps {
         images: string[];
         specs: string;
         tagline: string;
+        badge?: string;
     };
     index: number;
 }
@@ -45,6 +46,12 @@ export function PropertyCard({ property, index }: PropertyCardProps) {
             className="group block relative"
         >
             <div className="relative overflow-hidden aspect-[4/3] mb-6 shadow-lg rounded-2xl group-hover:shadow-2xl transition-all duration-500 ease-out">
+                {/* Optional Badge */}
+                {property.badge && (
+                    <div className="absolute top-4 left-4 z-30 bg-stayra-gold/90 backdrop-blur-md text-white font-sans text-[10px] tracking-[0.15em] font-bold uppercase px-3 py-1.5 rounded-full shadow-md border border-white/20">
+                        {property.badge}
+                    </div>
+                )}
                 {/* Image Carousel */}
                 <Link href={`/properties/${property.slug}`} className="block w-full h-full relative">
                     <AnimatePresence mode="wait">

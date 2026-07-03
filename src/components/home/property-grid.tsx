@@ -13,7 +13,8 @@ const PROPERTIES = Object.entries(MOCK_PROPERTIES).map(([slug, value], index) =>
     slug: slug,
     images: value.images,
     specs: value.specs,
-    tagline: value.tagline
+    tagline: value.tagline,
+    badge: value.badge
 }));
 
 interface PropertyGridProps {
@@ -36,6 +37,7 @@ export function PropertyGrid({ properties: fetchedProperties }: PropertyGridProp
             let location = (mock && mock.location) ? mock.location : p.location;
             let tagline = (mock && mock.tagline) ? mock.tagline : "LUXURY STAY";
             let specs = p.specs || (mock ? mock.specs : "Luxury Villa");
+            let badge = mock?.badge || p.badge || undefined;
 
             return {
                 id: p._id,
@@ -44,7 +46,8 @@ export function PropertyGrid({ properties: fetchedProperties }: PropertyGridProp
                 images: images,
                 slug: slug,
                 specs: specs,
-                tagline: tagline
+                tagline: tagline,
+                badge: badge
             };
         })
         : PROPERTIES;
