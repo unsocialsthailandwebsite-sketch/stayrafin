@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -10,8 +10,33 @@ interface HeroSectionProps {
     subheading?: string;
 }
 
+const SLIDE_IMAGES = [
+    // Starting with Kankas House twilight facade shot
+    "https://a0.muscache.com/im/pictures/hosting/Hosting-1492613314913436518/original/4f523614-7a53-496a-abd3-08d190cd3147.jpeg",
+    // Choti Haveli exterior
+    "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=80&w=3264&auto=format&fit=crop",
+    // Kankas House living room
+    "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/75712882-d545-4300-b81d-3712673047b6.jpeg",
+    // Choti Haveli luxury room
+    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=3270&auto=format&fit=crop",
+    // Kankas House sprawling green lawn
+    "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/9276b2bf-52b6-43a2-8b40-b617c5347176.jpeg",
+    // Choti Haveli courtyard seating
+    "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=3270&auto=format&fit=crop",
+    // Kankas House top balcony view
+    "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/73653bf7-e972-44a4-9924-d0b47f098280.jpeg",
+    // Choti Haveli corridor view
+    "https://images.unsplash.com/photo-1600596542815-2a4d9f6facb8?q=80&w=3269&auto=format&fit=crop",
+    // Kankas House bedrooms
+    "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/1c2a9fe1-ce5a-4d87-a19e-92096ddd44d6.jpeg",
+    // Choti Haveli lawn night view
+    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=3253&auto=format&fit=crop"
+];
+
 export function HeroSection({ heading, subheading }: HeroSectionProps) {
     const ref = useRef(null);
+    const [currentSlide, setCurrentSlide] = useState(0);
+
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ["start start", "end start"],
@@ -20,26 +45,33 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
     const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
     const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % SLIDE_IMAGES.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
+
     return (
         <section ref={ref} className="relative h-[100dvh] w-full overflow-hidden flex items-center justify-center">
-            {/* Background (Parallax) */}
+            {/* Background (Parallax Slideshow) */}
             <motion.div
                 style={{ y }}
                 className="absolute inset-0 z-0"
             >
-                <div className="absolute inset-0 bg-black/40 z-10" />
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                    poster="/images/kukas-villa/cover-home.jpg"
-                >
-                    {/* Drone shot of Kukas Villa (Optimized) */}
-                    <source src="/videos/hero-bg-optimized.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
+                <div className="absolute inset-0 bg-black/45 z-10" />
+                <AnimatePresence mode="wait">
+                    <motion.img
+                        key={currentSlide}
+                        src={SLIDE_IMAGES[currentSlide]}
+                        alt="Stayra Curated Luxury Living"
+                        initial={{ opacity: 0, scale: 1.05 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 1.5, ease: "easeInOut" }}
+                        className="w-full h-full object-cover"
+                    />
+                </AnimatePresence>
             </motion.div>
 
             {/* Content */}
