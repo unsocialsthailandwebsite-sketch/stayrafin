@@ -13,24 +13,24 @@ interface HeroSectionProps {
 const SLIDE_IMAGES = [
     // Starting with Kankas House twilight facade shot
     "https://a0.muscache.com/im/pictures/hosting/Hosting-1492613314913436518/original/4f523614-7a53-496a-abd3-08d190cd3147.jpeg",
-    // Choti Haveli exterior
-    "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=80&w=3264&auto=format&fit=crop",
+    // Choti Haveli main exterior
+    "https://cdn.sanity.io/images/1tjvajrl/production/e15abc6a1533ef147337803f1e9b45b6bae51980-1280x960.jpg",
     // Kankas House living room
     "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/75712882-d545-4300-b81d-3712673047b6.jpeg",
-    // Choti Haveli luxury room
-    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=3270&auto=format&fit=crop",
+    // Choti Haveli heritage bedroom
+    "https://cdn.sanity.io/images/1tjvajrl/production/4dbb06866de0df7ad6825ef3b32e558185cda76a-1279x960.heif",
     // Kankas House sprawling green lawn
     "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/9276b2bf-52b6-43a2-8b40-b617c5347176.jpeg",
-    // Choti Haveli courtyard seating
-    "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=3270&auto=format&fit=crop",
+    // Choti Haveli courtyard dining
+    "https://cdn.sanity.io/images/1tjvajrl/production/cb2ef8c7eb4ed5f05fbb700ddddb35cc043b1acc-1279x960.jpg",
     // Kankas House top balcony view
     "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/73653bf7-e972-44a4-9924-d0b47f098280.jpeg",
-    // Choti Haveli corridor view
-    "https://images.unsplash.com/photo-1600596542815-2a4d9f6facb8?q=80&w=3269&auto=format&fit=crop",
-    // Kankas House bedrooms
+    // Choti Haveli heritage carvings
+    "https://cdn.sanity.io/images/1tjvajrl/production/a8f8d1dbdbd97b85486018b681a91b9a89c158b6-1279x960.jpg",
+    // Kankas House bedroom
     "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/1c2a9fe1-ce5a-4d87-a19e-92096ddd44d6.jpeg",
-    // Choti Haveli lawn night view
-    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=3253&auto=format&fit=crop"
+    // Choti Haveli outdoor seating twilight
+    "https://cdn.sanity.io/images/1tjvajrl/production/f2a0fd7eb023e7ebf81ce4fca03f86cdcab3f8d8-1280x960.heif"
 ];
 
 export function HeroSection({ heading, subheading }: HeroSectionProps) {
@@ -60,7 +60,7 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
                 className="absolute inset-0 z-0"
             >
                 <div className="absolute inset-0 bg-black/45 z-10" />
-                <AnimatePresence mode="wait">
+                <AnimatePresence>
                     <motion.img
                         key={currentSlide}
                         src={SLIDE_IMAGES[currentSlide]}
@@ -68,8 +68,8 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
                         initial={{ opacity: 0, scale: 1.05 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 1.5, ease: "easeInOut" }}
-                        className="w-full h-full object-cover"
+                        transition={{ duration: 2, ease: "easeInOut" }}
+                        className="absolute inset-0 w-full h-full object-cover"
                     />
                 </AnimatePresence>
             </motion.div>
