@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   title: "Stayra - Curated Luxury Living",
   description: "Experience the art of living with Stayra's curated collection of luxury sanctuaries.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/logo.png",
     apple: "/logo.png",
   },
 };
