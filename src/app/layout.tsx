@@ -35,7 +35,12 @@ const bodoni = Bodoni_Moda({
 export const metadata: Metadata = {
   title: "Stayra - Curated Luxury Living",
   description: "Experience the art of living with Stayra's curated collection of luxury sanctuaries.",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/logo.png",
+  },
 };
+
 
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";

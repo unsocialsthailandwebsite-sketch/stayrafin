@@ -27,13 +27,17 @@ const PROPERTIES = [
         tagline: "HERITAGE LUXURY"
     },
     {
-        id: "2",
-        title: "The Kukas Villa",
-        location: "Kukas, Delhi Road",
-        slug: "the-kukas-villa",
-        images: ["/images/kukas-villa/cover-home.jpg", ...Array.from({ length: 35 }, (_, i) => `/images/kukas-villa/kukas-${i + 1}.png`)],
-        specs: "3 Bedrooms | Sleeps 6",
-        tagline: "MODERN FARMHOUSE"
+        id: "3",
+        title: "Kankas House",
+        location: "Bagwara, Delhi Road, Jaipur",
+        slug: "kankas-house",
+        images: [
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1492613314913436518/original/4f523614-7a53-496a-abd3-08d190cd3147.jpeg",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/75712882-d545-4300-b81d-3712673047b6.jpeg",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/9276b2bf-52b6-43a2-8b40-b617c5347176.jpeg"
+        ],
+        specs: "4 Bedrooms | Sleeps 8",
+        tagline: "LUXURY VILLA"
     }
 ];
 
@@ -43,7 +47,7 @@ interface PropertyGridProps {
 
 export function PropertyGrid({ properties: fetchedProperties }: PropertyGridProps) {
     // Determine which properties to show (Fetched or Mock)
-    const displayProperties = fetchedProperties && fetchedProperties.length > 0
+    let displayProperties = fetchedProperties && fetchedProperties.length > 0
         ? fetchedProperties.map(p => {
             const slug = p.slug?.current || p.slug;
             let images = (p.gallery && p.gallery.length > 0) ? p.gallery : (p.image ? [p.image, ...[
@@ -69,13 +73,21 @@ export function PropertyGrid({ properties: fetchedProperties }: PropertyGridProp
                 "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=3270&auto=format&fit=crop"
             ]);
 
-            if (slug === 'the-kukas-villa') {
-                images = ["/images/kukas-villa/cover-home.jpg", ...Array.from({ length: 35 }, (_, i) => `/images/kukas-villa/kukas-${i + 1}.png`)];
+            if (slug === 'kankas-house') {
+                images = [
+                    "https://a0.muscache.com/im/pictures/hosting/Hosting-1492613314913436518/original/4f523614-7a53-496a-abd3-08d190cd3147.jpeg",
+                    "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/75712882-d545-4300-b81d-3712673047b6.jpeg",
+                    "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/9276b2bf-52b6-43a2-8b40-b617c5347176.jpeg"
+                ];
             }
 
             let location = p.location;
             if (slug === 'choti-haveli') location = "Emaar Jaipur Greens, Jaipur";
-            if (slug === 'the-kukas-villa') location = "Kukas, Delhi Road";
+            if (slug === 'kankas-house') location = "Bagwara, Delhi Road, Jaipur";
+
+            let tagline = "LUXURY STAY";
+            if (slug === 'choti-haveli') tagline = "HERITAGE LUXURY";
+            if (slug === 'kankas-house') tagline = "LUXURY VILLA";
 
             return {
                 id: p._id,
@@ -84,10 +96,21 @@ export function PropertyGrid({ properties: fetchedProperties }: PropertyGridProp
                 images: images,
                 slug: slug,
                 specs: p.specs || "Luxury Villa",
-                tagline: "LUXURY STAY"
+                tagline: tagline
             };
         })
         : PROPERTIES;
+
+    // Force remove the-kukas-villa and make sure kankas-house is appended
+    displayProperties = displayProperties.filter(p => p.slug !== 'the-kukas-villa');
+
+    const hasKankas = displayProperties.some(p => p.slug === 'kankas-house');
+    if (!hasKankas) {
+        const kankasFallback = PROPERTIES.find(p => p.slug === 'kankas-house');
+        if (kankasFallback) {
+            displayProperties.push(kankasFallback);
+        }
+    }
 
     return (
         <section className="py-24 bg-stayra-ivory" id="properties">

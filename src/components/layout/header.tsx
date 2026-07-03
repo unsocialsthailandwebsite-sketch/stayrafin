@@ -83,10 +83,10 @@ export function Header() {
                                                 Choti Haveli
                                             </Link>
                                             <Link
-                                                href="/properties/the-kukas-villa"
+                                                href="/properties/kankas-house"
                                                 className="block px-6 py-3 text-sm text-stayra-charcoal hover:bg-gray-50 hover:text-stayra-gold transition-colors font-medium"
                                             >
-                                                The Kukas Villa
+                                                Kankas House
                                             </Link>
                                             <span className="block px-6 py-3 text-sm text-gray-400 font-medium cursor-not-allowed">
                                                 Thailand (Coming Soon)

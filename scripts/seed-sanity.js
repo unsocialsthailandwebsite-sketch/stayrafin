@@ -52,80 +52,51 @@ PRIVATE GARDEN
 where luxury meets nature in perfect harmony. At dusk, twinkling fairy lights come to life. Casting a magical glow over the haveli and the garden, creating an enchanting atmosphere for evening gatherings. Whether it's an intimate dinner under the stars or a romantic rendezvous amidst the blooms, our private garden sets the stage for unforgettable moments and cherished memories.`,
         features: ["Heritage Decor", "City Center", "Rooftop Terrace", "Traditional Breakfast", "Concierge"]
     },
-    "the-kukas-villa": {
-        title: "The Kukas Villa",
-        location: "Khora Mina Gaon, near Kukas, Jaipur",
-        specs: "3 Bedrooms | Sleeps 12-15",
-        price: '₹55,000 / night',
-        type: 'modern',
-        gallerySections: [
-            {
-                title: "Room by the Garden (Ground Floor)",
-                images: (function () {
-                    const dir = "C:/Users/korja/Downloads/ROOM 01-20260129T150755Z-3-001/ROOM 01_OPT";
-                    try { return fs.readdirSync(dir).filter(f => /\.(jpg|jpeg|png|avif|webp)$/i.test(f)).map(f => path.join(dir, f)); } catch (e) { return []; }
-                })()
-            },
-            {
-                title: "Aravalli View Room (First Floor)",
-                images: (function () {
-                    const dir = "C:/Users/korja/Downloads/ROOM 02-20260129T150803Z-3-001/ROOM 02_OPT";
-                    try { return fs.readdirSync(dir).filter(f => /\.(jpg|jpeg|png|avif|webp)$/i.test(f)).map(f => path.join(dir, f)); } catch (e) { return []; }
-                })()
-            },
-            {
-                title: "Sunset View Room (First Floor)",
-                images: (function () {
-                    const dir = "C:/Users/korja/Downloads/ROOM 03-20260129T150806Z-3-001/ROOM 03_OPT";
-                    try { return fs.readdirSync(dir).filter(f => /\.(jpg|jpeg|png|avif|webp)$/i.test(f)).map(f => path.join(dir, f)); } catch (e) { return []; }
-                })()
-            },
-            {
-                title: "Amenities & Common Areas",
-                images: (function () {
-                    const dirs = [
-                        "C:/Users/korja/Downloads/FACADE-20260129T150821Z-3-001/FACADE_OPT",
-                        "C:/Users/korja/Downloads/GARDEN-20260129T150819Z-3-001/GARDEN_OPT",
-                        "C:/Users/korja/Downloads/HALL-20260129T150811Z-3-001/HALL_OPT"
-                    ];
-                    let allImages = [];
-                    dirs.forEach(dir => {
-                        try {
-                            const files = fs.readdirSync(dir).filter(f => /\.(jpg|jpeg|png|avif|webp)$/i.test(f)).map(f => path.join(dir, f));
-                            allImages = allImages.concat(files);
-                        } catch (e) { console.error(`Error reading ${dir}:`, e.message); }
-                    });
-                    return allImages;
-                })()
-            }
+    "kankas-house": {
+        title: "Kankas House",
+        location: "Bagwara, Delhi Road, Jaipur",
+        specs: "4 Bedrooms | Sleeps 8",
+        price: 'Price on Request',
+        type: 'villa',
+        images: [
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1492613314913436518/original/4f523614-7a53-496a-abd3-08d190cd3147.jpeg",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/75712882-d545-4300-b81d-3712673047b6.jpeg",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/9276b2bf-52b6-43a2-8b40-b617c5347176.jpeg",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/73653bf7-e972-44a4-9924-d0b47f098280.jpeg",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/1c2a9fe1-ce5a-4d87-a19e-92096ddd44d6.jpeg"
         ],
-        // Luxury Listing Version (Short & Premium)
-        description: `The Kukas Villa is a private luxury retreat nestled in the Aravalli hills near Kukas, Jaipur. Surrounded by scenic landscapes and open greenery, this two-floor villa offers three air-conditioned bedrooms with attached washrooms, a private 5-ft swimming pool, a fully equipped kitchen, and a personal caretaker.
+        description: `Nestled amidst the quiet embrace of Jaipur's forested hills, Kankas House is a sanctuary where nature's calm meets timeless elegance. The villa welcomes you with earthy interiors that radiate elemental charm, combining warmth and grandeur in every detail. Designed for both relaxation and togetherness, this retreat unfolds into open lawns and picturesque sit-outs, inviting guests to pause, breathe, and admire the surrounding views.
 
-The villa features a sprawling garden ideal for intimate celebrations, sangeet ceremonies, cocktail parties, and private events for up to 150 guests, while comfortably hosting farm stays for 12–15 people. With ample parking, serene hill views, and complete privacy, The Kukas Villa is perfect for both relaxed getaways and elegant celebrations.
+At its heart lies a private pool, perfect for leisurely swims or basking afternoons under the soft Rajasthani sun. As dusk descends, the ambience transforms—crackling bonfires and aromatic barbecue evenings create the ideal setting to bond with loved ones beneath a starlit sky. Indoors, a thoughtful selection of board and indoor games ensures that joy and laughter never fade, no matter the hour. Whether seeking solitude, shared moments, or simply a deeper connection with nature, Kankas House promises a stay that feels both luxurious and soulfully grounding.
 
-Wake up to the Aravallis. Celebrate under open skies. Stay in effortless luxury.
+The space
+Kankas House stands out as one of the top villas in Jaipur due to its serene, secluded location amidst forest and hill views, earthy interiors with elemental grandeur, private pool to relax and unwind, manicured lawn with picturesque sit-outs, and barbecue/bonfire services to bond with loved ones.
 
-Detailed Property Description
-Hidden amidst the tranquil landscapes of Khora Mina Gaon, near Kukas, Jaipur, The Kukas Villa is a refined private retreat set against the timeless beauty of the Aravalli hills. Designed for guests who value space, privacy, and scenic luxury, this two-floor villa offers a seamless blend of nature, comfort, and celebration-ready elegance.
+BEDROOMS
+The villa features 4 spacious, well-furnished bedrooms (2 on the ground floor, 2 on the first floor). Each bedroom is equipped with AC, TV, Wi-Fi, and single mattress, complete with ensuite bathrooms and attached balconies.
 
-Surrounded by rolling hills and open skies, the property opens into a vast, lush green garden—a versatile outdoor space that can comfortably accommodate up to 200 people. From quiet morning walks on dew-kissed grass to grand evening celebrations under the stars, the garden transforms effortlessly to suit every mood and occasion.
+BATHROOMS
+There are 4 attached bathrooms and 1 common bathroom. All bathrooms feature geysers, towels, and basic toiletries. One of the bathrooms also features a bathtub.
 
-Accommodation
-The Kukas Villa features three spacious, air-conditioned bedrooms, each with attached washrooms and geysers.
-- Room by the Garden (Ground Floor)
-- Aravalli View Room (First Floor)
-- Sunset View Room (First Floor)`,
+LIVING ROOM & DINING AREA
+There is 1 living room. Include AC, TV, Wi-Fi, a sound system, a game console, and a CCTV. Comes with a dining area.
+
+LAWN & POOL
+There is a manicured lawn (20x20 sq. ft) that can seat up to 50 people, and a private outdoor pool (10 ft x 20 ft, depth 4.5 ft).`,
         features: [
-            "Private 5-ft Swimming Pool",
-            "Expansive Landscaped Garden (Events up to 150-200 pax)",
-            "Fully Functional Kitchen",
-            "Personal Caretaker On-site",
-            "Air-conditioned Rooms",
-            "Ample Parking Space",
-            "Sangeet & Cocktail Party Venue",
-            "Farm Stay (12-15 guests)",
-            "Aravalli Hill Views"
+            "Secluded location amidst forest & hill views",
+            "Earthy interiors with elemental grandeur",
+            "Private outdoor swimming pool (10ft x 20ft)",
+            "Manicured lawn & open garden sit-out space",
+            "Outdoor BBQ & bonfire setup",
+            "4 spacious bedrooms with attached balconies",
+            "4 ensuite bathrooms + 1 common bathroom",
+            "Bathtub in bathroom",
+            "Air conditioning & TV in all rooms",
+            "High-speed WiFi & Sound system",
+            "Indoor & board games (with game console)",
+            "Daily housekeeping & toiletries",
+            "On-site parking available"
         ]
     }
 };

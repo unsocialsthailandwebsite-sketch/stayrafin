@@ -6,8 +6,8 @@ import { Calendar, Users, ChevronDown, Home } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const PROPERTIES = [
-    { id: "the-kukas-villa", name: "The Kukas Villa" },
     { id: "choti-haveli", name: "Choti Haveli" },
+    { id: "kankas-house", name: "Kankas House" },
 ];
 
 export function BookingBar() {
