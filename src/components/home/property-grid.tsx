@@ -4,42 +4,17 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { PropertyCard } from "@/components/home/property-card";
+import { MOCK_PROPERTIES } from "@/data/mock-properties";
 
-const PROPERTIES = [
-    {
-        id: "1",
-        title: "Choti Haveli",
-        location: "Emaar Jaipur Greens, Jaipur",
-        slug: "choti-haveli",
-        images: [
-            "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=80&w=3264&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=3270&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=3270&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1600596542815-2a4d9f6facb8?q=80&w=3269&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=3253&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1600607687644-c7171b42498f?q=80&w=3274&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=3174&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=3270&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=3270&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=3270&auto=format&fit=crop"
-        ],
-        specs: "4 Bedrooms | Sleeps 8",
-        tagline: "HERITAGE LUXURY"
-    },
-    {
-        id: "3",
-        title: "Kankas House",
-        location: "Bagwara, Delhi Road, Jaipur",
-        slug: "kankas-house",
-        images: [
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-1492613314913436518/original/4f523614-7a53-496a-abd3-08d190cd3147.jpeg",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/75712882-d545-4300-b81d-3712673047b6.jpeg",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/9276b2bf-52b6-43a2-8b40-b617c5347176.jpeg"
-        ],
-        specs: "4 Bedrooms | Sleeps 8",
-        tagline: "LUXURY VILLA"
-    }
-];
+const PROPERTIES = Object.entries(MOCK_PROPERTIES).map(([slug, value], index) => ({
+    id: String(index + 1),
+    title: value.title,
+    location: value.location,
+    slug: slug,
+    images: value.images,
+    specs: value.specs,
+    tagline: value.tagline
+}));
 
 interface PropertyGridProps {
     properties?: any[]; // Using any for MVP flexibility
@@ -50,44 +25,17 @@ export function PropertyGrid({ properties: fetchedProperties }: PropertyGridProp
     let displayProperties = fetchedProperties && fetchedProperties.length > 0
         ? fetchedProperties.map(p => {
             const slug = p.slug?.current || p.slug;
-            let images = (p.gallery && p.gallery.length > 0) ? p.gallery : (p.image ? [p.image, ...[
-                "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=3270&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=3270&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1600596542815-2a4d9f6facb8?q=80&w=3269&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=3253&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1600607687644-c7171b42498f?q=80&w=3274&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=3174&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=3270&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=3270&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=3270&auto=format&fit=crop"
-            ]] : [
-                "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=80&w=3264&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=3270&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=3270&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1600596542815-2a4d9f6facb8?q=80&w=3269&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=3253&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1600607687644-c7171b42498f?q=80&w=3274&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=3174&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=3270&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=3270&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=3270&auto=format&fit=crop"
-            ]);
+            const mock = MOCK_PROPERTIES[slug];
+            
+            // If mock has images, use them so all images are scrollable on homepage,
+            // fallback to Sanity gallery or single image
+            let images = (mock && mock.images && mock.images.length > 0)
+                ? mock.images
+                : ((p.gallery && p.gallery.length > 0) ? p.gallery : (p.image ? [p.image] : []));
 
-            if (slug === 'kankas-house') {
-                images = [
-                    "https://a0.muscache.com/im/pictures/hosting/Hosting-1492613314913436518/original/4f523614-7a53-496a-abd3-08d190cd3147.jpeg",
-                    "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/75712882-d545-4300-b81d-3712673047b6.jpeg",
-                    "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/9276b2bf-52b6-43a2-8b40-b617c5347176.jpeg"
-                ];
-            }
-
-            let location = p.location;
-            if (slug === 'choti-haveli') location = "Emaar Jaipur Greens, Jaipur";
-            if (slug === 'kankas-house') location = "Bagwara, Delhi Road, Jaipur";
-
-            let tagline = "LUXURY STAY";
-            if (slug === 'choti-haveli') tagline = "HERITAGE LUXURY";
-            if (slug === 'kankas-house') tagline = "LUXURY VILLA";
+            let location = (mock && mock.location) ? mock.location : p.location;
+            let tagline = (mock && mock.tagline) ? mock.tagline : "LUXURY STAY";
+            let specs = p.specs || (mock ? mock.specs : "Luxury Villa");
 
             return {
                 id: p._id,
@@ -95,7 +43,7 @@ export function PropertyGrid({ properties: fetchedProperties }: PropertyGridProp
                 location: location,
                 images: images,
                 slug: slug,
-                specs: p.specs || "Luxury Villa",
+                specs: specs,
                 tagline: tagline
             };
         })
