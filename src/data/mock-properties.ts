@@ -10,6 +10,13 @@ export const MOCK_PROPERTIES: Record<string, {
     mapUrl: string;
     tagline: string;
     badge?: string;
+    reviews?: {
+        name: string;
+        location: string;
+        rating: number;
+        text: string;
+        date: string;
+    }[];
 }> = {
     "choti-haveli": {
         title: "Choti Haveli",
@@ -52,7 +59,23 @@ Enjoy home-cooked Rajasthani meals prepared with fresh, local ingredients.`,
         ],
         gallerySections: [],
         mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14234.67794364024!2d75.6322!3d26.7909!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4b001a96d0f7%3A0xca04df41d0abd1ff!2sEmaar%20Jaipur%20Greens!5e0!3m2!1sen!2sin",
-        tagline: "HERITAGE LUXURY"
+        tagline: "HERITAGE LUXURY",
+        reviews: [
+            {
+                name: "Rahul Sharma",
+                location: "New Delhi",
+                rating: 5,
+                text: "A beautiful slice of Rajasthani heritage combined with modern, clean comforts. We loved spending our evenings on the rooftop terrace.",
+                date: "May 2026"
+            },
+            {
+                name: "Preeti Goyal",
+                location: "Jaipur",
+                rating: 5,
+                text: "Absolutely stunning property. The local food prepared by the house chef was delicious, and the service was top-notch.",
+                date: "June 2026"
+            }
+        ]
     },
     "kankas-house": {
         title: "Kankas House",
@@ -129,6 +152,43 @@ Step outside to a manicured lawn (20x20 sq. ft) that can seat up to 50 people, p
         gallerySections: [],
         mapUrl: "https://maps.google.com/maps?q=27.07375,75.88969&z=15&output=embed",
         tagline: "LUXURY VILLA",
-        badge: "Most Preferred"
+        badge: "Most Preferred",
+        reviews: [
+            {
+                name: "Rahul Sharma",
+                location: "New Delhi",
+                rating: 5,
+                text: "Beautiful property nestled in the hills. The private pool and bonfire setup were perfect for our weekend getaway. The caretaker was extremely polite and helpful.",
+                date: "June 2026"
+            },
+            {
+                name: "Priya Gupta",
+                location: "Jaipur",
+                rating: 5,
+                text: "An absolute gem of a place close to Jaipur. Waking up to the serene forest view was amazing. Highly recommend Kankas House for anyone wanting tranquility.",
+                date: "June 2026"
+            },
+            {
+                name: "Amit Verma",
+                location: "New Delhi",
+                rating: 5,
+                text: "The architecture and earthy interiors are stunning. Sprawling lawns and delicious meals. Great for family outings and celebrations.",
+                date: "May 2026"
+            },
+            {
+                name: "Sanjay Singh",
+                location: "Jaipur",
+                rating: 5,
+                text: "Peaceful atmosphere away from the city noise. Excellent pool maintenance. We had an incredible time with board games, bonfire and barbecue.",
+                date: "June 2026"
+            },
+            {
+                name: "Neha Joshi",
+                location: "New Delhi",
+                rating: 5,
+                text: "Extremely spacious rooms with beautiful balconies. The bathtubs are a great touch of luxury. Excellent hospitality, will visit again next winter.",
+                date: "April 2026"
+            }
+        ]
     }
 };

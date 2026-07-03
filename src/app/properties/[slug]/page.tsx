@@ -12,6 +12,7 @@ import { StayraExperienceCard } from "@/components/ui/stayra-experience-card";
 import { MapSection } from "@/components/property/map-section";
 import { MobilePropertyCTA } from "@/components/property/mobile-property-cta";
 import { MOCK_PROPERTIES } from "@/data/mock-properties";
+import { PropertyReviews } from "@/components/property/property-reviews";
 
 export async function generateStaticParams() {
     try {
@@ -90,6 +91,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
     const gallerySections = property.gallerySections || [];
     const whatsapp = property.whatsapp || "917340031394";
     const phone = property.phone || "+91 73400 31394";
+    const reviews = MOCK_PROPERTIES[slug]?.reviews || [];
 
     // Filter out unwanted amenities (Temporary fix as requested by user)
     const unwantedFeatures = [
@@ -155,6 +157,9 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                     </div>
                 </div>
             </div>
+
+            {/* Guest Reviews Section */}
+            <PropertyReviews reviews={reviews} />
 
             {/* Categorized Gallery REMOVED as per request */}
 
