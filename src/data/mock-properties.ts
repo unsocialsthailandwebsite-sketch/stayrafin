@@ -16,6 +16,7 @@ export const MOCK_PROPERTIES: Record<string, {
         location: "Emaar Green, Ajmer Road",
         specs: "4 Bedrooms | Sleeps 8",
         price: "Price on Request",
+        badge: "Couple's Favourite",
         description: `Choti Haveli is a restored heritage home. Experience the charm of traditional Rajasthani architecture combined with modern luxury. Located in Emaar Green, Ajmer Road, it offers a peaceful retreat while being accessible to the city.
 
 <strong>The Space</strong>
