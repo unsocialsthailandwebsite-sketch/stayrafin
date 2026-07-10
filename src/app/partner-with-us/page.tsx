@@ -3,7 +3,7 @@ import { Check, ArrowRight, Building, ShieldCheck, TrendingUp, Users } from "luc
 import { Button } from "@/components/ui/button";
 
 export const metadata = {
-    title: "Partner With Us | Stayra",
+    title: "Partner With Us — List Your Luxury Property",
     description: "Unlock the true potential of your property with Stayra.",
 };
 
