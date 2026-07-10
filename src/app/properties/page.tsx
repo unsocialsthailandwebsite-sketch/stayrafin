@@ -2,8 +2,9 @@ import { PropertyGrid } from "@/components/home/property-grid";
 import { client } from "@/sanity/client";
 
 export const metadata = {
-    title: "Our Collection - Stayra Luxury Rentals",
-    description: "Explore our curated collection of luxury villas in Jaipur.",
+    title: "Villas in Jaipur — Private Pool & Heritage Homes",
+    description:
+        "Explore Stayra's handpicked Jaipur villas: Choti Haveli, a restored heritage home on Ajmer Road, and Kankas House, a 4BHK private pool villa on Delhi Road.",
 };
 
 // Revalidate every 60s
