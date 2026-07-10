@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "FAQ — Booking, Check-in & Amenities",
+    description:
+        "Answers to common questions about booking Stayra villas in Jaipur: reservations, payment, check-in, meals and cancellations.",
+    alternates: { canonical: "/faq" },
+};
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
