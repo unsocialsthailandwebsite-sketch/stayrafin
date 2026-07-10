@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 
 import { Button } from "@/components/ui/button";
 import { HeroGallery } from "@/components/property/hero-gallery";
@@ -13,6 +14,7 @@ import { MapSection } from "@/components/property/map-section";
 import { MobilePropertyCTA } from "@/components/property/mobile-property-cta";
 import { MOCK_PROPERTIES } from "@/data/mock-properties";
 import { PropertyReviews } from "@/components/property/property-reviews";
+import { PropertySchema } from "@/components/seo/structured-data";
 
 export async function generateStaticParams() {
     try {
@@ -30,6 +32,43 @@ export async function generateStaticParams() {
 
 // Revalidate data every 60 seconds
 export const revalidate = 60;
+
+const SEO_TITLES: Record<string, string> = {
+    "choti-haveli": "Choti Haveli — Heritage Haveli Stay on Ajmer Road, Jaipur",
+    "kankas-house": "Kankas House — 4BHK Private Pool Villa, Delhi Road Jaipur",
+};
+
+const SEO_DESCRIPTIONS: Record<string, string> = {
+    "choti-haveli":
+        "Stay in a restored Rajasthani haveli at Emaar Green, Ajmer Road. Rooftop terrace, home-cooked Rajasthani meals, housekeeping and concierge. Book direct.",
+    "kankas-house":
+        "Secluded 4-bedroom villa in Jaipur's forested hills: private pool, lawns, BBQ & bonfire, ensuite baths. Direct booking, no hidden fees.",
+};
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+    const { slug } = await params;
+    const property = (await getProperty(slug)) || MOCK_PROPERTIES[slug];
+    if (!property) return {};
+
+    const title = SEO_TITLES[slug] ?? `${property.title} — Luxury Villa in Jaipur`;
+    const description =
+        SEO_DESCRIPTIONS[slug] ??
+        (typeof property.description === "string" && property.description
+            ? property.description.slice(0, 158)
+            : "A curated Stayra luxury stay in Jaipur. Private chef, concierge and direct booking on WhatsApp.");
+    const firstImage = property.images?.[0];
+
+    return {
+        title,
+        description,
+        alternates: { canonical: `/properties/${slug}` },
+        openGraph: {
+            title,
+            description,
+            ...(firstImage ? { images: [firstImage] } : {}),
+        },
+    };
+}
 
 async function getProperty(slug: string) {
     const query = `*[_type == "property" && slug.current == $slug][0]{
@@ -111,6 +150,13 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
 
     return (
         <div className="min-h-screen bg-white">
+            <PropertySchema
+                name={property.title}
+                slug={slug}
+                description={typeof property.description === "string" ? property.description : undefined}
+                images={images}
+                amenities={property.features || []}
+            />
             {/* Hero Gallery */}
             <HeroGallery images={images} />
 
