@@ -3,7 +3,7 @@ import { Camera, Heart, Lightbulb, Mail, MessageCircle, Star } from "lucide-reac
 import { Button } from "@/components/ui/button";
 
 export const metadata = {
-    title: "Collaborate With Us | Stayra",
+    title: "Collaborate With Us — Shoots, Events & Creators",
     description: "Join the Stayra community of creators and tastemakers.",
 };
 
