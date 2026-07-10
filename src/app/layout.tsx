@@ -33,8 +33,19 @@ const bodoni = Bodoni_Moda({
 });
 
 export const metadata: Metadata = {
-  title: "Stayra - Curated Luxury Living",
-  description: "Experience the art of living with Stayra's curated collection of luxury sanctuaries.",
+  metadataBase: new URL("https://stayra.co"),
+  title: {
+    default: "Luxury Villas & Heritage Stays in Jaipur | Stayra",
+    template: "%s | Stayra",
+  },
+  description:
+    "Book private pool villas and restored heritage havelis in Jaipur. Private chef, concierge and direct booking on WhatsApp — no hidden fees.",
+  openGraph: {
+    siteName: "Stayra",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: { card: "summary_large_image" },
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
@@ -46,6 +57,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppWidget } from "@/components/ui/whatsapp-widget";
 import { Providers } from "@/components/providers";
+import { OrganizationSchema } from "@/components/seo/structured-data";
 
 export default function RootLayout({
   children,
@@ -57,6 +69,7 @@ export default function RootLayout({
       <body
         className={`${sora.variable} ${bodoni.variable} antialiased flex flex-col min-h-screen bg-stayra-ivory text-stayra-charcoal font-sans`}
       >
+        <OrganizationSchema />
         <Providers>
           <Header />
           <main className="min-h-screen">

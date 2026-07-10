@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Luxury Villas & Heritage Stays in Jaipur",
+    description:
+        "Jaipur's curated collection of private luxury rentals — pool villas and heritage havelis with chef, concierge and airport transfers. Book direct on WhatsApp.",
+    alternates: { canonical: "/" },
+};
+
 import { HeroSection } from "@/components/home/hero-section";
 import { PhilosophySection } from "@/components/home/philosophy-section";
 import { PropertyGrid } from "@/components/home/property-grid";
