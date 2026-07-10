@@ -4,7 +4,7 @@ import { ArrowRight, Calendar, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const metadata = {
-    title: "Stayra Blogs | Travel Stories & Tips",
+    title: "Jaipur Travel Guides, Stories & Tips",
     description: "Read our latest stories about Jaipur, travel tips, farm stays, and heritage experiences.",
 };
 
