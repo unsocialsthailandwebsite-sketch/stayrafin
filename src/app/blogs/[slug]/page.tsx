@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
     }
 
     return {
-        title: `${post.title} | Stayra Blogs`,
+        title: post.title,
         description: post.excerpt,
     };
 }
