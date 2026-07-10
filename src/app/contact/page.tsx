@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+    title: "Contact Stayra — Book Your Jaipur Villa Stay",
+    description:
+        "Reach our concierge on WhatsApp or phone (+91 73400 31394) to check availability, plan your stay or ask anything. Typical response under 2 hours.",
+    alternates: { canonical: "/contact" },
+};
 
 export default function ContactPage() {
     return (
