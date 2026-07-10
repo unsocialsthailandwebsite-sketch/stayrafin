@@ -12,6 +12,40 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        id: "7",
+        slug: "villa-vs-hotel-jaipur",
+        title: "Villa vs Hotel in Jaipur: Why Smart Travellers Are Booking Private Villas",
+        excerpt: "Comparing a private villa with a hotel for your Jaipur trip? Here's an honest look at cost, privacy, food and space — and why groups and families increasingly choose villas.",
+        content: `
+            <p>Planning a trip to the Pink City and torn between a hotel room and a private villa? You're not alone. Over the last few years, travellers to Jaipur — especially families, friend groups and couples celebrating something special — have been quietly switching from hotels to private villa stays. Here's an honest comparison to help you decide.</p>
+
+            <h2>Space: A Room vs A Whole Home</h2>
+            <p>A typical luxury hotel room in Jaipur gives you 300–400 square feet. A private villa gives you the entire property: multiple bedrooms, living spaces, lawns, terraces and often a private pool. At <a href="/properties/kankas-house">Kankas House</a>, for example, four bedrooms with attached balconies open onto manicured lawns and a 10x20 ft private pool set against Jaipur's forested hills — space no hotel suite can match.</p>
+
+            <h2>Privacy: Shared Corridors vs Your Own Gates</h2>
+            <p>Hotels are shared spaces — lobbies, pools, restaurants and corridors full of strangers. A villa is yours alone. Swim at midnight, host a bonfire, play music on the lawn, celebrate an anniversary on a rooftop terrace. There's no one to disturb and no one disturbing you. It's the reason villas have become the default choice for birthdays, small celebrations and family reunions in Jaipur.</p>
+
+            <h2>Food: Menus vs Your Own Chef</h2>
+            <p>Room service ends; a house chef doesn't. Villa stays like ours include home-cooked meals prepared fresh in the villa kitchen — authentic Rajasthani dishes made to your taste and schedule. Guests at <a href="/properties/choti-haveli">Choti Haveli</a> consistently tell us the home-cooked local food is the highlight of their stay.</p>
+
+            <h2>Cost: The Math Favours Groups</h2>
+            <p>Here's where it gets interesting. Four hotel rooms at a five-star property in Jaipur can easily cost ₹40,000–60,000 a night. A full luxury villa that sleeps eight often costs less than half of that — with more space, a private pool and a chef included. For groups of four or more, a villa isn't the indulgent option; it's the sensible one.</p>
+
+            <h2>Character: Standard Rooms vs Heritage Homes</h2>
+            <p>Jaipur's charm is its architecture and heritage. Chain hotels look the same in every city. A restored haveli or a designer villa is part of the experience itself — traditional Rajasthani architecture, earthy interiors, rooftop sunsets over the Aravallis. You don't just stay near the culture; you stay in it.</p>
+
+            <h2>When a Hotel Still Makes Sense</h2>
+            <p>To be fair: if you're a solo business traveller staying one night near the airport, a hotel is simpler. Villas shine for stays of two nights or more, groups of three or more, and any trip where the stay itself is part of the celebration.</p>
+
+            <h2>Booking Direct: The Final Advantage</h2>
+            <p>Booking a villa directly with the host — rather than through an aggregator — usually means better rates (no commission built in), direct WhatsApp contact with the team on the ground, and stays tailored to your plans: airport transfers, curated local experiences, celebration setups. That's exactly how we run things at Stayra. Browse <a href="/properties">our Jaipur villas</a> or message our concierge on WhatsApp — typical response time is under two hours.</p>
+        `,
+        date: "July 10, 2026",
+        author: "Stayra Team",
+        image: "https://cdn.sanity.io/images/1tjvajrl/production/e15abc6a1533ef147337803f1e9b45b6bae51980-1280x960.jpg",
+        tags: ["Villa vs Hotel", "Jaipur", "Luxury Villa", "Travel Tips"]
+    },
+    {
         id: "1",
         slug: "best-farm-stays-jaipur",
         title: "Escape the City: The Best Farm Stays Near Jaipur for a Weekend Getaway",
