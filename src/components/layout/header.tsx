@@ -58,7 +58,7 @@ export function Header() {
                     </Link>
 
                     {/* Center: Desktop Nav */}
-                    <nav className="hidden md:flex items-center gap-6 absolute left-1/2 transform -translate-x-1/2 w-max">
+                    <nav className="hidden xl:flex items-center gap-6 absolute left-1/2 transform -translate-x-1/2 w-max">
                         {navLinks.map((link) => (
                             <div key={link.name} className="relative group">
                                 <Link
@@ -99,7 +99,7 @@ export function Header() {
                     </nav>
 
                     {/* Right: Actions */}
-                    <div className="hidden md:flex items-center gap-6">
+                    <div className="hidden xl:flex items-center gap-6">
                         {/* Search Icon */}
 
 
@@ -126,7 +126,7 @@ export function Header() {
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden relative z-50 p-2"
+                        className="xl:hidden relative z-50 p-2"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         {isMobileMenuOpen ? (
@@ -151,7 +151,7 @@ export function Header() {
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
-                            className="fixed inset-0 z-40 bg-white pt-24 px-4 md:hidden flex flex-col items-center gap-8"
+                            className="fixed inset-0 z-40 bg-white pt-24 px-4 xl:hidden flex flex-col items-center gap-8"
                         >
                             <nav className="flex flex-col items-center gap-6">
                                 {navLinks.map((link) => (

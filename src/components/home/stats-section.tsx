@@ -73,7 +73,7 @@ export const StatsSection = () => {
     return (
         <section className="bg-[#F9Fcf9] border-t border-gray-100 py-16">
             <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 lg:divide-y-0 md:divide-x lg:divide-x divide-gray-200 min-h-[160px]">
+                <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200 min-h-[160px]">
 
                     {/* 1000+ Guests Hosted */}
                     <div className="flex flex-col items-center justify-center p-8 flex-1 gap-4">
