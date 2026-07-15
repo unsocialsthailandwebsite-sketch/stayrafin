@@ -50,9 +50,9 @@ export function Header() {
                         : "bg-transparent py-6"
                 )}
             >
-                <div className="container mx-auto px-4 flex xl:grid xl:grid-cols-[1fr_auto_1fr] items-center justify-between relative">
+                <div className="container mx-auto px-4 grid grid-cols-2 xl:grid-cols-[1fr_auto_1fr] items-center relative">
                     {/* Left: Logo */}
-                    <Link href="/" className="relative z-50 flex items-center gap-2 xl:justify-self-start">
+                    <Link href="/" className="relative z-50 flex items-center gap-2 justify-self-start">
                         {/* Brand Logo */}
                         <StayraLogo className="h-8 w-auto" variant="light" />
                     </Link>
@@ -105,8 +105,8 @@ export function Header() {
 
                         {/* Call Icon & Number */}
                         <a href="tel:+917340031394" className={cn("flex items-center gap-2 transition-colors hover:text-stayra-gold font-medium text-xs 2xl:text-sm", isScrolled ? "text-white" : "text-white")}>
-                            <Phone className="w-4 h-4" />
-                            <span>+91 73400 31394</span>
+                            <Phone className="w-4 h-4 flex-shrink-0" />
+                            <span className="hidden 2xl:inline whitespace-nowrap">+91 73400 31394</span>
                         </a>
 
                         {/* Book Your Stay Button - White Pill */}
@@ -126,7 +126,7 @@ export function Header() {
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="xl:hidden relative z-50 p-2"
+                        className="xl:hidden relative z-50 p-2 justify-self-end"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         {isMobileMenuOpen ? (
