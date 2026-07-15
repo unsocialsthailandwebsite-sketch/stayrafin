@@ -50,21 +50,21 @@ export function Header() {
                         : "bg-transparent py-6"
                 )}
             >
-                <div className="container mx-auto px-4 flex items-center justify-between relative">
+                <div className="container mx-auto px-4 flex xl:grid xl:grid-cols-[1fr_auto_1fr] items-center justify-between relative">
                     {/* Left: Logo */}
-                    <Link href="/" className="relative z-50 flex items-center gap-2">
+                    <Link href="/" className="relative z-50 flex items-center gap-2 xl:justify-self-start">
                         {/* Brand Logo */}
                         <StayraLogo className="h-8 w-auto" variant="light" />
                     </Link>
 
                     {/* Center: Desktop Nav */}
-                    <nav className="hidden xl:flex items-center gap-6 absolute left-1/2 transform -translate-x-1/2 w-max">
+                    <nav className="hidden xl:flex items-center justify-self-center gap-4 2xl:gap-6">
                         {navLinks.map((link) => (
                             <div key={link.name} className="relative group">
                                 <Link
                                     href={link.href}
                                     className={cn(
-                                        "flex items-center gap-1 text-sm font-light transition-colors hover:text-stayra-gold capitalize tracking-wide py-4 whitespace-nowrap",
+                                        "flex items-center gap-1 text-xs 2xl:text-sm font-light transition-colors hover:text-stayra-gold capitalize tracking-wide py-4 whitespace-nowrap",
                                         isScrolled ? "text-white/90 hover:text-white" : "text-white/90 hover:text-white"
                                     )}
                                 >
@@ -99,12 +99,12 @@ export function Header() {
                     </nav>
 
                     {/* Right: Actions */}
-                    <div className="hidden xl:flex items-center gap-6">
+                    <div className="hidden xl:flex items-center justify-self-end gap-4 2xl:gap-6">
                         {/* Search Icon */}
 
 
                         {/* Call Icon & Number */}
-                        <a href="tel:+917340031394" className={cn("flex items-center gap-2 transition-colors hover:text-stayra-gold font-medium text-sm", isScrolled ? "text-white" : "text-white")}>
+                        <a href="tel:+917340031394" className={cn("flex items-center gap-2 transition-colors hover:text-stayra-gold font-medium text-xs 2xl:text-sm", isScrolled ? "text-white" : "text-white")}>
                             <Phone className="w-4 h-4" />
                             <span>+91 73400 31394</span>
                         </a>
@@ -115,7 +115,7 @@ export function Header() {
                                 variant="primary"
                                 size="default"
                                 className={cn(
-                                    "bg-white text-stayra-green hover:bg-gray-100 rounded-full px-4 py-1.5 uppercase text-xs tracking-widest font-bold flex items-center gap-2"
+                                    "bg-white text-stayra-green hover:bg-gray-100 rounded-full px-3 py-1.5 2xl:px-4 uppercase text-[10px] 2xl:text-xs tracking-widest font-bold flex items-center gap-1.5 2xl:gap-2"
                                 )}
                             >
                                 Book Your Stay

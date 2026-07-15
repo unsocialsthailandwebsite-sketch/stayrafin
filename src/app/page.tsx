@@ -55,7 +55,7 @@ export default async function Home() {
         heading={settings?.heroHeading}
         subheading={settings?.heroSubheading}
       />
-      <div className="relative z-20 -mt-20">
+      <div className="relative z-20 mt-0 md:-mt-20">
         <BookingBar />
         <StatsSection />
       </div>

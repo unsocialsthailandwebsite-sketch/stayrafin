@@ -53,7 +53,7 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
     }, []);
 
     return (
-        <section ref={ref} className="relative h-[100dvh] w-full overflow-hidden flex items-center justify-center">
+        <section ref={ref} className="relative min-h-[100dvh] w-full overflow-hidden flex items-center justify-center py-24">
             {/* Background (Parallax Slideshow) */}
             <motion.div
                 style={{ y }}

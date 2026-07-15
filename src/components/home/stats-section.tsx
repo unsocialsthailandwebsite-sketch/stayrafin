@@ -79,7 +79,7 @@ export const StatsSection = () => {
                     <div className="flex flex-col items-center justify-center p-8 flex-1 gap-4">
                         <Users className="w-12 h-12 text-[#5B6D5B] opacity-80" strokeWidth={1.5} />
                         <div className="flex items-center gap-4">
-                            <span className="text-6xl md:text-7xl text-[#5B6D5B] font-serif font-bold flex">
+                            <span className="text-5xl sm:text-6xl md:text-7xl text-[#5B6D5B] font-serif font-bold flex">
                                 <AnimatedNumber value={1000} />+
                             </span>
                             <div className="text-gray-600 text-sm uppercase tracking-wide font-bold flex flex-col text-left">
@@ -93,7 +93,7 @@ export const StatsSection = () => {
                     <div className="flex flex-col items-center justify-center p-8 flex-1 gap-4">
                         <Home className="w-12 h-12 text-[#5B6D5B] opacity-80" strokeWidth={1.5} />
                         <div className="flex items-center gap-4">
-                            <span className="text-6xl md:text-7xl text-[#5B6D5B] font-serif font-bold flex items-baseline">
+                            <span className="text-5xl sm:text-6xl md:text-7xl text-[#5B6D5B] font-serif font-bold flex items-baseline">
                                 <span>1</span>
                                 <span className="text-sm px-2 text-gray-400 font-sans font-bold uppercase">OUT OF</span>
                                 <span>100</span>
@@ -109,7 +109,7 @@ export const StatsSection = () => {
                     <div className="flex flex-col items-center justify-center p-8 flex-1 gap-4">
                         <Star className="w-12 h-12 text-[#5B6D5B] opacity-80" strokeWidth={1.5} />
                         <div className="flex items-center gap-4">
-                            <span className="text-6xl md:text-7xl text-[#5B6D5B] font-serif font-bold flex">
+                            <span className="text-5xl sm:text-6xl md:text-7xl text-[#5B6D5B] font-serif font-bold flex">
                                 <AnimatedNumber value={4.95} float={true} />
                             </span>
                             <div className="text-gray-600 text-sm uppercase tracking-wide font-bold flex flex-col text-left">
