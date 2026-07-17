@@ -80,7 +80,7 @@ export function Header() {
                                                 href="/properties/choti-haveli"
                                                 className="block px-6 py-3 text-sm text-stayra-charcoal hover:bg-gray-50 hover:text-stayra-gold transition-colors font-medium"
                                             >
-                                                Choti Haveli
+                                                Chotti Haveli
                                             </Link>
                                             <Link
                                                 href="/properties/kankas-house"

@@ -34,13 +34,13 @@ export async function generateStaticParams() {
 export const revalidate = 60;
 
 const SEO_TITLES: Record<string, string> = {
-    "choti-haveli": "Choti Haveli — Heritage Haveli Stay on Ajmer Road, Jaipur",
+    "choti-haveli": "Chotti Haveli — Heritage Haveli Stay on Ajmer Road, Jaipur",
     "kankas-house": "Kankas House — 4BHK Private Pool Villa, Delhi Road Jaipur",
 };
 
 const SEO_DESCRIPTIONS: Record<string, string> = {
     "choti-haveli":
-        "Stay in a restored Rajasthani haveli at Emaar Green, Ajmer Road. Rooftop terrace, home-cooked Rajasthani meals, housekeeping and concierge. Book direct.",
+        "Stay in a restored Rajasthani haveli at Emaar Greens, Ajmer Road. Private garden, tranquil indoor fish pond, home-cooked meals. Book direct.",
     "kankas-house":
         "Secluded 4-bedroom villa in Jaipur's forested hills: private pool, lawns, BBQ & bonfire, ensuite baths. Direct booking, no hidden fees.",
 };

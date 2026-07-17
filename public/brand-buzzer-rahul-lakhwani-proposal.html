@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Buzzer × Adv. Rahul Lakhwani — Digital Legacy Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Inter+Tight:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0a0a0a;
+    --white:#ffffff;
+    --orange:#FF6A00;
+    --orange-dim: rgba(255,106,0,0.12);
+    --grey-bg:#F6F6F4;
+    --grey-card:#F1F0EE;
+    --grey-line:#E4E2DE;
+    --ink-60: rgba(10,10,10,0.6);
+    --ink-40: rgba(10,10,10,0.4);
+    --ease: cubic-bezier(.16,.84,.32,1);
+    --maxw: 1180px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', -apple-system, sans-serif;
+    background:var(--white);
+    color:var(--black);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4,.disp{
+    font-family:'Inter Tight','Inter',sans-serif;
+    font-weight:800;
+    letter-spacing:-0.03em;
+    line-height:1.02;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 40px;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  ::selection{background:var(--orange); color:#fff;}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .9s var(--ease), transform .9s var(--ease);}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- nav ---------- */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:1000;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:22px 40px;
+    background:rgba(255,255,255,0.72);
+    backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    border-bottom:1px solid transparent;
+    transition:border-color .4s, padding .4s, background .4s;
+  }
+  nav.scrolled{ border-bottom-color:var(--grey-line); padding:14px 40px; }
+  .logo{ font-family:'Inter Tight',sans-serif; font-weight:900; font-size:18px; letter-spacing:-0.02em; display:flex; align-items:center; gap:8px;}
+  .logo .dot{width:7px; height:7px; border-radius:50%; background:var(--orange); display:inline-block;}
+  .navlinks{ display:flex; gap:30px; font-size:13px; font-weight:500; color:var(--ink-60);}
+  .navlinks a{ position:relative; transition:color .25s; white-space:nowrap;}
+  .navlinks a:hover{ color:var(--black);}
+  .navlinks a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--orange);transition:width .3s var(--ease);}
+  .navlinks a:hover::after{width:100%;}
+  .nav-cta{ font-size:13px; font-weight:600; padding:10px 20px; border-radius:100px; background:var(--black); color:#fff; transition:background .25s; flex-shrink:0;}
+  .nav-cta:hover{ background:var(--orange);}
+  @media (max-width:1050px){ .navlinks{display:none;} }
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex; flex-direction:column; justify-content:center;
+    padding:160px 40px 80px;
+    position:relative;
+    background:
+      radial-gradient(1100px 500px at 82% -10%, var(--orange-dim), transparent 60%),
+      linear-gradient(180deg, #fff 0%, #fff 100%);
+  }
+  .hero-eyebrow{
+    display:flex; align-items:center; gap:10px;
+    font-size:12.5px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--ink-60); margin-bottom:28px;
+  }
+  .hero-eyebrow .line{width:32px; height:1px; background:var(--orange);}
+  .hero h1{
+    font-size:clamp(40px, 6.4vw, 92px);
+    max-width:1080px;
+    margin-bottom:26px;
+  }
+  .hero h1 em{ font-style:normal; color:var(--orange); }
+  .hero .sub{
+    font-size:clamp(16px,1.7vw,20px);
+    color:var(--ink-60); font-weight:400; max-width:640px; margin-bottom:56px; line-height:1.55;
+  }
+  .hero-meta{
+    display:flex; flex-wrap:wrap; gap:48px;
+    padding-top:36px; border-top:1px solid var(--grey-line);
+    max-width:900px;
+  }
+  .hero-meta .item .label{font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-40); margin-bottom:8px; font-weight:600;}
+  .hero-meta .item .value{font-size:16px; font-weight:600;}
+  .hero-cta-row{ display:flex; align-items:center; gap:24px; margin-top:48px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--black); color:#fff; font-weight:600; font-size:14.5px;
+    padding:16px 30px; border-radius:100px; border:none; cursor:pointer;
+    transition:transform .3s var(--ease), background .3s;
+  }
+  .btn:hover{ background:var(--orange); transform:translateY(-2px);}
+  .btn-ghost{
+    background:transparent; color:var(--black); border:1px solid var(--grey-line);
+  }
+  .btn-ghost:hover{ background:var(--grey-bg); }
+  .scroll-hint{ position:absolute; bottom:36px; left:40px; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-40); display:flex; align-items:center; gap:10px;}
+  .scroll-hint .bar{width:1px; height:34px; background:var(--ink-40); position:relative; overflow:hidden;}
+  .scroll-hint .bar::after{content:'';position:absolute; top:-100%; left:0; width:100%; height:100%; background:var(--orange); animation:scrollbar 1.8s infinite var(--ease);}
+  @keyframes scrollbar{ to{ top:100%; } }
+
+  /* ---------- section shells ---------- */
+  section{ padding:150px 0; position:relative; }
+  .section-dark{ background:var(--black); color:#fff; }
+  .section-grey{ background:var(--grey-bg); }
+  .eyebrow{
+    font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--orange); margin-bottom:20px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow .n{ color:var(--ink-40); font-weight:600;}
+  .section-dark .eyebrow .n{ color:rgba(255,255,255,0.35); }
+  h2.headline{ font-size:clamp(30px,4vw,52px); max-width:780px; margin-bottom:20px;}
+  .lede{ font-size:17px; color:var(--ink-60); max-width:640px; line-height:1.6; font-weight:400;}
+  .section-dark .lede{ color:rgba(255,255,255,0.62); }
+  .head-row{ display:flex; justify-content:space-between; align-items:flex-end; gap:40px; margin-bottom:64px; flex-wrap:wrap;}
+  .head-row .side-note{ font-size:14px; color:var(--ink-40); max-width:280px; line-height:1.6; padding-bottom:4px;}
+  .sub-label{ font-size:11px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:var(--black); margin:0 0 22px; display:flex; align-items:center; gap:10px;}
+  .sub-label::before{ content:''; width:16px; height:2px; background:var(--orange); display:inline-block;}
+  .section-dark .sub-label{ color:#fff; }
+
+  /* ---------- why: stat cards ---------- */
+  .stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--grey-line); border:1px solid var(--grey-line); border-radius:20px; overflow:hidden;}
+  .stat-card{ background:#fff; padding:40px 34px;}
+  .stat-card .num{ font-family:'Inter Tight',sans-serif; font-weight:900; font-size:44px; letter-spacing:-0.03em; color:var(--orange); margin-bottom:10px;}
+  .stat-card .desc{ font-size:14.5px; color:var(--ink-60); line-height:1.55;}
+  @media (max-width:800px){ .stat-grid{ grid-template-columns:1fr;} }
+
+  .pill-row{ display:flex; flex-wrap:wrap; gap:12px; margin-top:56px;}
+  .pill-row.notop{ margin-top:0; }
+  .pill{
+    padding:11px 20px; border-radius:100px; background:var(--grey-card); font-size:13.5px; font-weight:600;
+    border:1px solid var(--grey-line);
+    display:flex; align-items:center; gap:8px;
+  }
+  .pill .dot{width:5px; height:5px; border-radius:50%; background:var(--orange);}
+
+  /* ---------- vision ---------- */
+  .vision{ text-align:center; padding:170px 0;}
+  .vision blockquote{
+    font-family:'Inter Tight',sans-serif; font-weight:700; letter-spacing:-0.025em;
+    font-size:clamp(28px,4.6vw,58px); line-height:1.18; max-width:900px; margin:0 auto 36px;
+  }
+  .vision blockquote span{ color:var(--orange); }
+  .vision .lede{ margin:0 auto; text-align:center;}
+
+  /* ---------- ecosystem split ---------- */
+  .split-wrap{ margin-bottom:60px; }
+  .split-bar{ display:flex; height:14px; border-radius:100px; overflow:hidden; margin-bottom:16px; }
+  .split-bar .seg-personal{ background:var(--black); width:40%; }
+  .split-bar .seg-firm{ background:var(--orange); width:60%; }
+  .split-legend{ display:flex; gap:36px; flex-wrap:wrap;}
+  .split-legend .sl{ display:flex; align-items:center; gap:10px; font-size:13.5px; font-weight:600;}
+  .split-legend .sw{ width:10px; height:10px; border-radius:3px;}
+  .sw.personal{ background:var(--black);}
+  .sw.firm{ background:var(--orange);}
+  .split-legend .pct{ color:var(--ink-40); font-weight:500;}
+
+  .eco-cols{ display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  @media (max-width:850px){ .eco-cols{ grid-template-columns:1fr; } }
+  .eco-card{ border-radius:20px; padding:40px 36px; border:1px solid var(--grey-line);}
+  .eco-card.personal{ background:#fff; }
+  .eco-card.firm{ background:var(--black); color:#fff; border-color:var(--black);}
+  .eco-tag{ font-size:11px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; padding:6px 12px; border-radius:100px; display:inline-block; margin-bottom:20px;}
+  .eco-card.personal .eco-tag{ background:var(--orange-dim); color:var(--orange);}
+  .eco-card.firm .eco-tag{ background:rgba(255,106,0,0.18); color:var(--orange);}
+  .eco-card h3{ font-size:25px; margin-bottom:6px;}
+  .eco-card .eco-sub{ font-size:13.5px; color:var(--ink-40); margin-bottom:26px; font-weight:500;}
+  .eco-card.firm .eco-sub{ color:rgba(255,255,255,0.45);}
+  .eco-card .eco-list{ list-style:none; margin-bottom:26px;}
+  .eco-card .eco-list li{ font-size:14.5px; padding:8px 0; border-top:1px solid var(--grey-line); font-weight:500; display:flex; gap:10px;}
+  .eco-card.firm .eco-list li{ border-top:1px solid rgba(255,255,255,0.12);}
+  .eco-card .eco-list li:first-child{ border-top:none;}
+  .eco-card .eco-list li::before{ content:'—'; color:var(--orange);}
+  .eco-card .eco-purpose{ font-size:13.5px; line-height:1.6; color:var(--ink-60); padding-top:20px; border-top:1px solid var(--grey-line);}
+  .eco-card.firm .eco-purpose{ color:rgba(255,255,255,0.55); border-top:1px solid rgba(255,255,255,0.12);}
+  .eco-card .eco-purpose b{ color:var(--black); font-weight:700;}
+  .eco-card.firm .eco-purpose b{ color:#fff;}
+  .firm-note{ font-size:12.5px; color:var(--ink-40); margin-top:18px; font-style:italic;}
+
+  /* ---------- audience ---------- */
+  .aud-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  @media (max-width:900px){ .aud-grid{ grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .aud-grid{ grid-template-columns:1fr;} }
+  .aud-card{
+    background:#fff; border:1px solid var(--grey-line); border-radius:16px; padding:26px 22px;
+    transition:transform .35s var(--ease), border-color .35s, box-shadow .35s;
+  }
+  .aud-card:hover{ transform:translateY(-6px); border-color:var(--black); box-shadow:0 18px 40px rgba(0,0,0,0.08);}
+  .aud-card .ic{ width:34px; height:34px; border-radius:9px; background:var(--orange-dim); display:flex; align-items:center; justify-content:center; margin-bottom:18px;}
+  .aud-card .ic svg{ width:17px; height:17px; stroke:var(--orange);}
+  .aud-card .name{ font-size:14.5px; font-weight:700;}
+  .aud-card.compact{ padding:20px 18px; }
+  .aud-card.compact .name{ font-size:13.5px; }
+
+  /* ---------- tabs (reused for 2 and 4 engines) ---------- */
+  .tabs{ display:flex; gap:8px; margin-bottom:48px; border-bottom:1px solid var(--grey-line); flex-wrap:wrap;}
+  .tab-btn{
+    font-family:'Inter Tight',sans-serif; font-size:14.5px; font-weight:700; padding:16px 6px; margin-right:30px;
+    background:none; border:none; color:var(--ink-40); cursor:pointer; position:relative; letter-spacing:-0.01em;
+  }
+  .tab-btn::after{ content:''; position:absolute; left:0; bottom:-1px; width:0; height:2px; background:var(--orange); transition:width .3s var(--ease); }
+  .tab-btn.active{ color:var(--black); }
+  .tab-btn.active::after{ width:100%; }
+  .tab-panel{ display:none; }
+  .tab-panel.active{ display:block; }
+  .pillar-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  @media (max-width:850px){ .pillar-grid{ grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .pillar-grid{ grid-template-columns:1fr;} }
+  .pillar-card{ background:var(--grey-card); border-radius:18px; padding:28px 24px; border:1px solid var(--grey-line);}
+  .pillar-card .pk{ font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--orange); margin-bottom:14px;}
+  .pillar-card ul{ list-style:none; }
+  .pillar-card li{ font-size:13.5px; padding:6px 0; color:var(--ink-60); font-weight:500;}
+  .engine-badge{ font-size:12px; font-weight:700; padding:6px 14px; border-radius:100px; background:var(--black); color:#fff; display:inline-block; margin-bottom:24px;}
+
+  /* ---------- firm positioning pills already .pill ---------- */
+
+  /* ---------- pillar block grid (firm content pillars) ---------- */
+  .pblock-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  @media (max-width:900px){ .pblock-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:600px){ .pblock-grid{ grid-template-columns:1fr; } }
+  .pblock{ background:#fff; border:1px solid var(--grey-line); border-radius:18px; padding:28px 26px; display:flex; flex-direction:column;}
+  .pblock h4{ font-size:17px; margin-bottom:8px;}
+  .pblock p{ font-size:13.5px; color:var(--ink-60); line-height:1.55; margin-bottom:18px;}
+  .pblock .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:auto;}
+  .pblock .tags span{ font-size:11.5px; font-weight:600; background:var(--grey-card); border:1px solid var(--grey-line); padding:6px 11px; border-radius:100px; color:var(--ink-60);}
+  .mini-flow{ display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-top:auto;}
+  .mini-flow .mf-step{ font-size:12px; font-weight:700; background:var(--black); color:#fff; padding:8px 12px; border-radius:8px;}
+  .mini-flow .mf-arrow{ color:var(--orange); font-size:14px; font-weight:700;}
+
+  /* ---------- calendar dashboard ---------- */
+  .dash{ background:#fff; border:1px solid var(--grey-line); border-radius:24px; padding:6px; }
+  .dash-head{ display:flex; justify-content:space-between; align-items:center; padding:24px 30px 10px;}
+  .dash-head .plat{ font-family:'Inter Tight',sans-serif; font-weight:800; font-size:18px;}
+  .dash-head .badge{ font-size:11px; font-weight:700; background:var(--orange); color:#fff; padding:6px 14px; border-radius:100px;}
+  .dash-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:1px; background:var(--grey-line); margin:20px 30px 30px; border-radius:14px; overflow:hidden; border:1px solid var(--grey-line);}
+  .dcell{ background:#fff; padding:20px 18px;}
+  .dcell .cnum{ font-family:'Inter Tight',sans-serif; font-weight:900; font-size:26px; color:var(--black);}
+  .dcell .clabel{ font-size:12.5px; color:var(--ink-60); margin-top:6px; font-weight:500;}
+  .dash-list{ padding:0 30px 26px; display:flex; flex-wrap:wrap; gap:10px;}
+  .dash-list .tag{ font-size:12.5px; padding:8px 14px; background:var(--grey-card); border-radius:100px; color:var(--ink-60); font-weight:500;}
+  .brand-group-label{ display:flex; align-items:center; gap:12px; margin:0 0 24px; }
+  .brand-group-label .bgl-tag{ font-size:11px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; padding:7px 14px; border-radius:100px; color:#fff; background:var(--black);}
+  .brand-group-label.firm .bgl-tag{ background:var(--orange);}
+  .brand-group-label .bgl-line{ flex-grow:1; height:1px; background:var(--grey-line);}
+  .dash-pair{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:56px;}
+  @media (max-width:850px){ .dash-pair{ grid-template-columns:1fr;} }
+
+  /* ---------- buckets (masonry lists) ---------- */
+  .bucket-grid{ column-count:4; column-gap:16px;}
+  @media (max-width:900px){ .bucket-grid{ column-count:2;} }
+  @media (max-width:520px){ .bucket-grid{ column-count:1;} }
+  .bucket-card{
+    break-inside:avoid; margin-bottom:16px; background:#fff; border:1px solid var(--grey-line); border-radius:14px;
+    padding:20px 20px; font-size:14px; font-weight:600; transition:border-color .3s, transform .3s;
+  }
+  .bucket-card:hover{ border-color:var(--orange); transform:translateX(3px); }
+
+  /* ---------- video / shoots ---------- */
+  .video-layout{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;}
+  @media (max-width:900px){ .video-layout{ grid-template-columns:1fr;} }
+  .video-list{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(255,255,255,0.12); border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,0.12);}
+  .video-item{ background:var(--black); padding:22px 20px;}
+  .video-item .vt{ font-size:14px; font-weight:600;}
+  .video-col-label{ font-size:12px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:var(--orange); margin-bottom:16px;}
+
+  /* ---------- identity ---------- */
+  .id-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px;}
+  @media (max-width:900px){ .id-grid{ grid-template-columns:repeat(3,1fr);} }
+  @media (max-width:560px){ .id-grid{ grid-template-columns:repeat(2,1fr);} }
+  .id-chip{ text-align:center; background:var(--grey-card); border:1px solid var(--grey-line); border-radius:14px; padding:22px 10px; font-size:12.5px; font-weight:600;}
+
+  /* ---------- growth ---------- */
+  .growth-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media (max-width:700px){ .growth-grid{ grid-template-columns:1fr;} }
+  .growth-item{ display:flex; align-items:center; gap:14px; padding:18px 20px; border:1px solid var(--grey-line); border-radius:14px; background:#fff;}
+  .growth-item .gi{ width:8px; height:8px; border-radius:2px; background:var(--orange); flex-shrink:0;}
+  .growth-item .gt{ font-size:14.5px; font-weight:600;}
+  .no-shortcuts{ display:flex; gap:14px; margin-bottom:40px; flex-wrap:wrap;}
+  .ns-badge{ font-size:13px; font-weight:700; padding:10px 18px; border-radius:100px; border:1px solid var(--grey-line); color:var(--ink-60);}
+  .ns-badge span{ color:var(--orange); }
+
+  /* ---------- digital growth engine ---------- */
+  .dge-block{ margin-bottom:64px; }
+  .dge-block:last-child{ margin-bottom:0; }
+  .dge-head{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:22px; gap:20px; flex-wrap:wrap;}
+  .dge-head h4{ font-size:19px;}
+  .dge-head .dge-desc{ font-size:13.5px; color:var(--ink-60); max-width:420px; text-align:right;}
+
+  /* ---------- kpi ---------- */
+  .kpi-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--grey-line); border:1px solid var(--grey-line); border-radius:20px; overflow:hidden;}
+  @media (max-width:850px){ .kpi-grid{ grid-template-columns:repeat(2,1fr);} }
+  .kpi-card{ background:#fff; padding:32px 26px;}
+  .kpi-card .kn{ font-family:'Inter Tight',sans-serif; font-weight:900; font-size:15px; margin-bottom:10px; display:flex; align-items:center; gap:8px;}
+  .kpi-card .kn::before{ content:''; width:6px; height:6px; border-radius:50%; background:var(--orange);}
+  .kpi-card .kd{ font-size:13px; color:var(--ink-60); line-height:1.5;}
+
+  /* ---------- timeline ---------- */
+  .tl{ position:relative; padding-left:0;}
+  .tl-track{ position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:26px;}
+  @media (max-width:900px){ .tl-track{ grid-template-columns:1fr; } }
+  .tl-line{ position:absolute; top:15px; left:0; right:0; height:1px; background:var(--grey-line); z-index:0;}
+  .tl-line-fill{ position:absolute; top:15px; left:0; height:1px; background:var(--orange); width:0%; transition:width 1.4s var(--ease); z-index:1;}
+  .tl-item{ position:relative; z-index:2; }
+  .tl-dot{ width:30px; height:30px; border-radius:50%; background:#fff; border:2px solid var(--grey-line); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; font-family:'Inter Tight',sans-serif; margin-bottom:26px; transition:border-color .4s, background .4s, color .4s;}
+  .tl-item.on .tl-dot{ border-color:var(--orange); background:var(--orange); color:#fff;}
+  .tl-item h4{ font-size:17px; margin-bottom:14px; }
+  .tl-item ul{ list-style:none;}
+  .tl-item li{ font-size:13.5px; color:var(--ink-60); padding:5px 0; font-weight:500;}
+
+  /* ---------- pricing ---------- */
+  .price-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; align-items:stretch;}
+  @media (max-width:950px){ .price-grid{ grid-template-columns:1fr; max-width:440px; margin:0 auto;} }
+  .price-card{
+    background:#fff; border:1px solid var(--grey-line); border-radius:22px; padding:38px 32px;
+    display:flex; flex-direction:column; position:relative; transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  .price-card:hover{ transform:translateY(-8px); box-shadow:0 30px 60px rgba(0,0,0,0.1);}
+  .price-card.rec{ background:var(--black); color:#fff; transform:scale(1.035); z-index:2;}
+  .price-card.rec:hover{ transform:scale(1.035) translateY(-8px); }
+  .price-badge{
+    position:absolute; top:-14px; left:32px; background:var(--orange); color:#fff; font-size:11.5px; font-weight:800;
+    padding:7px 16px; border-radius:100px; letter-spacing:0.03em;
+  }
+  .price-name{ font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-40); margin-bottom:10px;}
+  .price-card.rec .price-name{ color:rgba(255,255,255,0.5); }
+  .price-title{ font-family:'Inter Tight',sans-serif; font-size:23px; font-weight:800; margin-bottom:20px;}
+  .price-amt{ font-family:'Inter Tight',sans-serif; font-size:40px; font-weight:900; letter-spacing:-0.02em; margin-bottom:4px;}
+  .price-amt span{ font-size:14px; font-weight:600; color:var(--ink-40);}
+  .price-card.rec .price-amt span{ color:rgba(255,255,255,0.5);}
+  .price-note{ font-size:12.5px; color:var(--ink-40); margin-bottom:30px;}
+  .price-card.rec .price-note{ color:rgba(255,255,255,0.45);}
+  .price-list{ list-style:none; flex-grow:1; margin-bottom:30px;}
+  .price-list li{ font-size:14px; padding:9px 0; display:flex; gap:10px; border-top:1px solid var(--grey-line); font-weight:500;}
+  .price-card.rec .price-list li{ border-top:1px solid rgba(255,255,255,0.12); }
+  .price-list li:first-child{ border-top:none;}
+  .price-list li::before{ content:'—'; color:var(--orange); flex-shrink:0;}
+  .price-btn{ text-align:center; padding:15px; border-radius:100px; font-weight:700; font-size:14px; background:var(--black); color:#fff; transition:background .3s;}
+  .price-card.rec .price-btn{ background:var(--orange); }
+  .price-card:not(.rec) .price-btn:hover{ background:var(--orange);}
+  .price-card.rec .price-btn:hover{ background:#fff; color:var(--black); }
+  .price-foot-note{ font-size:13px; color:var(--ink-40); margin-top:36px; text-align:center;}
+  .price-plus{ font-size:12.5px; font-weight:700; color:var(--orange); margin-bottom:18px;}
+  .price-card.rec .price-plus{ color:#ffb27a;}
+  .price-group-title{ font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.07em; color:var(--ink-40); margin:22px 0 4px;}
+  .price-group-title:first-child{ margin-top:0;}
+  .price-card.rec .price-group-title{ color:rgba(255,255,255,0.4);}
+  .price-list.tight{ margin-bottom:0;}
+  .price-list.tight li{ padding:6px 0; font-size:13px;}
+
+  /* ---------- upsell ---------- */
+  .upsell-grid{ column-count:3; column-gap:16px;}
+  @media (max-width:850px){ .upsell-grid{ column-count:2;} }
+  @media (max-width:560px){ .upsell-grid{ column-count:1;} }
+  .upsell-card{ break-inside:avoid; margin-bottom:16px; background:var(--grey-card); border:1px solid var(--grey-line); border-radius:14px; padding:18px 20px; font-size:14px; font-weight:600; display:flex; align-items:center; gap:12px; transition:border-color .3s, background .3s;}
+  .upsell-card:hover{ border-color:var(--orange); background:#fff;}
+  .upsell-card .up-dot{ width:6px; height:6px; border-radius:50%; background:var(--orange); flex-shrink:0;}
+  .upsell-note{ margin-top:34px; padding:20px 24px; border:1px dashed var(--grey-line); border-radius:14px; font-size:13.5px; color:var(--ink-60); max-width:640px;}
+
+  /* ---------- commercial notes ---------- */
+  .notes-list{ list-style:none; max-width:820px;}
+  .notes-list li{ font-size:14.5px; line-height:1.65; color:var(--ink-60); font-weight:500; padding:14px 0; border-top:1px solid var(--grey-line); display:flex; gap:14px;}
+  .notes-list li:first-child{ border-top:none;}
+  .notes-list li::before{ content:'—'; color:var(--orange); flex-shrink:0; font-weight:700;}
+
+  /* ---------- why us ---------- */
+  .why-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.1); border-radius:20px; overflow:hidden;}
+  @media (max-width:900px){ .why-grid{ grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .why-grid{ grid-template-columns:1fr;} }
+  .why-card{ background:var(--black); padding:32px 24px;}
+  .why-card .wt{ font-size:14px; font-weight:700; margin-top:16px;}
+  .why-card .ic{ width:32px; height:32px; border-radius:8px; background:rgba(255,106,0,0.15); display:flex; align-items:center; justify-content:center;}
+  .why-card .ic svg{ width:16px; height:16px; stroke:var(--orange);}
+
+  /* ---------- final ---------- */
+  .final{ text-align:center; padding:200px 0; background:linear-gradient(180deg,#fff, var(--grey-bg)); }
+  .final blockquote{ font-family:'Inter Tight',sans-serif; font-weight:800; letter-spacing:-0.03em; font-size:clamp(30px,5vw,60px); max-width:880px; margin:0 auto 48px; line-height:1.15;}
+  .final blockquote span{ color:var(--orange);}
+
+  footer{ background:var(--black); color:rgba(255,255,255,0.5); padding:56px 0 40px; font-size:13px;}
+  .foot-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;}
+  .foot-row .flogo{ color:#fff; font-family:'Inter Tight',sans-serif; font-weight:800; font-size:16px;}
+
+  /* counters */
+  .counter{ font-variant-numeric:tabular-nums; }
+
+  @media (max-width:768px){
+    .wrap{ padding:0 22px; }
+    nav{ padding:16px 22px;}
+    section{ padding:90px 0;}
+    .hero{ padding:130px 22px 60px;}
+    .head-row{ margin-bottom:40px;}
+    .price-card.rec{ transform:none;}
+    .vision{ padding:100px 0;}
+    .final{ padding:120px 0;}
+    .dge-head{ flex-direction:column; align-items:flex-start;}
+    .dge-head .dge-desc{ text-align:left;}
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="logo"><span class="dot"></span>Brand Buzzer</div>
+  <div class="navlinks">
+    <a href="#why">Why Branding</a>
+    <a href="#ecosystem">Ecosystem</a>
+    <a href="#strategy">Strategy</a>
+    <a href="#firmbrand">Firm Brand</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#commercials">Commercials</a>
+  </div>
+  <a href="#commercials" class="nav-cta">View Proposal</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow"><span class="line"></span>A Digital Legacy Strategy — Prepared Privately</div>
+  <h1 class="reveal">Building India's Next<br>Recognized <em>Legal Brand</em></h1>
+  <p class="sub reveal">A dual-brand strategy that builds Adv. Rahul Lakhwani's personal authority and the law firm's institutional trust in parallel — so credibility compounds from two directions at once.</p>
+  <div class="hero-cta-row reveal">
+    <a href="#ecosystem" class="btn">Explore the Strategy</a>
+    <a href="#commercials" class="btn btn-ghost">Jump to Commercials</a>
+  </div>
+  <div class="hero-meta reveal">
+    <div class="item"><div class="label">Prepared For</div><div class="value">Adv. Rahul Lakhwani</div></div>
+    <div class="item"><div class="label">Prepared By</div><div class="value">Brand Buzzer</div></div>
+    <div class="item"><div class="label">Discipline</div><div class="value">AI-First Branding & Marketing</div></div>
+    <div class="item"><div class="label">Status</div><div class="value">Confidential Proposal</div></div>
+  </div>
+  <div class="scroll-hint"><div class="bar"></div>Scroll to begin</div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <div class="eyebrow"><span class="n">01</span>The Case For Personal Branding</div>
+        <h2 class="headline">Why modern lawyers need a personal brand</h2>
+        <p class="lede">People don't hire lawyers cold. They hire lawyers they already trust — and today, that trust is built long before the first consultation, almost entirely online.</p>
+      </div>
+      <div class="side-note">Social media has moved past likes and reach. For a legal practice, it is now the primary instrument of authority.</div>
+    </div>
+
+    <div class="stat-grid reveal">
+      <div class="stat-card">
+        <div class="num"><span class="counter" data-count="82">0</span>%</div>
+        <div class="desc">of prospective clients research a lawyer online before making contact — reputation is decided before the meeting begins.</div>
+      </div>
+      <div class="stat-card">
+        <div class="num"><span class="counter" data-count="3">0</span>x</div>
+        <div class="desc">higher recall for lawyers who publish consistent thought leadership versus those who rely on referrals alone.</div>
+      </div>
+      <div class="stat-card">
+        <div class="num"><span class="counter" data-count="70">0</span>%</div>
+        <div class="desc">of high-value enquiries now begin with a search, a profile visit, or a shared reel — not a phone call.</div>
+      </div>
+    </div>
+
+    <div class="pill-row reveal">
+      <div class="pill"><span class="dot"></span>Authority</div>
+      <div class="pill"><span class="dot"></span>Visibility</div>
+      <div class="pill"><span class="dot"></span>Reputation</div>
+      <div class="pill"><span class="dot"></span>Recall</div>
+      <div class="pill"><span class="dot"></span>Trust</div>
+      <div class="pill"><span class="dot"></span>Thought Leadership</div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section class="section-dark vision">
+  <div class="wrap">
+    <div class="eyebrow reveal" style="justify-content:center;"><span class="n">02</span>Our Vision</div>
+    <blockquote class="reveal">We don't market lawyers.<br>We build <span>legal brands.</span></blockquote>
+    <p class="lede reveal">Marketing fills a calendar with posts. Brand-building compounds a reputation. Our work is judged not by likes, but by whether, a year from now, your name — and your firm's name — are the first ones people think of when the matter is serious.</p>
+  </div>
+</section>
+
+<!-- BRAND ECOSYSTEM -->
+<section id="ecosystem" class="section-grey">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <div class="eyebrow"><span class="n">03</span>Brand Ecosystem</div>
+        <h2 class="headline">Two brands, built to reinforce each other</h2>
+        <p class="lede">Rather than one brand, we build two interconnected ones — the person who leads, and the institution behind them. For a legal practice, the firm is ultimately the more durable asset, so our effort is weighted accordingly.</p>
+      </div>
+    </div>
+
+    <div class="split-wrap reveal">
+      <div class="split-bar"><div class="seg-personal"></div><div class="seg-firm"></div></div>
+      <div class="split-legend">
+        <div class="sl"><span class="sw personal"></span>Personal Brand <span class="pct">— 40% of effort</span></div>
+        <div class="sl"><span class="sw firm"></span>Firm Brand <span class="pct">— 60% of effort</span></div>
+      </div>
+    </div>
+
+    <div class="eco-cols reveal">
+      <div class="eco-card personal">
+        <div class="eco-tag">Brand 01 — The Face</div>
+        <h3>Adv. Rahul Lakhwani</h3>
+        <div class="eco-sub">Personal Brand</div>
+        <ul class="eco-list">
+          <li>Trusted legal expert</li>
+          <li>Thought leader</li>
+          <li>Industry educator</li>
+          <li>Media-friendly personality</li>
+          <li>Public speaker</li>
+          <li>Advisor to businesses & individuals</li>
+        </ul>
+        <div class="eco-purpose"><b>Purpose —</b> build credibility, visibility, and trust through educational and professional content.</div>
+      </div>
+      <div class="eco-card firm">
+        <div class="eco-tag">Brand 02 — The Institution</div>
+        <h3>Rahul Lakhwani &amp; Associates</h3>
+        <div class="eco-sub">Firm Brand</div>
+        <ul class="eco-list">
+          <li>Modern legal practice</li>
+          <li>Trusted legal advisors</li>
+          <li>Corporate law experts</li>
+          <li>Client-centric firm</li>
+          <li>Premium legal services</li>
+          <li>Long-term legal partner</li>
+        </ul>
+        <div class="eco-purpose"><b>Purpose —</b> build institutional trust, showcase the firm's expertise, attract clients, and strengthen employer branding.</div>
+      </div>
+    </div>
+    <div class="firm-note reveal">Firm name shown as a working placeholder — to be confirmed and finalised with the client before rollout.</div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section id="audience">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <div class="eyebrow"><span class="n">04</span>Target Audience</div>
+        <h2 class="headline">Who this brand ecosystem needs to reach</h2>
+        <p class="lede">Every content decision — personal or firm — is filtered through these audiences, their concerns, and the moment they're most likely to need a trusted legal partner.</p>
+      </div>
+    </div>
+    <div class="aud-grid reveal">
+      <div class="aud-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div><div class="name">Corporate Clients</div></div>
+      <div class="aud-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div><div class="name">Businesses</div></div>
+      <div class="aud-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="name">Startups</div></div>
+      <div class="aud-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg></div><div class="name">MSMEs</div></div>
+      <div class="aud-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2l2.4 6.8L22 9l-5.6 4.6L18 21l-6-4-6 4 1.6-7.4L2 9l7.6-.2z"/></svg></div><div class="name">HNIs</div></div>
+      <div class="aud-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M2 21v-1a6 6 0 016-6h1a6 6 0 016 6v1M16 15a4 4 0 014 4v2"/></svg></div><div class="name">Families</div></div>
+      <div class="aud-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 10l9-7 9 7v10a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg></div><div class="name">Property Buyers</div></div>
+      <div class="aud-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 21V9l6-4 6 4v12M9 21V9m6 12V13h6v8"/></svg></div><div class="name">Developers</div></div>
+      <div class="aud-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><div class="name">Founders</div></div>
+      <div class="aud-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 17l6-6 4 4 8-8M15 6h6v6"/></svg></div><div class="name">Investors</div></div>
+      <div class="aud-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></div><div class="name">Individuals</div></div>
+      <div class="aud-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><div class="name">Govt. Contractors</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DUAL PLATFORM STRATEGY -->
+<section id="strategy" class="section-grey">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <div class="eyebrow"><span class="n">05</span>Dual Platform Strategy</div>
+        <h2 class="headline">Four content engines, not two</h2>
+        <p class="lede">Personal and firm accounts are never mirrored. Each of the four engines below runs on its own content pillars, voice, and purpose — while pointing back to the same reputation.</p>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="pig">Personal Instagram</button>
+        <button class="tab-btn" data-tab="fig">Firm Instagram</button>
+        <button class="tab-btn" data-tab="pli">Personal LinkedIn</button>
+        <button class="tab-btn" data-tab="fli">Firm LinkedIn</button>
+      </div>
+
+      <div class="tab-panel active" id="pig">
+        <div class="engine-badge">Engine 01 · @rahul.lakhwani (indicative)</div>
+        <div class="pillar-grid">
+          <div class="pillar-card"><div class="pk">The Journey</div><ul>
+            <li>Personal journey</li><li>Day in court</li><li>Lifestyle (professional)</li><li>Awards & events</li>
+          </ul></div>
+          <div class="pillar-card"><div class="pk">Educate</div><ul>
+            <li>Legal tips</li><li>Quick legal advice</li><li>Reels</li><li>AMA sessions</li>
+          </ul></div>
+          <div class="pillar-card"><div class="pk">Visibility</div><ul>
+            <li>Leadership</li><li>Speaking engagements</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="fig">
+        <div class="engine-badge">Engine 02 · @rahullakhwaniassociates (indicative)</div>
+        <div class="pillar-grid">
+          <div class="pillar-card"><div class="pk">Culture</div><ul>
+            <li>Office culture</li><li>Team introductions</li><li>Office celebrations</li><li>CSR initiatives</li>
+          </ul></div>
+          <div class="pillar-card"><div class="pk">Client-Facing</div><ul>
+            <li>Practice areas</li><li>Client education</li><li>Legal awareness campaigns</li><li>FAQs & process explainers</li>
+          </ul></div>
+          <div class="pillar-card"><div class="pk">Growth</div><ul>
+            <li>Behind-the-scenes</li><li>Team achievements</li><li>Hiring updates</li><li>Events & community outreach</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="pli">
+        <div class="engine-badge">Engine 03 · Rahul Lakhwani, personal profile</div>
+        <div class="pillar-grid">
+          <div class="pillar-card"><div class="pk">Thought Leadership</div><ul>
+            <li>Thought leadership posts</li><li>Articles</li><li>Industry opinions</li><li>Legal reforms</li>
+          </ul></div>
+          <div class="pillar-card"><div class="pk">Authority</div><ul>
+            <li>Case analysis (no confidential detail)</li><li>Founder journey</li><li>Speaking engagements</li>
+          </ul></div>
+          <div class="pillar-card"><div class="pk">Credibility</div><ul>
+            <li>Business insights</li><li>Professional milestones</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="fli">
+        <div class="engine-badge">Engine 04 · Rahul Lakhwani & Associates, company page</div>
+        <div class="pillar-grid">
+          <div class="pillar-card"><div class="pk">Expertise</div><ul>
+            <li>Practice area insights</li><li>Legal updates</li><li>Publications</li>
+          </ul></div>
+          <div class="pillar-card"><div class="pk">Recognition</div><ul>
+            <li>Firm achievements</li><li>Awards & recognitions</li><li>Media mentions</li>
+          </ul></div>
+          <div class="pillar-card"><div class="pk">Growth</div><ul>
+            <li>Team spotlights</li><li>Recruitment</li><li>Corporate case studies</li><li>Client success · webinars · partnerships · CSR</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAW FIRM BRANDING STRATEGY -->
+<section id="firmbrand">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <div class="eyebrow"><span class="n">06</span>Law Firm Branding Strategy</div>
+        <h2 class="headline">Positioning the firm as a premium institution</h2>
+        <p class="lede">The firm's digital presence has to communicate one thing consistently: this is a serious, modern practice built for the long term.</p>
+      </div>
+    </div>
+    <div class="pill-row notop reveal">
+      <div class="pill"><span class="dot"></span>Experience</div>
+      <div class="pill"><span class="dot"></span>Expertise</div>
+      <div class="pill"><span class="dot"></span>Professionalism</div>
+      <div class="pill"><span class="dot"></span>Accessibility</div>
+      <div class="pill"><span class="dot"></span>Reliability</div>
+      <div class="pill"><span class="dot"></span>Modern Legal Solutions</div>
+      <div class="pill"><span class="dot"></span>Strong Team</div>
+      <div class="pill"><span class="dot"></span>Corporate Capability</div>
+    </div>
+
+    <div style="height:60px"></div>
+
+    <div class="sub-label reveal">Practice Areas Covered</div>
+    <div class="aud-grid reveal">
+      <div class="aud-card compact"><div class="name">Corporate Law</div></div>
+      <div class="aud-card compact"><div class="name">Civil Litigation</div></div>
+      <div class="aud-card compact"><div class="name">Criminal Law</div></div>
+      <div class="aud-card compact"><div class="name">Property Law</div></div>
+      <div class="aud-card compact"><div class="name">Family Law</div></div>
+      <div class="aud-card compact"><div class="name">Arbitration</div></div>
+      <div class="aud-card compact"><div class="name">Taxation</div></div>
+      <div class="aud-card compact"><div class="name">GST</div></div>
+      <div class="aud-card compact"><div class="name">Labour Law</div></div>
+      <div class="aud-card compact"><div class="name">Intellectual Property</div></div>
+      <div class="aud-card compact"><div class="name">Startup Law</div></div>
+      <div class="aud-card compact"><div class="name">Consumer Law</div></div>
+      <div class="aud-card compact"><div class="name">Real Estate Law</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FIRM CONTENT PILLARS -->
+<section class="section-grey">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <div class="eyebrow"><span class="n">07</span>Firm Content Pillars</div>
+        <h2 class="headline">The stories that build institutional trust</h2>
+        <p class="lede">Six recurring pillars turn the firm from a name on a signboard into a practice people feel they already know.</p>
+      </div>
+    </div>
+    <div class="pblock-grid reveal">
+      <div class="pblock">
+        <h4>Legal Awareness</h4>
+        <p>Weekly educational content explaining the law in plain terms.</p>
+        <div class="tags"><span>Rights</span><span>Procedures</span><span>Legal notices</span><span>Contracts</span><span>Documentation</span><span>Due diligence</span><span>Compliance</span><span>Recent judgments</span><span>Govt. notifications</span></div>
+      </div>
+      <div class="pblock">
+        <h4>Case Insights</h4>
+        <p>Real outcomes, told without revealing confidential information.</p>
+        <div class="mini-flow">
+          <div class="mf-step">Challenge</div><div class="mf-arrow">→</div>
+          <div class="mf-step">Strategy</div><div class="mf-arrow">→</div>
+          <div class="mf-step">Outcome</div><div class="mf-arrow">→</div>
+          <div class="mf-step">Key Learning</div>
+        </div>
+      </div>
+      <div class="pblock">
+        <h4>Meet the Team</h4>
+        <p>Humanising the practice, one introduction at a time.</p>
+        <div class="tags"><span>Partners</span><span>Associates</span><span>Junior Advocates</span><span>Interns</span><span>Support Staff</span></div>
+      </div>
+      <div class="pblock">
+        <h4>Culture & Employer Branding</h4>
+        <p>Attracts both future clients and future talent.</p>
+        <div class="tags"><span>Office environment</span><span>Celebrations</span><span>Training sessions</span><span>Court preparation</span><span>Knowledge sessions</span><span>Recruitment drives</span><span>Community initiatives</span></div>
+      </div>
+      <div class="pblock">
+        <h4>Client Trust</h4>
+        <p>Proof, not promises.</p>
+        <div class="tags"><span>Testimonials (where permitted)</span><span>Google Reviews</span><span>Success metrics</span><span>Years of experience</span><span>Industries served</span><span>Corporate clients</span><span>Community impact</span></div>
+      </div>
+      <div class="pblock">
+        <h4>Media & Recognition</h4>
+        <p>Third-party validation, front and centre.</p>
+        <div class="tags"><span>News appearances</span><span>Guest lectures</span><span>Panel discussions</span><span>Awards</span><span>Bar association activities</span><span>Professional memberships</span><span>Published articles</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MONTHLY DELIVERABLES -->
+<section id="calendar">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <div class="eyebrow"><span class="n">08</span>Monthly Deliverables</div>
+        <h2 class="headline">What lands in the calendar, every month</h2>
+        <p class="lede">A fixed operating rhythm across both brands — so quality and cadence never depend on a good month or a bad one.</p>
+      </div>
+    </div>
+
+    <div class="brand-group-label reveal"><span class="bgl-tag">Personal Brand</span><div class="bgl-line"></div></div>
+    <div class="dash-pair reveal">
+      <div class="dash">
+        <div class="dash-head"><div class="plat">Instagram</div><div class="badge">Monthly</div></div>
+        <div class="dash-grid">
+          <div class="dcell"><div class="cnum">8</div><div class="clabel">Reels</div></div>
+          <div class="dcell"><div class="cnum">8</div><div class="clabel">Carousel Posts</div></div>
+          <div class="dcell"><div class="cnum">4</div><div class="clabel">Static Posts</div></div>
+          <div class="dcell"><div class="cnum">20</div><div class="clabel">Stories</div></div>
+        </div>
+      </div>
+      <div class="dash">
+        <div class="dash-head"><div class="plat">LinkedIn</div><div class="badge">Monthly</div></div>
+        <div class="dash-grid">
+          <div class="dcell"><div class="cnum">8</div><div class="clabel">Thought Leadership Posts</div></div>
+          <div class="dcell"><div class="cnum">4</div><div class="clabel">Personal Insight Posts</div></div>
+          <div class="dcell"><div class="cnum">2</div><div class="clabel">Long-form Articles</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="brand-group-label firm reveal"><span class="bgl-tag">Law Firm Brand</span><div class="bgl-line"></div></div>
+    <div class="dash-pair reveal">
+      <div class="dash">
+        <div class="dash-head"><div class="plat">Instagram</div><div class="badge">Monthly</div></div>
+        <div class="dash-grid">
+          <div class="dcell"><div class="cnum">8</div><div class="clabel">Educational Posts</div></div>
+          <div class="dcell"><div class="cnum">4</div><div class="clabel">Culture Posts</div></div>
+          <div class="dcell"><div class="cnum">4</div><div class="clabel">Team Posts</div></div>
+          <div class="dcell"><div class="cnum">4</div><div class="clabel">Reels</div></div>
+          <div class="dcell"><div class="cnum">16</div><div class="clabel">Stories</div></div>
+        </div>
+      </div>
+      <div class="dash">
+        <div class="dash-head"><div class="plat">LinkedIn</div><div class="badge">Monthly</div></div>
+        <div class="dash-grid">
+          <div class="dcell"><div class="cnum">8</div><div class="clabel">Practice Area Posts</div></div>
+          <div class="dcell"><div class="cnum">4</div><div class="clabel">Legal Update Posts</div></div>
+          <div class="dcell"><div class="cnum">4</div><div class="clabel">Team & Recruitment Posts</div></div>
+          <div class="dcell"><div class="cnum">2</div><div class="clabel">Case Study Carousels</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-list reveal" style="padding:0;">
+      <div class="tag">Monthly Strategy Meeting</div><div class="tag">Monthly Analytics Report</div>
+      <div class="tag">Community & Comment Management</div><div class="tag">Hashtag & Trend Research</div>
+      <div class="tag">Competitor Research</div><div class="tag">Caption & Creative Copywriting</div>
+      <div class="tag">Creative & Thumbnail Design</div><div class="tag">Posting & Scheduling</div>
+      <div class="tag">Profile Optimisation</div><div class="tag">Engagement Strategy</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFESSIONAL SHOOTS -->
+<section class="section-dark">
+  <div class="wrap">
+    <div class="video-layout">
+      <div class="reveal">
+        <div class="eyebrow"><span class="n">09</span>Professional Shoots</div>
+        <h2 class="headline" style="color:#fff;">Trust is built in motion</h2>
+        <p class="lede">A monthly cadence of photography and video across both brands — because content only looks as premium as the material it's built from.</p>
+      </div>
+      <div class="reveal">
+        <div class="video-col-label">Photography, Monthly</div>
+        <div class="video-list" style="margin-bottom:20px;">
+          <div class="video-item"><div class="vt">Founder Shoot</div></div>
+          <div class="video-item"><div class="vt">Office Shoot</div></div>
+          <div class="video-item"><div class="vt">Team Portraits</div></div>
+          <div class="video-item"><div class="vt">Workspace Photography</div></div>
+          <div class="video-item"><div class="vt">Court-Ready Portraits</div></div>
+        </div>
+        <div class="video-col-label">Video, Monthly</div>
+        <div class="video-list">
+          <div class="video-item"><div class="vt">Video Shoot Day</div></div>
+          <div class="video-item"><div class="vt">Talking-Head Videos</div></div>
+          <div class="video-item"><div class="vt">Office Walkthrough</div></div>
+          <div class="video-item"><div class="vt">Team Interviews</div></div>
+          <div class="video-item"><div class="vt">Explainer Videos</div></div>
+          <div class="video-item"><div class="vt">Client Education Videos</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IDENTITY -->
+<section>
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <div class="eyebrow"><span class="n">10</span>Brand Identity</div>
+        <h2 class="headline">A visual system worthy of both brands</h2>
+        <p class="lede">Consistency is what makes a brand recognisable at a glance — across every platform, every asset, every touchpoint, for the advocate and the firm alike.</p>
+      </div>
+    </div>
+    <div class="id-grid reveal">
+      <div class="id-chip">Photoshoot Direction</div>
+      <div class="id-chip">Brand Colour System</div>
+      <div class="id-chip">Typography</div>
+      <div class="id-chip">Instagram Grid Design</div>
+      <div class="id-chip">Highlight Covers</div>
+      <div class="id-chip">LinkedIn Banners</div>
+      <div class="id-chip">Presentation Templates</div>
+      <div class="id-chip">Email Signatures</div>
+      <div class="id-chip">Brand Assets</div>
+      <div class="id-chip">Visual Consistency</div>
+    </div>
+  </div>
+</section>
+
+<!-- DIGITAL GROWTH ENGINE -->
+<section class="section-grey">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <div class="eyebrow"><span class="n">11</span>Digital Growth Engine</div>
+        <h2 class="headline">The infrastructure behind the content</h2>
+        <p class="lede">Social content builds recall. This layer converts that recall into search visibility, enquiries, and a reputation that holds up under scrutiny.</p>
+      </div>
+    </div>
+
+    <div class="dge-block reveal">
+      <div class="dge-head"><h4>Website & Digital Assets</h4><div class="dge-desc">A premium website recommended for the firm, built to convert visits into consultations.</div></div>
+      <div class="id-grid">
+        <div class="id-chip">Home</div><div class="id-chip">About</div><div class="id-chip">Practice Areas</div>
+        <div class="id-chip">Our Team</div><div class="id-chip">Case Studies</div><div class="id-chip">Publications</div>
+        <div class="id-chip">Articles</div><div class="id-chip">Media</div><div class="id-chip">FAQs</div>
+        <div class="id-chip">Contact</div><div class="id-chip">Consultation Booking</div><div class="id-chip">WhatsApp Integration</div>
+        <div class="id-chip">Live Chat</div><div class="id-chip">Newsletter</div><div class="id-chip">Google Reviews</div>
+        <div class="id-chip">SEO Blog</div>
+      </div>
+    </div>
+
+    <div class="dge-block reveal">
+      <div class="dge-head"><h4>Google Business Profile</h4><div class="dge-desc">Monthly management to keep the firm visible exactly where local searches happen.</div></div>
+      <div class="pill-row notop">
+        <div class="pill"><span class="dot"></span>Weekly Posts</div>
+        <div class="pill"><span class="dot"></span>Review Generation Strategy</div>
+        <div class="pill"><span class="dot"></span>Review Responses</div>
+        <div class="pill"><span class="dot"></span>Photos</div>
+        <div class="pill"><span class="dot"></span>Service Updates</div>
+        <div class="pill"><span class="dot"></span>Q&A Optimisation</div>
+        <div class="pill"><span class="dot"></span>Local SEO</div>
+      </div>
+    </div>
+
+    <div class="dge-block reveal">
+      <div class="dge-head"><h4>SEO & Content Marketing</h4><div class="dge-desc">Long-form content built around the searches that precede a real enquiry.</div></div>
+      <div class="bucket-grid">
+        <div class="bucket-card">Legal Notices</div>
+        <div class="bucket-card">Property Disputes</div>
+        <div class="bucket-card">GST Issues</div>
+        <div class="bucket-card">Corporate Compliance</div>
+        <div class="bucket-card">Employment Law</div>
+        <div class="bucket-card">Trademark Registration</div>
+        <div class="bucket-card">Startup Legal Requirements</div>
+        <div class="bucket-card">Divorce Procedures</div>
+        <div class="bucket-card">Criminal Defense</div>
+        <div class="bucket-card">Consumer Complaints</div>
+      </div>
+    </div>
+
+    <div class="dge-block reveal">
+      <div class="dge-head"><h4>Reputation Management</h4><div class="dge-desc">Watching the brand wherever it's mentioned — not just where we post it.</div></div>
+      <div class="pill-row notop">
+        <div class="pill"><span class="dot"></span>Google Reviews</div>
+        <div class="pill"><span class="dot"></span>LinkedIn Recommendations</div>
+        <div class="pill"><span class="dot"></span>Brand Mentions</div>
+        <div class="pill"><span class="dot"></span>Search Engine Visibility</div>
+        <div class="pill"><span class="dot"></span>Knowledge Panels</div>
+        <div class="pill"><span class="dot"></span>Media Citations</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORGANIC GROWTH PHILOSOPHY -->
+<section>
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <div class="eyebrow"><span class="n">12</span>Organic Growth Philosophy</div>
+        <h2 class="headline">Compounding, defensible growth</h2>
+        <p class="lede">Growth built on real authority holds up over years. Growth bought with fake followers collapses the moment anyone looks closely.</p>
+      </div>
+    </div>
+    <div class="no-shortcuts reveal">
+      <div class="ns-badge"><span>✕</span> No fake followers</div>
+      <div class="ns-badge"><span>✕</span> No shortcuts</div>
+      <div class="ns-badge"><span>✓</span> Only compounding authority</div>
+    </div>
+    <div class="growth-grid reveal">
+      <div class="growth-item"><div class="gi"></div><div class="gt">Networking</div></div>
+      <div class="growth-item"><div class="gi"></div><div class="gt">Collaboration</div></div>
+      <div class="growth-item"><div class="gi"></div><div class="gt">Media Features</div></div>
+      <div class="growth-item"><div class="gi"></div><div class="gt">Speaking Opportunities</div></div>
+      <div class="growth-item"><div class="gi"></div><div class="gt">PR</div></div>
+      <div class="growth-item"><div class="gi"></div><div class="gt">Newsletter</div></div>
+      <div class="growth-item"><div class="gi"></div><div class="gt">Community Building</div></div>
+      <div class="growth-item"><div class="gi"></div><div class="gt">Lead Magnets</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACKING -->
+<section class="section-grey">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <div class="eyebrow"><span class="n">13</span>Performance Tracking</div>
+        <h2 class="headline">What we measure, and why</h2>
+        <p class="lede">Every metric ties back to one question: is this brand ecosystem becoming more trusted, and is that trust converting into enquiries?</p>
+      </div>
+    </div>
+    <div class="kpi-grid reveal">
+      <div class="kpi-card"><div class="kn">Follower Growth</div><div class="kd">Audience compounding month over month.</div></div>
+      <div class="kpi-card"><div class="kn">Reach</div><div class="kd">How far the brand travels beyond existing followers.</div></div>
+      <div class="kpi-card"><div class="kn">Engagement</div><div class="kd">Depth of interaction, not just impressions.</div></div>
+      <div class="kpi-card"><div class="kn">Profile Visits</div><div class="kd">Intent signals before a message is sent.</div></div>
+      <div class="kpi-card"><div class="kn">Consultation Enquiries</div><div class="kd">The metric that matters most to the practice.</div></div>
+      <div class="kpi-card"><div class="kn">Website Traffic</div><div class="kd">Owned-channel visibility, independent of platforms.</div></div>
+      <div class="kpi-card"><div class="kn">Leads Generated</div><div class="kd">Qualified interest tracked to source.</div></div>
+      <div class="kpi-card"><div class="kn">Watch Time</div><div class="kd">Depth of attention on video content.</div></div>
+      <div class="kpi-card"><div class="kn">Content Saves</div><div class="kd">A signal of genuine, lasting value.</div></div>
+      <div class="kpi-card"><div class="kn">Shares</div><div class="kd">Organic amplification by real audiences.</div></div>
+      <div class="kpi-card"><div class="kn">Authority Score</div><div class="kd">Our composite index of trust and recall, across both brands.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <div class="eyebrow"><span class="n">14</span>Timeline</div>
+        <h2 class="headline">How the ecosystem builds, quarter by quarter</h2>
+      </div>
+    </div>
+    <div class="tl reveal">
+      <div class="tl-track" id="tlTrack">
+        <div class="tl-line"></div>
+        <div class="tl-line-fill" id="tlFill"></div>
+        <div class="tl-item"><div class="tl-dot">01</div><h4>Month 1</h4><ul>
+          <li>Research</li><li>Personal & firm identity</li><li>Content strategy</li><li>Profile optimisation</li><li>First shoots</li>
+        </ul></div>
+        <div class="tl-item"><div class="tl-dot">02</div><h4>Month 2</h4><ul>
+          <li>Rollout across 4 engines</li><li>Growth</li><li>Optimisation</li>
+        </ul></div>
+        <div class="tl-item"><div class="tl-dot">03</div><h4>Month 3</h4><ul>
+          <li>Authority building</li><li>Speaking opportunities</li><li>Media outreach</li>
+        </ul></div>
+        <div class="tl-item"><div class="tl-dot">04</div><h4>Month 4+</h4><ul>
+          <li>Scale</li><li>Institutional reputation</li><li>Thought leadership</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMERCIALS -->
+<section id="commercials" class="section-grey">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <div class="eyebrow"><span class="n">15</span>Commercials</div>
+        <h2 class="headline">Transparent Investment</h2>
+        <p class="lede">We believe in building long-term brand value rather than offering one-size-fits-all social media packages. Each engagement combines strategic consulting, content production, design, community management, and continuous optimization.</p>
+      </div>
+    </div>
+
+    <div class="price-grid reveal">
+      <div class="price-card">
+        <div class="price-name">Package 01</div>
+        <div class="price-title">Foundation</div>
+        <div class="price-amt">₹45,000<span>/month</span></div>
+        <div class="price-note">Ideal for: Establishing a professional digital presence.</div>
+
+        <div class="price-group-title">Personal Brand</div>
+        <ul class="price-list tight">
+          <li>Instagram Management</li>
+          <li>LinkedIn Management</li>
+          <li>8 Instagram Posts</li>
+          <li>4 Reels</li>
+          <li>12 Stories</li>
+          <li>8 LinkedIn Posts</li>
+          <li>Profile Optimization</li>
+          <li>Caption & Copywriting</li>
+          <li>Hashtag Research</li>
+          <li>Monthly Analytics Report</li>
+        </ul>
+
+        <div class="price-group-title">Firm Brand</div>
+        <ul class="price-list tight">
+          <li>Instagram Management</li>
+          <li>LinkedIn Management</li>
+          <li>8 Instagram Posts</li>
+          <li>8 LinkedIn Posts</li>
+          <li>Practice Area Creatives</li>
+          <li>Team Spotlight Posts</li>
+          <li>Legal Awareness Posts</li>
+          <li>Monthly Analytics Report</li>
+        </ul>
+
+        <div class="price-group-title">Strategy</div>
+        <ul class="price-list tight">
+          <li>Monthly Content Calendar</li>
+          <li>Monthly Strategy Call</li>
+          <li>Trend Research</li>
+          <li>Competitor Analysis</li>
+        </ul>
+
+        <a href="#" class="price-btn" style="margin-top:24px;">Start with Foundation</a>
+      </div>
+
+      <div class="price-card rec">
+        <div class="price-badge">⭐ Most Recommended</div>
+        <div class="price-name">Package 02</div>
+        <div class="price-title">Growth</div>
+        <div class="price-amt">₹75,000<span>/month</span></div>
+        <div class="price-note">Ideal for: Firms looking to establish authority and generate quality enquiries.</div>
+        <div class="price-plus">Everything in Foundation, plus:</div>
+
+        <div class="price-group-title">Personal Brand</div>
+        <ul class="price-list tight">
+          <li>12 Instagram Posts</li>
+          <li>8 Reels</li>
+          <li>20 Stories</li>
+          <li>12 LinkedIn Posts</li>
+          <li>2 LinkedIn Articles</li>
+          <li>Thought Leadership Strategy</li>
+          <li>Speaking Opportunity Content</li>
+          <li>Personal Brand Consultation</li>
+        </ul>
+
+        <div class="price-group-title">Firm Brand</div>
+        <ul class="price-list tight">
+          <li>12 Instagram Posts</li>
+          <li>12 LinkedIn Posts</li>
+          <li>4 Educational Reels</li>
+          <li>Team Culture Content</li>
+          <li>Case Insight Series</li>
+          <li>Recruitment Branding</li>
+          <li>Client Testimonial Creatives</li>
+          <li>Practice Area Campaigns</li>
+        </ul>
+
+        <div class="price-group-title">Professional Production</div>
+        <ul class="price-list tight">
+          <li>One Full-Day Content Shoot Every Month</li>
+          <li>Professional Photography</li>
+          <li>Founder Talking-Head Videos</li>
+          <li>Office & Team Videos</li>
+          <li>Reel Editing</li>
+          <li>Motion Graphics</li>
+          <li>Thumbnail Design</li>
+        </ul>
+
+        <div class="price-group-title">Reputation & Community</div>
+        <ul class="price-list tight">
+          <li>Community Management</li>
+          <li>Comment & DM Response Support</li>
+          <li>Google Business Profile Management</li>
+          <li>Review Response Strategy</li>
+          <li>Monthly Performance Dashboard</li>
+        </ul>
+
+        <div class="price-group-title">Strategy & Consulting</div>
+        <ul class="price-list tight">
+          <li>Quarterly Brand Review</li>
+          <li>Competitor Benchmarking</li>
+          <li>Trend Monitoring</li>
+          <li>Campaign Planning</li>
+        </ul>
+
+        <a href="#" class="price-btn" style="margin-top:24px;">Start with Growth</a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-name">Package 03</div>
+        <div class="price-title">Authority</div>
+        <div class="price-amt">₹1,20,000<span>/month</span></div>
+        <div class="price-note">Ideal for: Firms aiming to become one of the most recognized legal brands in their region.</div>
+        <div class="price-plus">Everything in Growth, plus:</div>
+
+        <div class="price-group-title">Personal Brand</div>
+        <ul class="price-list tight">
+          <li>Unlimited Strategic Consultation</li>
+          <li>Weekly Founder Content Planning</li>
+          <li>4 LinkedIn Articles</li>
+          <li>Executive Reputation Management</li>
+          <li>Media & PR Content Support</li>
+          <li>Podcast Content Strategy</li>
+          <li>Webinar Planning</li>
+          <li>Guest Appearance Content</li>
+          <li>Personal Newsletter</li>
+        </ul>
+
+        <div class="price-group-title">Firm Brand</div>
+        <ul class="price-list tight">
+          <li>Employer Branding Strategy</li>
+          <li>Recruitment Campaigns</li>
+          <li>CSR & Event Coverage</li>
+          <li>Corporate Communication</li>
+          <li>Internal Brand Storytelling</li>
+          <li>Multi-location Content Strategy (if applicable)</li>
+          <li>Service Launch Campaigns</li>
+        </ul>
+
+        <div class="price-group-title">Advanced Content Production</div>
+        <ul class="price-list tight">
+          <li>Two Content Shoots Per Month</li>
+          <li>Premium Cinematic Videos</li>
+          <li>Interview Production</li>
+          <li>Client Success Stories</li>
+          <li>Brand Documentary Style Videos</li>
+          <li>Motion Graphic Explainers</li>
+          <li>Premium Drone Footage (where applicable)</li>
+        </ul>
+
+        <div class="price-group-title">Digital Growth</div>
+        <ul class="price-list tight">
+          <li>SEO Content Strategy</li>
+          <li>Blog Planning</li>
+          <li>Email Newsletter Strategy</li>
+          <li>Lead Magnet Creation</li>
+          <li>Landing Page Consultation</li>
+          <li>Conversion Funnel Strategy</li>
+        </ul>
+
+        <div class="price-group-title">Analytics & Consulting</div>
+        <ul class="price-list tight">
+          <li>Weekly Review Meetings</li>
+          <li>Monthly Growth Report</li>
+          <li>Quarterly Brand Audit</li>
+          <li>Annual Brand Roadmap</li>
+          <li>Dedicated Account Manager</li>
+          <li>Priority Support</li>
+        </ul>
+
+        <a href="#" class="price-btn" style="margin-top:24px;">Start with Authority</a>
+      </div>
+    </div>
+    <div class="price-foot-note reveal">All prices are exclusive of applicable taxes. A minimum engagement of 3 months is recommended to establish meaningful brand visibility and measurable outcomes.</div>
+  </div>
+</section>
+
+<!-- UPSELL -->
+<section>
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <div class="eyebrow"><span class="n">16</span>Additional Services</div>
+        <h2 class="headline">Optional add-ons, scoped separately</h2>
+        <p class="lede">As the ecosystem matures, these can be layered in — each with its own scope and commercial, added only when it's genuinely useful.</p>
+      </div>
+    </div>
+    <div class="upsell-grid reveal">
+      <div class="upsell-card"><span class="up-dot"></span>Professional Website Design & Development</div>
+      <div class="upsell-card"><span class="up-dot"></span>Website Maintenance</div>
+      <div class="upsell-card"><span class="up-dot"></span>Search Engine Optimization (SEO)</div>
+      <div class="upsell-card"><span class="up-dot"></span>Google Ads Management</div>
+      <div class="upsell-card"><span class="up-dot"></span>Meta Ads Management</div>
+      <div class="upsell-card"><span class="up-dot"></span>LinkedIn Ads Management</div>
+      <div class="upsell-card"><span class="up-dot"></span>Professional Brand Photoshoot</div>
+      <div class="upsell-card"><span class="up-dot"></span>Premium Video Production</div>
+      <div class="upsell-card"><span class="up-dot"></span>Podcast Production</div>
+      <div class="upsell-card"><span class="up-dot"></span>Corporate Profile / Firm Brochure Design</div>
+      <div class="upsell-card"><span class="up-dot"></span>PR & Media Outreach</div>
+      <div class="upsell-card"><span class="up-dot"></span>AI Chatbot for Website</div>
+      <div class="upsell-card"><span class="up-dot"></span>Appointment Booking System Integration</div>
+      <div class="upsell-card"><span class="up-dot"></span>Email Newsletter Setup</div>
+      <div class="upsell-card"><span class="up-dot"></span>Webinar Planning & Management</div>
+      <div class="upsell-card"><span class="up-dot"></span>WhatsApp Business Automation</div>
+    </div>
+    <div class="upsell-note reveal">None of these are bundled into the core retainer. We recommend only what the ecosystem is ready for, quarter by quarter.</div>
+  </div>
+</section>
+
+<!-- COMMERCIAL NOTES -->
+<section>
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <div class="eyebrow"><span class="n">17</span>Commercial Notes</div>
+        <h2 class="headline">The fine print, upfront</h2>
+      </div>
+    </div>
+    <ul class="notes-list reveal">
+      <li>All prices mentioned are exclusive of applicable taxes (GST).</li>
+      <li>A minimum engagement of 3 months is recommended to achieve meaningful brand growth and measurable results.</li>
+      <li>Advertising budgets for Meta, Google, and LinkedIn Ads are not included in the above commercials and will be billed separately.</li>
+      <li>Professional photography and videography (including content shoots, reels, interviews, cinematic videos, drone shoots, studio shoots, and post-production) are not included in the monthly retainer. These services will be quoted and billed separately based on the scope, duration, crew requirements, equipment, and location.</li>
+      <li>Any travel, accommodation, studio rental, makeup artist, models, props, or location-specific production expenses, if applicable, will be charged at actuals with prior approval.</li>
+      <li>Additional services such as website development, SEO, PR & media outreach, branding, corporate profile design, AI automation, and custom software integrations will be quoted separately based on project requirements.</li>
+      <li>Any revisions beyond the agreed scope or additional content requests will be billed separately after prior discussion and approval.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section-dark">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <div class="eyebrow"><span class="n">18</span>Why Brand Buzzer</div>
+        <h2 class="headline" style="color:#fff;">A partner, not a vendor</h2>
+      </div>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2l2 5 5 .8-3.7 3.5.9 5.2L12 14l-4.2 2.5.9-5.2L5 7.8 10 7z"/></svg></div><div class="wt">AI-First Agency</div></div>
+      <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h6v6H9z"/></svg></div><div class="wt">Premium Design</div></div>
+      <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 20V6a2 2 0 012-2h9l5 5v11a2 2 0 01-2 2H6a2 2 0 01-2-2z"/><path d="M8 12h8M8 16h5"/></svg></div><div class="wt">Professional Copywriting</div></div>
+      <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 21h18M6 21V9l6-6 6 6v12M10 21v-6h4v6"/></svg></div><div class="wt">Dual-Brand Strategy</div></div>
+      <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div><div class="wt">Luxury Content</div></div>
+      <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 3v18h18M7 15l4-5 3 3 5-7"/></svg></div><div class="wt">Analytics Driven</div></div>
+      <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2l9 4v6c0 5-3.6 8.7-9 10-5.4-1.3-9-5-9-10V6z"/></svg></div><div class="wt">Performance Focused</div></div>
+      <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 3-2 4-2 6H9c0-2-2-3-2-6a5 5 0 015-5zM9 18h6M10 21h4"/></svg></div><div class="wt">Creative Excellence</div></div>
+      <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="wt">Fast Turnaround</div></div>
+      <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></div><div class="wt">Dedicated Account Manager</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <div class="wrap">
+    <div class="eyebrow reveal" style="justify-content:center;"><span class="n">19</span>Let's Begin</div>
+    <blockquote class="reveal">Your legal expertise deserves a brand<br>that inspires trust <span>before the first conversation.</span></blockquote>
+    <a href="#commercials" class="btn reveal">Let's Build Your Digital Legacy</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <div class="flogo">Brand Buzzer</div>
+    <div>Confidential proposal, prepared exclusively for Adv. Rahul Lakhwani.</div>
+    <div>© 2026 Brand Buzzer</div>
+  </div>
+</footer>
+
+<script>
+  // nav scroll state
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
+  revealEls.forEach(el => io.observe(el));
+
+  // animated counters
+  const counters = document.querySelectorAll('.counter');
+  const cIo = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        const el = e.target;
+        const target = parseInt(el.dataset.count, 10);
+        let cur = 0;
+        const dur = 1400;
+        const start = performance.now();
+        function step(t){
+          const p = Math.min((t - start) / dur, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          cur = Math.round(eased * target);
+          el.textContent = cur;
+          if(p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+        cIo.unobserve(el);
+      }
+    });
+  }, {threshold:0.5});
+  counters.forEach(c => cIo.observe(c));
+
+  // tabs (shared handler for both 2-tab and 4-tab groups)
+  document.querySelectorAll('.tabs').forEach(group => {
+    const btns = group.querySelectorAll('.tab-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const panelsContainer = group.parentElement;
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        panelsContainer.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        const target = panelsContainer.querySelector('#' + btn.dataset.tab);
+        if(target) target.classList.add('active');
+      });
+    });
+  });
+
+  // timeline fill on scroll into view
+  const tlTrack = document.getElementById('tlTrack');
+  const tlFill = document.getElementById('tlFill');
+  const tlItems = document.querySelectorAll('.tl-item');
+  const tlIo = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        tlFill.style.width = '100%';
+        tlItems.forEach((item, i) => {
+          setTimeout(() => item.classList.add('on'), i * 260);
+        });
+        tlIo.unobserve(tlTrack);
+      }
+    });
+  }, {threshold:0.4});
+  tlIo.observe(tlTrack);
+</script>
+
+</body>
+</html>

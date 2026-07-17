@@ -6,7 +6,7 @@ import { Calendar, Users, ChevronDown, Home } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const PROPERTIES = [
-    { id: "choti-haveli", name: "Choti Haveli" },
+    { id: "choti-haveli", name: "Chotti Haveli" },
     { id: "kankas-house", name: "Kankas House" },
 ];
 

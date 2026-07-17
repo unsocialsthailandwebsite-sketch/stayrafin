@@ -13,23 +13,23 @@ interface HeroSectionProps {
 const SLIDE_IMAGES = [
     // Starting with Kankas House twilight facade shot
     "https://a0.muscache.com/im/pictures/hosting/Hosting-1492613314913436518/original/4f523614-7a53-496a-abd3-08d190cd3147.jpeg",
-    // Choti Haveli main exterior
+    // Chotti Haveli main exterior
     "https://cdn.sanity.io/images/1tjvajrl/production/e15abc6a1533ef147337803f1e9b45b6bae51980-1280x960.jpg",
     // Kankas House living room
     "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/75712882-d545-4300-b81d-3712673047b6.jpeg",
-    // Choti Haveli heritage bedroom
+    // Chotti Haveli heritage bedroom
     "https://cdn.sanity.io/images/1tjvajrl/production/4dbb06866de0df7ad6825ef3b32e558185cda76a-1279x960.heif",
     // Kankas House sprawling green lawn
     "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/9276b2bf-52b6-43a2-8b40-b617c5347176.jpeg",
-    // Choti Haveli courtyard dining
+    // Chotti Haveli courtyard dining
     "https://cdn.sanity.io/images/1tjvajrl/production/cb2ef8c7eb4ed5f05fbb700ddddb35cc043b1acc-1279x960.jpg",
     // Kankas House top balcony view
     "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/73653bf7-e972-44a4-9924-d0b47f098280.jpeg",
-    // Choti Haveli heritage carvings
+    // Chotti Haveli heritage carvings
     "https://cdn.sanity.io/images/1tjvajrl/production/a8f8d1dbdbd97b85486018b681a91b9a89c158b6-1279x960.jpg",
     // Kankas House bedroom
     "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/1c2a9fe1-ce5a-4d87-a19e-92096ddd44d6.jpeg",
-    // Choti Haveli outdoor seating twilight
+    // Chotti Haveli outdoor seating twilight
     "https://cdn.sanity.io/images/1tjvajrl/production/f2a0fd7eb023e7ebf81ce4fca03f86cdcab3f8d8-1280x960.heif"
 ];
 

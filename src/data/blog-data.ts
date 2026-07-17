@@ -26,7 +26,7 @@ export const blogPosts: BlogPost[] = [
             <p>Hotels are shared spaces — lobbies, pools, restaurants and corridors full of strangers. A villa is yours alone. Swim at midnight, host a bonfire, play music on the lawn, celebrate an anniversary on a rooftop terrace. There's no one to disturb and no one disturbing you. It's the reason villas have become the default choice for birthdays, small celebrations and family reunions in Jaipur.</p>
 
             <h2>Food: Menus vs Your Own Chef</h2>
-            <p>Room service ends; a house chef doesn't. Villa stays like ours include home-cooked meals prepared fresh in the villa kitchen — authentic Rajasthani dishes made to your taste and schedule. Guests at <a href="/properties/choti-haveli">Choti Haveli</a> consistently tell us the home-cooked local food is the highlight of their stay.</p>
+            <p>Room service ends; a house chef doesn't. Villa stays like ours include home-cooked meals prepared fresh in the villa kitchen — authentic Rajasthani dishes made to your taste and schedule. Guests at <a href="/properties/choti-haveli">Chotti Haveli</a> consistently tell us the home-cooked local food is the highlight of their stay.</p>
 
             <h2>Cost: The Math Favours Groups</h2>
             <p>Here's where it gets interesting. Four hotel rooms at a five-star property in Jaipur can easily cost ₹40,000–60,000 a night. A full luxury villa that sleeps eight often costs less than half of that — with more space, a private pool and a chef included. For groups of four or more, a villa isn't the indulgent option; it's the sensible one.</p>
@@ -77,12 +77,12 @@ export const blogPosts: BlogPost[] = [
         id: "2",
         slug: "heritage-homes-jaipur",
         title: "Living Like Royalty: A Guide to Heritage Homes in Jaipur",
-        excerpt: "Step back in time and experience the grandeur of Rajasthan by staying in a restored heritage home. Discover the magic of Choti Haveli and other architectural gems.",
+        excerpt: "Step back in time and experience the grandeur of Rajasthan by staying in a restored heritage home. Discover the magic of Chotti Haveli and other architectural gems.",
         content: `
             <p>Rajasthan is synonymous with royalty, and there's no better way to experience it than by staying in a heritage home. These properties, often centuries old, have been lovingly restored to offer modern amenities while preserving their historical charm.</p>
 
-            <h2>Choti Haveli: A Hidden Gem</h2>
-            <p>In the heart of Jaipur's C-Scheme lies Choti Haveli, a boutique heritage property that captures the essence of traditional Rajasthani architecture. With its intricate carvings, open courtyards, and antique furnishings, staying here is like living in a living museum.</p>
+            <h2>Chotti Haveli: A Hidden Gem</h2>
+            <p>In Emaar Greens on Ajmer Road lies Chotti Haveli, a boutique heritage property that captures the essence of traditional Rajasthani architecture. With its intricate carvings, open courtyards, and antique furnishings, staying here is like living in a living museum.</p>
 
             <h2>What to Expect</h2>
             <p>Heritage homes offer a level of personalized service and cultural immersion that large hotels simply can't match. You can expect:</p>

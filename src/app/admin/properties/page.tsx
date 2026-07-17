@@ -5,7 +5,7 @@ import { Plus, Pencil, Trash2 } from "lucide-react"
 
 // Mock data until Sanity connection is fully live with data
 const properties = [
-    { id: "1", title: "Choti Haveli", location: "C-Scheme, Jaipur", type: "Heritage Luxury" },
+    { id: "1", title: "Chotti Haveli", location: "Emaar Greens, Ajmer Road, Jaipur", type: "Heritage Luxury" },
     { id: "2", title: "The Kukas Villa", location: "Jaipur Outskirts", type: "Modern Farmhouse" }
 ]
 

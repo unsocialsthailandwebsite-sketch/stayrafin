@@ -86,7 +86,7 @@ const StayraSitemap = () => {
       children: [
         {
           icon: Building2,
-          title: "Choti Haveli",
+          title: "Chotti Haveli",
           url: "/properties/choti-haveli",
           children: [
             {

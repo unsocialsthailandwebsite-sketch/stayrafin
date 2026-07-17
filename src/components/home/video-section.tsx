@@ -11,7 +11,7 @@ const COLLAGE_IMAGES = [
     },
     {
         src: "https://cdn.sanity.io/images/1tjvajrl/production/e15abc6a1533ef147337803f1e9b45b6bae51980-1280x960.jpg",
-        alt: "Choti Haveli Main Exterior",
+        alt: "Chotti Haveli Main Exterior",
         className: "col-span-1 row-span-1"
     },
     {
@@ -21,12 +21,12 @@ const COLLAGE_IMAGES = [
     },
     {
         src: "https://cdn.sanity.io/images/1tjvajrl/production/cb2ef8c7eb4ed5f05fbb700ddddb35cc043b1acc-1279x960.jpg",
-        alt: "Choti Haveli Courtyard Dining",
+        alt: "Chotti Haveli Courtyard Dining",
         className: "col-span-1 row-span-1"
     },
     {
         src: "https://cdn.sanity.io/images/1tjvajrl/production/f2a0fd7eb023e7ebf81ce4fca03f86cdcab3f8d8-1280x960.heif",
-        alt: "Choti Haveli Seating Area",
+        alt: "Chotti Haveli Seating Area",
         className: "col-span-1 row-span-1"
     }
 ];

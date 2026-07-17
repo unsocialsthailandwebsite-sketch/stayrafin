@@ -19,31 +19,33 @@ export const MOCK_PROPERTIES: Record<string, {
     }[];
 }> = {
     "choti-haveli": {
-        title: "Choti Haveli",
-        location: "Emaar Green, Ajmer Road",
-        specs: "4 Bedrooms | Sleeps 8",
+        title: "Chotti Haveli",
+        location: "Emaar Greens, Ajmer Road",
+        specs: "1 BHK | Garden | Private Kitchen",
         price: "Price on Request",
         badge: "Couple's Favourite",
-        description: `Choti Haveli is a restored heritage home. Experience the charm of traditional Rajasthani architecture combined with modern luxury. Located in Emaar Green, Ajmer Road, it offers a peaceful retreat while being accessible to the city.
+        description: `Explore a timeless voyage where Rajasthan's majestic history blends seamlessly with contemporary luxuries and tranquil natural surroundings. Situated within the Emaar Group's portfolio, this gated community offers round-the-clock security and is nestled amidst 23 acres of expansive greenery, providing a perfect sanctuary.
 
-<strong>The Space</strong>
-This heritage property features a lawn, intricate carvings, and a rooftop terrace that offers panoramic views of the surroundings.
+<strong>Why Chotti Haveli</strong>
+Designed for couples who crave stillness and soul. Enjoy golden sunsets from the garden, wrapped in the charm of timeless Rajasthani architecture. A tranquil indoor fish pond sets the mood for slow mornings and intimate evenings—where every moment feels effortlessly romantic. It is a place to reconnect, celebrate love, and enjoy stillness together.
 
 <strong>Bedroom</strong>
-One spacious bedroom, uniquely designed with period furniture and modern amenities to ensure a comfortable stay.
+This elegant bedroom blends Rajasthani heritage with modern comfort. A spacious king-size bed, warm tones, and handcrafted details offer a calming retreat, ideal for couples seeking privacy, comfort, and timeless charm.
 
-<strong>Kitchen</strong>
-Enjoy home-cooked Rajasthani meals prepared with fresh, local ingredients.`,
+<strong>Private Kitchen</strong>
+A fully equipped private kitchen designed for comfort and convenience. You’ll find every basic essential, along with a coffee machine, microwave, and a spacious double-door refrigerator perfect for relaxed meals and effortless hosting.`,
         features: [
-            "Restored Heritage Haveli",
-            "Located in Emaar Green, Ajmer Road",
-            "1 Luxury Bedroom",
-            "Lawn area",
-            "Rooftop Terrace",
-            "Home-cooked Rajasthani meals",
-            "High-speed WiFi",
-            "Daily Housekeeping",
-            "Concierge Service"
+            "Restored Heritage Haveli (1 BHK)",
+            "Located in Emaar Greens, Ajmer Road",
+            "Tranquil Indoor Fish Pond",
+            "Private Garden / Lawn Area",
+            "Fully Equipped Private Kitchen",
+            "Gated Community with 24/7 Security",
+            "Nestled in 23 Acres of Expansive Greenery",
+            "Chef on Call (Meals Prepared Privately)",
+            "Chauffeur on Call & Airport Transfers",
+            "Candlelight Dinner Setup (on request)",
+            "High-speed WiFi & Daily Housekeeping"
         ],
         images: [
             "https://cdn.sanity.io/images/1tjvajrl/production/e15abc6a1533ef147337803f1e9b45b6bae51980-1280x960.jpg",
@@ -80,7 +82,7 @@ Enjoy home-cooked Rajasthani meals prepared with fresh, local ingredients.`,
                 name: "Rahul Sharma",
                 location: "New Delhi",
                 rating: 5,
-                text: "A beautiful slice of Rajasthani heritage combined with modern, clean comforts. We loved spending our evenings on the rooftop terrace.",
+                text: "A beautiful slice of Rajasthani heritage combined with modern, clean comforts. We loved spending our evenings in the private garden.",
                 date: "May 2026"
             },
             {
