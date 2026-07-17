@@ -68,7 +68,7 @@ export default function AboutPage() {
                         className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl"
                     >
                         <Image
-                            src="https://images.unsplash.com/photo-1600596542815-2a4d9f6facb8?q=80&w=2641&auto=format&fit=crop"
+                            src="/images/about-luxury-interior.png"
                             alt="Luxury Interior"
                             fill
                             className="object-cover"

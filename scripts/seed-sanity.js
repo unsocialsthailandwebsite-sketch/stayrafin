@@ -19,7 +19,7 @@ const PROPERTIES = {
     "choti-haveli": {
         title: "Choti Haveli",
         location: "C-Scheme, Jaipur",
-        specs: "4 Bedrooms | Sleeps 8-10",
+        specs: "1 Bedroom | Sleeps 4",
         price: '₹25,000 / night',
         type: 'heritage',
         images: (function () {

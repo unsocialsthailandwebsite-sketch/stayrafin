@@ -19,9 +19,9 @@ export const MOCK_PROPERTIES: Record<string, {
     }[];
 }> = {
     "choti-haveli": {
-        title: "Chotti Haveli",
+        title: "Choti Haveli",
         location: "Emaar Greens, Ajmer Road",
-        specs: "1 BHK | Garden | Private Kitchen",
+        specs: "1 Bedroom | Sleeps 4",
         price: "Price on Request",
         badge: "Couple's Favourite",
         description: `Explore a timeless voyage where Rajasthan's majestic history blends seamlessly with contemporary luxuries and tranquil natural surroundings. Situated within the Emaar Group's portfolio, this gated community offers round-the-clock security and is nestled amidst 23 acres of expansive greenery, providing a perfect sanctuary.
