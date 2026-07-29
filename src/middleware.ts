@@ -1,22 +1,19 @@
-import { auth } from "@/auth"
 import { NextResponse } from "next/server"
+import type { NextRequest } from "next/server"
 
-export default auth((req) => {
-    const isLcggedIn = !!req.auth
-    const isAdminPage = req.nextUrl.pathname.startsWith("/admin")
-    const isLoginPage = req.nextUrl.pathname.startsWith("/admin/login")
-
-    if (isAdminPage && !isLoginPage && !isLcggedIn) {
-        return NextResponse.redirect(new URL("/admin/login", req.nextUrl))
-    }
-
-    if (isLoginPage && isLcggedIn) {
-        return NextResponse.redirect(new URL("/admin", req.nextUrl))
-    }
-
+export function middleware(request: NextRequest) {
     return NextResponse.next()
-})
+}
 
 export const config = {
-    matcher: ["/admin/:path*"],
+    matcher: [
+        /*
+         * Match all request paths except for the ones starting with:
+         * - api (API routes)
+         * - _next/static (static files)
+         * - _next/image (image optimization files)
+         * - favicon.ico (favicon file)
+         */
+        "/((?!api|_next/static|_next/image|favicon.ico).*)",
+    ],
 }
