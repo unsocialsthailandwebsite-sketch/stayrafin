@@ -18,18 +18,22 @@ export const metadata = {
 export const revalidate = 60;
 
 async function getProperties() {
-    return await client.fetch(`
-        *[_type == "property"]{
-            _id,
-            title,
-            "slug": slug.current,
-            location,
-            type,
-            price,
-            "image": mainImage.asset->url,
-            specs
-        }
-    `);
+    try {
+        return await client.fetch(`
+            *[_type == "property"]{
+                _id,
+                title,
+                "slug": slug.current,
+                location,
+                type,
+                price,
+                "image": mainImage.asset->url,
+                specs
+            }
+        `);
+    } catch {
+        return [];
+    }
 }
 
 export default async function PropertiesPage() {

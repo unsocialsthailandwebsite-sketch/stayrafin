@@ -71,24 +71,28 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 async function getProperty(slug: string) {
-    const query = `*[_type == "property" && slug.current == $slug][0]{
-        title,
-        location,
-        specs,
-        price,
-        description,
-        features,
-        "images": gallery[].asset->url,
-        "gallerySections": gallerySections[]{
+    try {
+        const query = `*[_type == "property" && slug.current == $slug][0]{
             title,
-            "images": images[].asset->url
-        },
-        "whatsapp": *[_type == "siteSettings"][0].whatsappNumber,
-        "phone": *[_type == "siteSettings"][0].contactPhone
-    }`;
+            location,
+            specs,
+            price,
+            description,
+            features,
+            "images": gallery[].asset->url,
+            "gallerySections": gallerySections[]{
+                title,
+                "images": images[].asset->url
+            },
+            "whatsapp": *[_type == "siteSettings"][0].whatsappNumber,
+            "phone": *[_type == "siteSettings"][0].contactPhone
+        }`;
 
-    const property = await client.fetch(query, { slug });
-    return property;
+        const property = await client.fetch(query, { slug });
+        return property;
+    } catch {
+        return null;
+    }
 }
 
 export default async function PropertyPage({ params }: { params: Promise<{ slug: string }> }) {

@@ -22,28 +22,33 @@ import { client } from "@/sanity/client";
 export const revalidate = 60;
 
 async function getData() {
-  const settingsQuery = `*[_type == "siteSettings"][0]{
-    heroHeading,
-    heroSubheading
-  }`;
+  try {
+    const settingsQuery = `*[_type == "siteSettings"][0]{
+      heroHeading,
+      heroSubheading
+    }`;
 
-  const propertiesQuery = `*[_type == "property"]{
-    _id,
-    title,
-    "slug": slug.current,
-    location,
-    type,
-    price,
-    "image": mainImage.asset->url,
-    "gallery": gallery[].asset->url,
-    specs
-  }`;
-  const [settings, properties] = await Promise.all([
-    client.fetch(settingsQuery),
-    client.fetch(propertiesQuery)
-  ]);
+    const propertiesQuery = `*[_type == "property"]{
+      _id,
+      title,
+      "slug": slug.current,
+      location,
+      type,
+      price,
+      "image": mainImage.asset->url,
+      "gallery": gallery[].asset->url,
+      specs
+    }`;
+    const [settings, properties] = await Promise.all([
+      client.fetch(settingsQuery),
+      client.fetch(propertiesQuery)
+    ]);
 
-  return { settings, properties };
+    return { settings, properties };
+  } catch (error) {
+    console.error("Sanity fetch error in homepage:", error);
+    return { settings: null, properties: [] };
+  }
 }
 
 export default async function Home() {
