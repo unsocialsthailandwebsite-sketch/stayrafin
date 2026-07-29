@@ -19,7 +19,7 @@ const PROPERTIES = {
     "choti-haveli": {
         title: "Choti Haveli",
         location: "C-Scheme, Jaipur",
-        specs: "1 Bedroom | Sleeps 4",
+        specs: "1 Bedroom | Sleeps 2",
         price: '₹25,000 / night',
         type: 'heritage',
         images: (function () {
@@ -105,7 +105,7 @@ const SITE_SETTINGS = {
     _id: 'siteSettings',
     _type: 'siteSettings',
     title: 'Stayra Luxury',
-    contactEmail: 'contact@stayra.in',
+    contactEmail: 'info@stayra.co',
     contactPhone: '+91 98765 43210',
     whatsappNumber: '919876543210',
     heroHeading: 'Experience the Art of Living',
