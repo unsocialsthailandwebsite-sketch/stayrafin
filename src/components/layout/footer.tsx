@@ -80,7 +80,7 @@ export function Footer() {
                             </li>
                             <li className="flex gap-3 items-center text-white/60 text-sm font-sans">
                                 <span>✉️</span>
-                                <span>bookstayra@gmail.com</span>
+                                <span>info@stayra.co</span>
                             </li>
                         </ul>
                     </div>

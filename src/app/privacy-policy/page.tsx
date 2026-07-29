@@ -136,7 +136,7 @@ export default function PrivacyPolicyPage() {
                             For any questions, concerns, or requests related to this Privacy Policy or your personal data, please contact us at:
                         </p>
                         <ul className="list-none pl-0 space-y-1">
-                            <li className="flex gap-2"><strong>Email:</strong> <span>bookstayra@gmail.com</span></li>
+                            <li className="flex gap-2"><strong>Email:</strong> <span>info@stayra.co</span></li>
                             <li className="flex gap-2"><strong>Phone:</strong> <span>+91 73400 31394</span></li>
                         </ul>
 

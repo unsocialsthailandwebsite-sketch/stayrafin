@@ -18,6 +18,8 @@ interface BlogPostPageProps {
     }>;
 }
 
+import { BlogPostingSchema } from "@/components/seo/structured-data";
+
 export async function generateMetadata({ params }: BlogPostPageProps) {
     const { slug } = await params;
     const post = blogPosts.find((p) => p.slug === slug);
@@ -31,6 +33,21 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
     return {
         title: post.title,
         description: post.excerpt,
+        alternates: { canonical: `/blogs/${slug}` },
+        openGraph: {
+            title: post.title,
+            description: post.excerpt,
+            type: "article",
+            publishedTime: post.date,
+            authors: [post.author],
+            images: [post.image],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: post.title,
+            description: post.excerpt,
+            images: [post.image],
+        },
     };
 }
 
@@ -44,6 +61,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
     return (
         <main className="min-h-screen bg-stayra-ivory pt-24 pb-16">
+            <BlogPostingSchema
+                title={post.title}
+                description={post.excerpt}
+                slug={post.slug}
+                datePublished={post.date}
+                authorName={post.author}
+                image={post.image}
+            />
             <article className="container mx-auto px-4 max-w-4xl">
                 <Link href="/blogs" className="inline-flex items-center text-sm text-gray-500 hover:text-stayra-gold mb-8 transition-colors">
                     <ArrowLeft className="w-4 h-4 mr-1" /> Back to Blogs

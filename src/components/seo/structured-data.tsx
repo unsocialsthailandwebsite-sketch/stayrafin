@@ -87,3 +87,65 @@ export function PropertySchema({
         />
     );
 }
+
+export function FAQSchema({ faqs }: { faqs: { question: string; answer: string }[] }) {
+    return (
+        <JsonLd
+            data={{
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                mainEntity: faqs.map((faq) => ({
+                    "@type": "Question",
+                    name: faq.question,
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text: faq.answer,
+                    },
+                })),
+            }}
+        />
+    );
+}
+
+export function BlogPostingSchema({
+    title,
+    description,
+    slug,
+    datePublished,
+    authorName,
+    image,
+}: {
+    title: string;
+    description: string;
+    slug: string;
+    datePublished: string;
+    authorName: string;
+    image: string;
+}) {
+    return (
+        <JsonLd
+            data={{
+                "@context": "https://schema.org",
+                "@type": "BlogPosting",
+                headline: title,
+                description,
+                url: `https://stayra.co/blogs/${slug}`,
+                datePublished,
+                image,
+                author: {
+                    "@type": "Person",
+                    name: authorName,
+                },
+                publisher: {
+                    "@type": "Organization",
+                    name: "Stayra",
+                    logo: {
+                        "@type": "ImageObject",
+                        url: "https://stayra.co/logo.png",
+                    },
+                },
+            }}
+        />
+    );
+}
+

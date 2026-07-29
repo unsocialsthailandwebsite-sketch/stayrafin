@@ -19,7 +19,7 @@ export default function ContactPage() {
                     <div className="grid md:grid-cols-2 gap-8 mt-12 text-left bg-white p-8 rounded-2xl shadow-sm border border-stayra-gold/20">
                         <div>
                             <h3 className="font-serif text-xl text-stayra-green mb-2">General Inquiries</h3>
-                            <p className="text-stayra-charcoal/70">bookstayra@gmail.com</p>
+                            <p className="text-stayra-charcoal/70">info@stayra.co</p>
                         </div>
                         <div>
                             <h3 className="font-serif text-xl text-stayra-green mb-2">Concierge</h3>

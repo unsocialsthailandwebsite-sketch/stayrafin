@@ -96,7 +96,7 @@ export default function SettingsPage() {
                                 value={formData.contactEmail}
                                 onChange={handleChange}
                                 className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-stayra-gold"
-                                placeholder="bookstayra@gmail.com"
+                                placeholder="info@stayra.co"
                             />
                         </div>
                         <div>
