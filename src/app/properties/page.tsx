@@ -5,6 +5,13 @@ export const metadata = {
     title: "Villas in Jaipur — Private Pool & Heritage Homes",
     description:
         "Explore Stayra's handpicked Jaipur villas: Chotti Haveli, a restored heritage home on Ajmer Road, and Kankas House, a 4BHK private pool villa on Delhi Road.",
+    alternates: { canonical: "/properties" },
+    openGraph: {
+        title: "Villas in Jaipur — Private Pool & Heritage Homes",
+        description:
+            "Explore Stayra's handpicked Jaipur villas: Chotti Haveli, a restored heritage home on Ajmer Road, and Kankas House, a 4BHK private pool villa on Delhi Road.",
+        url: "https://stayra.co/properties",
+    },
 };
 
 // Revalidate every 60s

@@ -9,6 +9,8 @@ export const metadata: Metadata = {
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
+import { FAQSchema } from "@/components/seo/structured-data";
+
 export default function FAQPage() {
     const faqs = [
         {
@@ -39,6 +41,7 @@ export default function FAQPage() {
 
     return (
         <div className="min-h-screen bg-stayra-ivory flex flex-col">
+            <FAQSchema faqs={faqs} />
             <main className="flex-grow pt-32 pb-16 px-4 container mx-auto">
                 <div className="max-w-3xl mx-auto space-y-12">
                     <div className="text-center space-y-4">
