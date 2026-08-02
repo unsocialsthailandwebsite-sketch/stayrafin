@@ -3,6 +3,7 @@ import { StayraLogo } from "@/components/ui/stayra-logo";
 export const metadata = {
     title: "Terms & Conditions",
     description: "Read the terms and conditions for booking and staying with Stayra Hospitality Pvt. Ltd.",
+    alternates: { canonical: "/terms-and-conditions" },
 };
 
 export default function TermsPage() {
