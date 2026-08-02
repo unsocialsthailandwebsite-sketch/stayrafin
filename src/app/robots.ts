@@ -12,6 +12,6 @@ export default function robots(): MetadataRoute.Robots {
                 disallow: ["/admin", "/api"],
             },
         ],
-        sitemap: "https://stayra.co/sitemap.xml",
+        sitemap: "https://www.stayra.co/sitemap.xml",
     };
 }

@@ -33,7 +33,7 @@ const bodoni = Bodoni_Moda({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://stayra.co"),
+  metadataBase: new URL("https://www.stayra.co"),
   title: {
     default: "Luxury Villas & Heritage Stays in Jaipur | Stayra",
     template: "%s | Stayra",
@@ -44,8 +44,19 @@ export const metadata: Metadata = {
     siteName: "Stayra",
     type: "website",
     locale: "en_IN",
+    images: [
+      {
+        url: "/images/about-luxury-interior.png",
+        width: 1200,
+        height: 630,
+        alt: "Stayra — luxury villas and heritage stays in Jaipur",
+      },
+    ],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/images/about-luxury-interior.png"],
+  },
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
@@ -57,7 +68,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppWidget } from "@/components/ui/whatsapp-widget";
 import { Providers } from "@/components/providers";
-import { OrganizationSchema } from "@/components/seo/structured-data";
+import { OrganizationSchema, WebSiteSchema } from "@/components/seo/structured-data";
 
 export default function RootLayout({
   children,
@@ -70,6 +81,7 @@ export default function RootLayout({
         className={`${sora.variable} ${bodoni.variable} antialiased flex flex-col min-h-screen bg-stayra-ivory text-stayra-charcoal font-sans`}
       >
         <OrganizationSchema />
+        <WebSiteSchema />
         <Providers>
           <Header />
           <main className="min-h-screen">

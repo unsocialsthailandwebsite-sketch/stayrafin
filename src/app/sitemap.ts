@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { client } from "@/sanity/client";
 import { blogPosts } from "@/data/blog-data";
 
-const BASE = "https://stayra.co";
+const BASE = "https://www.stayra.co";
 
 export const revalidate = 3600;
 
@@ -18,6 +18,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         { url: `${BASE}/partner-with-us`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
         { url: `${BASE}/collaborate-with-us`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
         { url: `${BASE}/faq`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
+        { url: `${BASE}/luxury-villas-jaipur`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+        { url: `${BASE}/farm-stays-near-jaipur`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+        { url: `${BASE}/heritage-haveli-stays-jaipur`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
         { url: `${BASE}/privacy-policy`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
         { url: `${BASE}/terms-and-conditions`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
     ];
