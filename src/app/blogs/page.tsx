@@ -10,7 +10,7 @@ export const metadata = {
     openGraph: {
         title: "Jaipur Travel Guides, Stories & Tips — Stayra Blog",
         description: "Read our latest stories about Jaipur, travel tips, farm stays, and heritage experiences.",
-        url: "https://stayra.co/blogs",
+        url: "https://www.stayra.co/blogs",
     },
 };
 
