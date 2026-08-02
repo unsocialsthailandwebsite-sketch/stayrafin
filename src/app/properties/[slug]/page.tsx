@@ -14,7 +14,7 @@ import { MapSection } from "@/components/property/map-section";
 import { MobilePropertyCTA } from "@/components/property/mobile-property-cta";
 import { MOCK_PROPERTIES } from "@/data/mock-properties";
 import { PropertyReviews } from "@/components/property/property-reviews";
-import { PropertySchema } from "@/components/seo/structured-data";
+import { PropertySchema, BreadcrumbSchema } from "@/components/seo/structured-data";
 
 export async function generateStaticParams() {
     try {
@@ -154,6 +154,13 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
 
     return (
         <div className="min-h-screen bg-white">
+            <BreadcrumbSchema
+                items={[
+                    { name: "Home", url: "https://www.stayra.co/" },
+                    { name: "Our Properties", url: "https://www.stayra.co/properties" },
+                    { name: property.title, url: `https://www.stayra.co/properties/${slug}` },
+                ]}
+            />
             <PropertySchema
                 name={property.title}
                 slug={slug}
