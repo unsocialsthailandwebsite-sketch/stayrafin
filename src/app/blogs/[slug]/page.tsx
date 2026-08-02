@@ -18,7 +18,7 @@ interface BlogPostPageProps {
     }>;
 }
 
-import { BlogPostingSchema } from "@/components/seo/structured-data";
+import { BlogPostingSchema, BreadcrumbSchema } from "@/components/seo/structured-data";
 
 export async function generateMetadata({ params }: BlogPostPageProps) {
     const { slug } = await params;
@@ -61,6 +61,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
     return (
         <main className="min-h-screen bg-stayra-ivory pt-24 pb-16">
+            <BreadcrumbSchema
+                items={[
+                    { name: "Home", url: "https://www.stayra.co/" },
+                    { name: "Blogs", url: "https://www.stayra.co/blogs" },
+                    { name: post.title, url: `https://www.stayra.co/blogs/${post.slug}` },
+                ]}
+            />
             <BlogPostingSchema
                 title={post.title}
                 description={post.excerpt}
