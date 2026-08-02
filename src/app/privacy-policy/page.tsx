@@ -3,6 +3,7 @@ import { StayraLogo } from "@/components/ui/stayra-logo";
 export const metadata = {
     title: "Privacy Policy",
     description: "Read the privacy policy of Stayra Hospitality Pvt. Ltd. to understand how we collect, use, and protect your information.",
+    alternates: { canonical: "/privacy-policy" },
 };
 
 export default function PrivacyPolicyPage() {
