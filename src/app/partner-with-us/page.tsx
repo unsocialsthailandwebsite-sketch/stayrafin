@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 
 export const metadata = {
     title: "Partner With Us — List Your Luxury Property",
-    description: "Unlock the true potential of your property with Stayra.",
+    description: "List your luxury villa or heritage property with Stayra in Jaipur. Dynamic pricing, vetted guests, full property care and premium brand positioning.",
+    alternates: { canonical: "/partner-with-us" },
 };
 
 export default function PartnerPage() {
