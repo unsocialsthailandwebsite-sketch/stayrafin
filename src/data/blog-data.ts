@@ -305,5 +305,136 @@ export const blogPosts: BlogPost[] = [
         author: "Stayra Team",
         image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2000&auto=format&fit=crop",
         tags: ["Travel", "Delhi", "Road Trip", "Weekend"]
+    },
+    {
+        id: "9",
+        slug: "private-pool-villas-jaipur",
+        title: "Private Pool Villas in Jaipur: A Complete Guide for 2026",
+        excerpt: "Everything you need to know about booking a private pool villa in Jaipur — best areas, what to expect, pricing and how to book direct without platform fees.",
+        content: `
+            <p>A private pool is the single biggest upgrade you can make to a Jaipur trip. Rajasthan is hot for most of the year, and having your own water — with nobody else in it — changes the entire rhythm of a holiday. This guide covers what to look for in a <a href="/properties">private pool villa in Jaipur</a>, which areas suit which trips, and how to book without paying platform commission.</p>
+
+            <figure class="my-8">
+                <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=2000&auto=format&fit=crop" alt="Private pool villa in Jaipur at twilight" class="rounded-xl w-full h-[400px] object-cover shadow-md" />
+                <figcaption class="text-center text-sm text-gray-500 mt-2 font-sans">A private pool turns a Jaipur stay into a proper retreat — no shared deck, no queue for loungers.</figcaption>
+            </figure>
+
+            <h2>Why a Private Pool Villa Beats a Hotel Pool</h2>
+            <p>Hotel pools in Jaipur are shared, have fixed hours, and often sit in full view of restaurant seating. A private villa pool is yours from morning coffee to midnight. For families with small children, groups celebrating a birthday, or couples who simply want privacy, that difference is the whole point of the trip.</p>
+            <p>There is also a practical advantage: with a villa you get a full kitchen and a <strong>chef on call</strong>, so poolside meals happen on your schedule rather than the kitchen's.</p>
+            <h2>Best Areas in and Around Jaipur</h2>
+            <h3>Ajmer Road</h3>
+            <p>Closest to the city and the airport, Ajmer Road works best for shorter trips and heritage-focused itineraries. <a href="/properties/choti-haveli">Choti Haveli</a> at Emaar Greens sits inside a gated community across 23 acres of greenery — good for couples who want calm without being far from Amber Fort and Hawa Mahal.</p>
+            <h3>Delhi Road & Kukas</h3>
+            <p>Further out, the landscape opens into forested hills. <a href="/properties/kankas-house">Kankas House</a> in Bagwara is the pick for larger groups: more bedrooms, sprawling lawns, and space for a bonfire and barbecue. Ideal for weekend groups driving down from Delhi.</p>
+
+            <figure class="my-8">
+                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2000&auto=format&fit=crop" alt="Sprawling private lawn at a luxury Jaipur villa" class="rounded-xl w-full h-[400px] object-cover shadow-md" />
+                <figcaption class="text-center text-sm text-gray-500 mt-2 font-sans">Villas outside the city centre trade proximity for space — lawns, bonfires and quiet.</figcaption>
+            </figure>
+
+            <h2>What to Check Before You Book</h2>
+            <ul>
+                <li><strong>Is the pool actually private?</strong> Some listings share a pool across a complex. Confirm before paying.</li>
+                <li><strong>Heating and season.</strong> Jaipur winters get cold at night; ask whether the pool is heated if you are visiting December to February.</li>
+                <li><strong>Meals.</strong> A chef on call is far better value than eating out for every meal with a group.</li>
+                <li><strong>Events policy.</strong> If you plan a celebration, get written approval first.</li>
+                <li><strong>Total cost.</strong> Platform bookings add service fees on top of the nightly rate.</li>
+            </ul>
+            <h2>Booking Direct vs Booking Through a Platform</h2>
+            <p>Online travel platforms typically add 12–18% in guest service fees. Booking direct with Stayra removes that entirely, and puts you in touch with the people who actually run the property — so requests like an early check-in, an airport pickup, or a candlelight dinner setup get answered in minutes rather than through a support ticket.</p>
+            <p>Compare the two approaches in our guide to <a href="/blogs/villa-vs-hotel-jaipur">villas versus hotels in Jaipur</a>, or browse the full <a href="/properties">Stayra collection</a> and message us on WhatsApp for live availability.</p>
+        `,
+        date: "August 3, 2026",
+        author: "Stayra Team",
+        image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=2000&auto=format&fit=crop",
+        tags: ["Luxury Villa", "Private Pool", "Jaipur", "Booking Guide"]
+    },
+    {
+        id: "10",
+        slug: "destination-wedding-villas-jaipur",
+        title: "Destination Wedding Villas in Jaipur: An Intimate Alternative to Palace Hotels",
+        excerpt: "Planning a small destination wedding in Jaipur? Private villas offer heritage character and total privacy at a fraction of palace hotel budgets. Here's how it works.",
+        content: `
+            <p>Jaipur is one of India's most sought-after wedding destinations, and palace hotels get most of the attention. But for couples planning an intimate celebration — 20 to 60 guests rather than 400 — a private villa often delivers more atmosphere, more privacy and a far more sensible budget.</p>
+
+            <figure class="my-8">
+                <img src="https://cdn.sanity.io/images/1tjvajrl/production/cb2ef8c7eb4ed5f05fbb700ddddb35cc043b1acc-1279x960.jpg" alt="Restored heritage haveli courtyard in Jaipur" class="rounded-xl w-full h-[400px] object-cover shadow-md" />
+                <figcaption class="text-center text-sm text-gray-500 mt-2 font-sans">A restored haveli courtyard gives you Rajasthani architecture without a hotel's crowd.</figcaption>
+            </figure>
+
+            <h2>Why Couples Are Choosing Villas</h2>
+            <p><strong>You get the whole property.</strong> No other guests, no sharing the lawn with a conference, no lobby traffic through your photographs. The venue is exclusively yours for the duration of the celebration.</p>
+            <p><strong>The setting is already beautiful.</strong> Restored havelis and heritage-style villas come with courtyards, arched doorways and garden lawns — meaning you spend far less on decor to create the Rajasthani look you came for.</p>
+            <p><strong>Guests stay on site.</strong> For a small wedding, having the immediate family sleeping under the same roof turns a one-day event into a multi-day gathering.</p>
+
+            <figure class="my-8">
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2000&auto=format&fit=crop" alt="Candlelight dinner setup in a private villa garden" class="rounded-xl w-full h-[400px] object-cover shadow-md" />
+                <figcaption class="text-center text-sm text-gray-500 mt-2 font-sans">Candlelight dinner setups in the garden work equally well for a mehendi or a rehearsal dinner.</figcaption>
+            </figure>
+
+            <h2>What a Villa Wedding Typically Includes</h2>
+            <ul>
+                <li>Exclusive use of the property, lawns and pool</li>
+                <li>Private chef and kitchen for customised menus</li>
+                <li>Candlelight dinner and bonfire setups on request</li>
+                <li>Concierge coordination for decor, transport and airport transfers</li>
+                <li>Accommodation for the core family group</li>
+            </ul>
+            <h2>Choosing the Right Property</h2>
+            <p>For a heritage aesthetic close to the city, <a href="/properties/choti-haveli">Choti Haveli</a> on Ajmer Road offers a restored Rajasthani haveli inside a gated 23-acre green community — ideal for a mehendi, a small nikah or an anniversary vow renewal. For larger gatherings with outdoor ceremony space, <a href="/properties/kankas-house">Kankas House</a> near Bagwara has the lawns, bedrooms and forest backdrop.</p>
+            <h2>Practical Planning Notes</h2>
+            <p><strong>Season matters.</strong> October to March is Jaipur's wedding season for good reason — daytime temperatures are pleasant and evenings are cool. Read our <a href="/blogs/winter-in-jaipur">guide to winter in Jaipur</a> before locking dates.</p>
+            <p><strong>Book events in advance.</strong> Events are permitted at select Stayra properties with prior approval, and peak-season dates go early. Message our concierge on WhatsApp with your guest count and dates, and we will tell you honestly whether a villa is the right fit or whether you have outgrown one.</p>
+        `,
+        date: "August 3, 2026",
+        author: "Stayra Team",
+        image: "https://cdn.sanity.io/images/1tjvajrl/production/cb2ef8c7eb4ed5f05fbb700ddddb35cc043b1acc-1279x960.jpg",
+        tags: ["Destination Wedding", "Events", "Heritage", "Jaipur"]
+    },
+    {
+        id: "11",
+        slug: "group-villas-jaipur-birthdays-reunions",
+        title: "Villas in Jaipur for Birthdays, Reunions & Group Getaways",
+        excerpt: "Booking a villa in Jaipur for a birthday, family reunion or corporate offsite? What to look for, what it costs versus hotel rooms, and which properties suit groups.",
+        content: `
+            <p>Booking six hotel rooms for a group means six keycards, six breakfast bills and everyone scattered across different floors. A single villa gives you one address, one shared living room and a lawn nobody else is using. For birthdays, family reunions and small corporate offsites in Jaipur, the maths usually favours the villa.</p>
+
+            <figure class="my-8">
+                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2000&auto=format&fit=crop" alt="Group gathering on the lawn of a Jaipur villa" class="rounded-xl w-full h-[400px] object-cover shadow-md" />
+                <figcaption class="text-center text-sm text-gray-500 mt-2 font-sans">One property, one group — the practical reason villas beat blocks of hotel rooms.</figcaption>
+            </figure>
+
+            <h2>The Cost Comparison Most People Miss</h2>
+            <p>Compare a villa against the <em>total</em> hotel cost, not the headline room rate. Six rooms at a good Jaipur hotel, plus restaurant meals for twelve people across a weekend, plus separate transport, adds up quickly. A villa bundles the bedrooms, a full kitchen with a chef on call, and shared spaces into one figure — and meals cooked in-house cost a fraction of restaurant dining for the same group.</p>
+            <h2>What Groups Should Look For</h2>
+            <ul>
+                <li><strong>Bedroom count and bathroom ratio</strong> — sleeping twelve means little if there are two bathrooms.</li>
+                <li><strong>Genuine shared space</strong> — a living room and dining table large enough for everyone at once.</li>
+                <li><strong>Outdoor area</strong> — lawns for a bonfire and barbecue are where group trips actually happen.</li>
+                <li><strong>Events approval</strong> — celebrations need prior written approval; get it before you send invitations.</li>
+                <li><strong>Staff on site</strong> — a caretaker and chef remove all the hosting work from whoever organised the trip.</li>
+            </ul>
+
+            <figure class="my-8">
+                <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?q=80&w=2000&auto=format&fit=crop" alt="Bonfire and barbecue setup at a Jaipur villa" class="rounded-xl w-full h-[400px] object-cover shadow-md" />
+                <figcaption class="text-center text-sm text-gray-500 mt-2 font-sans">Bonfire and barbecue evenings are the reason most groups remember the villa, not the itinerary.</figcaption>
+            </figure>
+
+            <h2>Best Occasions for a Jaipur Villa</h2>
+            <h3>Milestone Birthdays</h3>
+            <p>A private pool, a candlelight dinner setup and a bonfire beat a restaurant booking. Cake, decor and menu can all be arranged through the concierge before you arrive.</p>
+            <h3>Family Reunions</h3>
+            <p>Multi-generational groups do well in villas: grandparents get ground-floor bedrooms and quiet, children get lawns and a pool, everyone eats together.</p>
+            <h3>Corporate Offsites</h3>
+            <p>Small teams get a workable base with WiFi, meals handled, and enough separation between working sessions and downtime. Jaipur's connectivity to Delhi makes it an easy two-day offsite — see our <a href="/blogs/weekend-getaways-from-delhi">weekend getaways from Delhi</a> guide.</p>
+            <h2>Which Stayra Property Fits</h2>
+            <p><a href="/properties/kankas-house">Kankas House</a> near Bagwara on Delhi Road is our group property — four bedrooms, private pool, sprawling lawns and forested hills. <a href="/properties/choti-haveli">Choti Haveli</a> suits couples and small families wanting heritage character close to the city.</p>
+            <p>Browse the full <a href="/properties">collection</a> or message our concierge on WhatsApp with your group size and dates for honest availability and a direct rate with no platform fees.</p>
+        `,
+        date: "August 3, 2026",
+        author: "Stayra Team",
+        image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2000&auto=format&fit=crop",
+        tags: ["Group Stays", "Birthday", "Reunion", "Corporate Offsite", "Jaipur"]
     }
 ];
