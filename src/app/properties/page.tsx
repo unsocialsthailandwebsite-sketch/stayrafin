@@ -1,6 +1,8 @@
 import { PropertyGrid } from "@/components/home/property-grid";
 import { client } from "@/sanity/client";
 
+import { PropertyListSchema, BreadcrumbSchema } from "@/components/seo/structured-data";
+
 export const metadata = {
     title: "Villas in Jaipur — Private Pool & Heritage Homes",
     description:
@@ -10,7 +12,7 @@ export const metadata = {
         title: "Villas in Jaipur — Private Pool & Heritage Homes",
         description:
             "Explore Stayra's handpicked Jaipur villas: Chotti Haveli, a restored heritage home on Ajmer Road, and Kankas House, a 4BHK private pool villa on Delhi Road.",
-        url: "https://stayra.co/properties",
+        url: "/properties",
     },
 };
 
@@ -41,6 +43,13 @@ export default async function PropertiesPage() {
 
     return (
         <main className="pt-24 pb-16">
+            <PropertyListSchema
+                properties={(properties || []).map((p: { title: string; slug: string }) => ({
+                    name: p.title,
+                    slug: p.slug,
+                }))}
+            />
+            <BreadcrumbSchema items={[{ name: "Our Collection", path: "/properties" }]} />
             <div className="container mx-auto px-4 mb-12 text-center">
                 <h1 className="font-serif text-4xl md:text-6xl text-stayra-charcoal mb-4">Our Collection</h1>
                 <p className="text-gray-500 max-w-2xl mx-auto font-sans">
