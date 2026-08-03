@@ -14,7 +14,7 @@ import { MapSection } from "@/components/property/map-section";
 import { MobilePropertyCTA } from "@/components/property/mobile-property-cta";
 import { MOCK_PROPERTIES } from "@/data/mock-properties";
 import { PropertyReviews } from "@/components/property/property-reviews";
-import { PropertySchema } from "@/components/seo/structured-data";
+import { PropertySchema, BreadcrumbSchema } from "@/components/seo/structured-data";
 
 export async function generateStaticParams() {
     try {
@@ -43,6 +43,27 @@ const SEO_DESCRIPTIONS: Record<string, string> = {
         "Stay in a restored Rajasthani haveli at Emaar Greens, Ajmer Road. Private garden, tranquil indoor fish pond, home-cooked meals. Book direct.",
     "kankas-house":
         "Secluded 4-bedroom villa in Jaipur's forested hills: private pool, lawns, BBQ & bonfire, ensuite baths. Direct booking, no hidden fees.",
+};
+
+/**
+ * Per-property geo coordinates and room facts for VacationRental schema.
+ * Coordinates are taken from each property's Google Maps embed.
+ */
+const PROPERTY_GEO: Record<string, { latitude: number; longitude: number }> = {
+    "choti-haveli": { latitude: 26.7909, longitude: 75.6322 },
+    "kankas-house": { latitude: 27.07375, longitude: 75.88969 },
+    "the-kukas-villa": { latitude: 27.0367, longitude: 75.8753 },
+};
+
+const PROPERTY_STREET: Record<string, string> = {
+    "choti-haveli": "Emaar Jaipur Greens, Ajmer Road",
+    "kankas-house": "Bagwara, Delhi Road",
+    "the-kukas-villa": "Kukas, Delhi Road",
+};
+
+const PROPERTY_ROOMS: Record<string, { bedrooms: number; occupancy: number }> = {
+    "choti-haveli": { bedrooms: 1, occupancy: 2 },
+    "kankas-house": { bedrooms: 4, occupancy: 10 },
 };
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -160,6 +181,16 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                 description={typeof property.description === "string" ? property.description : undefined}
                 images={images}
                 amenities={property.features || []}
+                geo={PROPERTY_GEO[slug]}
+                streetAddress={PROPERTY_STREET[slug]}
+                bedrooms={PROPERTY_ROOMS[slug]?.bedrooms}
+                occupancy={PROPERTY_ROOMS[slug]?.occupancy}
+            />
+            <BreadcrumbSchema
+                items={[
+                    { name: "Our Collection", path: "/properties" },
+                    { name: property.title, path: `/properties/${slug}` },
+                ]}
             />
             {/* Hero Gallery */}
             <HeroGallery images={images} />
