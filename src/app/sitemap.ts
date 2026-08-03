@@ -2,7 +2,9 @@ import type { MetadataRoute } from "next";
 import { client } from "@/sanity/client";
 import { blogPosts } from "@/data/blog-data";
 
-const BASE = "https://stayra.co";
+import { SITE_URL } from "@/lib/site";
+
+const BASE = SITE_URL;
 
 export const revalidate = 3600;
 
