@@ -157,12 +157,9 @@ export function PropertySchema({
                 "@id": absoluteUrl(`/properties/${slug}/#lodging`),
                 name,
                 url: absoluteUrl(`/properties/${slug}`),
-                // Required by Google's holiday-rental spec: a stable per-listing ID.
-                identifier: {
-                    "@type": "PropertyValue",
-                    propertyID: "StayraListingId",
-                    value: slug,
-                },
+                // Required by Google's holiday-rental spec, and it must be Text —
+                // a PropertyValue object is rejected as "Invalid value type".
+                identifier: slug,
                 ...(description ? { description: stripHtml(description) } : {}),
                 ...(images && images.length ? { image: images.slice(0, 8) } : {}),
                 containsPlace: {
