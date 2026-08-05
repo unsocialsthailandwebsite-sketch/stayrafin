@@ -83,10 +83,10 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
                 className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto"
             >
                 <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight drop-shadow-lg">
-                    {heading || "Experience the Art of Living"}
+                    {heading || "Luxury Villas & Heritage Stays in Jaipur"}
                 </h1>
                 <p className="font-sans text-base md:text-xl tracking-wide text-white/90 mb-8 md:mb-10 max-w-2xl mx-auto drop-shadow-md">
-                    {subheading || "Jaipur's Premier Luxury Rental Collection"}
+                    {subheading || "Experience the Art of Living — Jaipur's premier private villa collection"}
                 </p>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                     <Button

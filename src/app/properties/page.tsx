@@ -51,10 +51,25 @@ export default async function PropertiesPage() {
             />
             <BreadcrumbSchema items={[{ name: "Our Collection", path: "/properties" }]} />
             <div className="container mx-auto px-4 mb-12 text-center">
-                <h1 className="font-serif text-4xl md:text-6xl text-stayra-charcoal mb-4">Our Collection</h1>
+                <h1 className="font-serif text-4xl md:text-6xl text-stayra-charcoal mb-4">
+                    Luxury Villas &amp; Heritage Homes in Jaipur
+                </h1>
                 <p className="text-gray-500 max-w-2xl mx-auto font-sans">
                     Discover our handpicked selection of exclusive properties, each offering a unique story of luxury and comfort.
                 </p>
+                <div className="text-gray-500 max-w-3xl mx-auto font-sans mt-6 space-y-4 text-left md:text-center">
+                    <p>
+                        Stayra is a small, curated collection of private villas and restored heritage havelis in and
+                        around Jaipur — booked directly, never through a listing site. Every home comes with a private
+                        chef on call, daily housekeeping, airport transfers and a concierge who answers in under two hours.
+                    </p>
+                    <p>
+                        Choose a 4BHK villa with a private pool in the forested hills on Delhi Road, a one-bedroom
+                        heritage haveli on Ajmer Road built for couples, or a hillside retreat near Kukas. Each property
+                        sleeps a different size of group, so whether you are planning a family weekend from Delhi, a
+                        birthday with friends, or a quiet anniversary, there is a house that fits.
+                    </p>
+                </div>
             </div>
             <PropertyGrid properties={properties} />
         </main>
