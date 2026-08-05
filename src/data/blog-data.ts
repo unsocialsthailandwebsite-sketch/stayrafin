@@ -107,8 +107,8 @@ export const blogPosts: BlogPost[] = [
             <h2>Why Choose a Farm Stay?</h2>
             <p>Unlike standard hotels, farm stays offer an immersive experience. Imagine waking up to the sound of birds, breathing in fresh, pollution-free air, and enjoying meals made from organic produce grown right on the property. It's a chance to reconnect with nature and yourself.</p>
 
-            <h2>Experience The Kukas Villa</h2>
-            <p>Located just a short drive from Jaipur, The Kukas Villa is a prime example of a luxurious farm stay experience. Surrounded by the Aravalli hills, it offers vast open spaces, private pools, and lush gardens. Whether you're planning a family reunion or a quiet retreat, the villa provides the perfect backdrop.</p>
+            <h2>Experience Kankas House</h2>
+            <p>Located just a short drive from Jaipur on Delhi Road, Kankas House is a prime example of a luxurious farm stay experience. Set in forested hills, this four-bedroom villa offers open lawns, a private pool, and barbecue and bonfire evenings. Whether you're planning a family reunion or a quiet retreat, it provides the perfect backdrop.</p>
 
             <figure class="my-8">
                 <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/9276b2bf-52b6-43a2-8b40-b617c5347176.jpeg" alt="Serene Farm Stay surrounding Aravalli Hills" class="rounded-xl w-full h-[400px] object-cover shadow-md" />
@@ -190,7 +190,7 @@ export const blogPosts: BlogPost[] = [
             <p>Winter in Jaipur is packed with cultural events, including the famous Jaipur Literature Festival and the kite festival (Makar Sankranti). These events bring the city to life and offer a deep dive into Rajasthani culture.</p>
 
             <h2>Bonfire Nights</h2>
-            <p>Evenings can get chilly, which is the perfect excuse to enjoy a bonfire at your stay. Properties like The Kukas Villa offer excellent outdoor settings for cozy winter nights with family and friends.</p>
+            <p>Evenings can get chilly, which is the perfect excuse to enjoy a bonfire at your stay. Kankas House has a dedicated bonfire and barbecue setup on the lawn — an excellent outdoor setting for cosy winter nights with family and friends.</p>
 
             <figure class="my-8">
                 <img src="https://images.unsplash.com/photo-1510312305653-8ed496efae75?q=80&w=2000&auto=format&fit=crop" alt="Cozy outdoor bonfire night" class="rounded-xl w-full h-[400px] object-cover shadow-md" />
@@ -289,7 +289,7 @@ export const blogPosts: BlogPost[] = [
             </figure>
 
             <h2>Diverse Experiences</h2>
-            <p>Whether you want to explore historical forts, shop for jewelry, or simply relax at a luxury villa like The Kukas Villa, Jaipur has something for everyone. It's a city that effortlessly blends the old with the new.</p>
+            <p>Whether you want to explore historical forts, shop for jewellery, or simply relax at a private pool villa like Kankas House, Jaipur has something for everyone. It's a city that effortlessly blends the old with the new.</p>
 
             <h2>Stayra's Unique Offerings</h2>
             <p>At Stayra, we offer curated experiences that go beyond standard accommodation. From heritage homes to farm stays, our properties are designed to provide a home away from home.</p>
