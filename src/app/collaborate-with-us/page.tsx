@@ -4,7 +4,9 @@ import { Button } from "@/components/ui/button";
 
 export const metadata = {
     title: "Collaborate With Us — Shoots, Events & Creators",
-    description: "Join the Stayra community of creators and tastemakers.",
+    description:
+        "Collaborate with Stayra as a creator, influencer or brand partner. Complimentary stays, paid commissions, co-hosted events and shoot locations in Jaipur.",
+    alternates: { canonical: "/collaborate-with-us" },
 };
 
 export default function CollaboratePage() {

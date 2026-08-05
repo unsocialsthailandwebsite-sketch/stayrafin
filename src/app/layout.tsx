@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 import { Playfair_Display, Inter, Montserrat, Sora, Bodoni_Moda } from "next/font/google";
 import "./globals.css";
 
@@ -33,7 +34,7 @@ const bodoni = Bodoni_Moda({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://stayra.co"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Luxury Villas & Heritage Stays in Jaipur | Stayra",
     template: "%s | Stayra",
