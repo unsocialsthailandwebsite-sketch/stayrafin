@@ -61,6 +61,16 @@ const PROPERTY_STREET: Record<string, string> = {
     "the-kukas-villa": "Kukas, Delhi Road",
 };
 
+/**
+ * Short descriptor used in section headings and image alt text, so those carry
+ * the location and property type rather than generic labels like "Gallery image 3".
+ */
+const PROPERTY_DESCRIPTOR: Record<string, string> = {
+    "choti-haveli": "Heritage Haveli on Ajmer Road, Jaipur",
+    "kankas-house": "4BHK Private Pool Villa on Delhi Road, Jaipur",
+    "the-kukas-villa": "Luxury Villa near Kukas, Jaipur",
+};
+
 const PROPERTY_ROOMS: Record<string, { bedrooms: number; occupancy: number }> = {
     "choti-haveli": { bedrooms: 1, occupancy: 2 },
     "kankas-house": { bedrooms: 4, occupancy: 10 },
@@ -173,6 +183,9 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
     const weatherLat = isKukas ? 27.0562 : 26.9124;
     const weatherLng = isKukas ? 75.9363 : 75.7873;
 
+    const descriptor = PROPERTY_DESCRIPTOR[slug] ?? "Luxury Villa in Jaipur";
+    const photoLabel = `${property.title} — ${descriptor}`;
+
     return (
         <div className="min-h-screen bg-white">
             <PropertySchema
@@ -193,7 +206,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                 ]}
             />
             {/* Hero Gallery */}
-            <HeroGallery images={images} />
+            <HeroGallery images={images} propertyName={photoLabel} />
 
             <div className="container mx-auto px-4 py-8">
                 {/* Header */}
@@ -214,12 +227,18 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                         <PropertyContent
                             description={property.description || ""}
                             amenities={property.features || []}
+                            aboutHeading={`About ${property.title} — ${descriptor}`}
+                            amenitiesHeading={`Amenities at ${property.title}`}
                         />
 
                         {/* Scrollable Gallery for ALL properties */}
                         {images.length > 0 && (
                             <div className="my-12 border-t border-b border-gray-100 py-8 relative z-10">
-                                <ScrollableGallery images={images} title="Photo Gallery" />
+                                <ScrollableGallery
+                                    images={images}
+                                    title={`Photos of ${property.title}`}
+                                    propertyName={photoLabel}
+                                />
                             </div>
                         )}
 
@@ -247,7 +266,9 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
             {/* Map and Weather Section */}
             <div className="border-t border-gray-100 bg-stayra-ivory/30">
                 <div className="container mx-auto px-4 py-12">
-                    <h2 className="font-serif text-3xl text-stayra-charcoal mb-8">Location & Weather</h2>
+                    <h2 className="font-serif text-3xl text-stayra-charcoal mb-8">
+                        {property.title} Location &amp; Weather in Jaipur
+                    </h2>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
                         {/* Map */}
                         <div className="rounded-xl overflow-hidden shadow-sm border border-gray-100 h-[400px]">
