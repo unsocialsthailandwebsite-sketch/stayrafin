@@ -88,12 +88,6 @@ export function Header() {
                                             >
                                                 Kankas House
                                             </Link>
-                                            <Link
-                                                href="/properties/the-kukas-villa"
-                                                className="block px-6 py-3 text-sm text-stayra-charcoal hover:bg-gray-50 hover:text-stayra-gold transition-colors font-medium"
-                                            >
-                                                The Kukas Villa
-                                            </Link>
                                             <span className="block px-6 py-3 text-sm text-gray-400 font-medium cursor-not-allowed">
                                                 Thailand (Coming Soon)
                                             </span>

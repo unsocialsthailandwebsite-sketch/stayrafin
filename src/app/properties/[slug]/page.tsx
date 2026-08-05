@@ -52,13 +52,11 @@ const SEO_DESCRIPTIONS: Record<string, string> = {
 const PROPERTY_GEO: Record<string, { latitude: number; longitude: number }> = {
     "choti-haveli": { latitude: 26.7909, longitude: 75.6322 },
     "kankas-house": { latitude: 27.07375, longitude: 75.88969 },
-    "the-kukas-villa": { latitude: 27.0367, longitude: 75.8753 },
 };
 
 const PROPERTY_STREET: Record<string, string> = {
     "choti-haveli": "Emaar Jaipur Greens, Ajmer Road",
     "kankas-house": "Bagwara, Delhi Road",
-    "the-kukas-villa": "Kukas, Delhi Road",
 };
 
 /**
@@ -68,7 +66,6 @@ const PROPERTY_STREET: Record<string, string> = {
 const PROPERTY_DESCRIPTOR: Record<string, string> = {
     "choti-haveli": "Heritage Haveli on Ajmer Road, Jaipur",
     "kankas-house": "4BHK Private Pool Villa on Delhi Road, Jaipur",
-    "the-kukas-villa": "Luxury Villa near Kukas, Jaipur",
 };
 
 const PROPERTY_ROOMS: Record<string, { bedrooms: number; occupancy: number }> = {

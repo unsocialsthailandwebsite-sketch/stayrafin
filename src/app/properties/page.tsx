@@ -64,10 +64,11 @@ export default async function PropertiesPage() {
                         chef on call, daily housekeeping, airport transfers and a concierge who answers in under two hours.
                     </p>
                     <p>
-                        Choose a 4BHK villa with a private pool in the forested hills on Delhi Road, a one-bedroom
-                        heritage haveli on Ajmer Road built for couples, or a hillside retreat near Kukas. Each property
-                        sleeps a different size of group, so whether you are planning a family weekend from Delhi, a
-                        birthday with friends, or a quiet anniversary, there is a house that fits.
+                        Choose Kankas House, a four-bedroom villa with a private pool, open lawns and bonfire and
+                        barbecue evenings in the forested hills off Delhi Road, sleeping up to ten. Or Choti Haveli,
+                        a restored one-bedroom heritage haveli on Ajmer Road built for two. Whether you are planning
+                        a family weekend from Delhi, a small celebration with friends, or a quiet anniversary, there
+                        is a house that fits.
                     </p>
                 </div>
             </div>

@@ -6,6 +6,12 @@ import { SITE_URL } from "@/lib/site";
 
 const BASE = SITE_URL;
 
+/**
+ * Slugs that must never be published, regardless of what the CMS still returns.
+ * The Kukas Villa was offloaded and is no longer represented by Stayra.
+ */
+const DELISTED_SLUGS = new Set(["the-kukas-villa"]);
+
 export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -37,12 +43,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         // fall back to the defaults above
     }
 
-    const propertyRoutes: MetadataRoute.Sitemap = propertySlugs.map((slug) => ({
-        url: `${BASE}/properties/${slug}`,
-        lastModified: now,
-        changeFrequency: "weekly",
-        priority: 0.9,
-    }));
+    const propertyRoutes: MetadataRoute.Sitemap = propertySlugs
+        .filter((slug) => !DELISTED_SLUGS.has(slug))
+        .map((slug) => ({
+            url: `${BASE}/properties/${slug}`,
+            lastModified: now,
+            changeFrequency: "weekly",
+            priority: 0.9,
+        }));
 
     const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
         url: `${BASE}/blogs/${post.slug}`,
