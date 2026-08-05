@@ -10,6 +10,7 @@ def compress_pdf(input_path, output_path, quality=75):
     processed_xrefs = set()
     total_images = 0
     updated_images = 0
+    preserved_images = 0
 
     for page in doc:
         for img in page.get_images(full=True):
@@ -20,11 +21,18 @@ def compress_pdf(input_path, output_path, quality=75):
             processed_xrefs.add(xref)
             
             try:
-                # Extract pixmap directly using PyMuPDF
+                obj_str = doc.xref_object(xref)
+                has_smask = "/SMask" in obj_str
                 pix = fitz.Pixmap(doc, xref)
                 
-                # Convert to RGB if necessary (e.g. CMYK, alpha channel, indexed)
-                if pix.n >= 5 or pix.alpha or pix.colorspace.name != fitz.csRGB.name:
+                # IMPORTANT: If the image has transparency (alpha channel or soft mask),
+                # preserve it to prevent turning transparent logo backgrounds into black boxes!
+                if pix.alpha or has_smask:
+                    preserved_images += 1
+                    continue
+
+                # Convert to RGB if necessary (e.g. CMYK / Indexed)
+                if pix.n >= 5 or pix.colorspace.name != fitz.csRGB.name:
                     pix = fitz.Pixmap(fitz.csRGB, pix)
                 
                 # Convert to JPG stream
@@ -45,7 +53,7 @@ def compress_pdf(input_path, output_path, quality=75):
     new_size = os.path.getsize(output_path) / (1024 * 1024)
     elapsed = time.time() - start_time
     
-    print(f"Success! Replaced {updated_images} images.")
+    print(f"Success! Replaced {updated_images} images, preserved {preserved_images} transparent logo/overlay images.")
     print(f"Original size: {orig_size:.2f} MB")
     print(f"Compressed size: {new_size:.2f} MB ({((orig_size - new_size)/orig_size)*100:.1f}% reduction)")
     print(f"Time taken: {elapsed:.2f}s\n")
