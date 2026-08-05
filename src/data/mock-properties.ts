@@ -10,6 +10,7 @@ export const MOCK_PROPERTIES: Record<string, {
     mapUrl: string;
     tagline: string;
     badge?: string;
+    brochureUrl?: string;
     reviews?: {
         name: string;
         location: string;
@@ -24,6 +25,7 @@ export const MOCK_PROPERTIES: Record<string, {
         specs: "1 Bedroom | Sleeps 2",
         price: "Price on Request",
         badge: "Couple's Favourite",
+        brochureUrl: "/choti-haveli-brochure.pdf",
         description: `Explore a timeless voyage where Rajasthan's majestic history blends seamlessly with contemporary luxuries and tranquil natural surroundings. Situated within the Emaar Group's portfolio, this gated community offers round-the-clock security and is nestled amidst 23 acres of expansive greenery, providing a perfect sanctuary.
 
 <strong>Why Chotti Haveli</strong>
@@ -99,6 +101,7 @@ A fully equipped private kitchen designed for comfort and convenience. You’ll 
         location: "Bagwara, Delhi Road, Jaipur",
         specs: "4 Bedrooms | Private Pool | Hill Views",
         price: "Price on Request",
+        brochureUrl: "/kankas-house-brochure.pdf",
         description: `Nestled amidst the quiet embrace of Jaipur's forested hills, Kankas House is a sanctuary where nature's calm meets timeless elegance. The villa welcomes you with earthy interiors that radiate elemental charm, combining warmth and grandeur in every detail. Designed for both relaxation and togetherness, this retreat unfolds into open lawns and picturesque sit-outs, inviting guests to pause, breathe, and admire the surrounding views.
 
 At its heart lies a private pool, perfect for leisurely swims or basking afternoons under the soft Rajasthani sun. As dusk descends, the ambience transforms—crackling bonfires and aromatic barbecue evenings create the ideal setting to bond with loved ones beneath a starlit sky. Indoors, a thoughtful selection of board and indoor games ensures that joy and laughter never fade, no matter the hour. Whether seeking solitude, shared moments, or simply a deeper connection with nature, Kankas House promises a stay that feels both luxurious and soulfully grounding.

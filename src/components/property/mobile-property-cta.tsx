@@ -5,11 +5,12 @@ import { Button } from "@/components/ui/button"
 interface MobilePropertyCTAProps {
     propertyName: string;
     whatsapp: string;
+    brochureUrl?: string;
 }
 
-export function MobilePropertyCTA({ propertyName, whatsapp }: MobilePropertyCTAProps) {
+export function MobilePropertyCTA({ propertyName, whatsapp, brochureUrl }: MobilePropertyCTAProps) {
     const handleCatalogueOpen = () => {
-        window.open('/brochure.pdf', '_blank');
+        window.open(brochureUrl || '/brochure.pdf', '_blank');
     };
 
     const handleWhatsAppChat = () => {

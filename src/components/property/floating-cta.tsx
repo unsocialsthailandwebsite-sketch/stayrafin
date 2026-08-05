@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { MessageCircle, FileText } from "lucide-react"
 
-export function FloatingCTA({ propertyName }: { propertyName: string, whatsapp?: string, phone?: string }) {
+export function FloatingCTA({ propertyName, brochureUrl }: { propertyName: string, whatsapp?: string, phone?: string, brochureUrl?: string }) {
     // Hardcoded number as per user request to ensure consistency
     const phoneNumber = "917340031394";
     const message = `Hi, I am interested in booking ${propertyName}`;
@@ -30,7 +30,7 @@ export function FloatingCTA({ propertyName }: { propertyName: string, whatsapp?:
                 <Button
                     variant="ghost"
                     className="w-full text-xs text-gray-400 flex items-center justify-center gap-2"
-                    onClick={() => window.open('/brochure.pdf', '_blank')}
+                    onClick={() => window.open(brochureUrl || '/brochure.pdf', '_blank')}
                 >
                     <FileText className="w-3 h-3" />
                     Download Catalogue

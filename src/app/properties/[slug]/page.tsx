@@ -114,6 +114,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                 features: mock.features,
                 description: mock.description,
                 mapUrl: mock.mapUrl,
+                brochureUrl: mock.brochureUrl,
             };
 
             // Override images specifically for all mock properties except choti-haveli
@@ -134,6 +135,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
     const gallerySections = property.gallerySections || [];
     const whatsapp = property.whatsapp || "917340031394";
     const phone = property.phone || "+91 73400 31394";
+    const brochureUrl = property.brochureUrl || MOCK_PROPERTIES[slug]?.brochureUrl || "/brochure.pdf";
     const reviews = MOCK_PROPERTIES[slug]?.reviews || [];
 
     // Filter out unwanted amenities (Temporary fix as requested by user)
@@ -179,9 +181,14 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                         <h1 className="font-serif text-4xl md:text-5xl text-stayra-charcoal mb-2 font-bold">{property.title}</h1>
                         <p className="text-stayra-gold font-medium tracking-wide">📍 {property.location} | {property.specs}</p>
                     </div>
-                    <Button variant="outline" className="border-stayra-green text-stayra-green hover:bg-stayra-green hover:text-white transition-colors uppercase text-xs tracking-widest font-bold px-6 py-4 rounded-none w-fit">
+                    <a
+                        href={brochureUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center border border-stayra-green text-stayra-green hover:bg-stayra-green hover:text-white transition-colors uppercase text-xs tracking-widest font-bold px-6 py-4 rounded-none w-fit cursor-pointer"
+                    >
                         Download Catalogue
-                    </Button>
+                    </a>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -210,6 +217,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                             propertyName={property.title}
                             whatsapp={whatsapp}
                             phone={phone}
+                            brochureUrl={brochureUrl}
                         />
                     </div>
                 </div>
@@ -242,7 +250,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
             </div>
 
             {/* Mobile Sticky CTA */}
-            <MobilePropertyCTA propertyName={property.title} whatsapp={whatsapp} />
+            <MobilePropertyCTA propertyName={property.title} whatsapp={whatsapp} brochureUrl={brochureUrl} />
 
 
 
