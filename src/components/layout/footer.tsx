@@ -35,6 +35,9 @@ export function Footer() {
                             {[
                                 { name: 'About', href: '/about' },
                                 { name: 'Our Properties', href: '/properties' },
+                                { name: 'Celebrations in Jaipur', href: '/celebrations-in-jaipur' },
+                                { name: 'Family Getaways', href: '/family-getaways-near-jaipur' },
+                                { name: 'Book Direct', href: '/book-direct' },
                                 { name: 'Contact', href: '/contact' },
                                 { name: 'Partner With Us', href: '/partner-with-us' },
                                 { name: 'Collaborate', href: '/collaborate-with-us' }
