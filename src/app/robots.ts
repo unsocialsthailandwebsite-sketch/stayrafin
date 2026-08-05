@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/site";
 
 // NOTE: Cloudflare's "Block AI bots" feature overrides this file with a
 // managed robots.txt. Turn it off in Cloudflare (Security -> Bots) for
@@ -12,6 +13,6 @@ export default function robots(): MetadataRoute.Robots {
                 disallow: ["/admin", "/api"],
             },
         ],
-        sitemap: "https://www.stayra.co/sitemap.xml",
+        sitemap: `${SITE_URL}/sitemap.xml`,
     };
 }

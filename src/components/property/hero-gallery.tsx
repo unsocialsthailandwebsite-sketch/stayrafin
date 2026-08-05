@@ -7,9 +7,11 @@ import { Button } from "@/components/ui/button";
 
 interface HeroGalleryProps {
     images: string[];
+    /** Used for descriptive alt text — generic alts are invisible to image search. */
+    propertyName?: string;
 }
 
-export function HeroGallery({ images }: HeroGalleryProps) {
+export function HeroGallery({ images, propertyName = "Stayra luxury villa in Jaipur" }: HeroGalleryProps) {
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [currentImage, setCurrentImage] = useState(0);
 
@@ -29,7 +31,7 @@ export function HeroGallery({ images }: HeroGalleryProps) {
                     <motion.img
                         key={currentImage}
                         src={images[currentImage]}
-                        alt={`Property View ${currentImage + 1}`}
+                        alt={`${propertyName} — photo ${currentImage + 1} of ${images.length}`}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -110,7 +112,7 @@ export function HeroGallery({ images }: HeroGalleryProps) {
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             src={images[currentImage]}
-                            alt="Fullscreen view"
+                            alt={`${propertyName} — enlarged photo ${currentImage + 1}`}
                             className="max-h-screen max-w-full object-contain"
                         />
                         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/80 text-sm">

@@ -8,9 +8,11 @@ import { cn } from "@/lib/utils";
 interface ScrollableGalleryProps {
     images: string[];
     title?: string;
+    /** Used for descriptive alt text — generic alts are invisible to image search. */
+    propertyName?: string;
 }
 
-export function ScrollableGallery({ images, title = "Gallery" }: ScrollableGalleryProps) {
+export function ScrollableGallery({ images, title = "Gallery", propertyName = "Stayra luxury villa in Jaipur" }: ScrollableGalleryProps) {
     const scrollRef = useRef<HTMLDivElement>(null);
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
@@ -68,7 +70,7 @@ export function ScrollableGallery({ images, title = "Gallery" }: ScrollableGalle
                         >
                             <img
                                 src={img}
-                                alt={`Gallery image ${idx + 1}`}
+                                alt={`${propertyName} — photo ${idx + 1} of ${images.length}`}
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                             />
                         </div>
@@ -110,7 +112,7 @@ export function ScrollableGallery({ images, title = "Gallery" }: ScrollableGalle
                                 initial={{ opacity: 0, x: 20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 src={images[lightboxIndex]}
-                                alt="Fullscreen view"
+                                alt={`${propertyName} — enlarged photo ${(lightboxIndex ?? 0) + 1}`}
                                 className="max-h-[90vh] max-w-full object-contain mx-auto"
                             />
                             <div className="absolute bottom-[-10px] left-0 right-0 text-center text-white/50 text-sm">

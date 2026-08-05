@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ArrowRight, Calendar, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+import { BreadcrumbSchema } from "@/components/seo/structured-data";
+
 export const metadata = {
     title: "Jaipur Travel Guides, Stories & Tips — Stayra Blog",
     description: "Read our latest stories about Jaipur, travel tips, farm stays, and heritage experiences.",
@@ -10,13 +12,14 @@ export const metadata = {
     openGraph: {
         title: "Jaipur Travel Guides, Stories & Tips — Stayra Blog",
         description: "Read our latest stories about Jaipur, travel tips, farm stays, and heritage experiences.",
-        url: "https://www.stayra.co/blogs",
+        url: "/blogs",
     },
 };
 
 export default function BlogsPage() {
     return (
         <main className="min-h-screen bg-stayra-ivory pt-24 pb-16">
+            <BreadcrumbSchema items={[{ name: "Blogs", path: "/blogs" }]} />
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <h1 className="font-serif text-4xl md:text-5xl text-stayra-charcoal mb-4">

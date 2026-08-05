@@ -10,7 +10,7 @@ export const metadata: Metadata = {
         title: "About Stayra — Luxury Villa & Heritage Stay Sanctuary in Jaipur",
         description:
             "Learn about Stayra's philosophy of curated luxury villa rentals and restored heritage havelis in Jaipur.",
-        url: "https://www.stayra.co/about",
+        url: "/about",
     },
 };
 

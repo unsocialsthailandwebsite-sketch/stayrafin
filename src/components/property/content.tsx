@@ -7,9 +7,20 @@ import { Button } from "@/components/ui/button";
 interface PropertyContentProps {
     description: string;
     amenities: string[];
+    /**
+     * Section headings default to generic labels ("About this space"), which carry
+     * no search value. Pass property-specific headings where available.
+     */
+    aboutHeading?: string;
+    amenitiesHeading?: string;
 }
 
-export function PropertyContent({ description, amenities }: PropertyContentProps) {
+export function PropertyContent({
+    description,
+    amenities,
+    aboutHeading = "About this space",
+    amenitiesHeading = "Amenities",
+}: PropertyContentProps) {
     const [isExpanded, setIsExpanded] = useState(false);
 
     // Mapping amenities to Icons
@@ -35,7 +46,7 @@ export function PropertyContent({ description, amenities }: PropertyContentProps
             {/* About This Space Section */}
             <section>
                 <div className="prose prose-lg text-gray-600 max-w-none">
-                    <h2 className="font-serif text-3xl text-stayra-charcoal mb-6 font-bold">About this space</h2>
+                    <h2 className="font-serif text-3xl text-stayra-charcoal mb-6 font-bold">{aboutHeading}</h2>
 
                     <div
                         className="whitespace-pre-line leading-relaxed description-content transition-all duration-300 relative"
@@ -68,7 +79,7 @@ export function PropertyContent({ description, amenities }: PropertyContentProps
 
             {/* Amenities Grid */}
             <section>
-                <h2 className="font-serif text-2xl mb-6 text-stayra-charcoal font-bold">Amenities</h2>
+                <h2 className="font-serif text-2xl mb-6 text-stayra-charcoal font-bold">{amenitiesHeading}</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                     {amenities.map((amenity) => {
                         const Icon = getIcon(amenity.split(' ')[0]); // Simple icon matching

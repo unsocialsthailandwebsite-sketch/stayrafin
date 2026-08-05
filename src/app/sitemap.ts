@@ -2,7 +2,15 @@ import type { MetadataRoute } from "next";
 import { client } from "@/sanity/client";
 import { blogPosts } from "@/data/blog-data";
 
-const BASE = "https://www.stayra.co";
+import { SITE_URL } from "@/lib/site";
+
+const BASE = SITE_URL;
+
+/**
+ * Slugs that must never be published, regardless of what the CMS still returns.
+ * The Kukas Villa was offloaded and is no longer represented by Stayra.
+ */
+const DELISTED_SLUGS = new Set(["the-kukas-villa"]);
 
 export const revalidate = 3600;
 
@@ -21,6 +29,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         { url: `${BASE}/luxury-villas-jaipur`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
         { url: `${BASE}/farm-stays-near-jaipur`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
         { url: `${BASE}/heritage-haveli-stays-jaipur`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+        { url: `${BASE}/celebrations-in-jaipur`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+        { url: `${BASE}/family-getaways-near-jaipur`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+        { url: `${BASE}/book-direct`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
         { url: `${BASE}/privacy-policy`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
         { url: `${BASE}/terms-and-conditions`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
     ];
@@ -38,12 +49,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         // fall back to the defaults above
     }
 
-    const propertyRoutes: MetadataRoute.Sitemap = propertySlugs.map((slug) => ({
-        url: `${BASE}/properties/${slug}`,
-        lastModified: now,
-        changeFrequency: "weekly",
-        priority: 0.9,
-    }));
+    const propertyRoutes: MetadataRoute.Sitemap = propertySlugs
+        .filter((slug) => !DELISTED_SLUGS.has(slug))
+        .map((slug) => ({
+            url: `${BASE}/properties/${slug}`,
+            lastModified: now,
+            changeFrequency: "weekly",
+            priority: 0.9,
+        }));
 
     const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
         url: `${BASE}/blogs/${post.slug}`,

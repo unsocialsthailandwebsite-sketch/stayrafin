@@ -35,7 +35,7 @@ export default function FAQPage() {
         },
         {
             question: "Can I host an event or party?",
-            answer: "Events and parties are allowed at select properties with prior approval. Additional fees and terms may apply. Please contact us to discuss your event requirements."
+            answer: "Yes, at Kankas House. Its lawns comfortably hold 30–50 day guests for a birthday, anniversary or small family celebration, alongside four bedrooms sleeping up to ten overnight. Celebrations need prior approval so we can plan staffing, catering and access, and additional charges may apply depending on guest count. Choti Haveli is a one-bedroom haveli for two and is not an events property."
         }
     ];
 

@@ -76,6 +76,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 authorName={post.author}
                 image={post.image}
             />
+            <BreadcrumbSchema
+                items={[
+                    { name: "Blogs", path: "/blogs" },
+                    { name: post.title, path: `/blogs/${post.slug}` },
+                ]}
+            />
             <article className="container mx-auto px-4 max-w-4xl">
                 <Link href="/blogs" className="inline-flex items-center text-sm text-gray-500 hover:text-stayra-gold mb-8 transition-colors">
                     <ArrowLeft className="w-4 h-4 mr-1" /> Back to Blogs
