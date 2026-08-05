@@ -2,6 +2,14 @@
 
 import { SITE_URL, absoluteUrl } from "@/lib/site";
 
+/**
+ * Google's holiday-rental structured data rejects HTML inside `description`.
+ * Property copy is authored with inline tags, so strip them before emitting.
+ */
+function stripHtml(value: string) {
+    return value.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+}
+
 function JsonLd({ data }: { data: object }) {
     return (
         <script
@@ -149,7 +157,13 @@ export function PropertySchema({
                 "@id": absoluteUrl(`/properties/${slug}/#lodging`),
                 name,
                 url: absoluteUrl(`/properties/${slug}`),
-                ...(description ? { description } : {}),
+                // Required by Google's holiday-rental spec: a stable per-listing ID.
+                identifier: {
+                    "@type": "PropertyValue",
+                    propertyID: "StayraListingId",
+                    value: slug,
+                },
+                ...(description ? { description: stripHtml(description) } : {}),
                 ...(images && images.length ? { image: images.slice(0, 8) } : {}),
                 containsPlace: {
                     "@type": "Accommodation",
