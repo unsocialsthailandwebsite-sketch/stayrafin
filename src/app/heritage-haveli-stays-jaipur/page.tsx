@@ -26,8 +26,7 @@ export default function Page() {
         <div className="min-h-screen bg-stayra-ivory pt-32 pb-24">
             <BreadcrumbSchema
                 items={[
-                    { name: "Home", url: "https://www.stayra.co/" },
-                    { name: "Heritage Haveli Stays", url: "https://www.stayra.co/heritage-haveli-stays-jaipur" },
+                    { name: "Heritage Haveli Stays", path: "/heritage-haveli-stays-jaipur" },
                 ]}
             />
             <FAQSchema faqs={faqs} />

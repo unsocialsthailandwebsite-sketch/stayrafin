@@ -26,8 +26,7 @@ export default function Page() {
         <div className="min-h-screen bg-stayra-ivory pt-32 pb-24">
             <BreadcrumbSchema
                 items={[
-                    { name: "Home", url: "https://www.stayra.co/" },
-                    { name: "Farm Stays Near Jaipur", url: "https://www.stayra.co/farm-stays-near-jaipur" },
+                    { name: "Farm Stays Near Jaipur", path: "/farm-stays-near-jaipur" },
                 ]}
             />
             <FAQSchema faqs={faqs} />

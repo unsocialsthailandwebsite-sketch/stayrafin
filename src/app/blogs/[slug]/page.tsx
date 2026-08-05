@@ -63,9 +63,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <main className="min-h-screen bg-stayra-ivory pt-24 pb-16">
             <BreadcrumbSchema
                 items={[
-                    { name: "Home", url: "https://www.stayra.co/" },
-                    { name: "Blogs", url: "https://www.stayra.co/blogs" },
-                    { name: post.title, url: `https://www.stayra.co/blogs/${post.slug}` },
+                    { name: "Blogs", path: "/blogs" },
+                    { name: post.title, path: `/blogs/${post.slug}` },
                 ]}
             />
             <BlogPostingSchema

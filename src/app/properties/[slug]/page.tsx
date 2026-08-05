@@ -189,9 +189,8 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
         <div className="min-h-screen bg-white">
             <BreadcrumbSchema
                 items={[
-                    { name: "Home", url: "https://www.stayra.co/" },
-                    { name: "Our Properties", url: "https://www.stayra.co/properties" },
-                    { name: property.title, url: `https://www.stayra.co/properties/${slug}` },
+                    { name: "Our Properties", path: "/properties" },
+                    { name: property.title, path: `/properties/${slug}` },
                 ]}
             />
             <PropertySchema
