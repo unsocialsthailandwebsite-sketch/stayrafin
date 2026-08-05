@@ -26,6 +26,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         { url: `${BASE}/partner-with-us`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
         { url: `${BASE}/collaborate-with-us`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
         { url: `${BASE}/faq`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
+        { url: `${BASE}/celebrations-in-jaipur`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+        { url: `${BASE}/family-getaways-near-jaipur`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+        { url: `${BASE}/book-direct`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
         { url: `${BASE}/privacy-policy`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
         { url: `${BASE}/terms-and-conditions`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
     ];
