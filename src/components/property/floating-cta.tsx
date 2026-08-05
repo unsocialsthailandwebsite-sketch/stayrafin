@@ -27,14 +27,16 @@ export function FloatingCTA({ propertyName, brochureUrl }: { propertyName: strin
                     Chat on WhatsApp
                 </Button>
 
-                <Button
-                    variant="ghost"
-                    className="w-full text-xs text-gray-400 flex items-center justify-center gap-2"
-                    onClick={() => window.open(brochureUrl || '/brochure.pdf', '_blank')}
+                <a
+                    href={brochureUrl || '/brochure.pdf'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download
+                    className="w-full text-xs text-gray-400 hover:text-stayra-green flex items-center justify-center gap-2 py-2 transition-colors cursor-pointer"
                 >
                     <FileText className="w-3 h-3" />
                     Download Catalogue
-                </Button>
+                </a>
             </div>
 
             <div className="mt-4 text-center">

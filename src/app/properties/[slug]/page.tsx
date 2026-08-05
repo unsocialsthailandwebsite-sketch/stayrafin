@@ -185,6 +185,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                         href={brochureUrl}
                         target="_blank"
                         rel="noopener noreferrer"
+                        download
                         className="inline-flex items-center justify-center border border-stayra-green text-stayra-green hover:bg-stayra-green hover:text-white transition-colors uppercase text-xs tracking-widest font-bold px-6 py-4 rounded-none w-fit cursor-pointer"
                     >
                         Download Catalogue
