@@ -85,7 +85,7 @@ const PROPERTY_SPACES: Record<string, PropertySpace[]> = {
         },
         {
             "name": "Bedroom Two",
-            "imageIndex": 10,
+            "imageIndex": 7,
             "meta": "Ground floor · King · Ensuite",
             "detail": "Garden-facing, with its own sit-out. The quietest room in the house."
         },
@@ -97,7 +97,7 @@ const PROPERTY_SPACES: Record<string, PropertySpace[]> = {
         },
         {
             "name": "Bedroom Four",
-            "imageIndex": 17,
+            "imageIndex": 10,
             "meta": "First floor · King · Ensuite",
             "detail": "A private balcony that catches the sunrise over the hills."
         },
