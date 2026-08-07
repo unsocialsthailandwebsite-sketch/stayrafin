@@ -134,26 +134,36 @@ const PROPERTY_SPACES: Record<string, PropertySpace[]> = {
     ],
 };
 
-const PROPERTY_SERVICES: Record<string, { name: string; detail: string }[]> = {
+const PROPERTY_SERVICES: Record<string, { name: string; tag: string; detail: string }[]> = {
     "kankas-house": [
         {
-            "name": "Chef on Call",
-            "detail": "Rajasthani, North Indian, or something plainer for the children. Cooked in the house and served at the hour you choose."
+            "name": "In-House Chef",
+            "tag": "On site, around the clock",
+            "detail": "A chef lives at the house and cooks whenever you want to eat. Rajasthani, North Indian, or something plainer for the children. No fixed mealtimes, no buffet hours — just tell the kitchen."
+        },
+        {
+            "name": "Caretaker",
+            "tag": "On site, around the clock",
+            "detail": "Someone is always here. A spare shawl at midnight, the bonfire lit, directions in the morning — ask rather than work it out yourself."
         },
         {
             "name": "Chauffeur on Call",
+            "tag": "On request",
             "detail": "Amer is about half an hour away and the old city closer to an hour in traffic. Airport transfers arranged."
         },
         {
             "name": "Event Set-Up",
+            "tag": "On request",
             "detail": "Décor, seating and lighting for birthdays, anniversaries and small gatherings on the lawn."
         },
         {
             "name": "Candlelight Dinner",
+            "tag": "On request",
             "detail": "Laid out beside the pool or on the lawn, for two."
         },
         {
             "name": "Celebrations",
+            "tag": "On request",
             "detail": "Cake, flowers and the parts of an evening you would rather not organise yourself."
         }
     ],
@@ -230,7 +240,7 @@ const PROPERTY_FAQS: Record<string, { question: string; answer: string }[]> = {
         },
         {
             "question": "Is there a cook at the villa?",
-            "answer": "Yes. A chef can be arranged on request and cooks on site — Rajasthani, North Indian, or something simpler for children. Tell us the night before for breakfast and by late afternoon for dinner. Additional charges apply."
+            "answer": "Yes. A chef lives at the house and is available around the clock, so there are no fixed mealtimes to work around. Rajasthani, North Indian, or something simpler for the children — tell the kitchen what you want and when. A caretaker is also on site at all times."
         },
         {
             "question": "Can we host a birthday or anniversary at Kankas House?",
@@ -497,11 +507,12 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                 <section className="border-t border-gray-100 bg-stayra-ivory/40">
                     <div className="max-w-7xl mx-auto px-4 py-16">
                         <h2 className="font-serif text-3xl text-stayra-charcoal">The Stayra Experience</h2>
-                        <p className="text-gray-500 mt-2 mb-10">Arranged on request. Additional charges apply.</p>
+                        <p className="text-gray-500 mt-2 mb-10">Some of it is always here. The rest we arrange with notice.</p>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8">
                             {services.map((service) => (
                                 <div key={service.name} className="border-t border-stayra-gold/40 pt-5">
                                     <h3 className="font-serif text-xl text-stayra-charcoal">{service.name}</h3>
+                                    <p className="text-[11px] uppercase tracking-widest text-stayra-gold mt-1">{service.tag}</p>
                                     <p className="text-gray-600 leading-relaxed mt-3">{service.detail}</p>
                                 </div>
                             ))}
