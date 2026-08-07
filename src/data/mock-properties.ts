@@ -102,24 +102,13 @@ A fully equipped private kitchen designed for comfort and convenience. You’ll 
         specs: "4 Bedrooms | Private Pool | Hill Views",
         price: "Price on Request",
         brochureUrl: "/kankas-house-brochure.pdf",
-        description: `Nestled amidst the quiet embrace of Jaipur's forested hills, Kankas House is a sanctuary where nature's calm meets timeless elegance. The villa welcomes you with earthy interiors that radiate elemental charm, combining warmth and grandeur in every detail. Designed for both relaxation and togetherness, this retreat unfolds into open lawns and picturesque sit-outs, inviting guests to pause, breathe, and admire the surrounding views.
+        description: `Kankas House sits in the Aravalli foothills outside Jaipur, far enough from the city that the loudest thing most evenings is the wind. Four king bedrooms, each with its own bathroom and balcony, are arranged over two floors around a private pool fed by a cascading waterfall.
 
-At its heart lies a private pool, perfect for leisurely swims or basking afternoons under the soft Rajasthani sun. As dusk descends, the ambience transforms—crackling bonfires and aromatic barbecue evenings create the ideal setting to bond with loved ones beneath a starlit sky. Indoors, a thoughtful selection of board and indoor games ensures that joy and laughter never fade, no matter the hour. Whether seeking solitude, shared moments, or simply a deeper connection with nature, Kankas House promises a stay that feels both luxurious and soulfully grounding.
+The ground floor opens straight onto the water. Two bedrooms step out to the pool and garden, and the main hall runs the width of the house with windows onto the hills. Upstairs, the other two bedrooms look over open country, one of them with a freestanding bathtub set against the view.
 
-<strong>The Space</strong>
-Kankas House stands out as one of the top villas in Jaipur due to its serene, secluded location amidst forest and hill views, earthy interiors with elemental grandeur, private pool to relax and unwind, manicured lawn with picturesque sit-outs, and barbecue/bonfire services to bond with loved ones.
+Days here find their own rhythm. Swim before the sun is high. Read in the first-floor lounge while the light moves across the Aravallis. Eat what the chef cooks, at the hour you choose rather than the hour a buffet decides. When it gets dark the lawn becomes a barbecue, a bonfire, or an open-air cinema, depending on the evening you want.
 
-<strong>Bedrooms</strong>
-The villa features 4 spacious, well-furnished bedrooms (2 on the ground floor, 2 on the first floor). Each bedroom is equipped with AC, TV, Wi-Fi, and single mattress, complete with ensuite bathrooms and attached balconies.
-
-<strong>Bathrooms</strong>
-There are 4 attached bathrooms and 1 common bathroom. All bathrooms feature geysers, towels, and basic toiletries. One of the bathrooms also features a bathtub.
-
-<strong>Living & Dining</strong>
-The villa has a spacious living room equipped with AC, TV, Wi-Fi, a sound system, a game console, and a dining area to enjoy delicious meals.
-
-<strong>Lawn & Pool</strong>
-Step outside to a manicured lawn (20x20 sq. ft) that can seat up to 50 people, perfect for outdoor gatherings. Unwind in the private outdoor pool (10 ft x 20 ft, depth 4.5 ft) or lounge in the open garden sit-out space.`,
+It suits a family taking the whole house, a group of friends who would rather have a pool and a garden than a hotel corridor, and two people marking something quietly.`,
         features: [
             "Secluded location amidst forest & hill views",
             "Earthy interiors with elemental grandeur",

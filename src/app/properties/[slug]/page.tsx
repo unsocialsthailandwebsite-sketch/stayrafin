@@ -14,7 +14,7 @@ import { MapSection } from "@/components/property/map-section";
 import { MobilePropertyCTA } from "@/components/property/mobile-property-cta";
 import { MOCK_PROPERTIES } from "@/data/mock-properties";
 import { PropertyReviews } from "@/components/property/property-reviews";
-import { PropertySchema, BreadcrumbSchema } from "@/components/seo/structured-data";
+import { PropertySchema, BreadcrumbSchema, FAQSchema } from "@/components/seo/structured-data";
 
 export async function generateStaticParams() {
     try {
@@ -73,6 +73,132 @@ const PROPERTY_ROOMS: Record<string, { bedrooms: number; occupancy: number }> = 
     "kankas-house": { bedrooms: 4, occupancy: 10 },
 };
 
+type PropertySpace = { name: string; meta: string; detail: string };
+
+const PROPERTY_SPACES: Record<string, PropertySpace[]> = {
+    "kankas-house": [
+        {
+            "name": "Bedroom One",
+            "meta": "Ground floor · King · Ensuite",
+            "detail": "Opens onto the lawn, a few steps from the water. Wake up, walk out, swim."
+        },
+        {
+            "name": "Bedroom Two",
+            "meta": "Ground floor · King · Ensuite",
+            "detail": "Garden-facing, with its own sit-out. The quietest room in the house."
+        },
+        {
+            "name": "Bedroom Three",
+            "meta": "First floor · King · Ensuite",
+            "detail": "A freestanding bathtub set against the window, with the Aravallis beyond it."
+        },
+        {
+            "name": "Bedroom Four",
+            "meta": "First floor · King · Ensuite",
+            "detail": "A private balcony that catches the sunrise over the hills."
+        },
+        {
+            "name": "The Hall",
+            "meta": "Ground floor · Living",
+            "detail": "Runs the width of the house. Deep seating, tall windows, and the pool just outside them."
+        },
+        {
+            "name": "The Lounge",
+            "meta": "First floor · Living",
+            "detail": "Board games, cards and a console — and the best light in the house for the forty minutes before sunset."
+        },
+        {
+            "name": "The Pool",
+            "meta": "Outdoor · Private",
+            "detail": "Ten by twenty feet, fed by a cascading waterfall, lit after dark."
+        },
+        {
+            "name": "The Lawn",
+            "meta": "Outdoor · Garden",
+            "detail": "Barbecue, bonfire and open-air film screenings. Room for thirty to fifty for a daytime celebration."
+        },
+        {
+            "name": "The Rooftop Patio",
+            "meta": "Outdoor · Terrace",
+            "detail": "Open to the sky with the hills on every side. Best at dusk."
+        }
+    ],
+};
+
+const PROPERTY_SERVICES: Record<string, { name: string; detail: string }[]> = {
+    "kankas-house": [
+        {
+            "name": "Chef on Call",
+            "detail": "Rajasthani, North Indian, or something plainer for the children. Cooked in the house and served at the hour you choose."
+        },
+        {
+            "name": "Chauffeur on Call",
+            "detail": "Amer, Nahargarh and the old city are roughly an hour by road. Airport transfers arranged."
+        },
+        {
+            "name": "Event Set-Up",
+            "detail": "Décor, seating and lighting for birthdays, anniversaries and small gatherings on the lawn."
+        },
+        {
+            "name": "Candlelight Dinner",
+            "detail": "Laid out beside the pool or on the lawn, for two."
+        },
+        {
+            "name": "Celebrations",
+            "detail": "Cake, flowers and the parts of an evening you would rather not organise yourself."
+        }
+    ],
+};
+
+const PROPERTY_FAQS: Record<string, { question: string; answer: string }[]> = {
+    "kankas-house": [
+        {
+            "question": "How many guests can Kankas House sleep?",
+            "answer": "The villa has four bedrooms, each with a king bed and an ensuite bathroom, and sleeps up to 10 guests. There are five bathrooms in total — four ensuite and one common."
+        },
+        {
+            "question": "Is the whole villa private?",
+            "answer": "Yes. Bookings are for the entire house. You will not share the pool, the lawn or the living spaces with anyone else."
+        },
+        {
+            "question": "Where exactly is Kankas House?",
+            "answer": "Bagwara, on Delhi Road, in the Aravalli foothills north of Jaipur. Amer Fort, Nahargarh and the old city are roughly an hour away by road."
+        },
+        {
+            "question": "Is there a cook at the villa?",
+            "answer": "Yes. A chef can be arranged on request and cooks on site — Rajasthani, North Indian, or something simpler for children. Tell us the night before for breakfast and by late afternoon for dinner. Additional charges apply."
+        },
+        {
+            "question": "Can we host a birthday or anniversary at Kankas House?",
+            "answer": "Yes. The lawns comfortably hold thirty to fifty daytime guests for a celebration. Event set-up, décor and catering can be arranged with prior notice."
+        },
+        {
+            "question": "Is the swimming pool private?",
+            "answer": "Yes. The pool measures ten by twenty feet, is fed by a cascading waterfall and is lit at night. It is unsupervised, so children should always be accompanied by an adult."
+        },
+        {
+            "question": "What are the check-in and check-out times?",
+            "answer": "Check-in is from 2pm and check-out is by 11am. Later check-out is often possible — please ask."
+        },
+        {
+            "question": "Is parking available?",
+            "answer": "Yes, on site and free of charge."
+        },
+        {
+            "question": "Is Wi-Fi available at the villa?",
+            "answer": "Yes. High-speed Wi-Fi runs throughout the house, along with air conditioning and a television in every bedroom."
+        },
+        {
+            "question": "What is there to do in the evening?",
+            "answer": "Bonfires and barbecues on the lawn, board games and a console in the first-floor lounge, and open-air film screenings under the stars. All can be set up on request."
+        },
+        {
+            "question": "How do I book Kankas House?",
+            "answer": "Message us on WhatsApp or write to info@stayra.co. Booking direct means no platform commission and the best available rate."
+        }
+    ],
+};
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params;
     const property = (await getProperty(slug)) || MOCK_PROPERTIES[slug];
@@ -125,6 +251,9 @@ async function getProperty(slug: string) {
 
 export default async function PropertyPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
+    const spaces = PROPERTY_SPACES[slug] ?? [];
+    const services = PROPERTY_SERVICES[slug] ?? [];
+    const faqs = PROPERTY_FAQS[slug] ?? [];
 
     // Try fetch from Sanity
     let property = await getProperty(slug);
@@ -271,6 +400,41 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
             </div>
 
             {/* Guest Reviews Section */}
+            {spaces.length > 0 && (
+                <section className="border-t border-gray-100 bg-white">
+                    <div className="max-w-7xl mx-auto px-4 py-16">
+                        <h2 className="font-serif text-3xl text-stayra-charcoal">The Spaces</h2>
+                        <p className="text-gray-500 mt-2 mb-10">Room by room, floor by floor.</p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8">
+                            {spaces.map((space) => (
+                                <div key={space.name} className="border-t border-stayra-gold/40 pt-5">
+                                    <h3 className="font-serif text-xl text-stayra-charcoal">{space.name}</h3>
+                                    <p className="text-[11px] uppercase tracking-widest text-stayra-gold mt-1">{space.meta}</p>
+                                    <p className="text-gray-600 leading-relaxed mt-3">{space.detail}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {services.length > 0 && (
+                <section className="border-t border-gray-100 bg-stayra-ivory/40">
+                    <div className="max-w-7xl mx-auto px-4 py-16">
+                        <h2 className="font-serif text-3xl text-stayra-charcoal">The Stayra Experience</h2>
+                        <p className="text-gray-500 mt-2 mb-10">Arranged on request. Additional charges apply.</p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8">
+                            {services.map((service) => (
+                                <div key={service.name} className="border-t border-stayra-gold/40 pt-5">
+                                    <h3 className="font-serif text-xl text-stayra-charcoal">{service.name}</h3>
+                                    <p className="text-gray-600 leading-relaxed mt-3">{service.detail}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
             <PropertyReviews reviews={reviews} />
 
             {/* Categorized Gallery REMOVED as per request */}
@@ -299,6 +463,28 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
             </div>
 
             {/* Mobile Sticky CTA */}
+            {faqs.length > 0 && (
+                <>
+                    <FAQSchema faqs={faqs} />
+                    <section className="border-t border-gray-100 bg-white">
+                        <div className="max-w-4xl mx-auto px-4 py-16">
+                            <h2 className="font-serif text-3xl text-stayra-charcoal mb-10">Frequently Asked Questions</h2>
+                            <div className="divide-y divide-gray-100 border-t border-gray-100">
+                                {faqs.map((faq) => (
+                                    <details key={faq.question} className="group py-5">
+                                        <summary className="flex items-start justify-between gap-8 cursor-pointer list-none font-medium text-stayra-charcoal">
+                                            <span>{faq.question}</span>
+                                            <span className="text-stayra-gold text-2xl leading-none shrink-0 transition-transform duration-200 group-open:rotate-45">+</span>
+                                        </summary>
+                                        <p className="text-gray-600 leading-relaxed mt-3 pr-12">{faq.answer}</p>
+                                    </details>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                </>
+            )}
+
             <MobilePropertyCTA propertyName={property.title} whatsapp={whatsapp} brochureUrl={brochureUrl} />
 
 
