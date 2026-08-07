@@ -70,7 +70,7 @@ const PROPERTY_DESCRIPTOR: Record<string, string> = {
 
 const PROPERTY_ROOMS: Record<string, { bedrooms: number; occupancy: number }> = {
     "choti-haveli": { bedrooms: 1, occupancy: 2 },
-    "kankas-house": { bedrooms: 4, occupancy: 10 },
+    "kankas-house": { bedrooms: 4, occupancy: 12 },
 };
 
 type PropertySpace = { name: string; meta: string; detail: string; imageIndex: number };
@@ -228,7 +228,7 @@ const PROPERTY_FAQS: Record<string, { question: string; answer: string }[]> = {
     "kankas-house": [
         {
             "question": "How many guests can Kankas House sleep?",
-            "answer": "The villa has four bedrooms, each with a king bed and an ensuite bathroom, and sleeps up to 10 guests. There are five bathrooms in total — four ensuite and one common."
+            "answer": "The villa has four bedrooms, each with a king bed and an ensuite bathroom, and sleeps up to 12 guests. There are five bathrooms in total — four ensuite and one common."
         },
         {
             "question": "Is the whole villa private?",
