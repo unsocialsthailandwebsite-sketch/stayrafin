@@ -99,7 +99,7 @@ A fully equipped private kitchen designed for comfort and convenience. You’ll 
     "kankas-house": {
         title: "Kankas House",
         location: "Bagwara, Delhi Road, Jaipur",
-        specs: "4 Bedrooms | Private Pool | Hill Views",
+        specs: "4 Bedrooms | Up to 12 Guests | Private Pool | Hill Views",
         price: "Price on Request",
         brochureUrl: "/kankas-house-brochure.pdf",
         description: `Kankas House sits in the Aravalli foothills outside Jaipur, far enough from the city that the loudest thing most evenings is the wind. Four king bedrooms, each with its own bathroom and balcony, are arranged over two floors around a private pool fed by a cascading waterfall.
