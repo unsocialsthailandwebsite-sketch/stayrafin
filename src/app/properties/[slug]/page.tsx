@@ -142,7 +142,7 @@ const PROPERTY_SERVICES: Record<string, { name: string; detail: string }[]> = {
         },
         {
             "name": "Chauffeur on Call",
-            "detail": "Amer, Nahargarh and the old city are roughly an hour by road. Airport transfers arranged."
+            "detail": "Amer is about half an hour away and the old city closer to an hour in traffic. Airport transfers arranged."
         },
         {
             "name": "Event Set-Up",
@@ -159,6 +159,61 @@ const PROPERTY_SERVICES: Record<string, { name: string; detail: string }[]> = {
     ],
 };
 
+const PROPERTY_NEARBY: Record<string, { name: string; note: string; distance: string }[]> = {
+    "kankas-house": [
+        {
+            "name": "Amer Fort",
+            "note": "The big one. Go at opening, or come back for the evening light show.",
+            "distance": "13 km"
+        },
+        {
+            "name": "Panna Meena ka Kund",
+            "note": "The symmetrical stepwell behind Amer. Empty early, busy by ten.",
+            "distance": "14 km"
+        },
+        {
+            "name": "Jaigarh Fort",
+            "note": "Above Amer, holding the largest wheeled cannon ever built.",
+            "distance": "15 km"
+        },
+        {
+            "name": "Jal Mahal",
+            "note": "The palace standing in Man Sagar lake. Best in the last hour of light.",
+            "distance": "17 km"
+        },
+        {
+            "name": "Hawa Mahal",
+            "note": "The pink lattice facade on Badi Chaupar, in the old city.",
+            "distance": "21 km"
+        },
+        {
+            "name": "City Palace and Jantar Mantar",
+            "note": "The royal quarter. Set aside half a day for both.",
+            "distance": "21 km"
+        },
+        {
+            "name": "Johari and Bapu Bazaar",
+            "note": "Jewellery, block-printed textiles and juttis. Bargain properly.",
+            "distance": "22 km"
+        },
+        {
+            "name": "Albert Hall Museum",
+            "note": "In Ram Niwas Garden, and worth seeing again once it is lit at night.",
+            "distance": "23 km"
+        },
+        {
+            "name": "Nahargarh Fort",
+            "note": "The ridge above Jaipur. People come for the view down over the city.",
+            "distance": "23 km"
+        },
+        {
+            "name": "Jamwa Ramgarh Sanctuary",
+            "note": "Forest and the old dam east of the house. Leopard country, and good birding.",
+            "distance": "25 km"
+        }
+    ],
+};
+
 const PROPERTY_FAQS: Record<string, { question: string; answer: string }[]> = {
     "kankas-house": [
         {
@@ -171,7 +226,7 @@ const PROPERTY_FAQS: Record<string, { question: string; answer: string }[]> = {
         },
         {
             "question": "Where exactly is Kankas House?",
-            "answer": "Bagwara, on Delhi Road, in the Aravalli foothills north of Jaipur. Amer Fort, Nahargarh and the old city are roughly an hour away by road."
+            "answer": "Bagwara, on Delhi Road, in the Aravalli foothills north of Jaipur. Amer Fort is about 13 km away, roughly half an hour, and the old city about 21 km, closer to an hour once traffic builds."
         },
         {
             "question": "Is there a cook at the villa?",
@@ -263,6 +318,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
     const spaces = PROPERTY_SPACES[slug] ?? [];
     const services = PROPERTY_SERVICES[slug] ?? [];
     const faqs = PROPERTY_FAQS[slug] ?? [];
+    const nearby = PROPERTY_NEARBY[slug] ?? [];
 
     // Try fetch from Sanity
     let property = await getProperty(slug);
@@ -482,6 +538,27 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
             </div>
 
             {/* Mobile Sticky CTA */}
+            {nearby.length > 0 && (
+                <section className="border-t border-gray-100 bg-white">
+                    <div className="max-w-7xl mx-auto px-4 py-16">
+                        <h2 className="font-serif text-3xl text-stayra-charcoal">Nearby</h2>
+                        <p className="text-gray-500 mt-2 mb-10">Approximate road distances from the gate.</p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14">
+                            {nearby.map((place) => (
+                                <div key={place.name} className="flex items-baseline justify-between gap-6 border-b border-gray-100 py-4">
+                                    <div>
+                                        <h3 className="text-stayra-charcoal font-medium">{place.name}</h3>
+                                        <p className="text-gray-500 text-sm mt-1">{place.note}</p>
+                                    </div>
+                                    <span className="text-stayra-gold text-sm whitespace-nowrap shrink-0">{place.distance}</span>
+                                </div>
+                            ))}
+                        </div>
+                        <p className="text-gray-500 mt-8">Jaipur International Airport is roughly 36 km and Jaipur Junction 29 km. Delhi Road runs past the gate, so the drive in is straightforward.</p>
+                    </div>
+                </section>
+            )}
+
             {faqs.length > 0 && (
                 <>
                     <FAQSchema faqs={faqs} />
