@@ -42,7 +42,7 @@ const SEO_DESCRIPTIONS: Record<string, string> = {
     "choti-haveli":
         "Stay in a restored Rajasthani haveli at Emaar Greens, Ajmer Road. Private garden, tranquil indoor fish pond, home-cooked meals. Book direct.",
     "kankas-house":
-        "Secluded 4-bedroom villa in Jaipur's forested hills: private pool, lawns, BBQ & bonfire, ensuite baths. Direct booking, no hidden fees.",
+        "Private 4-bedroom villa in the Aravalli foothills near Jaipur: pool with waterfall, in-house chef and caretaker on site. Book direct, no platform commission.",
 };
 
 /**
@@ -138,8 +138,8 @@ const PROPERTY_SERVICES: Record<string, { name: string; tag: string; detail: str
     "kankas-house": [
         {
             "name": "In-House Chef",
-            "tag": "On site, around the clock",
-            "detail": "A chef lives at the house and cooks whenever you want to eat. Rajasthani, North Indian, or something plainer for the children. No fixed mealtimes, no buffet hours — just tell the kitchen."
+            "tag": "On site, 8am to 10pm",
+            "detail": "A chef lives at the house and cooks from 8am to 10pm. Rajasthani, North Indian, or something plainer for the children. No buffet hours — you decide when to eat. Earlier breakfasts and later dinners are no trouble with a little notice."
         },
         {
             "name": "Caretaker",
@@ -240,7 +240,7 @@ const PROPERTY_FAQS: Record<string, { question: string; answer: string }[]> = {
         },
         {
             "question": "Is there a cook at the villa?",
-            "answer": "Yes. A chef lives at the house and is available around the clock, so there are no fixed mealtimes to work around. Rajasthani, North Indian, or something simpler for the children — tell the kitchen what you want and when. A caretaker is also on site at all times."
+            "answer": "Yes. A chef lives at the house and cooks from 8am to 10pm, so there are no fixed mealtimes to work around. Rajasthani, North Indian, or something simpler for the children — tell the kitchen what you want and when. If you would like breakfast before eight or dinner after ten, let us know in advance and it is arranged. A caretaker is also on site."
         },
         {
             "question": "Can we host a birthday or anniversary at Kankas House?",
