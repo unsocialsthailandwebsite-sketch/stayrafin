@@ -73,52 +73,61 @@ const PROPERTY_ROOMS: Record<string, { bedrooms: number; occupancy: number }> = 
     "kankas-house": { bedrooms: 4, occupancy: 10 },
 };
 
-type PropertySpace = { name: string; meta: string; detail: string };
+type PropertySpace = { name: string; meta: string; detail: string; imageIndex: number };
 
 const PROPERTY_SPACES: Record<string, PropertySpace[]> = {
     "kankas-house": [
         {
             "name": "Bedroom One",
+            "imageIndex": 8,
             "meta": "Ground floor · King · Ensuite",
             "detail": "Opens onto the lawn, a few steps from the water. Wake up, walk out, swim."
         },
         {
             "name": "Bedroom Two",
+            "imageIndex": 10,
             "meta": "Ground floor · King · Ensuite",
             "detail": "Garden-facing, with its own sit-out. The quietest room in the house."
         },
         {
             "name": "Bedroom Three",
+            "imageIndex": 21,
             "meta": "First floor · King · Ensuite",
             "detail": "A freestanding bathtub set against the window, with the Aravallis beyond it."
         },
         {
             "name": "Bedroom Four",
+            "imageIndex": 17,
             "meta": "First floor · King · Ensuite",
             "detail": "A private balcony that catches the sunrise over the hills."
         },
         {
             "name": "The Hall",
+            "imageIndex": 4,
             "meta": "Ground floor · Living",
             "detail": "Runs the width of the house. Deep seating, tall windows, and the pool just outside them."
         },
         {
             "name": "The Lounge",
+            "imageIndex": 11,
             "meta": "First floor · Living",
             "detail": "Board games, cards and a console — and the best light in the house for the forty minutes before sunset."
         },
         {
             "name": "The Pool",
+            "imageIndex": 1,
             "meta": "Outdoor · Private",
             "detail": "Ten by twenty feet, fed by a cascading waterfall, lit after dark."
         },
         {
             "name": "The Lawn",
+            "imageIndex": 27,
             "meta": "Outdoor · Garden",
             "detail": "Barbecue, bonfire and open-air film screenings. Room for thirty to fifty for a daytime celebration."
         },
         {
             "name": "The Rooftop Patio",
+            "imageIndex": 24,
             "meta": "Outdoor · Terrace",
             "detail": "Open to the sky with the hills on every side. Best at dusk."
         }
@@ -407,7 +416,17 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                         <p className="text-gray-500 mt-2 mb-10">Room by room, floor by floor.</p>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8">
                             {spaces.map((space) => (
-                                <div key={space.name} className="border-t border-stayra-gold/40 pt-5">
+                                <div key={space.name} className="group">
+                                    {images[space.imageIndex] && (
+                                        <div className="relative overflow-hidden rounded-lg aspect-[4/3] bg-gray-100 mb-4">
+                                            <img
+                                                src={images[space.imageIndex]}
+                                                alt={`${photoLabel} — ${space.name}`}
+                                                loading="lazy"
+                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                            />
+                                        </div>
+                                    )}
                                     <h3 className="font-serif text-xl text-stayra-charcoal">{space.name}</h3>
                                     <p className="text-[11px] uppercase tracking-widest text-stayra-gold mt-1">{space.meta}</p>
                                     <p className="text-gray-600 leading-relaxed mt-3">{space.detail}</p>
