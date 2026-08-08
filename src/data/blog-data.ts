@@ -12,6 +12,54 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        id: "14",
+        slug: "raksha-bandhan-in-jaipur",
+        title: "Raksha Bandhan in Jaipur: Where to Stay and What to Do With Your Siblings",
+        excerpt: "Rakhi falls on Friday, 28 August 2026, which makes it a three-day weekend. Here is how to spend it with your siblings in a private villa near Jaipur, and the nine things worth doing once you are all under one roof.",
+        content: `<p>Raksha Bandhan falls on <strong>Friday, 28 August 2026</strong> this year, which means the calendar has handed you a three-day weekend without being asked. Most families spend it the same way every year: an hour at somebody else house, lunch at a restaurant booked three weeks ago, and everyone back on their phones by four.</p>
+<p>There is a better version of the day. Take a house an hour outside Jaipur, put everyone under one roof, and give the day enough room to actually happen.</p>
+<h2>The muhurat is early, and it should change your plan</h2>
+<p>The auspicious window on 28 August runs roughly from <strong>5:57 am to 9:48 am</strong>, because the Purnima tithi ends mid-morning. Exact timings shift slightly by city and by which panchang you follow, so check yours — but the shape holds. It is an early window, not an afternoon one.</p>
+<p>That matters more than it sounds. If you are driving up from Delhi on the morning itself, you will miss it. Arriving the evening before turns a rushed ceremony into a slow one: everybody already there, nobody dressed yet, the thali ready before the heat arrives.</p>
+<h2>Why a villa beats a restaurant table</h2>
+<p>A restaurant gives you two hours and a bill. A house gives you a day. The difference is not luxury — it is unstructured time, the kind where siblings stop being polite adults and go back to behaving like they did at fourteen.</p>
+<p>You also get a kitchen, a lawn, a pool, and nobody appearing at your elbow to ask whether you have finished.</p>
+<figure><img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/928bf148-fb0d-40ad-9b33-71ac17aa5647.jpeg" alt="The lawn, mid-afternoon. Board games travel well. at Kankas House, a private villa near Jaipur" /><figcaption>The lawn, mid-afternoon. Board games travel well.</figcaption></figure>
+<h2>Nine ways to spend the day together</h2>
+<h3>1. Bring back the board games</h3>
+<p>Ludo, Uno, Monopoly, a pack of cards missing the seven of clubs. Nothing collapses the years between siblings faster than an argument over whether that counts as a legal move. There is a first-floor lounge at Kankas House built for exactly this — board games, a console, and the best light in the house for the forty minutes before sunset.</p>
+<h3>2. Put a film on the lawn after dark</h3>
+<p>An outdoor screen goes up on the grass and the evening organises itself. <em>Yeh Jawaani Hai Deewani</em> is the obvious pick and nobody will object. If you want something that actually sits on the theme, <em>Kapoor and Sons</em> or <em>Dil Dhadakne Do</em> are both films about siblings who love each other badly, which is closer to the truth than most Rakhi advertising.</p>
+<figure><img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/c2ae21de-6e4e-4438-a19d-8573f93b297d.jpeg" alt="The screen goes up on the lawn once the light drops. at Kankas House, a private villa near Jaipur" /><figcaption>The screen goes up on the lawn once the light drops.</figcaption></figure>
+<h3>3. Play cricket, badly</h3>
+<p>The lawn takes a proper game. Boundaries are wherever you say they are, the youngest cousin bats twice, and somebody will claim an lbw that nobody saw. This is the part of the day people photograph without meaning to.</p>
+<h3>4. Cook something for each other</h3>
+<p>A chef lives at the house and cooks from 8am to 10pm, so nobody has to. But there is a reason to take over the kitchen for one meal anyway — cooking for your brother or sister lands differently than ordering for them. Make the one dish your mother makes and argue about whose version is closer.</p>
+<h3>5. Eat at one table, all of you</h3>
+<p>Not in shifts. Not standing at a buffet. One table, everyone seated, phones somewhere else. Most families have not done this since a wedding.</p>
+<figure><img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/bfb8d458-fd2d-40bc-a744-7b99d6805632.jpeg" alt="One table, laid for the whole house. at Kankas House, a private villa near Jaipur" /><figcaption>One table, laid for the whole house.</figcaption></figure>
+<h3>6. Take the afternoon in the pool</h3>
+<p>Late August in Jaipur is still warm and the monsoon has usually washed the air clean. The pool at Kankas House is ten by twenty feet with a waterfall running into it, and it is lit after dark if the afternoon runs long. Which it will.</p>
+<figure><img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/75712882-d545-4300-b81d-3712673047b6.jpeg" alt="The pool, lit, once the evening turns. at Kankas House, a private villa near Jaipur" /><figcaption>The pool, lit, once the evening turns.</figcaption></figure>
+<h3>7. Light the bonfire and stay up</h3>
+<p>The best conversations of the weekend will happen here, somewhere after eleven, when the plans have collapsed and nobody is trying any more.</p>
+<h3>8. Take photographs somewhere that is not a living room</h3>
+<p>Every Rakhi photo looks the same because it is taken in the same beige corner. Hills behind you, a lawn, a rooftop at dusk — the picture takes itself, and it is the one that stays on the fridge.</p>
+<h3>9. Let the older ones sit down</h3>
+<p>The people who usually host are the ones who never enjoy the day. Book the house and they get to be guests for once. That, more than anything else on this list, is the argument for going away.</p>
+<h2>Where to stay near Jaipur for Raksha Bandhan</h2>
+<p><strong><a href="/properties/kankas-house">Kankas House</a></strong> is the one for a full family. Four king bedrooms, each with an ensuite bathroom and a balcony, sleeping up to twelve. Private pool, lawn, rooftop patio, in-house chef and a caretaker on site. It sits in the Aravalli foothills at Bagwara on Delhi Road — Amer Fort is about thirteen kilometres away and the old city about twenty-one, so a morning ceremony and an afternoon in Jaipur both fit into one day.</p>
+<p>If it is just the two of you, <strong><a href="/properties/choti-haveli">Choti Haveli</a></strong> is the smaller, quieter option.</p>
+<p>For a larger gathering — cousins, in-laws, the whole extended set — the lawns hold thirty to fifty for a daytime celebration, and set-up, decor and catering can be arranged with notice. There is more on our <a href="/celebrations-in-jaipur">celebrations page</a>.</p>
+<h2>Book it before the weekend goes</h2>
+<p>Raksha Bandhan landing on a Friday means the 28th to the 30th is a genuine long weekend, and villas near Jaipur tend to be gone by mid-August for exactly that reason. If you are considering it, consider it now rather than in the third week.</p>
+<p><a href="/book-direct">Booking direct</a> means no platform commission and the best available rate. Message us on WhatsApp or write to info@stayra.co and we will hold dates while you check with everyone, which with siblings usually takes a while.</p>`,
+        date: "August 8, 2026",
+        author: "Stayra Team",
+        image: "https://a0.muscache.com/im/pictures/hosting/Hosting-1492613314913436518/original/4f523614-7a53-496a-abd3-08d190cd3147.jpeg",
+        tags: ["Raksha Bandhan", "Jaipur", "Family"]
+    },
+    {
         id: "13",
         slug: "trending-cafes-in-jaipur-2026",
         title: "Trending Cafes in Jaipur to Try in 2026",
