@@ -12,6 +12,62 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        id: "15",
+        slug: "private-pool-villas-near-jaipur",
+        title: "Villas With a Private Pool Near Jaipur: What to Check Before You Book",
+        excerpt: "Search results for private pool villas near Jaipur all look identical, and most of them are not what you are picturing. Here is what \"private\" actually means, which road to pick, and the questions worth asking before you send a deposit.",
+        content: `<p>Search <em>villa with private pool near Jaipur</em> and you get roughly forty listings that look like the same house. A wide shot of blue water. The word <em>luxury</em> in the headline. A price that turns out to be per room, or per night before the mandatory cleaning fee, or for six people when there are nine of you.</p>
+<p>Some of those places are excellent. Several are not private in the way you assume, and a few have a pool that is drained in the month you were planning to go. It is worth ten minutes of questions before you send a deposit, and most people send the deposit first.</p>
+<p>Here is what to actually ask.</p>
+<h2>"Private" means three different things</h2>
+<p>The word does a lot of unearned work in villa listings around Jaipur, and it usually means one of three arrangements.</p>
+<p><strong>The whole property is yours.</strong> You book the house, the gate closes, and nobody else is booked in for those dates. Staff are on site, but there is no second family at the far end of the lawn.</p>
+<p><strong>Your room is private, the property is not.</strong> This is a small hotel described as a villa. You have your own bathroom and your own balcony, and you share the pool, the lawn and breakfast with three other bookings.</p>
+<p><strong>The owner lives there.</strong> Common with farmhouses on the outskirts. Perfectly pleasant, often the cheapest of the three, and completely different from what you are imagining if you have booked it for a birthday.</p>
+<p>Ask the question flatly: <em>if I book these dates, is anyone else on the property?</em> A one-word answer tells you which of the three you are dealing with.</p>
+<h2>The pool questions nobody thinks to ask</h2>
+<p>Everybody looks at the photo. Almost nobody asks the four things that decide whether the pool is any good on the day.</p>
+<h3>How big is it, in feet</h3>
+<p>"Large private pool" is not a measurement. A pool that photographs beautifully at a wide angle can be a plunge pool that three adults fill. Ask for dimensions.</p>
+<h3>Is it lit after dark</h3>
+<p>In Rajasthan the pool gets used at four in the afternoon and again at nine at night, and the second one only happens if there are lights in the water.</p>
+<h3>When was it last cleaned, and who cleans it</h3>
+<p>Ask whether cleaning happens between bookings or on a weekly cycle. There is a real difference between the two and it shows up on arrival.</p>
+<h3>Is there shade next to it</h3>
+<p>October sun at two in the afternoon is not gentle. If there is no covered sit-out or tree line beside the water, the pool is a morning-and-evening amenity, not an all-day one.</p>
+<h2>Which road you take matters more than the photos</h2>
+<p>Villas outside Jaipur cluster on three roads, and the road decides your whole trip more than the interiors do.</p>
+<p><strong>Delhi Road, to the north.</strong> This is the Aravalli side. The hills start almost immediately once you are past the edge of the city, and the terrain is the reason to come — proper foothills, forest, and quiet at night. It also happens to be the fort corridor: Amer, Jaigarh, Nahargarh and Panna Meena ka Kund are all within about fifteen kilometres of each other on this side.</p>
+<p><strong>Ajmer Road, to the west.</strong> Flatter, more built up, more heritage-styled properties. Good access to the highway if you are driving in from Delhi or Ahmedabad. Less landscape.</p>
+<p><strong>Tonk Road, to the south.</strong> Nearest the airport, which matters if you are flying in for two nights and do not want to lose an hour each way. The scenery is the weakest of the three.</p>
+<p>If you are coming for a weekend that includes the old city and the forts, the north side gives you the shortest drives to the things you actually want to see. If you are flying in late on a Friday, the south side saves you the transfer.</p>
+<h2>Food is the thing that quietly decides the weekend</h2>
+<p>Three models exist and they are not equivalent.</p>
+<p><strong>A chef on site.</strong> Someone lives at the property and cooks what you ask for, when you ask for it. This is the one people underrate before the trip and rave about afterwards, because the alternative is one person in your group losing Saturday to logistics.</p>
+<p><strong>Kitchen access, you cook.</strong> Fine for a group of four. Grim for a group of twelve, and the reason somebody ends up eating at eleven at night.</p>
+<p><strong>Order in.</strong> Depends entirely on where the villa is. Forty kilometres out, delivery is theoretical.</p>
+<p>Ask what hours the kitchen runs, whether breakfast is included or charged separately, and whether an early breakfast is possible — that last one matters if you want to be at Amer Fort when it opens rather than at eleven with everyone else.</p>
+<h2>How many people, and who is allowed to visit</h2>
+<p>Two numbers, and villas conflate them constantly. <strong>Sleeping capacity</strong> is how many beds there are. <strong>Daytime capacity</strong> is how many people can be on the property between lunch and sunset. If you are planning a birthday where a dozen more people drive up for the afternoon and go home, the second number is the one that matters, and you need it in writing before you invite anyone.</p>
+<p>While you are asking: check whether daytime visitors are charged per head, whether there is a music cut-off time, and whether decor and catering can be brought in or must be arranged by the property.</p>
+<h2>Why September to November is the window</h2>
+<p>Monsoon has just done its work. The Aravallis are green rather than dust-coloured, the reservoirs are full, and the air is clean in a way it will not be again until February. Days are warm enough that the pool is the point of the afternoon, and the evenings have come down far enough that a bonfire makes sense.</p>
+<p>It is also the last quiet stretch. From late October the festive weekends fill, and from November the wedding season takes most of the good properties around Jaipur for months. If you want a whole villa on a Saturday in December, you are already late. September and early October are the easiest bookings of the year and the best weather of the year, which is an unusual combination.</p>
+<p>If you want more on what the city looks like at this end of the year, our <a href="/blogs/jaipur-in-monsoon">guide to Jaipur in monsoon</a> covers the forts and the cafes worth the drive.</p>
+<h2>Where Kankas House sits in all of this</h2>
+<p>For the sake of a worked example, here is our own answer to every question above.</p>
+<p><a href="/properties/kankas-house">Kankas House</a> is a whole-property booking — four king bedrooms, each ensuite with its own balcony, sleeping up to twelve. Nobody else is on the property when you have it. The pool is ten by twenty feet, fed by a cascading waterfall, and lit after dark. There is a chef living on site who cooks from 8am to 10pm, a caretaker on the property, and a lawn with a barbecue and bonfire that holds thirty to fifty for a daytime celebration.</p>
+<p>It is on Delhi Road, at Bagwara in the Aravalli foothills, which puts Amer Fort thirteen kilometres away, Nahargarh twenty-three, and the old city twenty-one. The airport is thirty-six. Check-in is 2pm and check-out is 11am.</p>
+<p>If there are two of you rather than twelve, <a href="/properties/choti-haveli">Choti Haveli</a> on Ajmer Road is the smaller, quieter option. And if the reason you are booking is a birthday or an anniversary rather than a weekend away, there is more detail on our <a href="/celebrations-in-jaipur">celebrations page</a>.</p>
+<h2>Before you send the deposit</h2>
+<p>Get four things in writing: whether the property is exclusively yours for those dates, the pool dimensions, the daytime guest cap, and the kitchen hours. Any villa worth booking will answer all four in a single message.</p>
+<p>Booking direct means no platform commission and the best available rate. Message us on WhatsApp or write to info@stayra.co, and we will hold dates while you check with everyone.</p>`,
+        date: "September 1, 2026",
+        author: "Stayra Team",
+        image: "https://a0.muscache.com/im/pictures/hosting/Hosting-1492613314913436518/original/4f523614-7a53-496a-abd3-08d190cd3147.jpeg",
+        tags: ["Villas", "Jaipur", "Travel Guide"]
+    },
+    {
         id: "14",
         slug: "raksha-bandhan-in-jaipur",
         title: "Raksha Bandhan in Jaipur: Where to Stay and What to Do With Your Siblings",
