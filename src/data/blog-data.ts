@@ -90,7 +90,7 @@ export const blogPosts: BlogPost[] = [
 <p><a href="/book-direct">Booking direct</a> means no platform commission and the best available rate. Message us on WhatsApp or write to info@stayra.co, and we will hold dates while you check with everyone.</p>`,
         date: "September 15, 2026",
         author: "Stayra Team",
-        image: "https://a0.muscache.com/im/pictures/hosting/Hosting-1492613314913436518/original/4f523614-7a53-496a-abd3-08d190cd3147.jpeg",
+        image: "/diwali-villa-jaipur.jpg",
         tags: ["Diwali", "Jaipur", "Celebrations"]
     },
     {
