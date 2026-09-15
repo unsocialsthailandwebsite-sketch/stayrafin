@@ -12,6 +12,88 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        id: "16",
+        slug: "diwali-party-in-jaipur",
+        title: "Diwali Party in Jaipur 2026: How to Host One in a Private Villa",
+        excerpt: "Diwali falls on Sunday, 8 November 2026, which turns it into a four-day weekend. Here is how to plan a Diwali party in Jaipur at a private villa: the timings, the food, the games, and what to check before you book a venue.",
+        content: `<p>Most Diwali parties in Jaipur happen in one of three places. Somebody flat, which runs out of room at about eighteen people. A banquet hall booked six months ago. Or a hotel ballroom where you are one of four functions running that evening.</p>
+<p>All three work. None of them lets thirty people spread out, cook together, light diyas along a real courtyard, sit around a fire until two in the morning, and then go to bed upstairs instead of arranging cabs.</p>
+<p>That last part is why villa Diwali has quietly become the format of choice for families who have outgrown the living room, and for friend groups who would rather not spend the night looking for a ride home.</p>
+<p>Here is how to plan one properly.</p>
+<h2>When is Diwali in 2026</h2>
+<p><strong>Diwali 2026 falls on Sunday, 8 November.</strong> Lakshmi Puja is performed that evening, on the new moon of Kartik.</p>
+<p>The five days run as follows.</p>
+<ul><li><strong>Dhanteras</strong> — Friday, 6 November</li><li><strong>Choti Diwali</strong> — Saturday, 7 November</li><li><strong>Diwali and Lakshmi Puja</strong> — Sunday, 8 November</li><li><strong>Govardhan Puja</strong> — Monday, 9 November</li><li><strong>Bhai Dooj</strong> — Tuesday, 10 November</li></ul>
+<p>Two things follow from that calendar, and both matter if you are booking a venue.</p>
+<p><strong>Diwali is on a Sunday this year.</strong> Friday to Monday becomes a natural four-day window, which means demand for villas around Jaipur concentrates hard on 6 to 9 November. Anything good goes early.</p>
+<p><strong>The weather is the best of the year.</strong> Early November in Jaipur sits around 28 to 30 degrees in the day and drops far enough at night for a bonfire and a shawl. Outdoor everything. It is the finest fortnight in the Rajasthan calendar to be standing on a lawn.</p>
+<h2>Why a villa works better than a hall</h2>
+<p><strong>You get the whole day, not a four-hour slot.</strong> Banquet bookings start when the previous function ends. A villa is yours from check-in, which means the afternoon of rangoli, cooking and getting ready becomes part of the celebration instead of something you rush through at home first.</p>
+<p><strong>Everybody stays.</strong> Nobody leaves at eleven because they are driving. Nobody checks cab prices during the card game. The party ends when people go to bed, and that is a completely different kind of evening.</p>
+<p><strong>Three generations can do their own thing.</strong> Grandparents get a quiet room and an early night. Parents get the dining table. Cousins get the lawn and the speaker. In a hall, everyone shares one room and one volume.</p>
+<p><strong>The food is yours.</strong> With a chef on site you decide the menu rather than choosing package A or package B. If your family has a dish only your mother makes properly, she can make it in a real kitchen.</p>
+<figure><img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/e993dd33-9979-4fc3-bcbf-0812297b720f.jpeg" alt="The dining table at Kankas House, a private villa near Jaipur, set for a family celebration" /><figcaption>One table, everybody seated at the same time. Most families have not managed it since a wedding.</figcaption></figure>
+<h2>What a Diwali day at a villa actually looks like</h2>
+<p>A rough shape that works. Adapt it freely.</p>
+<p><strong>4:00 pm — Arrival and rangoli.</strong> Check in, unpack, tea. Put whoever has the steadiest hands on the rangoli at the entrance. Marigold and rose petals travel better than powder and clean up far more easily.</p>
+<p><strong>5:00 pm — Decorating.</strong> Diyas along the courtyard edges, the stairs and the boundary wall. Marigold torans on every doorway. String lights wherever there is a beam. This takes longer than you expect and is genuinely one of the best hours of the day.</p>
+<p><strong>6:30 pm — Lakshmi Puja.</strong> The auspicious window on 8 November falls in the early evening. Confirm the exact muhurat for your family tradition closer to the date, since it shifts by panchang and by city. Set the thali up wherever everyone fits.</p>
+<p><strong>7:30 pm — Diya lighting.</strong> Everyone takes a few. Lighting a hundred lamps together is the moment people actually remember.</p>
+<p><strong>8:00 pm — Dinner.</strong> A Rajasthani thali, or a mixed spread. Serve it on the lawn if the evening is clear, which in November it usually is.</p>
+<p><strong>9:30 pm — Cards, music, fire.</strong> The part that runs itself.</p>
+<p><strong>Late — Bonfire and the last chai.</strong> November nights here are made for it.</p>
+<figure><img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/3be87fe9-1097-4d06-9ed5-a88d3d169732.jpeg" alt="The bonfire and barbecue on the lawn at Kankas House, a private villa near Jaipur" /><figcaption>The barbecue goes on at dusk. Ask by six and the fire is lit by eight.</figcaption></figure>
+<h2>Things to actually do</h2>
+<h3>With family</h3>
+<p><strong>A proper puja setup.</strong> Space for everyone to sit, not a corner of a bedroom. Ask the villa in advance for a low table, a clean cloth and floor seating.</p>
+<p><strong>Cooking together in the afternoon.</strong> Mathri, chakli, besan ladoo. The point is a full kitchen rather than the output.</p>
+<p><strong>Antakshari across generations.</strong> Still undefeated.</p>
+<p><strong>A gifting round after dinner.</strong> Everybody brings one wrapped thing and they are drawn at random. Cheaper than gifting individually and considerably more fun.</p>
+<p><strong>Somewhere for the elders to retreat.</strong> The most underrated requirement of a family Diwali. A quiet room means grandparents stay the whole evening instead of leaving at nine.</p>
+<h3>With friends</h3>
+<p><strong>Teen patti, obviously.</strong> Agree the stakes before anyone sits down. Low, fixed, in cash. Every argument at every Diwali card table has been about this.</p>
+<p><strong>A cocktail station.</strong> One signature drink beats a full bar. Something with rose and gin, or a spiced rum punch in a large vessel that keeps refilling itself.</p>
+<p><strong>Barbecue on the lawn.</strong> Paneer tikka, tandoori mushroom, a marinade made in the afternoon. Grilling is a social activity and it keeps people outside and moving.</p>
+<p><strong>A projector and a sheet.</strong> Late, after the games have thinned out. Nobody watches the whole film, and that is not the point.</p>
+<p><strong>A dress code with an actual colour.</strong> Traditional gets you a mixed bag. Everyone in white and gold gets you photographs you will still be looking at in five years.</p>
+<figure><img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/928bf148-fb0d-40ad-9b33-71ac17aa5647.jpeg" alt="Card games and board games on the lawn at a private villa near Jaipur" /><figcaption>Cards on the lawn. Agree the stakes first.</figcaption></figure>
+<h2>Food worth planning around</h2>
+<p>Keep the structure simple. Something to pick at all evening, one proper hot meal, and a dessert people talk about afterwards.</p>
+<p><strong>All evening:</strong> kachori, mirchi vada, dahi bhalla, and a bowl of dry fruit and namkeen that never quite empties.</p>
+<p><strong>Dinner:</strong> dal baati churma if you want it unmistakably Rajasthani, or laal maas for a non-vegetarian table. Gatte ki sabzi, ker sangri, bajra roti with white butter, jeera rice.</p>
+<p><strong>Dessert:</strong> ghewar while it is in season, malpua served warm, or moong dal halwa if somebody is willing to stand and stir it.</p>
+<p><strong>Drinks:</strong> masala chai on a loop, kesar thandai, and something warm for after midnight.</p>
+<p>Ask the chef what he cooks best and build the menu around that answer rather than handing over a list. You will eat better.</p>
+<h2>Decor that is worth the effort</h2>
+<p><strong>Diyas beat electric lights.</strong> Real oil lamps along every edge you can find. Buy twice as many as you think you need, because they are cheap and the effect is cumulative.</p>
+<p><strong>Marigold does the heavy lifting.</strong> Torans on doorways, garlands on railings, loose petals floating in water bowls. Inexpensive, smells right, and photographs better than anything you can hang.</p>
+<p><strong>Light low, not overhead.</strong> Floor candles, lamps at seating level, string lights at head height. Overhead lighting kills the entire mood in one switch.</p>
+<p><strong>Leave the architecture alone.</strong> If the villa has arches, jharokhas, stone or a courtyard, do not cover them. Outline them.</p>
+<h2>About firecrackers</h2>
+<p>Worth being straight about this. Rajasthan, like most of India, restricts firecrackers around Diwali, typically permitting them only within a defined window on Diwali night and limiting them to green crackers. The specific timings are issued fresh each year, so check the current orders for Jaipur before planning anything around them.</p>
+<p>Most villas outside the city sit near farmland, forest or livestock, and many have a no-crackers policy for that reason. Ask before you assume. A lawn full of diyas and a bonfire beats a box of anars in any case, and your photographs will be better without the smoke.</p>
+<h2>Practical things to sort before you book</h2>
+<p><strong>How many people can actually sleep there.</strong> Sleeps sixteen and seats forty for dinner are different numbers. Ask for both.</p>
+<p><strong>Whether events are allowed at all.</strong> Some villas are for stays only. Confirm in writing that a party with outside guests is permitted, and whether an event charge applies on top of the tariff.</p>
+<p><strong>The music cut-off.</strong> Most properties near Jaipur have one, usually somewhere between ten and midnight. Know it before you hire a DJ.</p>
+<p><strong>Kitchen and chef.</strong> Is the chef included. Can he cook your menu. Are groceries charged separately. Is the kitchen available if your family wants to cook.</p>
+<p><strong>Day guests.</strong> If twenty people are coming for the evening but not staying, say so in advance. Parking, staffing and bathrooms all depend on that number.</p>
+<p><strong>Book by early October.</strong> Diwali landing on a Sunday makes 6 to 9 November the most contested weekend of the season for villas around Jaipur.</p>
+<h2>Where to celebrate</h2>
+<p>We have two houses around Jaipur, and they suit different kinds of Diwali.</p>
+<p><strong><a href="/properties/kankas-house">Kankas House</a></strong> is the one for a larger gathering. Four king bedrooms sleeping up to twelve, each ensuite with a balcony, plus open lawns, a private pool lit after dark, a rooftop patio, and a bonfire and barbecue setting. The lawns hold thirty to fifty for a daytime celebration. It sits in the Aravalli foothills at Bagwara on Delhi Road, about an hour from the centre, with a chef cooking on site from 8am to 10pm and a caretaker on the property.</p>
+<p><strong><a href="/properties/choti-haveli">Choti Haveli</a></strong> on Ajmer Road is the smaller and quieter option, closer to the city. Better for an intimate family Diwali where the puja and the courtyard are the centre of the evening rather than a lawn party.</p>
+<p>Decor, catering, transfers and a set menu can all be arranged with notice. There is more on our <a href="/celebrations-in-jaipur">celebrations page</a>, and if you are still comparing properties, our guide to <a href="/blogs/private-pool-villas-near-jaipur">villas with a private pool near Jaipur</a> covers the questions worth asking anywhere.</p>
+<figure><img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/2b4888fa-5268-44b4-b9be-e0a0fba41ce3.jpeg" alt="The rooftop patio at dusk at Kankas House, a private villa near Jaipur" /><figcaption>The rooftop at dusk. This is where the good photograph happens.</figcaption></figure>
+<h2>Book it before the weekend goes</h2>
+<p>Diwali on a Sunday means 6 to 10 November is a genuine long weekend, and villas near Jaipur tend to be gone by early October for exactly that reason. If you are considering it, consider it now rather than in the last week.</p>
+<p><a href="/book-direct">Booking direct</a> means no platform commission and the best available rate. Message us on WhatsApp or write to info@stayra.co, and we will hold dates while you check with everyone.</p>`,
+        date: "September 15, 2026",
+        author: "Stayra Team",
+        image: "https://a0.muscache.com/im/pictures/hosting/Hosting-1492613314913436518/original/4f523614-7a53-496a-abd3-08d190cd3147.jpeg",
+        tags: ["Diwali", "Jaipur", "Celebrations"]
+    },
+    {
         id: "15",
         slug: "private-pool-villas-near-jaipur",
         title: "Villas With a Private Pool Near Jaipur: What to Check Before You Book",
