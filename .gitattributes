@@ -1,1 +1,4 @@
-*.mp4 filter=lfs diff=lfs merge=lfs -text
+# Videos are intentionally NOT tracked by Git LFS.
+# The deploy target does not resolve LFS objects, so any LFS-tracked mp4
+# ships as a ~132 byte pointer file and will not play.
+# Keep hero videos small (under ~5 MB) and commit them normally.
