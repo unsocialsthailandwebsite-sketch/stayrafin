@@ -103,8 +103,6 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
           muted
           loop
           playsInline
-          // @ts-expect-error — non-standard attribute still needed by older iOS
-          webkit-playsinline="true"
           preload="auto"
           poster="/stayra-hero-poster.jpg"
           aria-hidden="true"
