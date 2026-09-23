@@ -18,34 +18,41 @@ import {
 
 type Fact = { icon: typeof Users; label: string };
 
-const AMENITY_ICONS: { test: RegExp; icon: typeof Users }[] = [
-    { test: /pool|swim/i, icon: Waves },
-    { test: /lawn|garden|green/i, icon: Trees },
-    { test: /bbq|barbecue|bonfire|fire/i, icon: Flame },
-    { test: /game|console|board/i, icon: Gamepad2 },
-    { test: /wifi|wi-fi|internet/i, icon: Wifi },
-    { test: /air condition|\bac\b|cooling/i, icon: Snowflake },
-    { test: /\btv\b|television/i, icon: Tv },
-    { test: /parking|car/i, icon: Car },
-    { test: /bath ?tub|bathtub/i, icon: Bath },
-    { test: /chef|meal|kitchen|dining|food/i, icon: UtensilsCrossed },
-    { test: /housekeep|clean|toiletr|linen/i, icon: Sparkles },
-    { test: /sound|music|speaker/i, icon: Music },
-    { test: /terrace|rooftop|balcon|sit-out|patio/i, icon: Sun },
-    { test: /hill|forest|view|scenic/i, icon: Mountain },
-    { test: /bedroom|room|interior/i, icon: Home },
+/** Long amenity lines get a short, readable label as well as an icon. */
+const AMENITY_ICONS: { test: RegExp; icon: typeof Users; name: string }[] = [
+    { test: /pool|swim/i, icon: Waves, name: "Private Pool" },
+    { test: /bonfire/i, icon: Flame, name: "Bonfire" },
+    { test: /bbq|barbecue/i, icon: Flame, name: "BBQ Grill" },
+    { test: /lawn|garden/i, icon: Trees, name: "Lawn" },
+    { test: /game|console|board/i, icon: Gamepad2, name: "Board Games" },
+    { test: /wifi|wi-fi|internet/i, icon: Wifi, name: "Wi-Fi" },
+    { test: /air condition|\bac\b|cooling/i, icon: Snowflake, name: "Air Con" },
+    { test: /\btv\b|television/i, icon: Tv, name: "TV" },
+    { test: /parking|car/i, icon: Car, name: "Parking" },
+    { test: /bath ?tub/i, icon: Bath, name: "Bathtub" },
+    { test: /bathroom/i, icon: Bath, name: "Ensuite Baths" },
+    { test: /chef|meal|kitchen|dining|food/i, icon: UtensilsCrossed, name: "Meals" },
+    { test: /housekeep|clean|toiletr|linen/i, icon: Sparkles, name: "Housekeeping" },
+    { test: /sound|music|speaker/i, icon: Music, name: "Sound System" },
+    { test: /terrace|rooftop|patio/i, icon: Sun, name: "Rooftop" },
+    { test: /balcon|sit-out/i, icon: Sun, name: "Balconies" },
+    { test: /hill|forest|view|scenic|secluded/i, icon: Mountain, name: "Hill Views" },
+    { test: /interior|earthy/i, icon: Home, name: "Designer Interiors" },
+    { test: /bedroom/i, icon: BedDouble, name: "Bedrooms" },
 ];
 
-const iconFor = (text: string) =>
-    AMENITY_ICONS.find((a) => a.test.test(text))?.icon || Check;
+const matchFor = (text: string) => AMENITY_ICONS.find((a) => a.test.test(text));
+const iconFor = (text: string) => matchFor(text)?.icon || Check;
 
-/** Trim a long amenity line down to something that fits under an icon. */
+/** Prefer a canonical short name; otherwise trim to a natural break. */
 function shortLabel(raw: string) {
+    const m = matchFor(raw);
+    if (m) return m.name;
     let s = raw.replace(/\(.*?\)/g, "").trim();
-    s = s.split(/\s[—–-]\s|,|&/)[0].trim();
+    s = s.split(/\s[—–-]\s|,|&|\bwith\b|\bamidst\b/i)[0].trim();
     const words = s.split(/\s+/);
-    if (words.length > 3) s = words.slice(0, 3).join(" ");
-    return s.replace(/\s+$/, "");
+    if (words.length > 2) s = words.slice(0, 2).join(" ");
+    return s;
 }
 
 export function PropertyFactsBar() {
@@ -92,8 +99,8 @@ export function PropertyFactsBar() {
         setFacts(found);
         setAmenities(list);
 
-        // ---- mount point, directly after the title block
-        const anchor = h1.closest("div")?.parentElement || h1.parentElement;
+        // ---- mount point: inside the title column, directly under the specs line
+        const anchor = h1.parentElement;
         if (!anchor) return;
         const node = document.createElement("div");
         node.setAttribute("data-facts-bar", "");
@@ -105,8 +112,17 @@ export function PropertyFactsBar() {
 
     if (!host || (facts.length === 0 && amenities.length === 0)) return null;
 
-    const visible = showAll ? amenities : amenities.slice(0, 5);
-    const remaining = Math.max(amenities.length - 5, 0);
+    // One tile per distinct label, so two "bathroom" lines don't both appear.
+    const seenLabels = new Set<string>();
+    const unique = amenities.filter((a) => {
+        const l = shortLabel(a);
+        if (!l || seenLabels.has(l)) return false;
+        seenLabels.add(l);
+        return true;
+    });
+
+    const visible = showAll ? unique : unique.slice(0, 5);
+    const remaining = Math.max(unique.length - 5, 0);
 
     return createPortal(
         <div className="mt-5">
