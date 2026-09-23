@@ -3,7 +3,6 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 interface HeroSectionProps {
   heading?: string;
@@ -46,7 +45,6 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -55,26 +53,41 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
     return () => clearInterval(timer);
   }, []);
 
-  // iOS occasionally defers autoplay until the element is interactive, and some
-  // browsers pause on tab change. Nudge playback once mounted and on return.
+  /**
+   * React does not reliably write the `muted` attribute to the DOM, and iOS
+   * refuses to autoplay anything it considers unmuted — which is what puts the
+   * native play button on screen. Set the property directly before playing,
+   * then retry on the events where mobile browsers tend to defer playback.
+   */
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
+
     const tryPlay = () => {
+      v.muted = true;
+      v.defaultMuted = true;
+      v.volume = 0;
       const p = v.play();
       if (p && typeof p.catch === "function") p.catch(() => { });
     };
+
     tryPlay();
-    v.addEventListener("loadeddata", tryPlay);
+    v.addEventListener("loadedmetadata", tryPlay);
+    v.addEventListener("canplay", tryPlay);
     document.addEventListener("visibilitychange", tryPlay);
+    // Last resort: the first touch or scroll counts as a user gesture.
+    window.addEventListener("touchstart", tryPlay, { once: true, passive: true });
+    window.addEventListener("scroll", tryPlay, { once: true, passive: true });
+
     return () => {
-      v.removeEventListener("loadeddata", tryPlay);
+      v.removeEventListener("loadedmetadata", tryPlay);
+      v.removeEventListener("canplay", tryPlay);
       document.removeEventListener("visibilitychange", tryPlay);
     };
   }, []);
 
   return (
-    <section ref={ref} className="relative min-h-[100dvh] w-full overflow-hidden flex items-center justify-center py-24">
+    <section ref={ref} className="relative min-h-[100dvh] w-full overflow-hidden flex items-center justify-center">
       {/* Background (Parallax) */}
       <motion.div
         style={{ y }}
@@ -96,48 +109,37 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
           </AnimatePresence>
         </div>
 
-        {/* Looping hero video — all breakpoints. Muted and inline so it can autoplay on iOS. */}
+        {/* Looping hero video. Muted + inline so mobile browsers allow autoplay. */}
         <video
           ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
+          controls={false}
+          disablePictureInPicture
           preload="auto"
           poster="/stayra-hero-poster.jpg"
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover object-[58%_center] md:object-center"
+          tabIndex={-1}
+          className="absolute inset-0 w-full h-full object-cover object-[58%_center] md:object-center pointer-events-none select-none [&::-webkit-media-controls]:hidden [&::-webkit-media-controls-start-playback-button]:hidden"
         >
           <source src="/stayra-hero.mp4" type="video/mp4" />
         </video>
 
-        <div className="absolute inset-0 bg-black/45 z-10" />
+        {/* Light gradients only — enough to keep the header logo and the scroll
+            cue readable without dulling the footage. */}
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/45 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/35 to-transparent z-10 pointer-events-none" />
       </motion.div>
 
-      {/* Content */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-        style={{ opacity }}
-        className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto"
-      >
-        <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight drop-shadow-lg">
-          {heading || "Luxury Villas & Heritage Stays in Jaipur"}
-        </h1>
-        <p className="font-sans text-base md:text-xl tracking-wide text-white/90 mb-8 md:mb-10 max-w-2xl mx-auto drop-shadow-md">
-          {subheading || "Experience the Art of Living — Jaipur's premier private villa collection"}
-        </p>
-        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          <Button
-            size="lg"
-            className="bg-white text-stayra-charcoal hover:bg-gray-100 px-6 py-6 md:px-8 text-xs md:text-sm tracking-[0.2em] font-bold shadow-xl hover:shadow-2xl transition-all"
-            onClick={() => document.getElementById('properties')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            EXPLORE OUR COLLECTION
-          </Button>
-        </motion.div>
-      </motion.div>
+      {/* Heading kept for search engines and screen readers, hidden visually so
+          the footage carries the hero on its own. */}
+      <h1 className="sr-only">
+        {heading || "Luxury Villas & Heritage Stays in Jaipur"}
+        {" — "}
+        {subheading || "Experience the Art of Living — Jaipur's premier private villa collection"}
+      </h1>
 
       {/* Scroll Indicator */}
       <motion.div
