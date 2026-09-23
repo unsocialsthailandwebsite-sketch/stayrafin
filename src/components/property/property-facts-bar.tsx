@@ -18,31 +18,41 @@ import {
 
 type Fact = { icon: typeof Users; label: string };
 
-/** Long amenity lines get a short, readable label as well as an icon. */
-const AMENITY_ICONS: { test: RegExp; icon: typeof Users; name: string }[] = [
-    { test: /pool|swim/i, icon: Waves, name: "Private Pool" },
-    { test: /bonfire/i, icon: Flame, name: "Bonfire" },
-    { test: /bbq|barbecue/i, icon: Flame, name: "BBQ Grill" },
-    { test: /lawn|garden/i, icon: Trees, name: "Lawn" },
-    { test: /game|console|board/i, icon: Gamepad2, name: "Board Games" },
-    { test: /wifi|wi-fi|internet/i, icon: Wifi, name: "Wi-Fi" },
-    { test: /air condition|\bac\b|cooling/i, icon: Snowflake, name: "Air Con" },
-    { test: /\btv\b|television/i, icon: Tv, name: "TV" },
-    { test: /parking|car/i, icon: Car, name: "Parking" },
-    { test: /bath ?tub/i, icon: Bath, name: "Bathtub" },
-    { test: /bathroom/i, icon: Bath, name: "Ensuite Baths" },
-    { test: /chef|meal|kitchen|dining|food/i, icon: UtensilsCrossed, name: "Meals" },
-    { test: /housekeep|clean|toiletr|linen/i, icon: Sparkles, name: "Housekeeping" },
-    { test: /sound|music|speaker/i, icon: Music, name: "Sound System" },
-    { test: /terrace|rooftop|patio/i, icon: Sun, name: "Rooftop" },
-    { test: /balcon|sit-out/i, icon: Sun, name: "Balconies" },
-    { test: /hill|forest|view|scenic|secluded/i, icon: Mountain, name: "Hill Views" },
-    { test: /interior|earthy/i, icon: Home, name: "Designer Interiors" },
-    { test: /bedroom/i, icon: BedDouble, name: "Bedrooms" },
+type AmenityRule = {
+    test: RegExp;
+    icon: typeof Users;
+    name: string;
+    /** Lower sorts earlier — controls which five show before "+N Amenities". */
+    rank: number;
+    /** Billed separately rather than included in the nightly rate. */
+    chargeable?: boolean;
+};
+
+const AMENITY_ICONS: AmenityRule[] = [
+    { test: /pool|swim/i, icon: Waves, name: "Private Pool", rank: 1 },
+    { test: /bbq|barbecue/i, icon: Flame, name: "BBQ Grill", rank: 2, chargeable: true },
+    { test: /bonfire/i, icon: Flame, name: "Bonfire", rank: 3, chargeable: true },
+    { test: /bath ?tub/i, icon: Bath, name: "Bathtub", rank: 4 },
+    { test: /hill|forest|view|scenic|secluded/i, icon: Mountain, name: "Hill Views", rank: 5 },
+    { test: /game|console|board/i, icon: Gamepad2, name: "Board Games", rank: 6 },
+    { test: /lawn|garden/i, icon: Trees, name: "Lawn", rank: 7 },
+    { test: /balcon|sit-out/i, icon: Sun, name: "Balconies", rank: 8 },
+    { test: /air condition|\bac\b|cooling/i, icon: Snowflake, name: "Air Con", rank: 9 },
+    { test: /wifi|wi-fi|internet/i, icon: Wifi, name: "Wi-Fi", rank: 10 },
+    { test: /\btv\b|television/i, icon: Tv, name: "TV", rank: 11 },
+    { test: /sound|music|speaker/i, icon: Music, name: "Sound System", rank: 12 },
+    { test: /interior|earthy/i, icon: Home, name: "Designer Interiors", rank: 13 },
+    { test: /housekeep|clean|toiletr|linen/i, icon: Sparkles, name: "Housekeeping", rank: 14 },
+    { test: /parking|car/i, icon: Car, name: "Parking", rank: 15 },
+    { test: /terrace|rooftop|patio/i, icon: Sun, name: "Rooftop", rank: 16 },
+    { test: /bathroom/i, icon: Bath, name: "Ensuite Baths", rank: 17 },
+    { test: /chef|meal|kitchen|dining|food/i, icon: UtensilsCrossed, name: "Meals", rank: 18 },
+    { test: /bedroom/i, icon: BedDouble, name: "Bedrooms", rank: 19 },
 ];
 
+const FALLBACK_RANK = 90;
+
 const matchFor = (text: string) => AMENITY_ICONS.find((a) => a.test.test(text));
-const iconFor = (text: string) => matchFor(text)?.icon || Check;
 
 /** Prefer a canonical short name; otherwise trim to a natural break. */
 function shortLabel(raw: string) {
@@ -53,6 +63,18 @@ function shortLabel(raw: string) {
     const words = s.split(/\s+/);
     if (words.length > 2) s = words.slice(0, 2).join(" ");
     return s;
+}
+
+/**
+ * "Outdoor BBQ & bonfire setup" is one line but two amenities. Split on
+ * and/& only when both halves are recognised, so we don't mangle lines like
+ * "Indoor & board games".
+ */
+function expand(line: string): string[] {
+    const parts = line.split(/\s*&\s*|\s+and\s+/i).map((p) => p.trim()).filter(Boolean);
+    if (parts.length < 2) return [line];
+    const matched = parts.filter((p) => matchFor(p));
+    return matched.length >= 2 ? matched : [line];
 }
 
 export function PropertyFactsBar() {
@@ -87,7 +109,7 @@ export function PropertyFactsBar() {
             list = Array.from(scope.querySelectorAll<HTMLElement>("li, [class*='grid'] > div"))
                 .map((el) => (el.textContent || "").trim())
                 .filter((t) => t.length > 2 && t.length < 90);
-            list = Array.from(new Set(list));
+            list = Array.from(new Set(list)).flatMap(expand);
         }
 
         const baths = list.find((t) => /bathroom/i.test(t));
@@ -112,17 +134,29 @@ export function PropertyFactsBar() {
 
     if (!host || (facts.length === 0 && amenities.length === 0)) return null;
 
-    // One tile per distinct label, so two "bathroom" lines don't both appear.
+    // One tile per distinct label, ordered so the most sellable show first.
     const seenLabels = new Set<string>();
-    const unique = amenities.filter((a) => {
-        const l = shortLabel(a);
-        if (!l || seenLabels.has(l)) return false;
-        seenLabels.add(l);
-        return true;
-    });
+    const unique = amenities
+        .map((raw) => {
+            const rule = matchFor(raw);
+            return {
+                raw,
+                label: shortLabel(raw),
+                icon: rule?.icon || Check,
+                rank: rule?.rank ?? FALLBACK_RANK,
+                chargeable: !!rule?.chargeable,
+            };
+        })
+        .filter((a) => {
+            if (!a.label || seenLabels.has(a.label)) return false;
+            seenLabels.add(a.label);
+            return true;
+        })
+        .sort((a, b) => a.rank - b.rank);
 
     const visible = showAll ? unique : unique.slice(0, 5);
     const remaining = Math.max(unique.length - 5, 0);
+    const anyChargeable = visible.some((a) => a.chargeable);
 
     return createPortal(
         <div className="mt-5">
@@ -142,31 +176,49 @@ export function PropertyFactsBar() {
             )}
 
             {/* Amenity icons */}
-            {amenities.length > 0 && (
-                <div className="flex flex-wrap items-start gap-x-6 gap-y-4">
-                    {visible.map((a, i) => {
-                        const Icon = iconFor(a);
-                        return (
-                            <div key={`${a}-${i}`} className="w-20 text-center" title={a}>
-                                <div className="w-12 h-12 mx-auto grid place-items-center border border-gray-200 rounded-lg bg-white">
-                                    <Icon className="w-5 h-5 text-stayra-charcoal" strokeWidth={1.5} />
+            {unique.length > 0 && (
+                <>
+                    <div className="flex flex-wrap items-start gap-x-6 gap-y-4">
+                        {visible.map((a, i) => (
+                            <div
+                                key={`${a.label}-${i}`}
+                                className="w-20 text-center"
+                                title={a.chargeable ? `${a.raw} — chargeable extra` : a.raw}
+                            >
+                                <div className="relative w-12 h-12 mx-auto grid place-items-center border border-gray-200 rounded-lg bg-white">
+                                    <a.icon className="w-5 h-5 text-stayra-charcoal" strokeWidth={1.5} />
+                                    {a.chargeable && (
+                                        <span
+                                            aria-label="Chargeable extra"
+                                            className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-stayra-gold text-white text-[9px] font-bold grid place-items-center leading-none shadow-sm"
+                                        >
+                                            ₹
+                                        </span>
+                                    )}
                                 </div>
                                 <div className="mt-2 text-[11px] leading-tight text-gray-600">
-                                    {shortLabel(a)}
+                                    {a.label}
                                 </div>
                             </div>
-                        );
-                    })}
+                        ))}
 
-                    {remaining > 0 && (
-                        <button
-                            onClick={() => setShowAll((s) => !s)}
-                            className="self-center text-sm font-semibold text-stayra-green hover:underline whitespace-nowrap"
-                        >
-                            {showAll ? "Show fewer" : `+${remaining} Amenities`}
-                        </button>
+                        {remaining > 0 && (
+                            <button
+                                onClick={() => setShowAll((s) => !s)}
+                                className="self-center text-sm font-semibold text-stayra-green hover:underline whitespace-nowrap"
+                            >
+                                {showAll ? "Show fewer" : `+${remaining} Amenities`}
+                            </button>
+                        )}
+                    </div>
+
+                    {anyChargeable && (
+                        <p className="mt-3 text-[11px] text-gray-400">
+                            <span className="inline-grid place-items-center w-3.5 h-3.5 rounded-full bg-stayra-gold text-white text-[8px] font-bold align-middle mr-1.5">₹</span>
+                            Chargeable extra — arranged on request
+                        </p>
                     )}
-                </div>
+                </>
             )}
         </div>,
         host
