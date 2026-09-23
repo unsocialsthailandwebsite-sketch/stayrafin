@@ -37,7 +37,7 @@ This elegant bedroom blends Rajasthani heritage with modern comfort. A spacious 
 <strong>Private Kitchen</strong>
 A fully equipped private kitchen designed for comfort and convenience. You’ll find every basic essential, along with a coffee machine, microwave, and a spacious double-door refrigerator perfect for relaxed meals and effortless hosting.`,
         features: [
-            "Restored Heritage Haveli (1 BHK)",
+            "Heritage Haveli (1 BHK)",
             "Located in Emaar Greens, Ajmer Road",
             "Tranquil Indoor Fish Pond",
             "Private Garden / Lawn Area",
