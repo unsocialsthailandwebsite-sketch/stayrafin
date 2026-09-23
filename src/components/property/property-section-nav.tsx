@@ -36,6 +36,8 @@ export function PropertySectionNav() {
     const map = useRef<Record<string, HTMLElement>>({});
     const listRef = useRef<HTMLDivElement>(null);
     const anchorRef = useRef<HTMLDivElement>(null);
+    const stuckRef = useRef(false);
+    stuckRef.current = stuck;
 
     // Discover sections once the page has hydrated
     useEffect(() => {
@@ -67,6 +69,12 @@ export function PropertySectionNav() {
         if (items.length === 0) return;
         let ticking = false;
 
+        // Absolute document offset of the bar's natural position, measured once.
+        // Comparing against this is stable even after the bar is pinned.
+        let anchorY = anchorRef.current
+            ? anchorRef.current.getBoundingClientRect().top + window.scrollY
+            : 0;
+
         const onScroll = () => {
             if (ticking) return;
             ticking = true;
@@ -81,16 +89,34 @@ export function PropertySectionNav() {
 
                 // `sticky` can't escape the gallery wrapper, so pin manually once
                 // the bar's natural position passes under the site header.
-                if (anchorRef.current) {
-                    setStuck(anchorRef.current.getBoundingClientRect().top <= NAV_TOP);
-                }
+                setStuck(window.scrollY + NAV_TOP >= anchorY);
                 ticking = false;
             });
         };
 
+        const remeasure = () => {
+            const el = anchorRef.current;
+            if (!el) return;
+            // Only trust the measurement while the bar is in normal flow.
+            if (el.getBoundingClientRect().top + window.scrollY > 0 && !stuckRef.current) {
+                anchorY = el.getBoundingClientRect().top + window.scrollY;
+            }
+            onScroll();
+        };
+
         window.addEventListener("scroll", onScroll, { passive: true });
-        onScroll();
-        return () => window.removeEventListener("scroll", onScroll);
+        window.addEventListener("resize", remeasure);
+        // Images above the bar change its offset as they load.
+        window.addEventListener("load", remeasure);
+        const t = setTimeout(remeasure, 800);
+        remeasure();
+
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+            window.removeEventListener("resize", remeasure);
+            window.removeEventListener("load", remeasure);
+            clearTimeout(t);
+        };
     }, [items]);
 
     // Keep the active pill in view on mobile
