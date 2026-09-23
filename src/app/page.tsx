@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 import { HeroSection } from "@/components/home/hero-section";
 import { PhilosophySection } from "@/components/home/philosophy-section";
 import { PropertyGrid } from "@/components/home/property-grid";
+import { InvitationBanner } from "@/components/home/invitation-banner";
 import { StayraExperienceBanner } from "@/components/home/stayra-experience-banner";
 import { BookingBar } from "@/components/home/booking-bar";
 import { TestimonialsSection } from "@/components/home/testimonials-section";
@@ -68,6 +69,7 @@ export default async function Home() {
       </div>
       {/* Pass fetched properties to grid, falling back to mock inside if empty */}
       <PropertyGrid properties={properties} />
+      <InvitationBanner />
       <VideoSection />
       <StayraExperienceBanner />
       <TestimonialsSection />
