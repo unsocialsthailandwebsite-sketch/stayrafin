@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Grid3x3 } from "lucide-react";
+import { PropertySectionNav } from "@/components/property/property-section-nav";
 
 interface HeroGalleryProps {
     images: string[];
@@ -138,6 +139,9 @@ export function HeroGallery({ images, propertyName = "Stayra luxury villa in Jai
                     View all {total} photos
                 </button>
             </div>
+
+            {/* In-page tab nav — sits directly under the gallery */}
+            <PropertySectionNav />
 
             {/* Lightbox */}
             <AnimatePresence>
