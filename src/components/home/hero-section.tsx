@@ -10,8 +10,8 @@ interface HeroSectionProps {
   subheading?: string;
 }
 
-// Mobile fallback slideshow. The hero video is a wide cinematic crop, so on
-// portrait phones it would be cropped almost to nothing — these run instead.
+// Base layer behind the hero video. If the video is still loading, fails, or the
+// browser blocks autoplay, these keep the hero from falling back to flat black.
 const SLIDE_IMAGES = [
   // Starting with Kankas House twilight facade shot
   "https://a0.muscache.com/im/pictures/hosting/Hosting-1492613314913436518/original/4f523614-7a53-496a-abd3-08d190cd3147.jpeg",
@@ -37,6 +37,7 @@ const SLIDE_IMAGES = [
 
 export function HeroSection({ heading, subheading }: HeroSectionProps) {
   const ref = useRef(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const { scrollYProgress } = useScroll({
@@ -54,6 +55,24 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
     return () => clearInterval(timer);
   }, []);
 
+  // iOS occasionally defers autoplay until the element is interactive, and some
+  // browsers pause on tab change. Nudge playback once mounted and on return.
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    const tryPlay = () => {
+      const p = v.play();
+      if (p && typeof p.catch === "function") p.catch(() => { });
+    };
+    tryPlay();
+    v.addEventListener("loadeddata", tryPlay);
+    document.addEventListener("visibilitychange", tryPlay);
+    return () => {
+      v.removeEventListener("loadeddata", tryPlay);
+      document.removeEventListener("visibilitychange", tryPlay);
+    };
+  }, []);
+
   return (
     <section ref={ref} className="relative min-h-[100dvh] w-full overflow-hidden flex items-center justify-center py-24">
       {/* Background (Parallax) */}
@@ -61,24 +80,8 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
         style={{ y }}
         className="absolute inset-0 z-0"
       >
-        <div className="absolute inset-0 bg-black/45 z-10" />
-
-        {/* Desktop and up: looping hero video, muted so it can autoplay */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/stayra-hero-poster.jpg"
-          aria-hidden="true"
-          className="hidden md:block absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/stayra-hero.mp4" type="video/mp4" />
-        </video>
-
-        {/* Mobile: image slideshow */}
-        <div className="md:hidden absolute inset-0">
+        {/* Fallback image layer, sits beneath the video */}
+        <div className="absolute inset-0">
           <AnimatePresence>
             <motion.img
               key={currentSlide}
@@ -92,6 +95,25 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
             />
           </AnimatePresence>
         </div>
+
+        {/* Looping hero video — all breakpoints. Muted and inline so it can autoplay on iOS. */}
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          // @ts-expect-error — non-standard attribute still needed by older iOS
+          webkit-playsinline="true"
+          preload="auto"
+          poster="/stayra-hero-poster.jpg"
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover object-[58%_center] md:object-center"
+        >
+          <source src="/stayra-hero.mp4" type="video/mp4" />
+        </video>
+
+        <div className="absolute inset-0 bg-black/45 z-10" />
       </motion.div>
 
       {/* Content */}
