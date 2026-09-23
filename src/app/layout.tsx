@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     template: "%s | Stayra",
   },
   description:
-    "Book private pool villas and restored heritage havelis in Jaipur. Private chef, concierge and direct booking on WhatsApp — no hidden fees.",
+    "Book private pool villas and heritage-style havelis in Jaipur. Private chef, concierge and direct booking on WhatsApp — no hidden fees.",
   openGraph: {
     siteName: "Stayra",
     type: "website",
