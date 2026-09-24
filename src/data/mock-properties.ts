@@ -122,7 +122,18 @@ It suits a family taking the whole house, a group of friends who would rather ha
       "High-speed WiFi & Sound system",
       "Indoor & board games (with game console)",
       "Daily housekeeping & toiletries",
-      "On-site parking available"
+      "On-site parking available",
+      "Iron & ironing board",
+      "Hair dryer",
+      "Geyser (hot water) in every bathroom",
+      "Fresh towels provided",
+      "Workstation",
+      "Extra mattress on request",
+      "Wardrobe in every bedroom",
+      "Refrigerator",
+      "Water purifier",
+      "CCTV in common areas",
+      "Fire extinguisher on site"
     ],
     images: [
       "https://a0.muscache.com/im/pictures/hosting/Hosting-1492613314913436518/original/4f523614-7a53-496a-abd3-08d190cd3147.jpeg",
