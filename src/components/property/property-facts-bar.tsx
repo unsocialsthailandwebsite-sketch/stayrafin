@@ -46,8 +46,9 @@ const AMENITY_ICONS: AmenityRule[] = [
   { test: /parking|car/i, icon: Car, name: "Parking", rank: 15 },
   { test: /terrace|rooftop|patio/i, icon: Sun, name: "Rooftop", rank: 16 },
   { test: /bathroom/i, icon: Bath, name: "Ensuite Baths", rank: 17 },
-  { test: /chef|meal|kitchen|dining|food/i, icon: UtensilsCrossed, name: "Meals", rank: 18 },
-  { test: /bedroom/i, icon: BedDouble, name: "Bedrooms", rank: 19 },
+  { test: /chef|meal|\bdining\b|\bfood\b/i, icon: UtensilsCrossed, name: "Meals", rank: 18 },
+  { test: /kitchen/i, icon: UtensilsCrossed, name: "Private Kitchen", rank: 19 },
+  { test: /bedroom/i, icon: BedDouble, name: "Bedrooms", rank: 20 },
 ];
 
 const FALLBACK_RANK = 90;
