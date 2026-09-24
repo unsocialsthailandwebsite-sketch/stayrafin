@@ -45,10 +45,8 @@ export function HomeownerSection() {
             </h2>
             <p className="text-gray-500 text-base md:text-lg font-sans leading-relaxed mb-4 max-w-xl">
               Partner with Stayra and turn your villa or haveli into a
-              sought-after luxury stay — without lifting a finger. We invest
-              in the styling, photography, marketing and staffing upfront,
-              and our on-ground team runs the property day to day: guests,
-              housekeeping, maintenance and pricing.
+              sought-after luxury stay, backed by a team that treats it
+              like a five-star property.
             </p>
             <p className="text-gray-500 text-base md:text-lg font-sans leading-relaxed mb-8 max-w-xl">
               You keep full ownership. No listing fees, no long contracts,
