@@ -20,15 +20,37 @@ import {
 
 type Fact = { icon: typeof Users; label: string };
 
+type Category =
+  | "Experiences"
+  | "Common Amenities"
+  | "Bathroom"
+  | "Living Room"
+  | "Bedrooms"
+  | "Kitchen"
+  | "Misc.";
+
 type AmenityRule = {
   test: RegExp;
   icon: typeof Users;
   name: string;
   /** Lower sorts earlier — controls which five show before "+N Amenities". */
   rank: number;
+  /** Groups the expanded view into labelled sections, room-by-room. */
+  category: Category;
   /** Billed separately rather than included in the nightly rate. */
   chargeable?: boolean;
 };
+
+// Category order controls the section order in the expanded view.
+const CATEGORY_ORDER: Category[] = [
+  "Experiences",
+  "Common Amenities",
+  "Bathroom",
+  "Living Room",
+  "Bedrooms",
+  "Kitchen",
+  "Misc.",
+];
 
 // Every rule below uses its own icon — no two amenities should ever render
 // the same glyph. Where two real-world things are easy to conflate (a
@@ -36,37 +58,38 @@ type AmenityRule = {
 // bonfire; a private kitchen vs. chef-prepared meals) they're deliberately
 // split onto different icons rather than sharing one.
 const AMENITY_ICONS: AmenityRule[] = [
-  { test: /pool|swim/i, icon: Waves, name: "Private Pool", rank: 1 },
-  { test: /bbq|barbecue/i, icon: CookingPot, name: "BBQ Grill", rank: 2, chargeable: true },
-  { test: /bonfire/i, icon: Flame, name: "Bonfire", rank: 3, chargeable: true },
-  { test: /bath ?tub/i, icon: Bath, name: "Bathtub", rank: 4 },
-  { test: /hill|forest|view|scenic|secluded/i, icon: Mountain, name: "Hill Views", rank: 5 },
-  { test: /game|console|board/i, icon: Gamepad2, name: "Board Games", rank: 6 },
-  { test: /lawn|garden/i, icon: Trees, name: "Lawn", rank: 7 },
-  { test: /balcon|sit-out/i, icon: Sun, name: "Balconies", rank: 8 },
-  { test: /air condition|\bac\b|cooling/i, icon: Snowflake, name: "Air Con", rank: 9 },
-  { test: /wifi|wi-fi|internet/i, icon: Wifi, name: "Wi-Fi", rank: 10 },
-  { test: /\btv\b|television/i, icon: Tv, name: "TV", rank: 11 },
-  { test: /sound|music|speaker/i, icon: Music, name: "Sound System", rank: 12 },
-  { test: /interior|earthy/i, icon: Home, name: "Designer Interiors", rank: 13 },
-  { test: /housekeep|clean|toiletr|linen/i, icon: Sparkles, name: "Housekeeping", rank: 14 },
-  { test: /parking|car/i, icon: Car, name: "Parking", rank: 15 },
-  { test: /terrace|rooftop|patio/i, icon: Building2, name: "Rooftop", rank: 16 },
-  { test: /bathroom/i, icon: ShowerHead, name: "Ensuite Baths", rank: 17 },
-  { test: /chef|meal|\bdining\b|\bfood\b/i, icon: UtensilsCrossed, name: "Meals", rank: 18 },
-  { test: /kitchen/i, icon: ChefHat, name: "Private Kitchen", rank: 19 },
-  { test: /bedroom/i, icon: BedDouble, name: "Bedrooms", rank: 20 },
-  { test: /hair ?dryer/i, icon: Wind, name: "Hair Dryer", rank: 21 },
-  { test: /towel/i, icon: Shirt, name: "Fresh Towels", rank: 22 },
-  { test: /workstation|work desk/i, icon: Laptop, name: "Workstation", rank: 23 },
-  { test: /extra mattress|mattress/i, icon: BedSingle, name: "Extra Mattress", rank: 24 },
-  { test: /refrigerator|\bfridge\b/i, icon: Refrigerator, name: "Refrigerator", rank: 25 },
-  { test: /water purifier|purifier/i, icon: Droplets, name: "Water Purifier", rank: 26 },
-  { test: /cctv|surveillance/i, icon: Camera, name: "CCTV", rank: 27 },
-  { test: /fire extinguisher|extinguisher/i, icon: ShieldAlert, name: "Fire Extinguisher", rank: 28 },
+  { test: /pool|swim/i, icon: Waves, name: "Private Pool", rank: 1, category: "Experiences" },
+  { test: /bbq|barbecue/i, icon: CookingPot, name: "BBQ Grill", rank: 2, category: "Experiences", chargeable: true },
+  { test: /bonfire/i, icon: Flame, name: "Bonfire", rank: 3, category: "Experiences", chargeable: true },
+  { test: /game|console|board/i, icon: Gamepad2, name: "Board Games", rank: 4, category: "Experiences" },
+  { test: /lawn|garden/i, icon: Trees, name: "Lawn", rank: 5, category: "Experiences" },
+  { test: /hill|forest|view|scenic|secluded/i, icon: Mountain, name: "Hill Views", rank: 6, category: "Experiences" },
+  { test: /balcon|sit-out/i, icon: Sun, name: "Balconies", rank: 7, category: "Common Amenities" },
+  { test: /air condition|\bac\b|cooling/i, icon: Snowflake, name: "Air Con", rank: 8, category: "Common Amenities" },
+  { test: /wifi|wi-fi|internet/i, icon: Wifi, name: "Wi-Fi", rank: 9, category: "Common Amenities" },
+  { test: /interior|earthy/i, icon: Home, name: "Designer Interiors", rank: 10, category: "Common Amenities" },
+  { test: /housekeep|clean|toiletr|linen/i, icon: Sparkles, name: "Housekeeping", rank: 11, category: "Common Amenities" },
+  { test: /terrace|rooftop|patio/i, icon: Building2, name: "Rooftop", rank: 12, category: "Common Amenities" },
+  { test: /bath ?tub/i, icon: Bath, name: "Bathtub", rank: 13, category: "Bathroom" },
+  { test: /bathroom/i, icon: ShowerHead, name: "Ensuite Baths", rank: 14, category: "Bathroom" },
+  { test: /hair ?dryer/i, icon: Wind, name: "Hair Dryer", rank: 15, category: "Bathroom" },
+  { test: /towel/i, icon: Shirt, name: "Fresh Towels", rank: 16, category: "Bathroom" },
+  { test: /\btv\b|television/i, icon: Tv, name: "TV", rank: 17, category: "Living Room" },
+  { test: /sound|music|speaker/i, icon: Music, name: "Sound System", rank: 18, category: "Living Room" },
+  { test: /bedroom/i, icon: BedDouble, name: "Bedrooms", rank: 19, category: "Bedrooms" },
+  { test: /workstation|work desk/i, icon: Laptop, name: "Workstation", rank: 20, category: "Bedrooms" },
+  { test: /extra mattress|mattress/i, icon: BedSingle, name: "Extra Mattress", rank: 21, category: "Bedrooms" },
+  { test: /chef|meal|\bdining\b|\bfood\b/i, icon: UtensilsCrossed, name: "Meals", rank: 22, category: "Kitchen" },
+  { test: /kitchen/i, icon: ChefHat, name: "Private Kitchen", rank: 23, category: "Kitchen" },
+  { test: /refrigerator|\bfridge\b/i, icon: Refrigerator, name: "Refrigerator", rank: 24, category: "Kitchen" },
+  { test: /water purifier|purifier/i, icon: Droplets, name: "Water Purifier", rank: 25, category: "Kitchen" },
+  { test: /parking|car/i, icon: Car, name: "Parking", rank: 26, category: "Misc." },
+  { test: /cctv|surveillance/i, icon: Camera, name: "CCTV", rank: 27, category: "Misc." },
+  { test: /fire extinguisher|extinguisher/i, icon: ShieldAlert, name: "Fire Extinguisher", rank: 28, category: "Misc." },
 ];
 
 const FALLBACK_RANK = 90;
+const FALLBACK_CATEGORY: Category = "Misc.";
 
 const matchFor = (text: string) => AMENITY_ICONS.find((a) => a.test.test(text));
 
@@ -91,6 +114,40 @@ function expand(line: string): string[] {
   if (parts.length < 2) return [line];
   const matched = parts.filter((p) => matchFor(p));
   return matched.length >= 2 ? matched : [line];
+}
+
+type AmenityItem = {
+  raw: string;
+  label: string;
+  icon: typeof Users;
+  rank: number;
+  category: Category;
+  chargeable: boolean;
+};
+
+/** One icon + label tile, shared by the collapsed and grouped expanded views. */
+function AmenityTile({ a }: { a: AmenityItem }) {
+  return (
+    <div
+      className="w-20 text-center"
+      title={a.chargeable ? `${a.raw} — chargeable extra` : a.raw}
+    >
+      <div className="relative w-12 h-12 mx-auto grid place-items-center border border-gray-200 rounded-lg bg-white">
+        <a.icon className="w-5 h-5 text-stayra-charcoal" strokeWidth={1.5} />
+        {a.chargeable && (
+          <span
+            aria-label="Chargeable extra"
+            className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-stayra-gold text-white text-[9px] font-bold grid place-items-center leading-none shadow-sm"
+          >
+            ₹
+          </span>
+        )}
+      </div>
+      <div className="mt-2 text-[11px] leading-tight text-gray-600">
+        {a.label}
+      </div>
+    </div>
+  );
 }
 
 export function PropertyFactsBar() {
@@ -214,6 +271,7 @@ export function PropertyFactsBar() {
         label: shortLabel(raw),
         icon: rule?.icon || Check,
         rank: rule?.rank ?? FALLBACK_RANK,
+        category: rule?.category ?? FALLBACK_CATEGORY,
         chargeable: !!rule?.chargeable,
       };
     })
@@ -226,7 +284,16 @@ export function PropertyFactsBar() {
 
   const visible = showAll ? unique : unique.slice(0, 5);
   const remaining = Math.max(unique.length - 5, 0);
-  const anyChargeable = visible.some((a) => a.chargeable);
+  const anyChargeable = unique.some((a) => a.chargeable);
+
+  // Expanded view groups amenities by room/category (Experiences, Bathroom,
+  // Kitchen, ...) instead of one long undifferentiated row — easier to scan
+  // once there are 20+ items, and only categories with at least one match
+  // for this property are rendered.
+  const grouped = CATEGORY_ORDER.map((category) => ({
+    category,
+    items: unique.filter((a) => a.category === category),
+  })).filter((g) => g.items.length > 0);
 
   return createPortal(
     // mt-3/mb-3 on mobile (was a flat mt-5/mb-5): trims a bit more vertical
@@ -248,42 +315,51 @@ export function PropertyFactsBar() {
         </div>
       )}
 
-      {/* Amenity icons */}
+      {/* Amenity icons.
+          Collapsed: a flat quick-glance row of the top 5. Expanded: grouped
+          into labelled sections (Experiences, Bathroom, Kitchen, ...) —
+          matches the room-by-room amenity layout used by comparable villa
+          listing sites, one long undifferentiated grid gets hard to scan
+          past ~15 items. */}
       {unique.length > 0 && (
         <>
-          <div className="flex flex-wrap items-start gap-x-6 gap-y-4">
-            {visible.map((a, i) => (
-              <div
-                key={`${a.label}-${i}`}
-                className="w-20 text-center"
-                title={a.chargeable ? `${a.raw} — chargeable extra` : a.raw}
-              >
-                <div className="relative w-12 h-12 mx-auto grid place-items-center border border-gray-200 rounded-lg bg-white">
-                  <a.icon className="w-5 h-5 text-stayra-charcoal" strokeWidth={1.5} />
-                  {a.chargeable && (
-                    <span
-                      aria-label="Chargeable extra"
-                      className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-stayra-gold text-white text-[9px] font-bold grid place-items-center leading-none shadow-sm"
-                    >
-                      ₹
-                    </span>
-                  )}
-                </div>
-                <div className="mt-2 text-[11px] leading-tight text-gray-600">
-                  {a.label}
-                </div>
-              </div>
-            ))}
+          {!showAll ? (
+            <div className="flex flex-wrap items-start gap-x-6 gap-y-4">
+              {visible.map((a, i) => (
+                <AmenityTile key={`${a.label}-${i}`} a={a} />
+              ))}
 
-            {remaining > 0 && (
+              {remaining > 0 && (
+                <button
+                  onClick={() => setShowAll(true)}
+                  className="self-center text-sm font-semibold text-stayra-green hover:underline whitespace-nowrap"
+                >
+                  +{remaining} Amenities
+                </button>
+              )}
+            </div>
+          ) : (
+            <div className="space-y-5">
+              {grouped.map((g) => (
+                <div key={g.category}>
+                  <h3 className="text-[11px] font-bold uppercase tracking-wider text-stayra-charcoal/50 mb-2.5">
+                    {g.category}
+                  </h3>
+                  <div className="flex flex-wrap items-start gap-x-6 gap-y-4">
+                    {g.items.map((a, i) => (
+                      <AmenityTile key={`${a.label}-${i}`} a={a} />
+                    ))}
+                  </div>
+                </div>
+              ))}
               <button
-                onClick={() => setShowAll((s) => !s)}
-                className="self-center text-sm font-semibold text-stayra-green hover:underline whitespace-nowrap"
+                onClick={() => setShowAll(false)}
+                className="text-sm font-semibold text-stayra-green hover:underline"
               >
-                {showAll ? "Show fewer" : `+${remaining} Amenities`}
+                Show fewer
               </button>
-            )}
-          </div>
+            </div>
+          )}
 
           {anyChargeable && (
             <p className="mt-3 text-[11px] text-gray-400">
