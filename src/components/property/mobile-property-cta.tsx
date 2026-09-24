@@ -135,6 +135,11 @@ export function MobilePropertyCTA({ propertyName, whatsapp, brochureUrl }: Mobil
 
       {/* Sticky bottom bar */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 p-4 pb-8 md:pb-4 bg-white border-t border-gray-200 z-40 safe-area-bottom">
+        {priceFrom && (
+          <p className="text-[11px] text-stayra-gold font-semibold text-center mb-2">
+            Check availability for our best price
+          </p>
+        )}
         <div className="flex items-center gap-3">
           {priceFrom ? (
             <div className="shrink-0">

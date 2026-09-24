@@ -117,7 +117,8 @@ export function FloatingCTA({ propertyName, brochureUrl }: { propertyName: strin
                 <span className="text-xs uppercase tracking-widest text-gray-400 font-bold">From</span>
                 <span className="font-serif text-3xl text-stayra-charcoal font-bold">{inr(cfg.priceFrom)}</span>
               </div>
-              <p className="text-xs text-gray-500 mt-1">per night, entire property · plus taxes</p>
+              <p className="text-xs text-gray-500 mt-1">per night, entire property</p>
+              <p className="text-xs text-stayra-gold font-semibold mt-2">Check availability for our best price</p>
             </>
           ) : (
             <>
