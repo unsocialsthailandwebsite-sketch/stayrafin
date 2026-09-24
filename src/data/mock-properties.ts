@@ -98,7 +98,7 @@ A fully equipped private kitchen designed for comfort and convenience. You'll fi
   },
   "kankas-house": {
     title: "Kankas House",
-    location: "Bagwara, Delhi Road, Jaipur",
+    location: "Kukas, Jaipur",
     specs: "4 Bedrooms | Up to 12 Guests | Private Pool | Hill Views",
     price: "From ₹40,000/night",
     brochureUrl: "/kankas-house-brochure.pdf",
