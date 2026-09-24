@@ -3,13 +3,13 @@ import { Home, Building2, Sparkles, Info, PlusCircle, FileText, Shield, Mail, Ch
 
 const SitemapNode = ({ icon: Icon, title, url, children, level = 0 }) => {
   const [isExpanded, setIsExpanded] = useState(level < 2);
-  
+
   const hasChildren = children && children.length > 0;
   const indent = level * 24;
-  
+
   return (
     <div className="mb-1">
-      <div 
+      <div
         className="flex items-center gap-2 py-2 px-3 hover:bg-amber-50 rounded-lg transition-colors cursor-pointer group"
         style={{ marginLeft: `${indent}px` }}
         onClick={() => hasChildren && setIsExpanded(!isExpanded)}
@@ -20,21 +20,21 @@ const SitemapNode = ({ icon: Icon, title, url, children, level = 0 }) => {
           </div>
         )}
         {!hasChildren && <div className="w-4" />}
-        
+
         <Icon className="text-amber-600" size={18} />
-        
+
         <div className="flex-1">
           <div className="font-medium text-gray-800">{title}</div>
           <div className="text-xs text-gray-500 font-mono">{url}</div>
         </div>
-        
+
         <div className="opacity-0 group-hover:opacity-100 transition-opacity">
           <span className="text-xs bg-amber-100 text-amber-700 px-2 py-1 rounded">
             Level {level + 1}
           </span>
         </div>
       </div>
-      
+
       {hasChildren && isExpanded && (
         <div className="ml-2 border-l-2 border-amber-200">
           {children.map((child, idx) => (
@@ -86,7 +86,7 @@ const StayraSitemap = () => {
       children: [
         {
           icon: Building2,
-          title: "Chotti Haveli",
+          title: "Choti Haveli",
           url: "/properties/choti-haveli",
           children: [
             {
@@ -330,7 +330,7 @@ const StayraSitemap = () => {
               <h2 className="text-xl font-semibold text-gray-800">Site Structure</h2>
               <p className="text-sm text-gray-600 mt-1">Click on items to expand/collapse sections</p>
             </div>
-            
+
             <div className="space-y-1">
               {sitemap.map((node, idx) => (
                 <SitemapNode key={idx} {...node} />
@@ -359,9 +359,9 @@ const StayraSitemap = () => {
         {activeView === 'xml' && (
           <div className="bg-gray-900 rounded-2xl shadow-xl p-6 border border-amber-100 overflow-x-auto">
             <pre className="text-green-400 text-sm font-mono leading-relaxed">
-{`<?xml version="1.0" encoding="UTF-8"?>
+              {`<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
+
   <!-- Homepage -->
   <url>
     <loc>https://stayra.in/</loc>
@@ -385,7 +385,7 @@ const StayraSitemap = () => {
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <url>
     <loc>https://stayra.in/properties/the-kukasola</loc>
     <lastmod>2026-01-18</lastmod>
