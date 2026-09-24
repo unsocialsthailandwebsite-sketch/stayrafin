@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: {
-        absolute: "Luxury Villas & Heritage Stays in Jaipur | Stayra",
-    },
-    description:
-        "Jaipur's curated collection of private luxury rentals — pool villas and heritage havelis with chef, concierge and airport transfers. Book direct on WhatsApp.",
-    alternates: { canonical: "/" },
+  title: {
+    absolute: "Luxury Villas & Heritage Stays in Jaipur | Stayra",
+  },
+  description:
+    "Jaipur's curated collection of private luxury rentals — pool villas and heritage havelis with chef, concierge and airport transfers. Book direct on WhatsApp.",
+  alternates: { canonical: "/" },
 };
 
 import { HeroSection } from "@/components/home/hero-section";
@@ -19,6 +19,7 @@ import { TestimonialsSection } from "@/components/home/testimonials-section";
 import { StatsSection } from "@/components/home/stats-section";
 import { WhyStayraSection } from "@/components/home/why-stayra-section";
 import { VideoSection } from "@/components/home/video-section";
+import { HomeownerSection } from "@/components/home/homeowner-section";
 import { client } from "@/sanity/client";
 
 // Revalidate data every 60 seconds
@@ -74,6 +75,7 @@ export default async function Home() {
       <StayraExperienceBanner />
       <TestimonialsSection />
       <WhyStayraSection />
+      <HomeownerSection />
     </main>
   );
 }
