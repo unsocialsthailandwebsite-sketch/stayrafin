@@ -444,11 +444,9 @@ description={property.description || ""}
 amenities={property.features || []}
 aboutHeading={`About ${property.title} — ${descriptor}`}
 amenitiesHeading={`Amenities at ${property.title}`}
-/>
-
-{/* The Spaces — shown right after About/Amenities, before Photos */}
-{spaces.length > 0 && (
-<section className="py-12 border-t border-gray-100">
+betweenAboutAndAmenities={
+spaces.length > 0 ? (
+<section>
 <h2 className="font-serif text-3xl text-stayra-charcoal mb-2 font-bold">The Spaces</h2>
 <p className="text-gray-500 mb-10">Room by room, floor by floor.</p>
 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8">
@@ -471,7 +469,9 @@ className="w-full h-full object-cover transition-transform duration-500 group-ho
 ))}
 </div>
 </section>
-)}
+) : null
+}
+/>
 
 {/* Scrollable Gallery for ALL properties */}
 {images.length > 0 && (
