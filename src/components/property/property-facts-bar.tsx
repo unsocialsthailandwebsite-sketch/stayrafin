@@ -116,7 +116,7 @@ export function PropertyFactsBar() {
 
     const baths = list.find((t) => /bathroom/i.test(t));
     const bathNum = baths?.match(/(\d+)\s*(?:ensuite\s*)?bathrooms?/i);
-    if (bathNum) found.push({ icon: Bath, label: `${bathNum[1]}+ Bathrooms` });
+    if (bathNum) found.push({ icon: Bath, label: `${bathNum[1]} Bathrooms` });
     if (list.some((t) => /chef|meal/i.test(t)))
       found.push({ icon: UtensilsCrossed, label: "Meals Available" });
 
