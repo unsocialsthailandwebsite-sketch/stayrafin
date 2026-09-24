@@ -56,6 +56,18 @@ export function FloatingCTA({ propertyName, brochureUrl }: { propertyName: strin
    * The title block sits in its own row above the two-column grid, so this
    * panel naturally starts well below the property name. Pull it up on large
    * screens so it lines up with the heading, the way booking panels normally do.
+   *
+   * This wrapper is a plain block div, so on its own it only takes the
+   * height of the card inside it (~550px) — even though its grid-cell
+   * parent ("hidden lg:block") is stretched by CSS Grid to match the full
+   * height of the main content column next to it (which can run 5000px+
+   * once Spaces/Gallery/Experience sections are included). Position:sticky
+   * can only hold the card in view for as long as ITS OWN parent box is
+   * tall — once you scroll past this wrapper's own ~550px, the card
+   * scrolls away with it and the rest of that tall grid cell renders as
+   * blank space next to the content. h-full makes this wrapper actually
+   * fill the stretched grid cell, so the sticky card has room to stay
+   * pinned all the way down the page instead of vanishing early.
    */
   const wrapRef = useRef<HTMLDivElement>(null);
   const liftRef = useRef(0);
@@ -107,7 +119,7 @@ export function FloatingCTA({ propertyName, brochureUrl }: { propertyName: strin
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   return (
-    <div ref={wrapRef} style={lift ? { marginTop: -lift } : undefined}>
+    <div ref={wrapRef} className="h-full" style={lift ? { marginTop: -lift } : undefined}>
       {/* top-36 (144px), not top-24 (96px): PropertySectionNav pins itself as a
           fixed bar from 72px to 130px once the user scrolls past it. At top-24
           this card's own sticky offset landed inside that band, so the nav bar
