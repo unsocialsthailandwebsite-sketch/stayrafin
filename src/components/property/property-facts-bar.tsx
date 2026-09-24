@@ -82,6 +82,7 @@ export function PropertyFactsBar() {
   const [facts, setFacts] = useState<Fact[]>([]);
   const [amenities, setAmenities] = useState<string[]>([]);
   const [showAll, setShowAll] = useState(false);
+  const [maxWidth, setMaxWidth] = useState<number | undefined>(undefined);
 
   useEffect(() => {
     const h1 = document.querySelector("h1");
@@ -146,6 +147,36 @@ export function PropertyFactsBar() {
     return () => clearTimeout(t);
   }, [showAll]);
 
+  /**
+   * This bar is portaled under the H1, which sits in a full-width header row
+   * ABOVE the two-column grid that holds the main content and the sticky
+   * booking panel. Left unconstrained, the amenity row happily wraps across
+   * the *entire* page width — running underneath the booking panel, which
+   * sits on top of it (and visually overlaps upward via its own negative
+   * margin). Capping our width to match the main content column below fixes
+   * that: measure the "lg:col-span-2" column so rows wrap before reaching
+   * the sidebar, same as the content underneath it already does.
+   */
+  useEffect(() => {
+    const measureWidth = () => {
+      if (window.innerWidth < 1024) {
+        setMaxWidth(undefined);
+        return;
+      }
+      const main = document.querySelector('[class*="lg:col-span-2"]') as HTMLElement | null;
+      if (main) setMaxWidth(main.clientWidth);
+    };
+    measureWidth();
+    const t1 = setTimeout(measureWidth, 400);
+    const t2 = setTimeout(measureWidth, 1200);
+    window.addEventListener("resize", measureWidth);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      window.removeEventListener("resize", measureWidth);
+    };
+  }, []);
+
   if (!host || (facts.length === 0 && amenities.length === 0)) return null;
 
   // One tile per distinct label, ordered so the most sellable show first.
@@ -173,7 +204,7 @@ export function PropertyFactsBar() {
   const anyChargeable = visible.some((a) => a.chargeable);
 
   return createPortal(
-    <div className="mt-5">
+    <div className="mt-5" style={maxWidth ? { maxWidth } : undefined}>
       {/* Facts */}
       {facts.length > 0 && (
         <div className="flex flex-wrap gap-2 mb-5">
