@@ -14,7 +14,7 @@ import { MapSection } from "@/components/property/map-section";
 import { MobilePropertyCTA } from "@/components/property/mobile-property-cta";
 import { MOCK_PROPERTIES } from "@/data/mock-properties";
 import { PropertyReviews } from "@/components/property/property-reviews";
-import { InstagramVideos } from "@/components/property/instagram-videos";
+import { PropertyVideos } from "@/components/property/property-videos";
 import { PropertySchema, BreadcrumbSchema, FAQSchema } from "@/components/seo/structured-data";
 
 export async function generateStaticParams() {
@@ -136,15 +136,46 @@ const PROPERTY_SPACES: Record<string, PropertySpace[]> = {
 };
 
 /**
- * Real Instagram posts/reels shown in a "Videos" section, rendered via
- * Instagram's official embed markup (see components/property/instagram-videos.tsx).
+ * Real Instagram reels shown in a "Videos" section, self-hosted as web-optimized
+ * mp4s so they can autoplay muted/looped (see components/property/property-videos.tsx —
+ * Instagram's own embed widget can't autoplay, only self-hosted <video> can).
+ * Files live in public/videos/kankas-house/.
  */
-const PROPERTY_VIDEOS: Record<string, { permalink: string }[]> = {
+const PROPERTY_VIDEOS: Record<
+string,
+{ src: string; poster: string; instagramUrl?: string }[]
+> = {
 "kankas-house": [
-{ permalink: "https://www.instagram.com/p/Ddk1VpJM1pP/" },
-{ permalink: "https://www.instagram.com/p/DdftEIrskBm/" },
-{ permalink: "https://www.instagram.com/p/DcnSkKEssxv/" },
-{ permalink: "https://www.instagram.com/p/Da5Jp5Cygxo/" }
+{
+src: "/videos/kankas-house/igexport-Ddk1VpJM1pP.mp4",
+poster: "/videos/kankas-house/igexport-Ddk1VpJM1pP.jpg",
+instagramUrl: "https://www.instagram.com/p/Ddk1VpJM1pP/",
+},
+{
+src: "/videos/kankas-house/igexport-DdftEIrskBm.mp4",
+poster: "/videos/kankas-house/igexport-DdftEIrskBm.jpg",
+instagramUrl: "https://www.instagram.com/p/DdftEIrskBm/",
+},
+{
+src: "/videos/kankas-house/igexport-DOfudvsEbxM.mp4",
+poster: "/videos/kankas-house/igexport-DOfudvsEbxM.jpg",
+instagramUrl: "https://www.instagram.com/p/DOfudvsEbxM/",
+},
+{
+src: "/videos/kankas-house/igexport-DOdBNGZES0j.mp4",
+poster: "/videos/kankas-house/igexport-DOdBNGZES0j.jpg",
+instagramUrl: "https://www.instagram.com/p/DOdBNGZES0j/",
+},
+{
+src: "/videos/kankas-house/igexport-DNSnpM6B2Yh.mp4",
+poster: "/videos/kankas-house/igexport-DNSnpM6B2Yh.jpg",
+instagramUrl: "https://www.instagram.com/p/DNSnpM6B2Yh/",
+},
+{
+src: "/videos/kankas-house/igexport-DckbGNOzkwf.mp4",
+poster: "/videos/kankas-house/igexport-DckbGNOzkwf.jpg",
+instagramUrl: "https://www.instagram.com/p/DckbGNOzkwf/",
+},
 ],
 };
 
@@ -499,7 +530,7 @@ propertyName={photoLabel}
 </div>
 )}
 
-<InstagramVideos
+<PropertyVideos
 videos={videos}
 heading={`Videos of ${property.title}`}
 subheading="Straight from our Instagram."
