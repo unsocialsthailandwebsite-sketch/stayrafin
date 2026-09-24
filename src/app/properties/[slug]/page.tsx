@@ -541,16 +541,23 @@ subheading="Straight from our Instagram."
 </div>
 </div>
 
-{/* Sidebar CTA — sticky so the booking card follows scroll instead of
-    sitting once at the top of this column and leaving blank space below
-    it for the rest of the (much taller) main content column. */}
-<div className="hidden lg:block sticky top-24 self-start">
+{/* Sidebar CTA. The outer column stays at its default grid stretch height
+    (full row height, matching the tall main content column) — that's what
+    gives the inner sticky wrapper room to travel. Sticky only has a "runway"
+    equal to its containing block's height minus its own height, so putting
+    sticky+self-start directly on this outer div (an earlier attempt) shrank
+    the column down to the card's own height and left almost no runway: the
+    card stuck for a moment, then the page just scrolled past it, showing
+    blank space below where the shrunken column used to be. */}
+<div className="hidden lg:block">
+<div className="sticky top-24">
 <FloatingCTA
 propertyName={property.title}
 whatsapp={whatsapp}
 phone={phone}
 brochureUrl={brochureUrl}
 />
+</div>
 </div>
 </div>
 </div>
