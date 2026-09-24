@@ -95,11 +95,14 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
                 style={{ y }}
                 className="absolute inset-0 z-0"
             >
-                {/* Fallback image layer, sits beneath the video. On mobile the video is
-                    letterboxed (object-contain, since the footage is landscape and phone
-                    screens are portrait), so this photo shows through the empty bars
-                    instead of leaving black gaps. */}
-                <div className="absolute inset-0">
+                {/* Fallback image layer, desktop only. Desktop keeps the full-bleed
+                    object-cover video, so this only shows for the instant before the
+                    video has a frame ready — it's fully hidden underneath otherwise.
+                    On mobile the video is letterboxed (object-contain, since the
+                    footage is landscape and phone screens are portrait) and a solid
+                    backdrop is used instead (below), so nothing but the video itself
+                    is ever visible on phones — no second photo mixed in. */}
+                <div className="absolute inset-0 hidden md:block">
                     <AnimatePresence>
                         <motion.img
                             key={currentSlide}
@@ -114,11 +117,10 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
                     </AnimatePresence>
                 </div>
 
-                {/* Darkens the fallback photo so whichever of the 10 slides is showing
-                    through the mobile letterbox bars stays moody and close in tone to
-                    the video, instead of occasionally reading as a bright, mismatched
-                    strip (some of the property shots are much lighter than others). */}
-                <div className="absolute inset-0 bg-stayra-charcoal/55" />
+                {/* Solid backdrop behind the mobile letterbox bars — deliberately not
+                    another photo, so the phone screen only ever shows the video (plus
+                    plain color above/below it), never two different images at once. */}
+                <div className="absolute inset-0 bg-stayra-charcoal md:hidden" />
 
                 {/* Looping hero video. Muted + inline so mobile browsers allow autoplay.
                     The footage is landscape; on narrow/tall phone screens object-cover
