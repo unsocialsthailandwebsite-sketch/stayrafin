@@ -133,7 +133,8 @@ It suits a family taking the whole house, a group of friends who would rather ha
       "Refrigerator",
       "Water purifier",
       "CCTV in common areas",
-      "Fire extinguisher on site"
+      "Fire extinguisher on site",
+      "In-house chef preparing meals for up to 12 guests"
     ],
     images: [
       "https://a0.muscache.com/im/pictures/hosting/Hosting-1492613314913436518/original/4f523614-7a53-496a-abd3-08d190cd3147.jpeg",
