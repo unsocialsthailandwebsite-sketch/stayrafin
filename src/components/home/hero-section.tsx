@@ -89,7 +89,7 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
     }, []);
 
     return (
-        <section ref={ref} className="relative min-h-[100dvh] w-full overflow-hidden flex items-center justify-center">
+        <section ref={ref} className="relative w-full overflow-hidden flex items-center justify-center aspect-[3/2] md:aspect-auto md:min-h-[100dvh]">
             {/* Background (Parallax) */}
             <motion.div
                 style={{ y }}
@@ -117,18 +117,12 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
                     </AnimatePresence>
                 </div>
 
-                {/* Solid backdrop behind the mobile letterbox bars — deliberately not
-                    another photo, so the phone screen only ever shows the video (plus
-                    plain color above/below it), never two different images at once. */}
-                <div className="absolute inset-0 bg-stayra-charcoal md:hidden" />
-
                 {/* Looping hero video. Muted + inline so mobile browsers allow autoplay.
-                    The footage is landscape; on narrow/tall phone screens object-cover
-                    used to zoom into a sliver of the frame, which read as a bad crop.
-                    object-contain shows the whole frame instead, with the photo layer
-                    above showing through the letterbox bars. Desktop keeps the original
-                    full-bleed cover treatment, since wide screens are close enough to
-                    the video's own aspect ratio that cropping barely shows. */}
+                    The footage is landscape (3:2). Rather than force it into a portrait
+                    phone viewport and either crop it or letterbox it, the section itself
+                    is now locked to a 3:2 band on mobile — so the video fills its
+                    container exactly, edge to edge, with nothing else around it. Desktop
+                    keeps the original full-bleed, full-viewport-height treatment. */}
                 <video
                     ref={videoRef}
                     autoPlay
@@ -141,15 +135,17 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
                     poster="/stayra-hero-poster.jpg"
                     aria-hidden="true"
                     tabIndex={-1}
-                    className="absolute inset-0 w-full h-full object-contain md:object-cover object-center pointer-events-none select-none [&::-webkit-media-controls]:hidden [&::-webkit-media-controls-start-playback-button]:hidden"
+                    className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none [&::-webkit-media-controls]:hidden [&::-webkit-media-controls-start-playback-button]:hidden"
                 >
                     <source src="/stayra-hero.mp4" type="video/mp4" />
                 </video>
 
-                {/* Light gradients only — enough to keep the header logo and the scroll
-                    cue readable without dulling the footage. */}
-                <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/45 to-transparent z-10 pointer-events-none" />
-                <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/35 to-transparent z-10 pointer-events-none" />
+                {/* Light gradients — only needed on the full-height desktop treatment,
+                    where the header and scroll cue sit directly over the footage. On
+                    the short mobile band there's nothing overlaid on the video, so a
+                    scrim there would just dull a large share of a small banner. */}
+                <div className="hidden md:block absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/45 to-transparent z-10 pointer-events-none" />
+                <div className="hidden md:block absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/35 to-transparent z-10 pointer-events-none" />
             </motion.div>
 
             {/* Heading kept for search engines and screen readers, hidden visually so
@@ -164,7 +160,7 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
             <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 text-white cursor-pointer"
+                className="absolute bottom-3 md:bottom-12 left-1/2 -translate-x-1/2 z-20 text-white cursor-pointer"
                 onClick={() => {
                     document.getElementById('philosophy')?.scrollIntoView({ behavior: 'smooth' });
                 }}
