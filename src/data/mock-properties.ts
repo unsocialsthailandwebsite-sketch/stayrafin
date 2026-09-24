@@ -35,7 +35,7 @@ Designed for couples who crave stillness and soul. Enjoy golden sunsets from the
 This elegant bedroom blends Rajasthani heritage with modern comfort. A spacious king-size bed, warm tones, and handcrafted details offer a calming retreat, ideal for couples seeking privacy, comfort, and timeless charm.
 
 <strong>Private Kitchen</strong>
-A fully equipped private kitchen designed for comfort and convenience. You’ll find every basic essential, along with a coffee machine, microwave, and a spacious double-door refrigerator perfect for relaxed meals and effortless hosting.`,
+A fully equipped private kitchen designed for comfort and convenience. You'll find every basic essential, along with a coffee machine, microwave, and a spacious double-door refrigerator perfect for relaxed meals and effortless hosting.`,
     features: [
       "Heritage Haveli (1 BHK)",
       "2 Bathrooms",
@@ -165,7 +165,6 @@ It suits a family taking the whole house, a group of friends who would rather ha
       "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/928bf148-fb0d-40ad-9b33-71ac17aa5647.jpeg",
       "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/5c3cce0a-9263-4793-9505-a3ef1c989b92.jpeg",
       "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/c2ae21de-6e4e-4438-a19d-8573f93b297d.jpeg",
-      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/16772c28-bfa5-4da4-8ca6-518c8ec05633.jpeg",
       "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/1528138c-a063-4bc5-8539-407a424ec23d.jpeg",
       "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/3be87fe9-1097-4d06-9ed5-a88d3d169732.jpeg",
       "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/5b1ec11b-13a3-49c3-ba7d-451affd029b3.jpeg"
