@@ -491,7 +491,8 @@ amenities={property.features || []}
 aboutHeading={`About ${property.title} — ${descriptor}`}
 amenitiesHeading={`Amenities at ${property.title}`}
 betweenAboutAndAmenities={
-spaces.length > 0 ? (
+<>
+{spaces.length > 0 && (
 <section>
 <h2 className="font-serif text-3xl text-stayra-charcoal mb-2 font-bold">The Spaces</h2>
 <p className="text-gray-500 mb-10">Room by room, floor by floor.</p>
@@ -515,7 +516,17 @@ className="w-full h-full object-cover transition-transform duration-500 group-ho
 ))}
 </div>
 </section>
-) : null
+)}
+{/* Videos placed here (between Spaces and Amenities) per request. Its own
+    "py-12 border-t" gives it a divider both above and via space-y-12 below,
+    matching the border-based separators already used elsewhere on this page
+    (e.g. the Photos block). */}
+<PropertyVideos
+videos={videos}
+heading={`Videos of ${property.title}`}
+subheading="Straight from our Instagram."
+/>
+</>
 }
 />
 
@@ -529,12 +540,6 @@ propertyName={photoLabel}
 />
 </div>
 )}
-
-<PropertyVideos
-videos={videos}
-heading={`Videos of ${property.title}`}
-subheading="Straight from our Instagram."
-/>
 
 <div className="mt-12">
 <StayraExperienceCard />
