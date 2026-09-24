@@ -34,7 +34,7 @@ export async function generateStaticParams() {
 export const revalidate = 60;
 
 const SEO_TITLES: Record<string, string> = {
-  "choti-haveli": "Chotti Haveli — Heritage Haveli Stay on Ajmer Road, Jaipur",
+  "choti-haveli": "Choti Haveli — Heritage Haveli Stay on Ajmer Road, Jaipur",
   "kankas-house": "Kankas House — 4BHK Private Pool Villa, Delhi Road Jaipur",
 };
 
