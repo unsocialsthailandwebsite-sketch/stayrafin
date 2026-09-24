@@ -19,7 +19,12 @@ export function InvitationBanner() {
                         src="/the-invitation.jpg"
                         alt="A guest reading with a glass of wine in the garden at Kankas House, Jaipur"
                         loading="lazy"
-                        className="w-full h-[46vh] min-h-[280px] md:h-auto md:aspect-[16/9] object-cover object-[70%_center] md:object-center transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
+                        // The artwork's own aspect ratio (~1.79:1) is essentially 16:9, so the
+                        // container matches that on every breakpoint instead of forcing a fixed
+                        // mobile height — the previous h-[46vh] band, paired with an off-center
+                        // crop to compensate, was cutting the left half of the baked-in
+                        // "THE INVITATION" headline clean off on phones.
+                        className="w-full aspect-[16/9] object-cover object-center transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
                     />
 
                     {/* Legibility scrim for the caption only — kept off the artwork's own headline */}
