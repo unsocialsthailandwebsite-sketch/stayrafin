@@ -553,9 +553,16 @@ propertyName={photoLabel}
     sticky+self-start directly on this outer div (an earlier attempt) shrank
     the column down to the card's own height and left almost no runway: the
     card stuck for a moment, then the page just scrolled past it, showing
-    blank space below where the shrunken column used to be. */}
+    blank space below where the shrunken column used to be.
+
+    top-36 (144px) rather than top-24 (96px): PropertySectionNav pins itself
+    as a fixed bar from 72px to 130px once it's stuck (NAV_TOP + NAV_HEIGHT
+    in that component). At top-24 this card's sticky offset (96px) landed
+    inside that band, so the two fought for the same strip of screen —
+    the nav bar (z-30) painted over the top of the card while scrolling.
+    144px clears the nav bar's bottom edge with a small gap to spare. */}
 <div className="hidden lg:block">
-<div className="sticky top-24">
+<div className="sticky top-36">
 <FloatingCTA
 propertyName={property.title}
 whatsapp={whatsapp}
