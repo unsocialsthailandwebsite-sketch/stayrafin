@@ -1,63 +1,67 @@
 "use client";
 
-import Image from "next/image";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
-const COLLAGE_IMAGES = [
-  {
-    src: "https://a0.muscache.com/im/pictures/hosting/Hosting-1492613314913436518/original/4f523614-7a53-496a-abd3-08d190cd3147.jpeg",
-    alt: "Kankas House Twilight Pool",
-    className: "col-span-2 row-span-1 md:col-span-2 md:row-span-2"
-  },
-  {
-    src: "https://cdn.sanity.io/images/1tjvajrl/production/e15abc6a1533ef147337803f1e9b45b6bae51980-1280x960.jpg",
-    alt: "Choti Haveli Main Exterior",
-    className: "col-span-1 row-span-1"
-  },
-  {
-    src: "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/75712882-d545-4300-b81d-3712673047b6.jpeg",
-    alt: "Kankas House Living Room",
-    className: "col-span-1 row-span-1"
-  },
-  {
-    src: "https://cdn.sanity.io/images/1tjvajrl/production/cb2ef8c7eb4ed5f05fbb700ddddb35cc043b1acc-1279x960.jpg",
-    alt: "Choti Haveli Courtyard Dining",
-    className: "col-span-1 row-span-1"
-  },
-  {
-    src: "https://cdn.sanity.io/images/1tjvajrl/production/f2a0fd7eb023e7ebf81ce4fca03f86cdcab3f8d8-1280x960.heif",
-    alt: "Choti Haveli Seating Area",
-    className: "col-span-1 row-span-1"
-  }
-];
-
 export function VideoSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  /**
+   * Same autoplay-safe pattern as the top hero video (hero-section.tsx):
+   * React doesn't reliably write the `muted` attribute to the DOM, and iOS
+   * won't autoplay anything it considers unmuted. Set the property directly
+   * and retry on the events mobile browsers tend to defer playback until.
+   */
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+
+    const tryPlay = () => {
+      v.muted = true;
+      v.defaultMuted = true;
+      v.volume = 0;
+      const p = v.play();
+      if (p && typeof p.catch === "function") p.catch(() => {});
+    };
+
+    tryPlay();
+    v.addEventListener("loadedmetadata", tryPlay);
+    v.addEventListener("canplay", tryPlay);
+    document.addEventListener("visibilitychange", tryPlay);
+    window.addEventListener("touchstart", tryPlay, { once: true, passive: true });
+    window.addEventListener("scroll", tryPlay, { once: true, passive: true });
+
+    return () => {
+      v.removeEventListener("loadedmetadata", tryPlay);
+      v.removeEventListener("canplay", tryPlay);
+      document.removeEventListener("visibilitychange", tryPlay);
+    };
+  }, []);
+
   return (
     <section className="relative min-h-[80vh] min-h-[600px] w-full overflow-hidden bg-[#1A3C34] flex items-center justify-center py-20">
-      {/* Immersive Grid Collage (Background) */}
-      <div className="absolute inset-0 z-0 grid grid-cols-2 md:grid-cols-4 grid-rows-3 md:grid-rows-2 h-full w-full gap-1.5 p-1.5 group/grid">
-        {COLLAGE_IMAGES.map((img, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: idx * 0.1 }}
-            className={`relative overflow-hidden cursor-pointer transition-all duration-500 group/item ${img.className} hover:!opacity-100 group-hover/grid:opacity-60`}
-          >
-            <Image
-              src={img.src}
-              alt={img.alt}
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover transition-transform duration-700 ease-out group-hover/item:scale-105"
-            />
-            {/* Blend overlay */}
-            <div className="absolute inset-0 bg-[#1A3C34]/30 mix-blend-multiply transition-opacity duration-500 group-hover/item:opacity-10" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1A3C34]/40 via-transparent to-transparent opacity-80" />
-          </motion.div>
-        ))}
-      </div>
+      {/* Full-bleed background video, replacing the previous 5-photo collage. */}
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        controls={false}
+        disablePictureInPicture
+        preload="auto"
+        poster="/videos/stayra-experience-poster.jpg"
+        aria-hidden="true"
+        tabIndex={-1}
+        className="absolute inset-0 z-0 w-full h-full object-cover object-center pointer-events-none select-none [&::-webkit-media-controls]:hidden [&::-webkit-media-controls-start-playback-button]:hidden"
+      >
+        <source src="/videos/stayra-experience.mp4" type="video/mp4" />
+      </video>
+
+      {/* Blend overlay — same treatment the collage tiles used, so the video
+          reads as background rather than foreground content. */}
+      <div className="absolute inset-0 z-[1] bg-[#1A3C34]/30 mix-blend-multiply pointer-events-none" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#1A3C34]/50 via-transparent to-[#1A3C34]/20 pointer-events-none" />
 
       {/* Central Experience Branding Card */}
       <div className="relative z-20 max-w-lg mx-4 py-8 pointer-events-none">
