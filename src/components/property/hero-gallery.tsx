@@ -50,7 +50,13 @@ export function HeroGallery({ images, propertyName = "Stayra luxury villa in Jai
   if (total === 0) return null;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 pt-5">
+    // pt-20/pt-24 (was a flat pt-5): the site header is `fixed`, not part of
+    // normal page flow, so without matching top padding here its ~60-72px
+    // bar sits ON TOP of this gallery rather than above it — the top slice
+    // of the hero photo was rendering right under the header and getting
+    // visually hidden behind it. This clears the header at every breakpoint
+    // (60px tall on mobile, 72px from md up) with a small margin to spare.
+    <div className="max-w-7xl mx-auto px-4 pt-20 md:pt-24">
       {/* Mosaic */}
       <div className="grid grid-cols-1 md:grid-cols-[1.55fr_1fr] gap-2.5 md:h-[540px]">
         {/* Hero image.
