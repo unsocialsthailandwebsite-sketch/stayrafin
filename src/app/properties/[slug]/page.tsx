@@ -12,6 +12,7 @@ import { ScrollableGallery } from "@/components/property/scrollable-gallery";
 import { StayraExperienceCard } from "@/components/ui/stayra-experience-card";
 import { MapSection } from "@/components/property/map-section";
 import { MobilePropertyCTA } from "@/components/property/mobile-property-cta";
+import { RatingBadge } from "@/components/property/rating-badge";
 import { MOCK_PROPERTIES } from "@/data/mock-properties";
 import { PropertyReviews } from "@/components/property/property-reviews";
 import { PropertyVideos } from "@/components/property/property-videos";
@@ -470,6 +471,7 @@ items={[
 <div className="text-sm text-gray-400 mb-2 font-mono">Home / Our Collection / {property.title}</div>
 <h1 className="font-serif text-4xl md:text-5xl text-stayra-charcoal mb-2 font-bold">{property.title}</h1>
 <p className="text-stayra-gold font-medium tracking-wide">📍 {property.location} | {property.specs}</p>
+<RatingBadge reviews={reviews} />
 </div>
 <a
 href={brochureUrl}
