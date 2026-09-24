@@ -446,6 +446,33 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
               amenitiesHeading={`Amenities at ${property.title}`}
             />
 
+            {/* The Spaces — shown right after About/Amenities, before Photos */}
+            {spaces.length > 0 && (
+              <section className="py-12 border-t border-gray-100">
+                <h2 className="font-serif text-3xl text-stayra-charcoal mb-2 font-bold">The Spaces</h2>
+                <p className="text-gray-500 mb-10">Room by room, floor by floor.</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8">
+                  {spaces.map((space) => (
+                    <div key={space.name} className="group">
+                      {images[space.imageIndex] && (
+                        <div className="relative overflow-hidden rounded-lg aspect-[4/3] bg-gray-100 mb-4">
+                          <img
+                            src={images[space.imageIndex]}
+                            alt={`${photoLabel} — ${space.name}`}
+                            loading="lazy"
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                        </div>
+                      )}
+                      <h3 className="font-serif text-xl text-stayra-charcoal">{space.name}</h3>
+                      <p className="text-[11px] uppercase tracking-widest text-stayra-gold mt-1">{space.meta}</p>
+                      <p className="text-gray-600 leading-relaxed mt-3">{space.detail}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
             {/* Scrollable Gallery for ALL properties */}
             {images.length > 0 && (
               <div className="my-12 border-t border-b border-gray-100 py-8 relative z-10">
@@ -473,35 +500,6 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
           </div>
         </div>
       </div>
-
-      {/* Guest Reviews Section */}
-      {spaces.length > 0 && (
-        <section className="border-t border-gray-100 bg-white">
-          <div className="max-w-7xl mx-auto px-4 py-16">
-            <h2 className="font-serif text-3xl text-stayra-charcoal">The Spaces</h2>
-            <p className="text-gray-500 mt-2 mb-10">Room by room, floor by floor.</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8">
-              {spaces.map((space) => (
-                <div key={space.name} className="group">
-                  {images[space.imageIndex] && (
-                    <div className="relative overflow-hidden rounded-lg aspect-[4/3] bg-gray-100 mb-4">
-                      <img
-                        src={images[space.imageIndex]}
-                        alt={`${photoLabel} — ${space.name}`}
-                        loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                    </div>
-                  )}
-                  <h3 className="font-serif text-xl text-stayra-charcoal">{space.name}</h3>
-                  <p className="text-[11px] uppercase tracking-widest text-stayra-gold mt-1">{space.meta}</p>
-                  <p className="text-gray-600 leading-relaxed mt-3">{space.detail}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {services.length > 0 && (
         <section className="border-t border-gray-100 bg-stayra-ivory/40">
