@@ -464,11 +464,16 @@ items={[
 {/* Hero Gallery */}
 <HeroGallery images={images} propertyName={photoLabel} />
 
-<div className="container mx-auto px-4 py-8">
-{/* Header */}
-<div className="mb-8 border-b border-gray-100 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div className="container mx-auto px-4 py-4 md:py-8">
+{/* Header.
+    Mobile spacing trimmed (mb-8/pb-8 -> mb-4/pb-4, breadcrumb hidden) as
+    part of shrinking everything above "the facts that matter" — guest/room
+    count, rating, amenities — so they land inside the first mobile
+    viewport instead of requiring a scroll to reach. The breadcrumb doesn't
+    carry its own weight on a phone; it's still shown from md up. */}
+<div className="mb-4 pb-4 md:mb-8 md:pb-8 border-b border-gray-100 flex flex-col md:flex-row md:items-end justify-between gap-4">
 <div>
-<div className="text-sm text-gray-400 mb-2 font-mono">Home / Our Collection / {property.title}</div>
+<div className="hidden md:block text-sm text-gray-400 mb-2 font-mono">Home / Our Collection / {property.title}</div>
 <h1 className="font-serif text-4xl md:text-5xl text-stayra-charcoal mb-2 font-bold">{property.title}</h1>
 <p className="text-stayra-gold font-medium tracking-wide">📍 {property.location} | {property.specs}</p>
 <RatingBadge reviews={reviews} />
