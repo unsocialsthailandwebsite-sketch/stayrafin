@@ -14,6 +14,7 @@ import { MapSection } from "@/components/property/map-section";
 import { MobilePropertyCTA } from "@/components/property/mobile-property-cta";
 import { MOCK_PROPERTIES } from "@/data/mock-properties";
 import { PropertyReviews } from "@/components/property/property-reviews";
+import { InstagramVideos } from "@/components/property/instagram-videos";
 import { PropertySchema, BreadcrumbSchema, FAQSchema } from "@/components/seo/structured-data";
 
 export async function generateStaticParams() {
@@ -131,6 +132,19 @@ const PROPERTY_SPACES: Record<string, PropertySpace[]> = {
 "meta": "Outdoor · Terrace",
 "detail": "Open to the sky with the hills on every side. Best at dusk."
 }
+],
+};
+
+/**
+ * Real Instagram posts/reels shown in a "Videos" section, rendered via
+ * Instagram's official embed markup (see components/property/instagram-videos.tsx).
+ */
+const PROPERTY_VIDEOS: Record<string, { permalink: string }[]> = {
+"kankas-house": [
+{ permalink: "https://www.instagram.com/p/Ddk1VpJM1pP/" },
+{ permalink: "https://www.instagram.com/p/DdftEIrskBm/" },
+{ permalink: "https://www.instagram.com/p/DcnSkKEssxv/" },
+{ permalink: "https://www.instagram.com/p/Da5Jp5Cygxo/" }
 ],
 };
 
@@ -326,6 +340,7 @@ return null;
 export default async function PropertyPage({ params }: { params: Promise<{ slug: string }> }) {
 const { slug } = await params;
 const spaces = PROPERTY_SPACES[slug] ?? [];
+const videos = PROPERTY_VIDEOS[slug] ?? [];
 const services = PROPERTY_SERVICES[slug] ?? [];
 const faqs = PROPERTY_FAQS[slug] ?? [];
 const nearby = PROPERTY_NEARBY[slug] ?? [];
@@ -483,6 +498,12 @@ propertyName={photoLabel}
 />
 </div>
 )}
+
+<InstagramVideos
+videos={videos}
+heading={`Videos of ${property.title}`}
+subheading="Straight from our Instagram."
+/>
 
 <div className="mt-12">
 <StayraExperienceCard />
