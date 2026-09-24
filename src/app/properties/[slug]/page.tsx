@@ -547,29 +547,23 @@ propertyName={photoLabel}
 </div>
 
 {/* Sidebar CTA. The outer column stays at its default grid stretch height
-    (full row height, matching the tall main content column) — that's what
-    gives the inner sticky wrapper room to travel. Sticky only has a "runway"
-    equal to its containing block's height minus its own height, so putting
-    sticky+self-start directly on this outer div (an earlier attempt) shrank
-    the column down to the card's own height and left almost no runway: the
-    card stuck for a moment, then the page just scrolled past it, showing
-    blank space below where the shrunken column used to be.
-
-    top-36 (144px) rather than top-24 (96px): PropertySectionNav pins itself
-    as a fixed bar from 72px to 130px once it's stuck (NAV_TOP + NAV_HEIGHT
-    in that component). At top-24 this card's sticky offset (96px) landed
-    inside that band, so the two fought for the same strip of screen —
-    the nav bar (z-30) painted over the top of the card while scrolling.
-    144px clears the nav bar's bottom edge with a small gap to spare. */}
+    (full row height, matching the tall main content column) — FloatingCTA
+    already renders its own "sticky" card internally (see floating-cta.tsx),
+    so this outer div must stay a plain block: giving it self-start OR a
+    second sticky/top of its own (both tried previously) creates a nested
+    sticky-inside-sticky, which does not compose the way it looks like it
+    should — the two stick at conflicting offsets and the inner one ends up
+    rendered in the wrong place entirely, overlapping content above it.
+    The nav-overlap and blank-space bugs are both fixed at the source now,
+    inside FloatingCTA's own card (its top-36 offset + the outer div here
+    simply left alone). */}
 <div className="hidden lg:block">
-<div className="sticky top-36">
 <FloatingCTA
 propertyName={property.title}
 whatsapp={whatsapp}
 phone={phone}
 brochureUrl={brochureUrl}
 />
-</div>
 </div>
 </div>
 </div>
