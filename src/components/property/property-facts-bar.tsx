@@ -114,9 +114,18 @@ export function PropertyFactsBar() {
       list = Array.from(new Set(list)).flatMap(expand);
     }
 
-    const baths = list.find((t) => /bathroom/i.test(t));
-    const bathNum = baths?.match(/(\d+)\s*(?:ensuite\s*)?bathrooms?/i);
-    if (bathNum) found.push({ icon: Bath, label: `${bathNum[1]} Bathrooms` });
+    // Some properties list bathrooms as one combined line — Kankas House's
+    // "4 ensuite bathrooms + 1 common bathroom" is 5 total, not 4. Summing
+    // every digit found across all bathroom-mentioning lines (rather than
+    // just reading the first number) gets this right without hardcoding a
+    // property-specific total.
+    const bathLines = list.filter((t) => /bathroom/i.test(t) && /\d/.test(t));
+    const bathTotal = bathLines.reduce((sum, line) => {
+      const nums = line.match(/\d+/g) || [];
+      return sum + nums.reduce((s, n) => s + parseInt(n, 10), 0);
+    }, 0);
+    if (bathTotal > 0)
+      found.push({ icon: Bath, label: `${bathTotal} Bathroom${bathTotal === 1 ? "" : "s"}` });
     if (list.some((t) => /chef|meal/i.test(t)))
       found.push({ icon: UtensilsCrossed, label: "Meals Available" });
 
