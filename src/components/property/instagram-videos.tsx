@@ -10,6 +10,17 @@ import Script from "next/script";
  * player — we just need the script loaded, and to re-run it whenever the
  * list of videos changes (e.g. after client-side navigation between
  * property pages, when embed.js may already be cached from a prior visit).
+ *
+ * Sizing: Instagram's embed spec enforces a 326px minimum width, so that's
+ * the floor here — cards target 340px instead of Instagram's near-full-width
+ * default, for a tighter, gallery-style grid. Instagram's own iframe content
+ * (header, caption, like/comment row) can't be restyled since it's
+ * cross-origin — the outer card wrapper below is what gives it a clean,
+ * on-brand frame (border, radius, shadow) instead of Instagram's default look.
+ *
+ * Autoplay: the official embed does not support it — that's an Instagram
+ * platform restriction on the widget itself, not something this component
+ * can work around. Visitors see a static preview and click through to play.
  */
 
 declare global {
@@ -37,9 +48,12 @@ export function InstagramVideos({ videos, heading, subheading }: InstagramVideos
     <section className="py-12 border-t border-gray-100">
       <h2 className="font-serif text-3xl text-stayra-charcoal mb-2 font-bold">{heading}</h2>
       {subheading && <p className="text-gray-500 mb-10">{subheading}</p>}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
         {videos.map((v) => (
-          <div key={v.permalink} className="flex justify-center">
+          <div
+            key={v.permalink}
+            className="w-full max-w-[340px] rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden bg-white"
+          >
             <blockquote
               className="instagram-media"
               data-instgrm-permalink={v.permalink}
@@ -47,11 +61,10 @@ export function InstagramVideos({ videos, heading, subheading }: InstagramVideos
               style={{
                 background: "#FFF",
                 border: 0,
-                borderRadius: "8px",
-                boxShadow:
-                  "0 0 1px 0 rgba(0,0,0,0.5), 0 1px 10px 0 rgba(0,0,0,0.15)",
+                borderRadius: 0,
+                boxShadow: "none",
                 margin: 0,
-                maxWidth: "540px",
+                maxWidth: "340px",
                 minWidth: "326px",
                 padding: 0,
                 width: "100%",
