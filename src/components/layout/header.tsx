@@ -46,15 +46,19 @@ export function Header() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled || !isHome
-            ? "bg-stayra-green/95 backdrop-blur-md py-4 shadow-sm"
+            ? // Mobile: py-2.5 (was a flat py-4 on every breakpoint) — this bar is
+              // fixed and always on-screen on property pages, so its height comes
+              // straight out of the very tight "everything visible without
+              // scrolling" budget on a phone. md+ keeps the original py-4.
+              "bg-stayra-green/95 backdrop-blur-md py-2.5 md:py-4 shadow-sm"
             : "bg-transparent py-6"
         )}
       >
         <div className="container mx-auto px-4 grid grid-cols-2 xl:grid-cols-[1fr_auto_1fr] items-center relative">
           {/* Left: Logo */}
           <Link href="/" className="relative z-50 flex items-center gap-2 justify-self-start">
-            {/* Brand Logo */}
-            <StayraLogo className="h-8 w-auto" variant="light" />
+            {/* Brand Logo. h-7 on mobile (was a flat h-8) to match the shorter bar above. */}
+            <StayraLogo className="h-7 md:h-8 w-auto" variant="light" />
           </Link>
 
           {/* Center: Desktop Nav */}
@@ -140,39 +144,37 @@ export function Header() {
             )}
           </button>
         </div>
-      </header >
+      </header>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
-        {
-          isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="fixed inset-0 z-40 bg-white pt-24 px-4 xl:hidden flex flex-col items-center gap-8"
-            >
-              <nav className="flex flex-col items-center gap-6">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className="text-2xl font-serif text-stayra-charcoal font-medium flex items-center gap-2"
-                  >
-                    {link.name}
-                    {link.hasDropdown && <ChevronDown className="w-5 h-5" />}
-                  </Link>
-                ))}
-                <a href="https://wa.me/917340031394?text=Hi%2C%20I%20am%20interested%20in%20booking%20a%20stay" target="_blank" rel="noopener noreferrer" className="w-full max-w-xs">
-                  <Button variant="primary" size="lg" className="w-full bg-stayra-green text-white">
-                    Book Your Stay
-                  </Button>
-                </a>
-              </nav>
-            </motion.div>
-          )
-        }
-      </AnimatePresence >
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 z-40 bg-white pt-24 px-4 xl:hidden flex flex-col items-center gap-8"
+          >
+            <nav className="flex flex-col items-center gap-6">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-2xl font-serif text-stayra-charcoal font-medium flex items-center gap-2"
+                >
+                  {link.name}
+                  {link.hasDropdown && <ChevronDown className="w-5 h-5" />}
+                </Link>
+              ))}
+              <a href="https://wa.me/917340031394?text=Hi%2C%20I%20am%20interested%20in%20booking%20a%20stay" target="_blank" rel="noopener noreferrer" className="w-full max-w-xs">
+                <Button variant="primary" size="lg" className="w-full bg-stayra-green text-white">
+                  Book Your Stay
+                </Button>
+              </a>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
