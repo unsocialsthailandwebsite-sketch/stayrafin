@@ -16,12 +16,15 @@ import { MessageCircle, FileText } from "lucide-react"
 type PropertyConfig = {
   priceFrom?: number;
   guests?: number;
+  /** Kankas House has an in-house chef and no separate breakfast charge. */
+  breakfastIncluded?: boolean;
 };
 
 const PROPERTY_CONFIG: Record<string, PropertyConfig> = {
   "Kankas House": {
     priceFrom: 40000,
     guests: 12,
+    breakfastIncluded: true,
   },
   "Choti Haveli": {
     priceFrom: 8000,
@@ -134,7 +137,10 @@ export function FloatingCTA({ propertyName, brochureUrl }: { propertyName: strin
                 <span className="text-xs uppercase tracking-widest text-gray-400 font-bold">From</span>
                 <span className="font-serif text-3xl text-stayra-charcoal font-bold">{inr(cfg.priceFrom)}</span>
               </div>
-              <p className="text-xs text-gray-500 mt-1">per night, entire property</p>
+              <p className="text-xs text-gray-500 mt-1">
+                per night, entire property
+                {cfg.breakfastIncluded && " · Breakfast included"}
+              </p>
               <p className="text-xs text-stayra-gold font-semibold mt-2">Check availability for our best price</p>
             </>
           ) : (
