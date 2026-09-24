@@ -114,6 +114,12 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
                     </AnimatePresence>
                 </div>
 
+                {/* Darkens the fallback photo so whichever of the 10 slides is showing
+                    through the mobile letterbox bars stays moody and close in tone to
+                    the video, instead of occasionally reading as a bright, mismatched
+                    strip (some of the property shots are much lighter than others). */}
+                <div className="absolute inset-0 bg-stayra-charcoal/55" />
+
                 {/* Looping hero video. Muted + inline so mobile browsers allow autoplay.
                     The footage is landscape; on narrow/tall phone screens object-cover
                     used to zoom into a sliver of the frame, which read as a bad crop.
