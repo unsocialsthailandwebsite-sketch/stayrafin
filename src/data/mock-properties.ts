@@ -28,7 +28,7 @@ export const MOCK_PROPERTIES: Record<string, {
     brochureUrl: "/choti-haveli-brochure.pdf",
     description: `Explore a timeless voyage where Rajasthan's majestic history blends seamlessly with contemporary luxuries and tranquil natural surroundings. Situated within the Emaar Group's portfolio, this gated community offers round-the-clock security and is nestled amidst 23 acres of expansive greenery, providing a perfect sanctuary.
 
-<strong>Why Chotti Haveli</strong>
+<strong>Why Choti Haveli</strong>
 Designed for couples who crave stillness and soul. Enjoy golden sunsets from the garden, wrapped in the charm of timeless Rajasthani architecture. A tranquil indoor fish pond sets the mood for slow mornings and intimate evenings—where every moment feels effortlessly romantic. It is a place to reconnect, celebrate love, and enjoy stillness together.
 
 <strong>Bedroom</strong>
@@ -44,7 +44,6 @@ A fully equipped private kitchen designed for comfort and convenience. You’ll 
       "Fully Equipped Private Kitchen",
       "Gated Community with 24/7 Security",
       "Nestled in 23 Acres of Expansive Greenery",
-      "Chef on Call (Meals Prepared Privately)",
       "Chauffeur on Call & Airport Transfers",
       "Candlelight Dinner Setup (on request)",
       "High-speed WiFi & Daily Housekeeping"
