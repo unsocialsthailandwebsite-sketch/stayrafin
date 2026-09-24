@@ -22,7 +22,7 @@ export const MOCK_PROPERTIES: Record<string, {
   "choti-haveli": {
     title: "Choti Haveli",
     location: "Emaar Greens, Ajmer Road",
-    specs: "1 Bedroom | Sleeps 2",
+    specs: "1 Bedroom | 2 Bathrooms | Up to 2 Guests + 1 Kid | Big Private Lawn",
     price: "From ₹8,000/night",
     badge: "Couple's Favourite",
     brochureUrl: "/choti-haveli-brochure.pdf",
@@ -38,9 +38,10 @@ This elegant bedroom blends Rajasthani heritage with modern comfort. A spacious 
 A fully equipped private kitchen designed for comfort and convenience. You’ll find every basic essential, along with a coffee machine, microwave, and a spacious double-door refrigerator perfect for relaxed meals and effortless hosting.`,
     features: [
       "Heritage Haveli (1 BHK)",
+      "2 Bathrooms",
       "Located in Emaar Greens, Ajmer Road",
       "Tranquil Indoor Fish Pond",
-      "Private Garden / Lawn Area",
+      "Big Private Lawn",
       "Fully Equipped Private Kitchen",
       "Gated Community with 24/7 Security",
       "Nestled in 23 Acres of Expansive Greenery",
