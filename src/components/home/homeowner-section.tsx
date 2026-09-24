@@ -1,14 +1,8 @@
 "use client";
 
-import { Wallet, Eye, Users2, ShieldCheck, MessageCircle } from "lucide-react";
+import { Eye, Users2, ShieldCheck, MessageCircle } from "lucide-react";
 
 const perks = [
-  {
-    title: "Zero Cost To List",
-    description:
-      "No listing fees, no setup costs. We invest in styling, photography and marketing before you earn a single rupee.",
-    icon: Wallet,
-  },
   {
     title: "We Run Everything",
     description:
@@ -81,7 +75,7 @@ export function HomeownerSection() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {perks.map((perk, index) => {
                 const Icon = perk.icon;
                 return (
