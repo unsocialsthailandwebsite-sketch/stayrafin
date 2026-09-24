@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import {
-  Users, BedDouble, Bath, Waves, Trees, Flame, Gamepad2, Wifi, Snowflake,
-  Tv, Car, UtensilsCrossed, Sparkles, Music, Sun, Mountain, Home, Check,
+  Users, BedDouble, BedSingle, Bath, ShowerHead, Waves, Trees, Flame, CookingPot,
+  Gamepad2, Wifi, Snowflake, Tv, Car, UtensilsCrossed, ChefHat, Sparkles, Music,
+  Sun, Mountain, Home, Building2, Wind, Shirt, Laptop, Refrigerator, Droplets,
+  Camera, ShieldAlert, Check,
 } from "lucide-react";
 
 /**
@@ -28,9 +30,14 @@ type AmenityRule = {
   chargeable?: boolean;
 };
 
+// Every rule below uses its own icon — no two amenities should ever render
+// the same glyph. Where two real-world things are easy to conflate (a
+// bathtub fixture vs. the count of ensuite bathrooms; a grill vs. an open
+// bonfire; a private kitchen vs. chef-prepared meals) they're deliberately
+// split onto different icons rather than sharing one.
 const AMENITY_ICONS: AmenityRule[] = [
   { test: /pool|swim/i, icon: Waves, name: "Private Pool", rank: 1 },
-  { test: /bbq|barbecue/i, icon: Flame, name: "BBQ Grill", rank: 2, chargeable: true },
+  { test: /bbq|barbecue/i, icon: CookingPot, name: "BBQ Grill", rank: 2, chargeable: true },
   { test: /bonfire/i, icon: Flame, name: "Bonfire", rank: 3, chargeable: true },
   { test: /bath ?tub/i, icon: Bath, name: "Bathtub", rank: 4 },
   { test: /hill|forest|view|scenic|secluded/i, icon: Mountain, name: "Hill Views", rank: 5 },
@@ -44,11 +51,19 @@ const AMENITY_ICONS: AmenityRule[] = [
   { test: /interior|earthy/i, icon: Home, name: "Designer Interiors", rank: 13 },
   { test: /housekeep|clean|toiletr|linen/i, icon: Sparkles, name: "Housekeeping", rank: 14 },
   { test: /parking|car/i, icon: Car, name: "Parking", rank: 15 },
-  { test: /terrace|rooftop|patio/i, icon: Sun, name: "Rooftop", rank: 16 },
-  { test: /bathroom/i, icon: Bath, name: "Ensuite Baths", rank: 17 },
+  { test: /terrace|rooftop|patio/i, icon: Building2, name: "Rooftop", rank: 16 },
+  { test: /bathroom/i, icon: ShowerHead, name: "Ensuite Baths", rank: 17 },
   { test: /chef|meal|\bdining\b|\bfood\b/i, icon: UtensilsCrossed, name: "Meals", rank: 18 },
-  { test: /kitchen/i, icon: UtensilsCrossed, name: "Private Kitchen", rank: 19 },
+  { test: /kitchen/i, icon: ChefHat, name: "Private Kitchen", rank: 19 },
   { test: /bedroom/i, icon: BedDouble, name: "Bedrooms", rank: 20 },
+  { test: /hair ?dryer/i, icon: Wind, name: "Hair Dryer", rank: 21 },
+  { test: /towel/i, icon: Shirt, name: "Fresh Towels", rank: 22 },
+  { test: /workstation|work desk/i, icon: Laptop, name: "Workstation", rank: 23 },
+  { test: /extra mattress|mattress/i, icon: BedSingle, name: "Extra Mattress", rank: 24 },
+  { test: /refrigerator|\bfridge\b/i, icon: Refrigerator, name: "Refrigerator", rank: 25 },
+  { test: /water purifier|purifier/i, icon: Droplets, name: "Water Purifier", rank: 26 },
+  { test: /cctv|surveillance/i, icon: Camera, name: "CCTV", rank: 27 },
+  { test: /fire extinguisher|extinguisher/i, icon: ShieldAlert, name: "Fire Extinguisher", rank: 28 },
 ];
 
 const FALLBACK_RANK = 90;
