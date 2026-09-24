@@ -108,7 +108,12 @@ export function FloatingCTA({ propertyName, brochureUrl }: { propertyName: strin
 
   return (
     <div ref={wrapRef} style={lift ? { marginTop: -lift } : undefined}>
-      <div className="bg-white rounded-lg shadow-lg border border-stayra-gold/10 sticky top-24 overflow-hidden">
+      {/* top-36 (144px), not top-24 (96px): PropertySectionNav pins itself as a
+          fixed bar from 72px to 130px once the user scrolls past it. At top-24
+          this card's own sticky offset landed inside that band, so the nav bar
+          (z-30) painted over the top of this card while scrolling. 144px clears
+          the nav's bottom edge with a small gap to spare. */}
+      <div className="bg-white rounded-lg shadow-lg border border-stayra-gold/10 sticky top-36 overflow-hidden">
         {/* Price / heading */}
         <div className="px-6 pt-6 pb-4 border-b border-gray-100">
           {cfg.priceFrom ? (
