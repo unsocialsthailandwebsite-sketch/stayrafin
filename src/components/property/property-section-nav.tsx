@@ -11,7 +11,7 @@ import { useEffect, useRef, useState } from "react";
  * property are dropped, so it degrades cleanly across different layouts.
  *
  * TARGETS is ordered to match the actual on-page section order (About →
- * The Spaces → Amenities → Photos → ...). The scroll-spy highlighting below
+ * The Spaces → Amenities → Photos → Videos → ...). The scroll-spy highlighting below
  * walks this array and keeps overwriting "current" for every heading that has
  * scrolled past the top, ending on the last one processed — so this order has
  * to track the real document order or the wrong tab lights up while scrolling.
@@ -24,6 +24,7 @@ const TARGETS: Target[] = [
   { id: "spaces", label: "The Spaces", match: ["the spaces"] },
   { id: "amenities", label: "Amenities", match: ["amenities at", "amenities"] },
   { id: "photos", label: "Photos", match: ["photos of"] },
+  { id: "videos", label: "Videos", match: ["videos of", "videos"] },
   { id: "experience", label: "Experience", match: ["the stayra experience", "stayra experience"] },
   { id: "reviews", label: "Reviews", match: ["what guests say", "guest experiences", "reviews"] },
   { id: "location", label: "Location", match: ["location & weather", "location and weather", "location of", "villa location"] },
