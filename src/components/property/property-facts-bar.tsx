@@ -205,10 +205,13 @@ export function PropertyFactsBar() {
   const anyChargeable = visible.some((a) => a.chargeable);
 
   return createPortal(
-    <div className="mt-5" style={maxWidth ? { maxWidth } : undefined}>
+    // mt-3/mb-3 on mobile (was a flat mt-5/mb-5): trims a bit more vertical
+    // space so the amenity row has a better chance of landing inside the
+    // first viewport on a phone, alongside the shrunk hero image.
+    <div className="mt-3 md:mt-5" style={maxWidth ? { maxWidth } : undefined}>
       {/* Facts */}
       {facts.length > 0 && (
-        <div className="flex flex-wrap gap-2 mb-5">
+        <div className="flex flex-wrap gap-2 mb-3 md:mb-5">
           {facts.map((f) => (
             <span
               key={f.label}
