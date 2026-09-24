@@ -541,8 +541,10 @@ subheading="Straight from our Instagram."
 </div>
 </div>
 
-{/* Sidebar CTA */}
-<div className="hidden lg:block">
+{/* Sidebar CTA — sticky so the booking card follows scroll instead of
+    sitting once at the top of this column and leaving blank space below
+    it for the rest of the (much taller) main content column. */}
+<div className="hidden lg:block sticky top-24 self-start">
 <FloatingCTA
 propertyName={property.title}
 whatsapp={whatsapp}
