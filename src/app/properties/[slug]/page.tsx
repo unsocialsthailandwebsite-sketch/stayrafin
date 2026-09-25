@@ -53,7 +53,7 @@ const SEO_DESCRIPTIONS: Record<string, string> = {
  */
 const PROPERTY_GEO: Record<string, { latitude: number; longitude: number }> = {
   "choti-haveli": { latitude: 26.7909, longitude: 75.6322 },
-  "kankas-house": { latitude: 27.07375, longitude: 75.88969 },
+  "kankas-house": { latitude: 27.0729327, longitude: 75.8905939 },
 };
 
 const PROPERTY_STREET: Record<string, string> = {
