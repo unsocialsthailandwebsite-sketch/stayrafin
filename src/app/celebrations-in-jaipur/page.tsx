@@ -51,7 +51,7 @@ export default function CelebrationsPage() {
                 </p>
                 <p className="font-sans text-stayra-charcoal/80 leading-relaxed mb-10">
                     For two people rather than thirty, <Link href="/properties/choti-haveli" className="text-stayra-gold underline">Choti Haveli</Link>{" "}
-                    on Ajmer Road is a restored one-bedroom heritage haveli built for couples, with a private
+                    on Ajmer Road is a one-bedroom haveli-style home built for couples, with a private
                     garden and a candlelight dinner setup on request.
                 </p>
 
