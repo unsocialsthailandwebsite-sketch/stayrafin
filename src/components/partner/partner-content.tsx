@@ -111,9 +111,6 @@ const steps = [
     title: "Styling & Photography",
     description:
       "We style the home the way it will actually be lived in, then photograph it honestly. No filters that oversell it.",
-    image:
-      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/826e74e7-c2d1-4e35-9f61-6e09ec0ae2e0.jpeg",
-    imageAlt: "Breakfast laid out on the dining table at Kankas House",
   },
   {
     number: "03",
@@ -135,9 +132,6 @@ const steps = [
     title: "Daily Operations",
     description:
       "Housekeeping, a chef on call, maintenance and guest support — run by our on-ground team, every single day.",
-    image:
-      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/2676bc64-9834-426e-96fb-7c26d66cfc13.jpeg",
-    imageAlt: "A styled bedroom, ready for a guest",
   },
   {
     number: "06",
@@ -389,18 +383,9 @@ export function PartnerContent() {
                           {step.title}
                         </h3>
                       </div>
-                      <p className="text-stayra-charcoal/60 text-sm md:text-base leading-relaxed max-w-xl mb-5">
+                      <p className="text-stayra-charcoal/60 text-sm md:text-base leading-relaxed max-w-xl">
                         {step.description}
                       </p>
-                      {step.image && (
-                        <div className="relative rounded-xl overflow-hidden aspect-[16/9] max-w-md shadow-md">
-                          <img
-                            src={step.image}
-                            alt={step.imageAlt}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                      )}
                     </div>
                   </motion.div>
                 );
