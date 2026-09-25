@@ -206,7 +206,7 @@ export function PartnerContent() {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20" />
-        <div className="relative z-10 container mx-auto px-4 max-w-4xl pb-16 md:pb-24">
+        <div className="relative z-10 container mx-auto px-4 max-w-4xl pt-20 md:pt-0 pb-16 md:pb-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
