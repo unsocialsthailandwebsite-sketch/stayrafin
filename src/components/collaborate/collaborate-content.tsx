@@ -314,9 +314,10 @@ export function CollaborateContent() {
             </p>
           </motion.div>
 
+          {/* Desktop / tablet: full terms table */}
           <motion.div
             {...fadeUp}
-            className="overflow-x-auto rounded-2xl shadow-lg border border-gray-100"
+            className="hidden md:block overflow-x-auto rounded-2xl shadow-lg border border-gray-100"
           >
             <table className="w-full min-w-[760px] border-collapse bg-white">
               <thead>
@@ -374,6 +375,52 @@ export function CollaborateContent() {
               </tbody>
             </table>
           </motion.div>
+
+          {/* Mobile: stacked terms cards, no sideways scrolling */}
+          <div className="md:hidden space-y-4">
+            {termsRows.map((row, index) => (
+              <motion.div
+                key={row.label}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="rounded-2xl border border-gray-100 bg-white shadow-sm overflow-hidden"
+              >
+                <div className="px-5 py-3.5 bg-stayra-ivory/70 border-b border-gray-100">
+                  <h3 className="font-serif text-base text-stayra-charcoal">
+                    {row.label}
+                  </h3>
+                </div>
+                <div className="divide-y divide-gray-100">
+                  <div className="px-5 py-4">
+                    <span className="text-[11px] uppercase tracking-widest text-stayra-gold font-semibold block mb-1.5">
+                      Content Creators
+                    </span>
+                    <p className="text-stayra-charcoal/70 text-sm leading-relaxed">
+                      {row.creators}
+                    </p>
+                  </div>
+                  <div className="px-5 py-4">
+                    <span className="text-[11px] uppercase tracking-widest text-stayra-gold font-semibold block mb-1.5">
+                      Influencers
+                    </span>
+                    <p className="text-stayra-charcoal/70 text-sm leading-relaxed">
+                      {row.influencers}
+                    </p>
+                  </div>
+                  <div className="px-5 py-4">
+                    <span className="text-[11px] uppercase tracking-widest text-stayra-gold font-semibold block mb-1.5">
+                      Brand &amp; B2B Partners
+                    </span>
+                    <p className="text-stayra-charcoal/70 text-sm leading-relaxed">
+                      {row.brands}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
