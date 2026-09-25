@@ -42,7 +42,7 @@ const SEO_TITLES: Record<string, string> = {
 
 const SEO_DESCRIPTIONS: Record<string, string> = {
   "choti-haveli":
-    "Stay in a restored Rajasthani haveli at Emaar Greens, Ajmer Road. Private garden, tranquil indoor fish pond, home-cooked meals. Book direct.",
+    "Stay in a haveli-style home at Emaar Greens, Ajmer Road. Private garden, tranquil indoor fish pond, home-cooked meals. Book direct.",
   "kankas-house":
     "Private 4-bedroom villa in the Aravalli foothills near Jaipur: pool with waterfall, in-house chef and caretaker on site. Book direct, no platform commission.",
 };
