@@ -1,168 +1,224 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Star, Shield, Heart } from "lucide-react";
 import Link from "next/link";
+import { MessageCircle, ArrowUpRight } from "lucide-react";
 
-const fadeIn = {
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.8 }
+const fadeUp = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
 };
 
+const WHATSAPP_NUMBER = "917340031394";
+const WHATSAPP_MESSAGE = "Hi, I'd love to know more about staying at a Stayra home.";
+const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  WHATSAPP_MESSAGE
+)}`;
+
+const homes = [
+  {
+    name: "Kankas House",
+    slug: "kankas-house",
+    tagline:
+      "A four-bedroom pool villa in the hills off Delhi Road — built for long weekends, bonfire nights, and doing absolutely nothing at all.",
+    image:
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1492613314913436518/original/4f523614-7a53-496a-abd3-08d190cd3147.jpeg",
+  },
+  {
+    name: "Choti Haveli",
+    slug: "choti-haveli",
+    tagline:
+      "A restored one-bedroom heritage haveli on Ajmer Road — for the two of you, and about a hundred years of quiet Rajasthani craftsmanship.",
+    image:
+      "https://cdn.sanity.io/images/1tjvajrl/production/e15abc6a1533ef147337803f1e9b45b6bae51980-1280x960.jpg",
+  },
+];
+
 export function AboutContent() {
-    return (
-        <div className="min-h-screen bg-stayra-ivory">
-            {/* Hero Section */}
-            <div className="relative min-h-[50vh] md:min-h-[70vh] w-full overflow-hidden flex items-center justify-center py-20">
-                <Image
-                    src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=3270&auto=format&fit=crop"
-                    alt="Serene Villa Atmosphere"
-                    fill
-                    className="object-cover brightness-75"
-                    priority
-                />
-                <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
-                        className="space-y-6"
-                    >
-                        <span className="text-white/90 uppercase tracking-[0.3em] text-sm font-medium block">
-                            Our Story
-                        </span>
-                        <h1 className="font-serif text-5xl md:text-7xl text-white leading-tight">
-                            More Than a Stay.<br />A Sanctuary.
-                        </h1>
-                    </motion.div>
-                </div>
-            </div>
-
-            {/* Our Origin Story */}
-            <section className="py-24 px-4 container mx-auto">
-                <div className="grid md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
-                    <motion.div {...fadeIn} className="space-y-6">
-                        <h2 className="font-serif text-4xl text-stayra-green">Born from a love for the extraordinary.</h2>
-                        <div className="w-20 h-[1px] bg-stayra-gold" />
-                        <div className="space-y-4 text-stayra-charcoal/80 text-lg leading-relaxed font-sans">
-                            <p>
-                                Stayra began with a simple observation: modern travel had lost its soul. In the rush of standardized hotels and impersonal bookings, the magic of <em>being</em> was forgotten.
-                            </p>
-                            <p>
-                                We set out to change that. We didn't want to just offer beds; we wanted to offer moments. The quiet coffee on a heritage balcony, the sun dipping below a private infinity pool, the unseen hands that ensure your dinner is served at the perfect temperature.
-                            </p>
-                            <p>
-                                Today, Stayra is a curated collection of India's most exquisite private villas and heritage homes. We are the bridge between the wild beauty of nature and the refined comfort of luxury.
-                            </p>
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl"
-                    >
-                        <Image
-                            src="/images/about-luxury-interior.png"
-                            alt="Luxury Interior"
-                            fill
-                            className="object-cover"
-                        />
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* Our Philosophy / Pillars */}
-            <section className="py-24 bg-white">
-                <div className="container mx-auto px-4 max-w-6xl">
-                    <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-                        <h2 className="font-serif text-4xl text-stayra-green">The Stayra Promise</h2>
-                        <p className="text-stayra-charcoal/60 text-lg">Every property in our portfolio is vetted against three non-negotiable pillars.</p>
-                    </div>
-
-                    <div className="grid md:grid-cols-3 gap-12">
-                        {[
-                            {
-                                icon: <Shield className="w-8 h-8" />,
-                                title: "Uncompromised Privacy",
-                                desc: "Your time is yours alone. Our properties are secluded havens where the outside world melts away."
-                            },
-                            {
-                                icon: <Heart className="w-8 h-8" />,
-                                title: "Authentic Soul",
-                                desc: "We reject the generic. From 100-year-old Havelis to architectural marvels, every Stayra home has a story to tell."
-                            },
-                            {
-                                icon: <Star className="w-8 h-8" />,
-                                title: "Impeccable Service",
-                                desc: "Hospitality is an art. Our dedicated concierge and on-ground teams ensure your every whim is anticipated."
-                            }
-                        ].map((item, idx) => (
-                            <motion.div
-                                key={idx}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: idx * 0.2 }}
-                                className="text-center space-y-6 group"
-                            >
-                                <div className="w-16 h-16 rounded-full bg-stayra-ivory flex items-center justify-center mx-auto text-stayra-gold group-hover:bg-stayra-green group-hover:text-white transition-colors duration-300">
-                                    {item.icon}
-                                </div>
-                                <h3 className="font-serif text-2xl text-stayra-charcoal">{item.title}</h3>
-                                <p className="text-stayra-charcoal/70 leading-relaxed">
-                                    {item.desc}
-                                </p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Quote / Vision */}
-            <section className="py-32 bg-stayra-green text-white text-center px-4 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-                    <div className="absolute top-10 left-10 w-64 h-64 bg-stayra-gold rounded-full blur-3xl" />
-                    <div className="absolute bottom-10 right-10 w-96 h-96 bg-white rounded-full blur-3xl" />
-                </div>
-
-                <div className="container mx-auto relative z-10 max-w-4xl">
-                    <Star className="w-8 h-8 text-stayra-gold mx-auto mb-8" />
-                    <h2 className="font-serif text-4xl md:text-6xl leading-tight mb-8">
-                        "Luxury is not about what you own, but how you feel. At Stayra, we design for feeling."
-                    </h2>
-                    <p className="font-sans text-xl text-white/80 uppercase tracking-widest">
-                        — The Stayra Team
-                    </p>
-                </div>
-            </section>
-
-            {/* CTA */}
-            <section className="py-24 px-4 bg-stayra-ivory">
-                <div className="container mx-auto text-center max-w-2xl space-y-8">
-                    <h2 className="font-serif text-4xl text-stayra-green">Ready to experience it yourself?</h2>
-                    <p className="text-stayra-charcoal/70 text-lg">
-                        The perfect escape is waiting for you. All you have to do is arrive.
-                    </p>
-                    <div className="flex flex-col sm:flex-row justify-center gap-4">
-                        <Link href="/properties">
-                            <Button size="lg" className="bg-stayra-green text-white hover:bg-stayra-green/90 px-8 py-6 rounded-full text-base tracking-widest uppercase">
-                                Explore Properties
-                            </Button>
-                        </Link>
-                        <Link href="/contact">
-                            <Button size="lg" variant="outline" className="border-stayra-green text-stayra-green hover:bg-stayra-green hover:text-white px-8 py-6 rounded-full text-base tracking-widest uppercase">
-                                Contact Concierge
-                            </Button>
-                        </Link>
-                    </div>
-                </div>
-            </section>
+  return (
+    <div className="min-h-screen bg-stayra-ivory">
+      {/* Hero */}
+      <section className="relative min-h-[60vh] md:min-h-[85vh] w-full overflow-hidden flex items-end">
+        <img
+          src="https://a0.muscache.com/im/pictures/hosting/Hosting-1492613314913436518/original/4f523614-7a53-496a-abd3-08d190cd3147.jpeg"
+          alt="Kankas House at dusk, a Stayra-managed pool villa in the hills outside Jaipur"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10" />
+        <div className="relative z-10 container mx-auto px-4 max-w-4xl pb-16 md:pb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <span className="text-xs uppercase tracking-[0.25em] text-stayra-gold font-bold mb-4 block">
+              OUR STORY
+            </span>
+            <h1 className="font-serif text-4xl md:text-6xl text-white leading-[1.1] mb-5 max-w-2xl">
+              We Don&apos;t Run Hotels.
+              <br />
+              We Keep Homes.
+            </h1>
+            <p className="text-white/80 text-base md:text-lg font-sans max-w-xl leading-relaxed">
+              In the hills and heritage lanes around Jaipur, a small team
+              looks after two houses like they&apos;re the only two that
+              matter. To us, they are.
+            </p>
+          </motion.div>
         </div>
-    );
+      </section>
+
+      {/* The Idea */}
+      <section className="py-24 md:py-32 bg-white">
+        <div className="container mx-auto px-4 max-w-2xl">
+          <motion.div {...fadeUp} className="text-center mb-14">
+            <span className="text-xs uppercase tracking-[0.25em] text-stayra-gold font-bold mb-3 block">
+              THE IDEA
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl text-stayra-charcoal">
+              It Started With One House Off Delhi Road.
+            </h2>
+          </motion.div>
+
+          <motion.div
+            {...fadeUp}
+            className="space-y-6 text-stayra-charcoal/80 text-base md:text-lg font-sans leading-relaxed"
+          >
+            <p>
+              <span className="float-left font-serif text-6xl md:text-7xl text-stayra-gold leading-[0.8] pr-3 pt-1">
+                K
+              </span>
+              ankas House sits where the city gives way to the Aravalli
+              foothills — a pool lit up gold after dark, wide lawns built for
+              a bonfire, rooms quiet enough to hear the wind move through the
+              trees. It was never meant to be a listing. It was meant to be
+              looked after.
+            </p>
+            <p>
+              So instead of handing over a set of keys and a lockbox code, we
+              kept a team on the ground — the same caretakers, the same
+              chef, the same person who still picks up the phone at 11pm
+              because a guest can&apos;t find the Wi-Fi password. That
+              decision is still the only rule that matters at Stayra: if we
+              wouldn&apos;t do it for our own home, we don&apos;t do it here.
+            </p>
+            <p>
+              Not long after, a second home joined — Choti Haveli, a
+              restored heritage house on Ajmer Road with hand-painted doors
+              and a courtyard older than most hotels in the city. A
+              different house, from a different century. Same idea: someone
+              should always be looking after it.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Two Homes */}
+      <section className="py-24 md:py-32 bg-stayra-ivory/40 border-t border-b border-gray-100/60">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <motion.div {...fadeUp} className="text-center mb-16">
+            <span className="text-xs uppercase tracking-[0.25em] text-stayra-gold font-bold mb-3 block">
+              WHAT WE LOOK AFTER
+            </span>
+            <h2 className="font-serif text-3xl md:text-5xl text-stayra-charcoal mb-4">
+              Two Homes. Never a Hundred.
+            </h2>
+            <div className="w-12 h-[1px] bg-stayra-gold mx-auto mb-6" />
+            <p className="text-stayra-charcoal/60 max-w-xl mx-auto text-base md:text-lg font-sans">
+              We&apos;d rather do two houses properly than fifty adequately.
+              Here&apos;s who we&apos;re looking after right now.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+            {homes.map((home, index) => (
+              <motion.div
+                key={home.slug}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.7, delay: index * 0.15 }}
+                className="group"
+              >
+                <Link href={`/properties/${home.slug}`}>
+                  <div className="relative rounded-xl overflow-hidden aspect-[4/5] mb-5 shadow-lg">
+                    <img
+                      src={home.image}
+                      alt={home.name}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="font-serif text-2xl text-stayra-charcoal mb-2 inline-block">
+                        {home.name}
+                        <span className="block h-[1px] bg-stayra-gold w-0 group-hover:w-full transition-all duration-500" />
+                      </h3>
+                      <p className="text-stayra-charcoal/60 text-sm leading-relaxed max-w-sm">
+                        {home.tagline}
+                      </p>
+                    </div>
+                    <ArrowUpRight
+                      className="w-5 h-5 text-stayra-gold opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 shrink-0 mt-1"
+                      strokeWidth={1.5}
+                    />
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Manifesto / Quote */}
+      <section className="py-28 md:py-36 bg-[#1A3C34] text-white text-center px-4">
+        <motion.div {...fadeUp} className="container mx-auto max-w-3xl">
+          <div className="w-12 h-[1px] bg-stayra-gold mx-auto mb-10" />
+          <h2 className="font-serif text-2xl md:text-4xl leading-snug md:leading-snug italic mb-8">
+            &ldquo;A good host remembers how you take your chai on the
+            second morning, not just the first. That&apos;s the only kind
+            of luxury we&apos;re interested in.&rdquo;
+          </h2>
+          <p className="font-sans text-xs md:text-sm text-white/60 uppercase tracking-[0.25em]">
+            — The Stayra Team
+          </p>
+        </motion.div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 md:py-28 px-4 bg-white">
+        <motion.div
+          {...fadeUp}
+          className="container mx-auto text-center max-w-xl space-y-8"
+        >
+          <h2 className="font-serif text-3xl md:text-4xl text-stayra-charcoal">
+            Come See for Yourself.
+          </h2>
+          <p className="text-stayra-charcoal/60 text-base md:text-lg font-sans">
+            Two homes, a team that means it, and a WhatsApp number that
+            actually gets answered.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 pt-2">
+            <Link
+              href="/properties"
+              className="inline-flex items-center justify-center bg-[#1A3C34] text-white hover:bg-[#1A3C34]/90 px-8 py-4 rounded-full text-sm font-semibold tracking-widest uppercase transition-colors"
+            >
+              Explore Properties
+            </Link>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 border border-[#1A3C34] text-[#1A3C34] hover:bg-[#1A3C34] hover:text-white px-8 py-4 rounded-full text-sm font-semibold tracking-widest uppercase transition-colors"
+            >
+              <MessageCircle className="w-4 h-4" />
+              Chat on WhatsApp
+            </a>
+          </div>
+        </motion.div>
+      </section>
+    </div>
+  );
 }
