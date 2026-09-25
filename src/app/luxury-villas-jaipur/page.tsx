@@ -39,7 +39,7 @@ export default function Page() {
                     Luxury Villas in Jaipur
                 </h1>
                 <p className="font-sans text-lg text-stayra-charcoal/80 max-w-2xl mx-auto">
-                    Private pool villas and restored heritage havelis, each with a chef on call, concierge support and airport transfers — booked directly with the people who run them.
+                    Private pool villas and haveli-style homes, each with a chef on call, concierge support and airport transfers — booked directly with the people who run them.
                 </p>
             </div>
 
@@ -52,7 +52,7 @@ export default function Page() {
                 </section>
                 <section className="space-y-4">
                     <h2 className="font-serif text-3xl text-stayra-green">Where to Stay: Ajmer Road vs Delhi Road</h2>
-                <p className="font-sans text-stayra-charcoal/80 leading-relaxed"><strong>Ajmer Road</strong> is closest to the airport and the old city. <Link href="/properties/choti-haveli" className="text-stayra-gold underline underline-offset-2">Choti Haveli</Link> sits inside Emaar Greens, a gated community spread across 23 acres of greenery — a restored Rajasthani haveli with a private garden and indoor fish pond. Best for couples and small families who want heritage character within easy reach of Amber Fort and Hawa Mahal.</p>
+                <p className="font-sans text-stayra-charcoal/80 leading-relaxed"><strong>Ajmer Road</strong> is closest to the airport and the old city. <Link href="/properties/choti-haveli" className="text-stayra-gold underline underline-offset-2">Choti Haveli</Link> sits inside Emaar Greens, a gated community spread across 23 acres of greenery — a haveli-style home with a private garden and indoor fish pond, built in the Rajasthani tradition. Best for couples and small families who want heritage character within easy reach of Amber Fort and Hawa Mahal.</p>
                 <p className="font-sans text-stayra-charcoal/80 leading-relaxed"><strong>Delhi Road and Kukas</strong> take you into forested hills. <Link href="/properties/kankas-house" className="text-stayra-gold underline underline-offset-2">Kankas House</Link> at Bagwara is the group property: four bedrooms, private pool, sprawling lawns and space for bonfires. Best for reunions, birthdays and weekend groups driving down from Delhi.</p>
                 </section>
                 <section className="space-y-4">
