@@ -54,7 +54,7 @@ export default function BookDirectPage() {
                     that hold 30–50 guests for a{" "}
                     <Link href="/celebrations-in-jaipur" className="text-stayra-gold underline">celebration</Link>.{" "}
                     <Link href="/properties/choti-haveli" className="text-stayra-gold underline">Choti Haveli</Link>{" "}
-                    is a restored one-bedroom heritage haveli on Ajmer Road, built for two.
+                    is a one-bedroom haveli-style home on Ajmer Road, built for two.
                 </p>
 
                 <div className="flex flex-wrap gap-4">
