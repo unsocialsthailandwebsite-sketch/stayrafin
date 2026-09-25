@@ -304,9 +304,10 @@ export function PartnerContent() {
             </p>
           </motion.div>
 
+          {/* Desktop / tablet: full comparison table */}
           <motion.div
             {...fadeUp}
-            className="overflow-x-auto rounded-2xl shadow-lg border border-gray-100"
+            className="hidden md:block overflow-x-auto rounded-2xl shadow-lg border border-gray-100"
           >
             <table className="w-full min-w-[720px] border-collapse bg-white">
               <thead>
@@ -365,6 +366,55 @@ export function PartnerContent() {
               </tbody>
             </table>
           </motion.div>
+
+          {/* Mobile: stacked comparison cards, no sideways scrolling */}
+          <div className="md:hidden space-y-4">
+            {comparison.map((row, index) => (
+              <motion.div
+                key={row.label}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="rounded-2xl border border-gray-100 bg-white shadow-sm overflow-hidden"
+              >
+                <div className="px-5 py-3.5 bg-stayra-ivory/70 border-b border-gray-100">
+                  <h3 className="font-serif text-base text-stayra-charcoal">
+                    {row.label}
+                  </h3>
+                </div>
+                <div className="divide-y divide-gray-100">
+                  <div className="px-5 py-4">
+                    <span className="text-[11px] uppercase tracking-widest text-stayra-charcoal/40 font-semibold block mb-1.5">
+                      Managing It Yourself
+                    </span>
+                    <div className="flex items-start gap-2 text-stayra-charcoal/60 text-sm leading-relaxed">
+                      <X className="w-4 h-4 text-stayra-charcoal/30 shrink-0 mt-0.5" />
+                      <span>{row.self}</span>
+                    </div>
+                  </div>
+                  <div className="px-5 py-4">
+                    <span className="text-[11px] uppercase tracking-widest text-stayra-charcoal/40 font-semibold block mb-1.5">
+                      Listing on a Platform
+                    </span>
+                    <div className="flex items-start gap-2 text-stayra-charcoal/60 text-sm leading-relaxed">
+                      <X className="w-4 h-4 text-stayra-charcoal/30 shrink-0 mt-0.5" />
+                      <span>{row.platform}</span>
+                    </div>
+                  </div>
+                  <div className="px-5 py-4 bg-stayra-green/5">
+                    <span className="text-[11px] uppercase tracking-widest text-stayra-gold font-semibold block mb-1.5">
+                      Partnering With Stayra
+                    </span>
+                    <div className="flex items-start gap-2 text-stayra-charcoal text-sm leading-relaxed font-medium">
+                      <Check className="w-4 h-4 text-stayra-gold shrink-0 mt-0.5" />
+                      <span>{row.stayra}</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
