@@ -170,7 +170,7 @@ It suits a family taking the whole house, a group of friends who would rather ha
       "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/5b1ec11b-13a3-49c3-ba7d-451affd029b3.jpeg"
     ],
     gallerySections: [],
-    mapUrl: "https://maps.google.com/maps?q=27.07375,75.88969&z=15&output=embed",
+    mapUrl: "https://maps.google.com/maps?q=27.0729327,75.8905939&z=16&output=embed",
     tagline: "LUXURY VILLA",
     badge: "Most Preferred",
     reviews: [
