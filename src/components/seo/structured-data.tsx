@@ -39,7 +39,7 @@ export function OrganizationSchema() {
                         },
                         image: absoluteUrl("/logo.png"),
                         description:
-                            "Stayra curates private luxury villa rentals and restored heritage havelis in Jaipur, with private chef, concierge and airport transfers.",
+                            "Stayra curates private luxury villa rentals and haveli-style stays in Jaipur, with private chef, concierge and airport transfers.",
                         telephone: "+91-73400-31394",
                         email: "info@stayra.co",
                         priceRange: "$$$",
