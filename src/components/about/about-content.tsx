@@ -30,7 +30,7 @@ const homes = [
     name: "Choti Haveli",
     slug: "choti-haveli",
     tagline:
-      "A restored one-bedroom heritage haveli on Ajmer Road — for the two of you, and about a hundred years of quiet Rajasthani craftsmanship.",
+      "A haveli-style one-bedroom home on Ajmer Road, built for two — hand-painted doors and a quiet courtyard, made to carry the feel of old Rajasthan.",
     image:
       "https://cdn.sanity.io/images/1tjvajrl/production/e15abc6a1533ef147337803f1e9b45b6bae51980-1280x960.jpg",
   },
@@ -106,10 +106,11 @@ export function AboutContent() {
             </p>
             <p>
               Not long after, a second home joined — Choti Haveli, a
-              restored heritage house on Ajmer Road with hand-painted doors
-              and a courtyard older than most hotels in the city. A
-              different house, from a different century. Same idea: someone
-              should always be looking after it.
+              haveli-style house on Ajmer Road, built from the ground up to
+              carry the feel of old Rajasthan: hand-painted doors, arched
+              windows, a courtyard built for quiet mornings. A different
+              kind of home, built on the same idea: someone should always
+              be looking after it.
             </p>
           </motion.div>
         </div>
