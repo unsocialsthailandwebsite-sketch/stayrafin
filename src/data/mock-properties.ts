@@ -170,7 +170,7 @@ It suits a family taking the whole house, a group of friends who would rather ha
       "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/5b1ec11b-13a3-49c3-ba7d-451affd029b3.jpeg"
     ],
     gallerySections: [],
-    mapUrl: "https://maps.google.com/maps?q=27.0729327,75.8905939&z=16&output=embed",
+    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.0!2d75.8905939!3d27.0729327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396daf18e5cacd6d%3A0xd5bae07709bc30b9!2sKankas%20House!5e0!3m2!1sen!2sin",
     tagline: "LUXURY VILLA",
     badge: "Most Preferred",
     reviews: [
