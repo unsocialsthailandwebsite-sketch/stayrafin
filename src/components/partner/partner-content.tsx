@@ -148,12 +148,40 @@ const faqs = [
     a: "Yes, entirely. We manage the day-to-day operations — the home stays yours.",
   },
   {
+    q: "What's the commercial model — revenue share, fixed rent, or something else?",
+    a: "A revenue share, agreed with you upfront before the property ever goes live. No fixed rent, and no terms you haven't seen.",
+  },
+  {
+    q: "Are there any upfront costs to list with you?",
+    a: "No listing fees. We put in the time for styling, photography and setup ourselves.",
+  },
+  {
     q: "Is there a minimum contract or lock-in?",
     a: "We walk you through the terms directly on a call. Nothing goes live until you're comfortable with the agreement.",
   },
   {
     q: "Can I block dates for personal use?",
     a: "Yes. Tell us your dates in advance and we hold them for you, no questions asked.",
+  },
+  {
+    q: "Do you also list my property on Airbnb and other platforms?",
+    a: "We list wherever it makes sense for visibility, but we always push guests toward booking direct with us — so platform fees don't quietly eat into what you earn.",
+  },
+  {
+    q: "What happens if a guest damages the property?",
+    a: "We handle it directly with the guest — assessing the damage and recovering the cost, so you're never the one chasing it down.",
+  },
+  {
+    q: "How do you handle maintenance and upkeep?",
+    a: "Routine maintenance and repairs are scheduled and handled by our on-ground team as part of daily operations — the same way we run our own two homes.",
+  },
+  {
+    q: "How often are payouts made, and how transparent is the reporting?",
+    a: "Payouts run on a regular schedule agreed upfront, and you can see every booking and what it earned whenever you check in. No black box.",
+  },
+  {
+    q: "Who's my point of contact once I'm onboarded?",
+    a: "One person, on WhatsApp, for the life of the partnership — not a rotating support queue.",
   },
   {
     q: "What kind of properties do you take on?",
