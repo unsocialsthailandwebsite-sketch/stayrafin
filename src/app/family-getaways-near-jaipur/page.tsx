@@ -57,7 +57,7 @@ export default function FamilyGetawaysPage() {
                 <h2 className="font-serif text-2xl text-stayra-charcoal mb-4">Travelling as a couple instead?</h2>
                 <p className="font-sans text-stayra-charcoal/80 leading-relaxed mb-10">
                     <Link href="/properties/choti-haveli" className="text-stayra-gold underline">Choti Haveli</Link>{" "}
-                    is a restored one-bedroom heritage haveli in a gated community on Ajmer Road, with a
+                    is a one-bedroom haveli-style home in a gated community on Ajmer Road, with a
                     private garden and an indoor fish pond. It sleeps two.
                 </p>
 
