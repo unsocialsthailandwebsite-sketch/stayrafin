@@ -37,7 +37,7 @@ display: "swap",
 export const metadata: Metadata = {
 metadataBase: new URL(SITE_URL),
 title: {
-default: "Luxury Villas & Heritage Stays in Jaipur | Stayra",
+default: "Luxury Villas & Heritage Stays in Jaipur, Rajasthan | Stayra",
 template: "%s | Stayra",
 },
 description:
