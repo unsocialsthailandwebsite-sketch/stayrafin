@@ -83,7 +83,7 @@ export function Footer() {
                             </li>
                             <li className="flex gap-3 items-center text-white/60 text-sm font-sans">
                                 <span>✉️</span>
-                                <span>info@stayra.co</span>
+                                <a href="mailto:info@stayra.co" className="hover:text-white transition-colors">info@stayra.co</a>
                             </li>
                         </ul>
                     </div>
