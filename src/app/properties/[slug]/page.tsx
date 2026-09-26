@@ -44,7 +44,7 @@ const SEO_DESCRIPTIONS: Record<string, string> = {
   "choti-haveli":
     "Stay in a haveli-style home at Emaar Greens, Ajmer Road. Private garden, tranquil indoor fish pond, home-cooked meals. Book direct.",
   "kankas-house":
-    "Private 4-bedroom villa in the Aravalli foothills near Jaipur: pool with waterfall, in-house chef and caretaker on site. Book direct, no platform commission.",
+    "One of the best villas with a pool in Jaipur: a private 4-bedroom home with waterfall pool, chef and caretaker on site. Ideal for a Diwali party or staycation.",
 };
 
 /**
