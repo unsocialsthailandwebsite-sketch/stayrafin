@@ -321,6 +321,18 @@ const PROPERTY_FAQS: Record<string, { question: string; answer: string }[]> = {
     {
       "question": "How do I book Kankas House?",
       "answer": "Message us on WhatsApp or write to info@stayra.co. Booking direct means no platform commission and the best available rate."
+    },
+    {
+      "question": "Is Kankas House the best pool villa in Jaipur?",
+      "answer": "It is one of the largest private-pool villas in the Jaipur area that books directly: a ten-by-twenty-foot pool fed by a cascading waterfall, lit at night, exclusive to your group with no other bookings sharing the property. Whether it is the 'best' fit depends on your group size and location preference — it suits a family or group of up to 12 taking the whole house in the Aravalli foothills off Delhi Road. For a smaller, quieter pool stay closer to the city, Choti Haveli on Ajmer Road is worth comparing."
+    },
+    {
+      "question": "Is Kankas House good for a Diwali party?",
+      "answer": "Yes. The lawns hold thirty to fifty daytime guests, the pool is lit after dark, and the property allows bonfires, barbecues and a full puja setup with prior notice. See our guide to hosting a Diwali party in Jaipur at a private villa for a full evening plan and what to book in advance."
+    },
+    {
+      "question": "Is this a good option for a weekend Jaipur staycation?",
+      "answer": "Yes — it is one of our most-booked properties for exactly that. Forty minutes from central Jaipur, private pool, a chef cooking through the day, and no shared spaces with other guests. Read our Jaipur staycation guide for a suggested two-day plan."
     }
   ],
 };
@@ -460,12 +472,6 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
         streetAddress={PROPERTY_STREET[slug]}
         bedrooms={PROPERTY_ROOMS[slug]?.bedrooms}
         occupancy={PROPERTY_ROOMS[slug]?.occupancy}
-      />
-      <BreadcrumbSchema
-        items={[
-          { name: "Our Collection", path: "/properties" },
-          { name: property.title, path: `/properties/${slug}` },
-        ]}
       />
       {/* Hero Gallery */}
       <HeroGallery images={images} propertyName={photoLabel} />
