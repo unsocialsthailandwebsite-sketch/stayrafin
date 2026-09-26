@@ -15,7 +15,7 @@ export const blogPosts: BlogPost[] = [
         id: "17",
         slug: "jaipur-staycation",
         title: "Jaipur Staycation: Private Villas for a Weekend Away Without Leaving the City",
-        excerpt: "A Jaipur staycation does not have to mean another hotel room downtown. Here is how to plan one at a private pool villa on the edge of the city — who it suits, what it costs against a hotel, and which of our two houses to pick.",
+        excerpt: "A Jaipur staycation doesn't need a hotel. Here's how to plan a weekend at a private pool villa near the city, what it costs, and which house to pick.",
         content: `<p>A staycation is a simple idea: take the weekend off without the airport, the packing, or the eight-hour drive. For Jaipur, that usually means one of two things. Either a hotel room in the city you already live in or visit often, or a short drive out to somewhere that actually feels like a break.</p>
 <p>The second one is the better staycation. A private villa twenty to forty minutes from central Jaipur gives you a change of scene, a pool, a garden and a kitchen that is not shared with anyone else, without the cost or the logistics of an actual holiday. That is the case for a Jaipur staycation at a villa rather than a hotel, and what to check before you book one.</p>
 <h2>What makes a good Jaipur staycation</h2>
