@@ -115,7 +115,7 @@ export function TestimonialsSection() {
                                     className="w-12 h-12 rounded-full object-cover border-2 border-stayra-gold"
                                 />
                                 <div>
-                                    <h4 className="font-serif text-lg font-bold">{testimonial.name}</h4>
+                                    <h3 className="font-serif text-lg font-bold">{testimonial.name}</h3>
                                     <p className="text-[10px] uppercase tracking-widest text-white/50">{testimonial.location}</p>
                                 </div>
                             </div>
