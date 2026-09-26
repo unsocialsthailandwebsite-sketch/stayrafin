@@ -55,6 +55,18 @@ export default function CelebrationsPage() {
                     garden and a candlelight dinner setup on request.
                 </p>
 
+                <h2 className="font-serif text-2xl text-stayra-charcoal mb-4">Diwali parties at the villa</h2>
+                <p className="font-sans text-stayra-charcoal/80 leading-relaxed mb-10">
+                    Diwali 2026 falls on Sunday, 8 November, which makes 6–9 November a natural long weekend —
+                    and one of the busiest for villas around Jaipur. The lawns hold thirty to fifty guests for
+                    a daytime celebration, the pool is lit after dark, and a full puja setup, bonfire and
+                    barbecue can all be arranged with notice. See our{" "}
+                    <Link href="/blogs/diwali-party-in-jaipur" className="text-stayra-gold underline">
+                        guide to hosting a Diwali party in Jaipur
+                    </Link>{" "}
+                    for a full evening plan, food ideas and what to book in advance.
+                </p>
+
                 <h2 className="font-serif text-2xl text-stayra-charcoal mb-4">Planning and approval</h2>
                 <p className="font-sans text-stayra-charcoal/80 leading-relaxed mb-10">
                     Celebrations need prior approval so we can plan staffing, catering and access. Additional
