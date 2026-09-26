@@ -21,6 +21,7 @@ import { WhyStayraSection } from "@/components/home/why-stayra-section";
 import { VideoSection } from "@/components/home/video-section";
 import { HomeownerSection } from "@/components/home/homeowner-section";
 import { TrustedPartnerSection } from "@/components/home/trusted-partner-section";
+import { OutdoorCinemaBanner } from "@/components/home/outdoor-cinema-banner";
 import { client } from "@/sanity/client";
 
 // Revalidate data every 60 seconds
@@ -70,6 +71,7 @@ export default async function Home() {
         <StatsSection />
       </div>
       <TrustedPartnerSection />
+      <OutdoorCinemaBanner />
       {/* Pass fetched properties to grid, falling back to mock inside if empty */}
       <PropertyGrid properties={properties} />
       <InvitationBanner />
