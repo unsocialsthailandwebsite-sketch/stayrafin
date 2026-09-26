@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Luxury Villas & Heritage Stays in Jaipur | Stayra",
+    absolute: "Luxury Villas & Heritage Stays in Jaipur, Rajasthan | Stayra",
   },
   description:
     "Jaipur's curated collection of private luxury rentals — pool villas and heritage havelis with chef, concierge and airport transfers. Book direct on WhatsApp.",
