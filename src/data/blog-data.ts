@@ -12,6 +12,44 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        id: "17",
+        slug: "jaipur-staycation",
+        title: "Jaipur Staycation: Private Villas for a Weekend Away Without Leaving the City",
+        excerpt: "A Jaipur staycation does not have to mean another hotel room downtown. Here is how to plan one at a private pool villa on the edge of the city — who it suits, what it costs against a hotel, and which of our two houses to pick.",
+        content: `<p>A staycation is a simple idea: take the weekend off without the airport, the packing, or the eight-hour drive. For Jaipur, that usually means one of two things. Either a hotel room in the city you already live in or visit often, or a short drive out to somewhere that actually feels like a break.</p>
+<p>The second one is the better staycation. A private villa twenty to forty minutes from central Jaipur gives you a change of scene, a pool, a garden and a kitchen that is not shared with anyone else, without the cost or the logistics of an actual holiday. That is the case for a Jaipur staycation at a villa rather than a hotel, and what to check before you book one.</p>
+<h2>What makes a good Jaipur staycation</h2>
+<p><strong>Distance that still feels like a getaway.</strong> Close enough that Friday evening traffic is not a problem, far enough that you stop thinking about work. Twenty to sixty minutes out of the city, generally along Ajmer Road or Delhi Road, does that job well.</p>
+<p><strong>A private pool.</strong> The single biggest difference between a staycation that feels ordinary and one that feels like a holiday. A shared hotel pool with sun loungers is not the same as a pool that is entirely yours for two days.</p>
+<p><strong>Space to actually do nothing.</strong> A lawn, a courtyard, a rooftop. Somewhere to sit with a book or a coffee that is not a hotel room or a restaurant table.</p>
+<p><strong>Food without a restaurant menu.</strong> A villa with a chef on site means breakfast whenever you wake up and dinner built around what you feel like eating, not what a kitchen is running that day.</p>
+<h2>Villa staycation vs. a hotel in Jaipur</h2>
+<p>Both put you a short drive from the city. The difference is what you are paying for once you arrive.</p>
+<p>A hotel gives you a room, a shared pool, and a restaurant on a schedule. A private villa gives you the whole property — bedrooms, pool, lawn and kitchen — for your group alone, at a nightly rate that, split across a family or a group of friends, is often close to what a comparable set of hotel rooms would cost, without the per-person food and service charges that a hotel adds on top.</p>
+<p>The trade-off runs the other way too. A five-star hotel has a spa, a gym and same-day room service on tap. A villa staycation is quieter and more self-contained — the right choice when the point of the weekend is privacy and a slower pace rather than hotel amenities.</p>
+<figure><img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/9276b2bf-52b6-43a2-8b40-b617c5347176.jpeg" alt="A private pool at a villa near Jaipur, set up for a weekend staycation" /><figcaption>The pool is yours for the whole stay, not a shared hotel deck.</figcaption></figure>
+<h2>Who a Jaipur staycation suits</h2>
+<p><strong>Jaipur residents who want a weekend off without leaving town.</strong> You do not need to fly anywhere to feel like you have gone away. Forty minutes to the Aravalli foothills changes the scenery completely.</p>
+<p><strong>Couples marking an anniversary or a birthday</strong> who want privacy and a proper dinner rather than a restaurant booking and a hotel room.</p>
+<p><strong>Small families with children</strong> who want a garden to run around in and a pool that does not require watching other people's kids as well as your own.</p>
+<p><strong>Friend groups doing a short trip</strong> without organising an actual holiday — a Saturday night away that only takes one car and no flights.</p>
+<h2>Planning a two-day staycation</h2>
+<p>A shape that works for most groups:</p>
+<ul><li><strong>Saturday, check in by early afternoon.</strong> Settle in, swim before the sun is at its highest, have a late lunch cooked to order.</li><li><strong>Saturday evening.</strong> A barbecue or bonfire on the lawn as the temperature drops. This is usually the best part of the trip.</li><li><strong>Sunday morning.</strong> A slow breakfast, one more swim, and a late checkout if the villa allows it — always worth asking.</li></ul>
+<p>Two nights gives you a genuine reset. One night works too, if the pool and the food are the point rather than a long stay.</p>
+<h2>Where to stay</h2>
+<p>We have two villas suited to different kinds of staycation.</p>
+<p><strong><a href="/properties/kankas-house">Kankas House</a></strong> in the Aravalli foothills off Delhi Road suits a family or a group of friends who want space — four king bedrooms sleeping up to twelve, a private pool fed by a waterfall, open lawns, and a chef cooking on site through the day. It is one of the villas we get asked about most often as a <a href="/luxury-villas-jaipur">luxury villa in Jaipur</a>, and it is set up as well for a quiet two-person weekend as it is for a full house.</p>
+<p><strong><a href="/properties/choti-haveli">Choti Haveli</a></strong> on Ajmer Road is the smaller, quieter option — a one-bedroom haveli-style home built for two, with a private garden. Better suited to a couple's staycation than a group one.</p>
+<p>If a private pool is the deciding factor for you, our guide to <a href="/blogs/private-pool-villas-near-jaipur">villas with a private pool near Jaipur</a> covers what to check before booking any property, not just ours. And if the staycation lines up with a birthday, anniversary or family occasion, see our <a href="/celebrations-in-jaipur">celebrations page</a> for what we can set up around it.</p>
+<h2>Booking direct</h2>
+<p>Message us on WhatsApp or write to info@stayra.co with your dates and group size. <a href="/book-direct">Booking direct</a> means no platform commission and the best available rate, and we can tell you honestly which of the two houses suits your particular weekend better.</p>`,
+        date: "September 26, 2026",
+        author: "Stayra Team",
+        image: "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5MjYxMzMxNDkxMzQzNjUxOA==/original/9276b2bf-52b6-43a2-8b40-b617c5347176.jpeg",
+        tags: ["Staycation", "Jaipur", "Villas"]
+    },
+    {
         id: "16",
         slug: "diwali-party-in-jaipur",
         title: "Diwali Party in Jaipur 2026: How to Host One in a Private Villa",
