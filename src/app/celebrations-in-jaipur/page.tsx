@@ -3,14 +3,14 @@ import Link from "next/link";
 import { BreadcrumbSchema } from "@/components/seo/structured-data";
 
 export const metadata: Metadata = {
-    title: "Villa for Birthday Parties & Celebrations in Jaipur",
+    title: "Villa for Birthday Parties, Diwali & Celebrations in Jaipur",
     description:
-        "Host a birthday, anniversary or small celebration at Kankas House — a private 4BHK pool villa on Delhi Road, Jaipur. Lawns for 30–50 day guests, bonfire and barbecue, chef on call.",
+        "Host a birthday, Diwali party or celebration at Kankas House, a private pool villa on Delhi Road, Jaipur. Lawns for 30-50 guests, puja setup, bonfire and barbecue.",
     alternates: { canonical: "/celebrations-in-jaipur" },
     openGraph: {
-        title: "Villa for Birthday Parties & Celebrations in Jaipur",
+        title: "Villa for Birthday Parties, Diwali & Celebrations in Jaipur",
         description:
-            "Private villa celebrations in Jaipur for 30–50 guests — open lawns, private pool, bonfire and barbecue, chef on call. Book direct on WhatsApp.",
+            "Private villa celebrations and Diwali parties in Jaipur for 30-50 guests — open lawns, private pool, puja setup, bonfire and barbecue. Book direct.",
         url: "/celebrations-in-jaipur",
     },
 };
