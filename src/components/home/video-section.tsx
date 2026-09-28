@@ -48,7 +48,7 @@ export function VideoSection() {
         playsInline
         controls={false}
         disablePictureInPicture
-        preload="auto"
+        preload="metadata"
         poster="/videos/stayra-experience-poster.jpg"
         aria-hidden="true"
         tabIndex={-1}
