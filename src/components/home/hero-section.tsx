@@ -39,6 +39,7 @@ const SLIDE_IMAGES = [
 export function HeroSection({ heading, subheading }: HeroSectionProps) {
   const ref = useRef(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const slideTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const { scrollYProgress } = useScroll({
@@ -49,10 +50,12 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    slideTimerRef.current = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % SLIDE_IMAGES.length);
     }, 5000);
-    return () => clearInterval(timer);
+    return () => {
+      if (slideTimerRef.current) clearInterval(slideTimerRef.current);
+    };
   }, []);
 
   /**
@@ -73,9 +76,20 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
       if (p && typeof p.catch === "function") p.catch(() => { });
     };
 
+    // Once the video is actually playing, the background slideshow is fully
+    // hidden behind it — stop fetching new images every 5s to save
+    // bandwidth and main-thread work.
+    const stopSlideshow = () => {
+      if (slideTimerRef.current) {
+        clearInterval(slideTimerRef.current);
+        slideTimerRef.current = null;
+      }
+    };
+
     tryPlay();
     v.addEventListener("loadedmetadata", tryPlay);
     v.addEventListener("canplay", tryPlay);
+    v.addEventListener("playing", stopSlideshow);
     document.addEventListener("visibilitychange", tryPlay);
     // Last resort: the first touch or scroll counts as a user gesture.
     window.addEventListener("touchstart", tryPlay, { once: true, passive: true });
@@ -84,6 +98,7 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
     return () => {
       v.removeEventListener("loadedmetadata", tryPlay);
       v.removeEventListener("canplay", tryPlay);
+      v.removeEventListener("playing", stopSlideshow);
       document.removeEventListener("visibilitychange", tryPlay);
     };
   }, []);
@@ -131,7 +146,7 @@ export function HeroSection({ heading, subheading }: HeroSectionProps) {
           playsInline
           controls={false}
           disablePictureInPicture
-          preload="auto"
+          preload="metadata"
           poster="/stayra-hero-poster.jpg"
           aria-hidden="true"
           tabIndex={-1}
