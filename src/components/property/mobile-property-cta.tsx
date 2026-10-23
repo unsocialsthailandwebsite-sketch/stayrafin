@@ -16,7 +16,7 @@ interface MobilePropertyCTAProps {
  * Leave a property out to hide the price on mobile.
  */
 const PRICE_FROM: Record<string, number> = {
-  "Kankas House": 40000,
+  "Kankas House": 25000,
   "Choti Haveli": 8000,
 };
 
