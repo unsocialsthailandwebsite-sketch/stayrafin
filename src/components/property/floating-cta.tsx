@@ -24,7 +24,7 @@ const PROPERTY_CONFIG: Record<string, PropertyConfig> = {
   "Kankas House": {
     priceFrom: 25000,
     guests: 12,
-    breakfastIncluded: true,
+    breakfastIncluded: false,
   },
   "Choti Haveli": {
     priceFrom: 8000,
