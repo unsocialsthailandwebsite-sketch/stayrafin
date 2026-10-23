@@ -22,7 +22,7 @@ type PropertyConfig = {
 
 const PROPERTY_CONFIG: Record<string, PropertyConfig> = {
   "Kankas House": {
-    priceFrom: 40000,
+    priceFrom: 25000,
     guests: 12,
     breakfastIncluded: true,
   },
