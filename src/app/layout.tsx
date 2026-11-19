@@ -86,6 +86,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           ></iframe>
         </noscript>
         {/* End Google Tag Manager (noscript) */}
+        {/* Stayra CRM: website traffic + enquiry capture */}
+        <Script
+          id="stayra-crm-tracker"
+          src="https://unsocials-crm.rohan-598.workers.dev/t.js"
+          strategy="afterInteractive"
+        />
+        {/* End Stayra CRM */}
+
         <OrganizationSchema />
         <WebSiteSchema />
         <Providers>
